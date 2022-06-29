@@ -1,0 +1,61 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+a:focus {
+  outline: none;
+}
+
+body {
+  font-family: $kyivTypeTitling;
+
+  color: $neutrals_N0;
+
+  background: url("../assets/images/backgrounds/mainBG.png") $mainBg repeat
+    center center;
+
+  overflow-y: overlay !important;
+  overflow-x: hidden !important;
+}
+
+div,
+ul,
+ol,
+section,
+header,
+footer {
+  display: flex;
+  flex-direction: column;
+}

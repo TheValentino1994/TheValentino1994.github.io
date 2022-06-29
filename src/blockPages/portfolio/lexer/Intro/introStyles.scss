@@ -1,0 +1,80 @@
+@import "../../../../scss/repeat.scss";
+@import "../../../../scss/colors";
+
+.lexerIntro {
+  padding: 192px 0 226px;
+
+  &__container {
+    @extend %container;
+  }
+
+  &__row {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__left {
+    width: 31.58%;
+
+    div:not(:last-child) {
+      margin-bottom: 56px;
+    }
+
+    p {
+      @extend %body_B4_18;
+    }
+  }
+
+  &__right {
+    width: calc(100% - 31.58% - 32px);
+  }
+
+  h2 {
+    @extend %heading_H2;
+
+    padding: 0 40px;
+  }
+
+  h3 {
+    @extend %body_B2;
+
+    margin-bottom: 4px;
+    padding-left: 40px;
+  }
+
+  p {
+    @extend %body_B1;
+
+    color: $neutrals_N500;
+
+    padding: 0 40px;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__demonstration {
+    @extend %center;
+
+    background-color: $demonstrationBg;
+
+    margin: 56px 40px;
+
+    width: calc(100% - 80px);
+    height: 720px;
+  }
+
+  &__mainText {
+    margin: 0;
+    padding: 0 40px;
+
+    p {
+      padding: 0;
+
+      &:not(:last-child) {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}

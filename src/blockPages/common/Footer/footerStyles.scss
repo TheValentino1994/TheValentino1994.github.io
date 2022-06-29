@@ -1,0 +1,196 @@
+@import "../../../scss/repeat.scss";
+@import "../../../scss/colors.scss";
+@import "../../../scss//animations.scss";
+
+@function calculatePercentage($valueInPx,$regardingInPx){
+  @return calc($valueInPx /$regardingInPx * 100%);
+}
+
+@mixin calculatePlanetStyle(
+  $planetCount,
+  $selector,
+  $dimentions,
+  $marginFromRight,
+  $marginFromTop
+) {
+  @for $i from 1 through $planetCount {
+
+    #{$selector}#Planet_#{$i} {
+      width: map-get($dimentions, $i);
+
+      right: map-get($marginFromRight, $i);
+      top: map-get($marginFromTop, $i);
+    }
+  }
+}
+
+$designedFooterHeight:500px;
+$designedIllustrationWidth:1043px;
+
+.footer {
+  @extend %alignedRow;
+
+  position: relative;
+
+  min-height: 500px;
+
+  background: url("../../../assets/images/backgrounds/footerBg.svg") no-repeat center center;
+  background-size: cover;
+
+  &__container {
+    @extend %container;
+
+    position: relative;
+
+    z-index: 1;
+
+    margin: 0 auto;
+  }
+
+  h2 {
+    @extend %heading_H1;
+
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    @extend %heading_H2;
+
+    margin-bottom: 56px;
+  }
+
+  &__socials {
+    @extend %alignedRow;
+
+    justify-content: space-between;
+
+    max-width: 192px;
+    width: 100%;
+  }
+
+  button {
+    @extend %smallButton;
+  }
+
+  &__illustration {
+    position: absolute;
+    right: 0;
+    z-index: 0;
+
+    height: 100%;
+    width: 72.45%;
+  }
+
+  &__illustration > &__planet1,
+  &__illustration > &__planet2 {
+    position: absolute;
+  }
+
+  @include calculatePlanetStyle(
+    (3),
+    "&__illustration > &__planet1",
+    (
+      1: calculatePercentage(100px,$designedIllustrationWidth),
+      2: calculatePercentage(72px,$designedIllustrationWidth),
+      3: calculatePercentage(60px,$designedIllustrationWidth),
+    ),
+    /* ---------------------------- Margin from right --------------------------- */
+    (
+      1: calculatePercentage(481px,$designedIllustrationWidth),
+      2: calculatePercentage(111px,$designedIllustrationWidth),
+      3: calculatePercentage(460px,$designedIllustrationWidth),
+    ),
+    /* ----------------------------- Margin from top ---------------------------- */
+    (
+      1: calculatePercentage(91px,$designedFooterHeight),
+      2: calculatePercentage(130px,$designedFooterHeight),
+      3: calculatePercentage(236px,$designedFooterHeight),
+    ),
+  );
+
+  @include calculatePlanetStyle(
+    (4),
+    "&__illustration > &__planet2",
+    (
+      1: calculatePercentage(200px,$designedIllustrationWidth),
+      2: calculatePercentage(94px,$designedIllustrationWidth),
+      3: calculatePercentage(52px,$designedIllustrationWidth),
+      4: calculatePercentage(60px,$designedIllustrationWidth),
+      ),
+      /* ---------------------------- Margin from right --------------------------- */
+      (
+        1:calculatePercentage(-40px,$designedIllustrationWidth) ,
+        2: calculatePercentage(328px,$designedIllustrationWidth),
+        3: calculatePercentage(66px,$designedIllustrationWidth),
+        4: calculatePercentage(527px,$designedIllustrationWidth),
+        ),
+        /* ----------------------------- Margin from top ---------------------------- */
+        (
+        1: calculatePercentage(-45px,$designedFooterHeight),
+        2: calculatePercentage(152px,$designedFooterHeight),
+        3: calculatePercentage(232px,$designedFooterHeight),
+        4: calculatePercentage(332px,$designedFooterHeight),
+        )
+        );
+
+        /* --------------------------- Big planets styling --------------------------- */
+
+        &__illustration &__planet{
+          position: absolute;
+
+          img:not(img[alt~="Astronaut"]){
+            width: 100%;
+          }
+
+          img[alt~="Astronaut"]{
+          @extend %floatingAnimation;
+
+            position: absolute;
+          }
+
+          *{
+            transition: all 0.2s linear;
+          }
+        }
+
+        &__illustration .planet1_big {//First planet contaner width 400pxX400px
+          width: calculatePercentage(400px,$designedIllustrationWidth);
+
+          left:calculatePercentage(200px,$designedIllustrationWidth);
+          bottom:calculatePercentage(37px,$designedFooterHeight);
+
+          img[alt~="Astronaut"]{
+            bottom:40.75%;
+            left: 5.75%;
+
+            width: 75%;
+
+          }
+        }
+
+        &__illustration .planet2_big {//Second planet contaner width 350pxX350px
+          width: calculatePercentage(350px,$designedIllustrationWidth);
+
+          right:calculatePercentage(93px,$designedIllustrationWidth);
+          bottom:calculatePercentage(21px,$designedFooterHeight);
+
+
+          img[alt~="Astronaut"]{
+            animation-delay: 1s;
+
+            bottom:39.43%;
+            left: 2.286%;
+
+            width: 85.71%;
+          }
+        }
+
+/* --------------------------- Waves illustration --------------------------- */
+
+        &__illustration>svg{
+          margin-left: auto;
+
+          width: 100%;
+        }
+
+}

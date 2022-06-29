@@ -1,0 +1,207 @@
+@import "./constants";
+@import "./colors";
+
+%button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+  outline: none;
+  border: none;
+
+  cursor: pointer;
+
+  position: relative;
+
+  height: 68px;
+
+  border-radius: 12px;
+
+  &::after {
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    border-radius: inherit;
+    border: 2px solid transparent;
+
+    width: inherit;
+    height: inherit;
+
+    background: $accent_A500 border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  &:active::after {
+    background-image: $accent_A600;
+  }
+}
+
+%smallButton {
+  @extend %button;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  &:hover::after {
+    border-width: calc(48px / 2);
+  }
+}
+
+%center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%absoluteCenter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+%alignedRow {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+%scrollList {
+  overflow-y: overlay;
+  &::-webkit-scrollbar {
+    width: 10px;
+    position: relative;
+    z-index: 100;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    transition: background-color 4s linear;
+    border-radius: 10px;
+    background-color: #b9b9b9f8;
+    &:active {
+      background-color: #000;
+    }
+  }
+}
+
+%container {
+  //fullScreen width in design:1440 px; horizontal padding=112px;1440-112*2=1216 px;
+
+  max-width: 1216px;
+  width: 84.44%;
+
+  align-self: center;
+}
+
+/* ------------------------------- Font styles ------------------------------ */
+
+//Headings
+
+%heading_H1 {
+  //styleName: Heading/H1 72-80
+
+  font-family: $kyivTypeSans;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 80px;
+}
+
+%heading_H2 {
+  //styleName: Heading/H2 56-64
+
+  font-family: $kyivTypeSans;
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 64px;
+}
+
+%heading_H3 {
+  //styleName: Heading/H3 48-52
+
+  font-family: $kyivTypeSans;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 52px;
+  letter-spacing: -1px;
+}
+
+%heading_H4 {
+  //styleName: Heading/H4 24-32
+
+  font-family: $kyivTypeSans;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 1.5px;
+}
+
+//Body:
+
+%body_B1 {
+  //styleName: Body/B1 24-32 Medium;
+
+  font-family: $kyivTypeTitling2;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 1.5px;
+}
+
+%body_B2 {
+  //styleName: Body/B2 18-32 Bold2;
+  font-family: $kyivTypeTitling2;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 2.5px;
+}
+
+%body_B3 {
+  //styleName: Body/B3 18-28 Medium;
+
+  font-family: $kyivTypeTitling;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 28px;
+}
+
+%body_B4_18 {
+  //styleName: Body/$B4 18-32 Regular;
+
+  font-family: $kyivTypeTitling;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+%body_B4_16 {
+  //styleName: Body/16-24 Regular;
+
+  font-family: $kyivTypeTitling;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+}

@@ -1,0 +1,99 @@
+@use "sass:string";
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+%floatingAnimation {
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes shake-animation {
+  0%,
+  3.57143%,
+  7.14286%,
+  10.71429%,
+  100% {
+    transform: translate(0, 0);
+  }
+  1.78571%,
+  5.35714%,
+  8.92857% {
+    transform: translate(10px, 0);
+  }
+}
+
+@keyframes slideSingleIphone {
+  0%,
+  25%,
+  35%,
+  70%,
+  100% {
+    top: 0%;
+    opacity: 1;
+  }
+
+  50% {
+    top: 80%;
+    opacity: 0;
+  }
+
+  60% {
+    top: -80%;
+    opacity: 0;
+  }
+}
+
+%slideSingleIphoneAnimation {
+  animation: slideSingleIphone 4s linear infinite,
+    shake-animation 4s ease infinite;
+
+  transform-origin: 50% 50%;
+}
+
+@mixin slideIphoneFromBottomOrTop(
+  $property /*property to change (bottom/top)*/
+) {
+  $keyframesName: string.unique-id();
+
+  @keyframes #{$keyframesName} {
+    0%,
+    25%,
+    35%,
+    70%,
+    100% {
+      #{$property}: 0%;
+      opacity: 1;
+    }
+
+    80% {
+      #{$property}: 100%;
+      opacity: 0;
+    }
+  }
+
+  animation: #{$keyframesName} 8s linear infinite;
+}
+
+@keyframes scrolling-animation {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(28px);
+    opacity: 1;
+  }
+}
+
+%scrollingAnimation {
+  animation: scrolling-animation 1s linear infinite;
+}
