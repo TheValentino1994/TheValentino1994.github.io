@@ -28,7 +28,7 @@ const IphoneX: FC<IphoneXProps> = ({
   ...props
 }) => {
   /* --------------------------------- Render --------------------------------- */
-
+  //
   return (
     <div {...props} className="iphoneX">
       <img

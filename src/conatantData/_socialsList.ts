@@ -18,21 +18,21 @@ export const SOCIALS_LIST = [
   {
     title: SOCIALS_ENUM.E,
     link: SOCIALS_LINKS_ENUM.E,
-    Icon: ICONS.socials.EmailIcon,
+    Icon: ICONS.Socials.EmailIcon,
   },
   {
     title: SOCIALS_ENUM.LN,
     link: SOCIALS_LINKS_ENUM.LN,
-    Icon: ICONS.socials.LinkedInIcon,
+    Icon: ICONS.Socials.LinkedInIcon,
   },
   {
     title: SOCIALS_ENUM.IN,
     link: SOCIALS_LINKS_ENUM.IN,
-    Icon: ICONS.socials.InstagramIcon,
+    Icon: ICONS.Socials.InstagramIcon,
   },
   {
     title: SOCIALS_ENUM.DR,
     link: SOCIALS_LINKS_ENUM.DR,
-    Icon: ICONS.socials.DribbleIcon,
+    Icon: ICONS.Socials.DribbleIcon,
   },
 ];

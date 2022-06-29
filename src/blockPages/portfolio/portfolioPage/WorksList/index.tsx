@@ -30,7 +30,7 @@ const WorkList: FC = () => {
         </ul>
         <button>
           <a href={SOCIALS_LINKS_ENUM.DR}>
-            Visit my Dribble <ICONS.socials.DribbleIcon />
+            Visit my Dribble <ICONS.Socials.DribbleIcon />
           </a>
         </button>
       </div>

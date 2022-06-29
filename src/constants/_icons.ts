@@ -11,7 +11,7 @@ import { Logo } from "./../assets/icons/Logo";
 import { ArrowIcon } from "../assets/icons/utils/ArrowIcon";
 
 export const ICONS = {
-  socials: {
+  Socials: {
     InstagramIcon,
     LinkedInIcon,
     DribbleIcon,
