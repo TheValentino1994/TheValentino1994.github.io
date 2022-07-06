@@ -32,56 +32,56 @@ export const IMAGES = {
   projectsPhotos: {
     wildMinds: {
       preview:
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/WildMinds/preview.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WildMinds/preview.png",
       result:
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/WildMinds/result.png",
-      bg1: "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/WildMinds/bg1.png",
-      bg2: "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/WildMinds/bg2.png",
-      bg3: "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/WildMinds/bg3.png",
-      bg4: "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/WildMinds/bg4.png",
-      bg5: "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/WildMinds/bg5.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WildMinds/result.png",
+      bg1: "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WildMinds/bg1.png",
+      bg2: "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WildMinds/bg2.png",
+      bg3: "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WildMinds/bg3.png",
+      bg4: "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WildMinds/bg4.png",
+      bg5: "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WildMinds/bg5.png",
     },
     wingTipz: {
       preview:
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/WingTipz/preview.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WingTipz/preview.png",
       intro:
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/WingTipz/intro.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WingTipz/intro.png",
       result:
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/WingTipz/result.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WingTipz/result.png",
     },
     lexer: {
       preview:
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/preview.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/preview.png",
       designSystem:
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/designSystem.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/designSystem.png",
       slides1: [
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides1/slide1.png",
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides1/slide2.png",
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides1/slide3.png",
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides1/slide4.png",
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides1/slide5.png",
-        "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides1/slide6.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides1/slide1.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides1/slide2.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides1/slide3.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides1/slide4.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides1/slide5.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides1/slide6.png",
       ],
       slides2: [
         [
-          "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides2/slide1_1.png",
-          "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides2/slide2_1.png",
-          "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides2/slide3_1.png",
+          "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides2/slide1_1.png",
+          "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides2/slide2_1.png",
+          "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides2/slide3_1.png",
         ],
         [
-          "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides2/slide1_2.png",
-          "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides2/slide2_2.png",
-          "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides2/slide3_2.png",
+          "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides2/slide1_2.png",
+          "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides2/slide2_2.png",
+          "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides2/slide3_2.png",
         ],
         [
-          "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides2/slide1_3.png",
-          "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides2/slide2_3.png",
-          "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides2/slide3_3.png",
+          "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides2/slide1_3.png",
+          "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides2/slide2_3.png",
+          "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides2/slide3_3.png",
         ],
         [
-          "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides2/slide1_4.png",
-          "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides2/slide2_4.png",
-          "https://portfoliovalentino.s3.eu-central-1.amazonaws.com/Images/Lexer/slides2/slide3_4.png",
+          "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides2/slide1_4.png",
+          "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides2/slide2_4.png",
+          "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/slides2/slide3_4.png",
         ],
       ],
     },
