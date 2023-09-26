@@ -1,0 +1,3 @@
+@function calculatePercentage($valueInPx, $baseValueInPx) {
+  @return calc(($valueInPx / $baseValueInPx) * 100%);
+}

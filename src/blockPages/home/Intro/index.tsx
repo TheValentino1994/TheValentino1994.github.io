@@ -2,41 +2,22 @@
 import React, { FC } from "react";
 import "./introStyles.scss";
 
-/* -------------------------------- Constants ------------------------------- */
-import { IMAGES } from "../../../constants/_images";
-
 const Intro: FC = () => {
   /* --------------------------------- Render --------------------------------- */
 
   return (
     <section className="homeIntro">
-      <div className="homeIntro__container">
-        <h3>UX/UI Designer</h3>
-        <h2>
-          Hey I'm Valentyn! I build digital products, brands <br /> and
-          experience
-        </h2>
-        <button>
-          <a
-            href={`${window.location.origin}/Valentyn_Kuchernoha_CV.pdf`}
-            download
-          >
-            Download CV
-          </a>
-        </button>
+      <div className="homeIntro__content">
+        <h3>Valentyn Kuchernoha</h3>
+        <span>UX/UI Designer</span>
+      </div>
 
-        <div className="homeIntro__mouse">
-          <div></div>
-        </div>
-      </div>
-      <div className="homeIntro__illustration">
-        <IMAGES.Illustrations.HomeIntroBigLava />
-      </div>
-      <div className="homeIntro__illustration">
-        <IMAGES.Illustrations.HomeIntroSmallLava />
-      </div>
-      <div className="homeIntro__illustration">
-        <IMAGES.Illustrations.HomeIntroWave />
+      <div className="homeIntro__content">
+        <h2>
+          I’m a UX / UI Designer from Lviv, dedicated to turning complex
+          problems into user-friendly solutions.
+        </h2>
+        <span>Currently Designing at Fivecube.</span>
       </div>
     </section>
   );

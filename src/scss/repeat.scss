@@ -1,5 +1,6 @@
 @import "./constants";
 @import "./colors";
+@import "./utils.scss";
 
 %button {
   display: flex;
@@ -106,10 +107,10 @@
 }
 
 %container {
-  //fullScreen width in design:1440 px; horizontal padding=112px;1440-112*2=1216 px;
+  //fullScreen width in design:1440 px; horizontal padding=132px;1440-132*2=1176 px;
 
-  max-width: 1216px;
-  width: 84.44%;
+  max-width: $containerMaxWidth;
+  width: calculatePercentage($containerMaxWidth, $designLayoutWidth);
 
   align-self: center;
 }
@@ -119,16 +120,7 @@
 //Headings
 
 %heading_H1 {
-  //styleName: Heading/H1 72-80
-
-  font-family: $kyivTypeSans;
-  font-size: 72px;
-  font-weight: 500;
-  line-height: 80px;
-}
-
-%heading_H2 {
-  //styleName: Heading/H2 56-64
+  //styleName: Heading/H1 56-64
 
   font-family: $kyivTypeSans;
   font-size: 56px;
@@ -136,14 +128,23 @@
   line-height: 64px;
 }
 
-%heading_H3 {
-  //styleName: Heading/H3 48-52
+%heading_H2 {
+  //styleName: Heading/H2 48-52
 
   font-family: $kyivTypeSans;
   font-size: 48px;
   font-weight: 400;
   line-height: 52px;
-  letter-spacing: -1px;
+}
+
+%heading_H3 {
+  //styleName: Heading/H3 24-32
+
+  font-family: $kyivTypeSans;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.36px;
 }
 
 %heading_H4 {
@@ -161,20 +162,21 @@
 %body_B1 {
   //styleName: Body/B1 24-32 Medium;
 
-  font-family: $kyivTypeTitling2;
+  font-family: $kyivTypeTitling;
   font-size: 24px;
   font-weight: 500;
   line-height: 32px;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.36px;
 }
 
 %body_B2 {
-  //styleName: Body/B2 18-32 Bold2;
+  //styleName: Body/B2 18-32 Bold;
+
   font-family: $kyivTypeTitling2;
   font-size: 18px;
   font-weight: 700;
   line-height: 32px;
-  letter-spacing: 2.5px;
+  letter-spacing: 0.45px;
 }
 
 %body_B3 {

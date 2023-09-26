@@ -1,38 +1,32 @@
 /* -------------------------------- Constants ------------------------------- */
 import { ICONS } from "../constants/_icons";
 
-export enum SOCIALS_ENUM {
-  IN = "Instagram",
-  LN = "Linkedin",
-  DR = "Dribble",
-  E = "E-mail",
+export enum SOCIALS {
+  INSTAGRAM = "Instagram",
+  LINKEDIN = "Linkedin",
+  EMAIL = "E-mail",
+  CV = "CV",
 }
 
-export enum SOCIALS_LINKS_ENUM {
-  IN = "https://instagram.com/aroundzworldz?igshid=YmMyMTA2M2Y=",
-  LN = "https://www.linkedin.com/in/valentyn-kuchernoha-73aa59219/",
-  DR = "https://dribbble.com/Kuchernoha",
-  E = "ValentynKuchernoha@gmail.com",
-}
 export const SOCIALS_LIST = [
   {
-    title: SOCIALS_ENUM.E,
-    link: SOCIALS_LINKS_ENUM.E,
-    Icon: ICONS.Socials.EmailIcon,
+    title: "Linkedin",
+    link: "https://www.linkedin.com/in/valentyn-kuchernoha-73aa59219/",
+    type: SOCIALS.LINKEDIN,
   },
   {
-    title: SOCIALS_ENUM.LN,
-    link: SOCIALS_LINKS_ENUM.LN,
-    Icon: ICONS.Socials.LinkedInIcon,
+    title: "Instagram",
+    link: "https://instagram.com/aroundzworldz?igshid=YmMyMTA2M2Y=",
+    type: SOCIALS.INSTAGRAM,
   },
   {
-    title: SOCIALS_ENUM.IN,
-    link: SOCIALS_LINKS_ENUM.IN,
-    Icon: ICONS.Socials.InstagramIcon,
+    title: "Email",
+    link: "ValentynKuchernoha@gmail.com",
+    type: SOCIALS.EMAIL,
   },
   {
-    title: SOCIALS_ENUM.DR,
-    link: SOCIALS_LINKS_ENUM.DR,
-    Icon: ICONS.Socials.DribbleIcon,
+    title: "Valentyn.cv",
+    link: `${window.location.origin}/Valentyn_Kuchernoha_CV.pdf`,
+    type: SOCIALS.EMAIL,
   },
 ];

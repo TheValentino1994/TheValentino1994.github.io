@@ -10,7 +10,6 @@ import { WORKS_LIST } from "../../../../conatantData/_worksList";
 
 /* -------------------------------- Constants ------------------------------- */
 import { ICONS } from "../../../../constants/_icons";
-import { SOCIALS_LINKS_ENUM } from "../../../../conatantData/_socialsList";
 
 const WorkList: FC = () => {
   /* --------------------------------- Render ------------------------------- */
@@ -28,11 +27,6 @@ const WorkList: FC = () => {
             <WorkItem {...item} key={item.id} />
           ))}
         </ul>
-        <button>
-          <a href={SOCIALS_LINKS_ENUM.DR}>
-            Visit my Dribble <ICONS.Socials.DribbleIcon />
-          </a>
-        </button>
       </div>
     </section>
   );

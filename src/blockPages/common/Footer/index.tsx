@@ -62,11 +62,11 @@ const Footer: FC = () => {
 
   return (
     <footer className="footer">
-      <div className="footer__container">
+      {/* <div className="footer__container">
         <h2>Have an idea?</h2>
         <h3>Let’s discuss </h3>
-        <div className="footer__socials">
-          {SOCIALS_LIST.slice(0, SOCIALS_LIST.length - 1).map(
+        <div className="footer__socials"> */}
+      {/* {SOCIALS_LIST.slice(0, SOCIALS_LIST.length - 1).map(
             ({ Icon, link, title }) => (
               <button key={title}>
                 <a href={link}>
@@ -74,16 +74,16 @@ const Footer: FC = () => {
                 </a>
               </button>
             )
-          )}
-        </div>
-      </div>
-      <div className="footer__illustration">
+          )} */}
+      {/* </div>
+      </div> */}
+      {/* <div className="footer__illustration">
         {renderSmallPlanets(4, 2)}
         {renderSmallPlanets(3, 1)}
         {renderBigPlanets(1, 1)}
         {renderBigPlanets(1, 2)}
         <IMAGES.Illustrations.FooterWaves />
-      </div>
+      </div> */}
     </footer>
   );
 };

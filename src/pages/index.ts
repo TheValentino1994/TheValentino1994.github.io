@@ -1,4 +1,3 @@
-export { default as Home } from "./home";
 export { default as Portfolio } from "./portfolio/portfolioPage";
 export { default as WingTipz } from "./portfolio/wingTipz";
 export { default as WildMinds } from "./portfolio/wildMinds";

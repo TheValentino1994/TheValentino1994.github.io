@@ -7,10 +7,10 @@ export const useSlides = (
 ): { slideToShow: number; runSlides: () => void } => {
   const [slideToShow, setSlideToShow] = useState<number>(0);
 
-  let interval = useRef<ReturnType<typeof setInterval> | undefined>().current;
+  let interval = useRef<ReturnType<typeof setInterval> | undefined>();
 
   const runSlides = useCallback(() => {
-    interval = (isTimeout ? setTimeout : setInterval)(() => {
+    interval.current = (isTimeout ? setTimeout : setInterval)(() => {
       setSlideToShow((prev) => {
         if (prev !== slidesCount - 1) return 1 + prev;
         else return 0;
@@ -22,7 +22,7 @@ export const useSlides = (
     runSlides();
 
     return () => {
-      if (interval) clearInterval(interval);
+      if (interval.current) clearInterval(interval.current);
     };
   }, []);
 

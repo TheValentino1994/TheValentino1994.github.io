@@ -1,133 +1,40 @@
 @import "../../../scss/repeat.scss";
 @import "../../../scss/colors.scss";
-@import "../../../scss//animations.scss";
+@import "../../../scss/animations.scss";
+@import "../../../scss/utils.scss";
 
 .homeIntro {
-  position: relative;
+  @extend %container;
 
-  padding: 232px 0 56px;
+  flex-direction: row;
+  justify-content: space-between;
 
-  &__container {
-    @extend %container;
+  padding: 80px 0 120px;
 
-    position: relative;
-
-    z-index: 1;
+  &__content {
+    padding: 0 52px;
   }
 
-  h2 {
-    @extend %heading_H3;
+  &__content:first-child {
+    width: calculatePercentage(470px, $containerMaxWidth);
+  }
 
-    max-width: 512px;
+  &__content:last-child {
+    width: calculatePercentage(706px, $containerMaxWidth);
+  }
+
+  h3 {
+    @extend %heading_H3;
 
     color: $neutrals_N0;
   }
 
-  h3 {
+  span {
     @extend %body_B1;
-
     color: $neutrals300;
-
-    margin-bottom: 16px;
   }
 
-  button {
-    @extend %button;
-
-    width: 240px;
-
+  h2 + span {
     margin-top: 32px;
-
-    a {
-      @extend %body_B2, %center;
-
-      letter-spacing: 1px;
-
-      width: 100%;
-      height: 100%;
-
-      color: $neutrals_N0;
-
-      svg {
-        margin-left: 8px;
-      }
-    }
-
-    &:hover::after {
-      border-width: calc(68px / 2);
-    }
-  }
-
-  &__illustration {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 0;
-
-    svg {
-      width: 100%;
-    }
-
-    &:nth-last-of-type(2) {
-      width: 33vw;
-      top: 5vw;
-    }
-
-    &:last-of-type {
-      z-index: -1;
-      left: -15vw;
-
-      width: 63vw;
-
-      opacity: 0.6;
-    }
-  }
-
-  &__mouse {
-    position: relative;
-
-    width: 36px;
-    height: 56px;
-
-    margin: 200px auto 0 auto;
-    padding-top: 8px;
-
-    div {
-      @extend %scrollingAnimation;
-
-      margin: 0 auto;
-
-      background: $accent_A500;
-
-      height: 12px;
-      width: 6px;
-
-      border-radius: 5px;
-    }
-
-    &::after {
-      content: "";
-
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-
-      border-radius: inherit;
-      border: 2px solid transparent;
-
-      width: inherit;
-      height: inherit;
-
-      border-radius: 50px;
-
-      background: $accent_A500 border-box;
-      -webkit-mask: linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-    }
   }
 }

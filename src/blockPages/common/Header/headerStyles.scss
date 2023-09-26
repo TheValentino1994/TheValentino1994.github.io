@@ -1,101 +1,27 @@
 @import "../../../scss/repeat.scss";
-@import "../../../scss/colors.scss";
-
-$blurValue: 8px;
-
-$tabAnimation: 0.2s cubic-bezier(0.5, 1, 0.89, 1);
+@import "../../../scss/colors";
 
 .header {
-  width: 100%;
-
-  position: fixed;
-  z-index: 10;
-
-  transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-
-  &_blured {
-    background: rgba($neutrals_N900, 0.9);
-
-    backdrop-filter: blur($blurValue);
-  }
+  padding: 24px 0;
 
   &__container {
-    @extend %container, %alignedRow;
+    @extend %container;
 
-    justify-content: space-between;
-
-    padding: 4px 0 4px 8px;
+    flex-direction: row;
+    justify-content: flex-end;
   }
 
-  &__logo {
-    @extend %alignedRow;
+  a {
+    @extend %center;
 
-    h4 {
-      @extend %heading_H4;
+    color: $neutrals_N0;
 
-      margin-left: 4px;
-
-      color: $neutrals_N0;
+    svg {
+      margin-left: 5px;
     }
   }
 
-  &__list {
-    @extend %alignedRow;
-
-    li {
-      &:not(:last-child) {
-        margin-right: 32px;
-      }
-
-      a,
-      span {
-        transition: all $tabAnimation;
-
-        @extend %body_B4_18;
-
-        position: relative;
-
-        padding: 8px;
-
-        cursor: pointer;
-
-        color: $neutrals_N500;
-
-        /* ------------------------------- Hover line ------------------------------- */
-
-        &::after {
-          transition: width $tabAnimation;
-
-          content: "";
-
-          display: block;
-
-          position: absolute;
-          bottom: 0;
-          left: 8px;
-
-          width: 0;
-
-          height: 2px;
-
-          background-color: $neutrals_N0;
-
-          border-radius: 1px;
-        }
-
-        /* ----------------------------- Hover animation ---------------------------- */
-
-        &:hover,
-        &.active {
-          &::after {
-            width: calc(100% - 16px);
-          }
-
-          color: $neutrals_N0;
-        }
-
-        /* -------------------------------------------------------------------------- */
-      }
-    }
+  a:not(:last-child) {
+    margin-right: 40px;
   }
 }

@@ -11,7 +11,7 @@ const Portfolio: FC = () => {
   return (
     <>
       <HomeIntro />
-      <WorksList />
+      {/* <WorksList /> */}
     </>
   );
 };

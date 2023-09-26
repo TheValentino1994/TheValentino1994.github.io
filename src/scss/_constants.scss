@@ -1,5 +1,23 @@
 /* ------------------------------- Font names ------------------------------- */
 
-$kyivTypeTitling:"Kyiv Type Titling";
-$kyivTypeTitling2:"Kyiv Type Titling2";
-$kyivTypeSans:"Kyiv Type Sans";
+$kyivTypeTitling: "Kyiv Type Titling";
+$kyivTypeTitling2: "Kyiv Type Titling2";
+$kyivTypeSans: "Kyiv Type Sans";
+
+/* ----------------------------- Container size ----------------------------- */
+
+$containerMaxWidth: 1176px;
+$designLayoutWidth: 1440px;
+
+/* ------------------------------- Break points ------------------------------ */
+$largeDesktop: 1920px;
+$desktop: 1536px;
+$smallDesktop: 1280px;
+
+$largeTablet: 1024px;
+$tablet: 820px;
+$smallTablet: 601px;
+
+$largeMobile: 414px;
+$mobile: 375px;
+$smallMobile: 320px;

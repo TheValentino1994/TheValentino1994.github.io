@@ -43,8 +43,7 @@ body {
 
   color: $neutrals_N0;
 
-  background: url("../assets/images/backgrounds/mainBG.png") $mainBg repeat
-    center center;
+  background: $neutrals_N1000;
 
   overflow-y: overlay !important;
   overflow-x: hidden !important;
