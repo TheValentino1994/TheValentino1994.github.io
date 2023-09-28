@@ -2,8 +2,8 @@
 @import "../../../scss/colors.scss";
 @import "../../../scss//animations.scss";
 
-@function calculatePercentage($valueInPx,$regardingInPx){
-  @return calc($valueInPx /$regardingInPx * 100%);
+@function calculatePercentage($valueInPx, $regardingInPx) {
+  @return calc($valueInPx / $regardingInPx * 100%);
 }
 
 @mixin calculatePlanetStyle(
@@ -14,7 +14,6 @@
   $marginFromTop
 ) {
   @for $i from 1 through $planetCount {
-
     #{$selector}#Planet_#{$i} {
       width: map-get($dimentions, $i);
 
@@ -24,8 +23,8 @@
   }
 }
 
-$designedFooterHeight:500px;
-$designedIllustrationWidth:1043px;
+$designedFooterHeight: 500px;
+$designedIllustrationWidth: 1043px;
 
 .footer {
   @extend %alignedRow;
@@ -34,7 +33,7 @@ $designedIllustrationWidth:1043px;
 
   min-height: 500px;
 
-  background: url("../../../assets/images/backgrounds/footerBg.svg") no-repeat center center;
+  // background: url("../../../assets/images/backgrounds/footerBg.svg") no-repeat center center;
   background-size: cover;
 
   &__container {
@@ -90,107 +89,106 @@ $designedIllustrationWidth:1043px;
     (3),
     "&__illustration > &__planet1",
     (
-      1: calculatePercentage(100px,$designedIllustrationWidth),
-      2: calculatePercentage(72px,$designedIllustrationWidth),
-      3: calculatePercentage(60px,$designedIllustrationWidth),
+      1: calculatePercentage(100px, $designedIllustrationWidth),
+      2: calculatePercentage(72px, $designedIllustrationWidth),
+      3: calculatePercentage(60px, $designedIllustrationWidth),
     ),
     /* ---------------------------- Margin from right --------------------------- */
-    (
-      1: calculatePercentage(481px,$designedIllustrationWidth),
-      2: calculatePercentage(111px,$designedIllustrationWidth),
-      3: calculatePercentage(460px,$designedIllustrationWidth),
-    ),
+      (
+        1: calculatePercentage(481px, $designedIllustrationWidth),
+        2: calculatePercentage(111px, $designedIllustrationWidth),
+        3: calculatePercentage(460px, $designedIllustrationWidth)
+      ),
     /* ----------------------------- Margin from top ---------------------------- */
-    (
-      1: calculatePercentage(91px,$designedFooterHeight),
-      2: calculatePercentage(130px,$designedFooterHeight),
-      3: calculatePercentage(236px,$designedFooterHeight),
-    ),
+      (
+        1: calculatePercentage(91px, $designedFooterHeight),
+        2: calculatePercentage(130px, $designedFooterHeight),
+        3: calculatePercentage(236px, $designedFooterHeight)
+      )
   );
 
   @include calculatePlanetStyle(
     (4),
     "&__illustration > &__planet2",
     (
-      1: calculatePercentage(200px,$designedIllustrationWidth),
-      2: calculatePercentage(94px,$designedIllustrationWidth),
-      3: calculatePercentage(52px,$designedIllustrationWidth),
-      4: calculatePercentage(60px,$designedIllustrationWidth),
-      ),
-      /* ---------------------------- Margin from right --------------------------- */
+      1: calculatePercentage(200px, $designedIllustrationWidth),
+      2: calculatePercentage(94px, $designedIllustrationWidth),
+      3: calculatePercentage(52px, $designedIllustrationWidth),
+      4: calculatePercentage(60px, $designedIllustrationWidth),
+    ),
+    /* ---------------------------- Margin from right --------------------------- */
       (
-        1:calculatePercentage(-40px,$designedIllustrationWidth) ,
-        2: calculatePercentage(328px,$designedIllustrationWidth),
-        3: calculatePercentage(66px,$designedIllustrationWidth),
-        4: calculatePercentage(527px,$designedIllustrationWidth),
-        ),
-        /* ----------------------------- Margin from top ---------------------------- */
-        (
-        1: calculatePercentage(-45px,$designedFooterHeight),
-        2: calculatePercentage(152px,$designedFooterHeight),
-        3: calculatePercentage(232px,$designedFooterHeight),
-        4: calculatePercentage(332px,$designedFooterHeight),
-        )
-        );
+        1: calculatePercentage(-40px, $designedIllustrationWidth),
+        2: calculatePercentage(328px, $designedIllustrationWidth),
+        3: calculatePercentage(66px, $designedIllustrationWidth),
+        4: calculatePercentage(527px, $designedIllustrationWidth)
+      ),
+    /* ----------------------------- Margin from top ---------------------------- */
+      (
+        1: calculatePercentage(-45px, $designedFooterHeight),
+        2: calculatePercentage(152px, $designedFooterHeight),
+        3: calculatePercentage(232px, $designedFooterHeight),
+        4: calculatePercentage(332px, $designedFooterHeight)
+      )
+  );
 
-        /* --------------------------- Big planets styling --------------------------- */
+  /* --------------------------- Big planets styling --------------------------- */
 
-        &__illustration &__planet{
-          position: absolute;
+  &__illustration &__planet {
+    position: absolute;
 
-          img:not(img[alt~="Astronaut"]){
-            width: 100%;
-          }
+    img:not(img[alt~="Astronaut"]) {
+      width: 100%;
+    }
 
-          img[alt~="Astronaut"]{
-          @extend %floatingAnimation;
+    img[alt~="Astronaut"] {
+      @extend %floatingAnimation;
 
-            position: absolute;
-          }
+      position: absolute;
+    }
 
-          *{
-            transition: all 0.2s linear;
-          }
-        }
+    * {
+      transition: all 0.2s linear;
+    }
+  }
 
-        &__illustration .planet1_big {//First planet contaner width 400pxX400px
-          width: calculatePercentage(400px,$designedIllustrationWidth);
+  &__illustration .planet1_big {
+    //First planet contaner width 400pxX400px
+    width: calculatePercentage(400px, $designedIllustrationWidth);
 
-          left:calculatePercentage(200px,$designedIllustrationWidth);
-          bottom:calculatePercentage(37px,$designedFooterHeight);
+    left: calculatePercentage(200px, $designedIllustrationWidth);
+    bottom: calculatePercentage(37px, $designedFooterHeight);
 
-          img[alt~="Astronaut"]{
-            bottom:40.75%;
-            left: 5.75%;
+    img[alt~="Astronaut"] {
+      bottom: 40.75%;
+      left: 5.75%;
 
-            width: 75%;
+      width: 75%;
+    }
+  }
 
-          }
-        }
+  &__illustration .planet2_big {
+    //Second planet contaner width 350pxX350px
+    width: calculatePercentage(350px, $designedIllustrationWidth);
 
-        &__illustration .planet2_big {//Second planet contaner width 350pxX350px
-          width: calculatePercentage(350px,$designedIllustrationWidth);
+    right: calculatePercentage(93px, $designedIllustrationWidth);
+    bottom: calculatePercentage(21px, $designedFooterHeight);
 
-          right:calculatePercentage(93px,$designedIllustrationWidth);
-          bottom:calculatePercentage(21px,$designedFooterHeight);
+    img[alt~="Astronaut"] {
+      animation-delay: 1s;
 
+      bottom: 39.43%;
+      left: 2.286%;
 
-          img[alt~="Astronaut"]{
-            animation-delay: 1s;
+      width: 85.71%;
+    }
+  }
 
-            bottom:39.43%;
-            left: 2.286%;
+  /* --------------------------- Waves illustration --------------------------- */
 
-            width: 85.71%;
-          }
-        }
+  &__illustration > svg {
+    margin-left: auto;
 
-/* --------------------------- Waves illustration --------------------------- */
-
-        &__illustration>svg{
-          margin-left: auto;
-
-          width: 100%;
-        }
-
+    width: 100%;
+  }
 }

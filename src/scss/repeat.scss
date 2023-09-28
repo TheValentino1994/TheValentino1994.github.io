@@ -120,14 +120,15 @@
 //Headings
 
 %heading_H1 {
-  //styleName: Heading/H1 56-64
-
-  font-family: $kyivTypeSans;
-  font-size: 56px;
+  /* Heading Web/$H1 48-64 Medium */
+  font-family: $inter;
+  font-size: 48px;
   font-weight: 500;
   line-height: 64px;
+  letter-spacing: -1px;
 }
 
+//!!Deprecated
 %heading_H2 {
   //styleName: Heading/H2 48-52
 
@@ -136,7 +137,7 @@
   font-weight: 400;
   line-height: 52px;
 }
-
+//!!Deprecated
 %heading_H3 {
   //styleName: Heading/H3 24-32
 
@@ -146,7 +147,7 @@
   line-height: 32px;
   letter-spacing: 0.36px;
 }
-
+//!!Deprecated
 %heading_H4 {
   //styleName: Heading/H4 24-32
 
@@ -157,38 +158,71 @@
   letter-spacing: 1.5px;
 }
 
+//Subheadings:
+
+%subheading_H1 {
+  /* Subheading Web/$SH1 38-48 Medium */
+  font-family: $inter;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 48px;
+  letter-spacing: -1px;
+}
+
+%subheading_H2 {
+  /* Subheading Web/$SH2 32-48 Regular */
+  font-family: $inter;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 48px;
+  letter-spacing: -1px;
+}
+
+%subheading_H3 {
+  /* Subheading Web/$SH3 28-40 Regular */
+  font-family: $inter;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -1px;
+}
+
+%subheading_H4 {
+  /* Subheading Web/$SH4 18-28 Regular */
+  font-family: $inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.5px;
+}
+
 //Body:
 
 %body_B1 {
-  //styleName: Body/B1 24-32 Medium;
-
-  font-family: $kyivTypeTitling;
+  /* Web Body/$B1 24-36 Medium */
+  font-family: $inter;
   font-size: 24px;
-  font-weight: 500;
-  line-height: 32px;
-  letter-spacing: 0.36px;
+  font-weight: 400;
+  line-height: 36px; /* 150% */
 }
 
 %body_B2 {
-  //styleName: Body/B2 18-32 Bold;
-
-  font-family: $kyivTypeTitling2;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 32px;
-  letter-spacing: 0.45px;
+  /* Web Body/$B2 16-24 Medium */
+  font-family: $inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
 }
 
 %body_B3 {
-  //styleName: Body/B3 18-28 Medium;
-
-  font-family: $kyivTypeTitling;
-  font-size: 18px;
+  /* Web Body/$B3 14-20 Medium */
+  font-family: $inter;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 32px;
-  letter-spacing: 28px;
+  line-height: 20px;
 }
 
+//!!Deprecated
 %body_B4_18 {
   //styleName: Body/$B4 18-32 Regular;
 
@@ -198,6 +232,7 @@
   line-height: 32px;
 }
 
+//!!Deprecated
 %body_B4_16 {
   //styleName: Body/16-24 Regular;
 

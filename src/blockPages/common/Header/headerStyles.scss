@@ -12,7 +12,7 @@
   }
 
   a {
-    @extend %center;
+    @extend %center, %subheading_H4;
 
     color: $neutrals_N0;
 

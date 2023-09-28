@@ -23,18 +23,29 @@
     width: calculatePercentage(706px, $containerMaxWidth);
   }
 
-  h3 {
-    @extend %heading_H3;
+  h1 {
+    @extend %heading_H1;
 
-    color: $neutrals_N0;
+    color: $neutrals_N100;
   }
 
-  span {
-    @extend %body_B1;
-    color: $neutrals300;
+  h2 {
+    @extend %subheading_H1;
+
+    color: $neutrals_N100;
   }
 
   h2 + span {
+    @extend %subheading_H2;
+
+    color: $neutrals_N500;
+  }
+
+  h1 + span {
+    @extend %subheading_H3;
+
+    color: $neutrals_N500;
+
     margin-top: 32px;
   }
 }
