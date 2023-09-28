@@ -1,0 +1,90 @@
+@import "../../../scss/repeat.scss";
+@import "../../../scss/_colors.scss";
+@import "../../../scss/utils.scss";
+
+$contentContainerWidth: calc($containerMaxWidth - 52px * 2);
+
+.workItem {
+  display: flex;
+  flex-direction: column;
+
+  height: 830px;
+  padding: 52px 0 52px 52px;
+
+  border-radius: 16px;
+
+  background-color: $neutrals_N0;
+
+  overflow: hidden;
+
+  &__content {
+    @extend %alignedRow;
+
+    position: relative;
+
+    flex: 1;
+
+    & > div {
+      position: relative;
+      z-index: 10;
+
+      width: calculatePercentage(434px, $contentContainerWidth);
+    }
+
+    h3 {
+      @extend %subheading_H1;
+
+      color: $neutrals_N1000;
+    }
+
+    h4 {
+      @extend %subheading_H3;
+
+      color: $neutrals_N500;
+    }
+
+    p {
+      @extend %body_B1;
+
+      color: $neutrals_N500;
+
+      margin: 28px 0 32px;
+    }
+
+    a {
+      @extend %body_B3, %center;
+
+      color: $neutrals_N500;
+
+      padding: 10px 12px;
+      width: 115px;
+
+      border: 1px solid $neutrals_N500;
+      border-radius: 8px;
+
+      svg path {
+        fill: $neutrals_N500;
+      }
+    }
+
+    img {
+      position: absolute;
+      right: 0;
+      z-index: 1;
+
+      object-fit: cover;
+
+      width: calculatePercentage(638px, $contentContainerWidth);
+    }
+  }
+
+  &__timeline {
+    @extend %body_B1;
+
+    color: $neutrals_N500;
+
+    span:last-child {
+      color: $neutrals_N1000;
+    }
+  }
+}

@@ -30,6 +30,23 @@ export const IMAGES = {
   },
 
   projectsPhotos: {
+    intrac: {
+      preview: require("../assets/images/illustrations/intrack_mock_preview.png"),
+    },
+    neobank: {
+      preview: require("../assets/images/illustrations/neobank_mock_preview.png"),
+    },
+    loop: {
+      preview: require("../assets/images/illustrations/loop_mock_preview.png"),
+    },
+    wingTipz: {
+      preview: require("../assets/images/illustrations/wingtipz_mock_preview.png"),
+      intro:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WingTipz/intro.png",
+      result:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WingTipz/result.png",
+    },
+    //!!Deprecated
     wildMinds: {
       preview:
         "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WildMinds/preview.png",
@@ -41,14 +58,7 @@ export const IMAGES = {
       bg4: "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WildMinds/bg4.png",
       bg5: "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WildMinds/bg5.png",
     },
-    wingTipz: {
-      preview:
-        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WingTipz/preview.png",
-      intro:
-        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WingTipz/intro.png",
-      result:
-        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/WingTipz/result.png",
-    },
+    //!!Deprecated
     lexer: {
       preview:
         "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/Lexer/preview.png",

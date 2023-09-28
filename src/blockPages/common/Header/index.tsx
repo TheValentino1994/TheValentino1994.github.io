@@ -1,7 +1,7 @@
 /* ------------------------------ Basic imports ----------------------------- */
 import React, { FC } from "react";
 import "./headerStyles.scss";
-import { SOCIALS_LIST } from "../../../conatantData/_socialsList";
+import { SOCIALS_LIST } from "../../../contentData/_socialsList";
 import { ICONS } from "../../../constants/_icons";
 
 const Header: FC = () => {

@@ -3,7 +3,7 @@ import React, { FC, useCallback } from "react";
 import "./footerStyles.scss";
 
 /* ------------------------------ Constant data ----------------------------- */
-import { SOCIALS_LIST } from "../../../conatantData/_socialsList";
+import { SOCIALS_LIST } from "../../../contentData/_socialsList";
 
 /* -------------------------------- Constants ------------------------------- */
 import { IMAGES } from "../../../constants/_images";

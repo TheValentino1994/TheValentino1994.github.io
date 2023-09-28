@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MainLayout } from "../layouts";
 
 /* ---------------------------------- Pages --------------------------------- */
-import { WingTipz, Portfolio, Lexer, WildMinds } from "../pages";
+import { WingTipz, Home, Lexer, WildMinds } from "../pages";
 
 /* -------------------------------- Constants ------------------------------- */
 import { ROUTES } from "../constants/_routes";
@@ -20,7 +20,7 @@ export const MainRouter: FC = () => {
     <BrowserRouter>
       <MainLayout>
         <Routes>
-          <Route path={ROUTES.HOME} element={<Portfolio />} />
+          <Route path={ROUTES.HOME} element={<Home />} />
           <Route path={ROUTES.PORTFOLIO_WING_TIPZ} element={<WingTipz />} />
           <Route path={ROUTES.PORTFOLIO_WILD_MINDS} element={<WildMinds />} />
           <Route path={ROUTES.PORTFOLIO_LEXER} element={<Lexer />} />

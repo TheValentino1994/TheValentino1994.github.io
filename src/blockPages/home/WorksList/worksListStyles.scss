@@ -1,0 +1,14 @@
+@import "../../../scss/repeat.scss";
+@import "../../../scss/colors";
+
+$contentContainerWidth: calc($containerMaxWidth - 52px * 2);
+
+.worksList {
+  ul {
+    @extend %container;
+
+    li:nth-child(2n + 1) img {
+      width: calculatePercentage(788px, $contentContainerWidth);
+    }
+  }
+}

@@ -6,28 +6,18 @@ import "./worksListStyles.scss";
 import WorkItem from "../WorkItem";
 
 /* ------------------------------ Constant data ----------------------------- */
-import { WORKS_LIST } from "../../../../conatantData/_worksList";
-
-/* -------------------------------- Constants ------------------------------- */
-import { ICONS } from "../../../../constants/_icons";
+import { WORKS_LIST } from "../../../contentData/_worksList";
 
 const WorkList: FC = () => {
   /* --------------------------------- Render ------------------------------- */
 
   return (
     <section className="worksList">
-      <div className="worksList__container">
-        <h2>
-          The work I do,
-          <br />
-          and business I help.
-        </h2>
-        <ul>
-          {WORKS_LIST.map((item) => (
-            <WorkItem {...item} key={item.id} />
-          ))}
-        </ul>
-      </div>
+      <ul>
+        {WORKS_LIST.map((item) => (
+          <WorkItem {...item} key={item.path} />
+        ))}
+      </ul>
     </section>
   );
 };

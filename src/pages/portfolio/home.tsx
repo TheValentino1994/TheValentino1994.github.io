@@ -1,19 +1,18 @@
 /* ------------------------------ Basic imports ----------------------------- */
 import React, { FC } from "react";
-import { HomeIntro } from "../../blockPages/home";
 
 /* ------------------------------- Block pages ------------------------------ */
-import { WorksList } from "../../blockPages/portfolio/portfolioPage";
+import { HomeIntro, WorksList } from "../../blockPages/home";
 
-const Portfolio: FC = () => {
+const Home: FC = () => {
   /* --------------------------------- Render --------------------------------- */
 
   return (
     <>
       <HomeIntro />
-      {/* <WorksList /> */}
+      <WorksList />
     </>
   );
 };
 
-export default Portfolio;
+export default Home;

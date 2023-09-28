@@ -1,6 +1,3 @@
-/* -------------------------------- Constants ------------------------------- */
-import { ICONS } from "../constants/_icons";
-
 export enum SOCIALS {
   INSTAGRAM = "Instagram",
   LINKEDIN = "Linkedin",
