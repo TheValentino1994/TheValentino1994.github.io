@@ -1,6 +1,5 @@
 @import "../../../scss/repeat.scss";
 @import "../../../scss/colors.scss";
-@import "../../../scss/animations.scss";
 @import "../../../scss/utils.scss";
 
 .homeIntro {
@@ -29,6 +28,17 @@
     color: $neutrals_N100;
   }
 
+  img {
+    display: flex;
+    flex: 1;
+
+    margin-top: 32px;
+
+    border-radius: 4px;
+
+    object-fit: cover;
+  }
+
   h2 {
     @extend %subheading_H1;
 
@@ -41,11 +51,32 @@
     color: $neutrals_N500;
   }
 
-  h1 + span {
+  h1 + span,
+  p {
     @extend %subheading_H3;
 
     color: $neutrals_N500;
 
     margin-top: 32px;
+  }
+
+  p {
+    margin-top: 40px;
+  }
+
+  @media (max-width: $largeTablet) {
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: 40px 0 120px;
+
+    &__content {
+      padding: 0 24px;
+
+      &:first-child,
+      &:last-child {
+        width: 100%;
+      }
+    }
   }
 }
