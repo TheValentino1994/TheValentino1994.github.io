@@ -2,7 +2,7 @@
 @import "../../../scss/colors";
 
 .header {
-  padding: 24px 0;
+  padding: 12px 0;
 
   &__container {
     @extend %container;
@@ -14,6 +14,8 @@
   a {
     @extend %center, %subheading_H4;
 
+    padding: 12px 0;
+
     color: $neutrals_N0;
 
     svg {
@@ -23,5 +25,15 @@
 
   a:not(:last-child) {
     margin-right: 40px;
+  }
+
+  @media (max-width: $smallTablet) {
+    &__container {
+      justify-content: space-between;
+    }
+
+    a:not(:last-child) {
+      margin-right: unset;
+    }
   }
 }

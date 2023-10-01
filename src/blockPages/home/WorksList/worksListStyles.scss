@@ -1,7 +1,7 @@
 @import "../../../scss/repeat.scss";
 @import "../../../scss/colors";
 
-$contentContainerWidth: calc($containerMaxWidth - 52px * 2);
+$contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
 
 .worksList {
   ul {
@@ -9,6 +9,17 @@ $contentContainerWidth: calc($containerMaxWidth - 52px * 2);
 
     li:nth-child(2n + 1) img {
       width: calculatePercentage(788px, $contentContainerWidth);
+    }
+  }
+
+  @media (max-width: $largeMobile) {
+    ul {
+      li:nth-child(2n + 1) img {
+        width: 100%;
+
+        position: relative;
+        right: 22%;
+      }
     }
   }
 }

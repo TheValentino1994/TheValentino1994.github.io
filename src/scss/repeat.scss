@@ -109,10 +109,20 @@
 %container {
   //fullScreen width in design:1440 px; horizontal padding=132px;1440-132*2=1176 px;
 
-  max-width: $containerMaxWidth;
-  width: calculatePercentage($containerMaxWidth, $designLayoutWidth);
+  max-width: $containerDesktopMaxWidth;
+  width: calculatePercentage(
+    $containerDesktopMaxWidth,
+    $designDesktopLayoutWidth
+  );
 
   align-self: center;
+
+  @media (max-width: $smallTablet) {
+    width: calculatePercentage(
+      $containerMobileMaxWidth,
+      $designMobileLayoutWidth
+    );
+  }
 }
 
 /* ------------------------------- Font styles ------------------------------ */

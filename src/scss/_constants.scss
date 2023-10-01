@@ -10,8 +10,11 @@ $inter: "Inter";
 
 /* ----------------------------- Container size ----------------------------- */
 
-$containerMaxWidth: 1176px;
-$designLayoutWidth: 1440px;
+$containerDesktopMaxWidth: 1176px;
+$designDesktopLayoutWidth: 1440px;
+
+$containerMobileMaxWidth: 342px;
+$designMobileLayoutWidth: 390px;
 
 /* ------------------------------- Break points ------------------------------ */
 $largeDesktop: 1920px;
