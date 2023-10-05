@@ -17,7 +17,12 @@ const Footer: FC = () => {
         </div>
 
         {SOCIALS_LIST.map((item) => (
-          <a href={item.link} target="_blank" rel="no-referrer noreferrer">
+          <a
+            key={item.title}
+            href={item.link}
+            target="_blank"
+            rel="no-referrer noreferrer"
+          >
             {item.title}
             <span>+</span>
           </a>

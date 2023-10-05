@@ -2,7 +2,13 @@
 @import "../../../scss/colors";
 
 .header {
+  width: 100%;
   padding: 12px 0;
+
+  position: fixed;
+  z-index: 100;
+
+  background-color: $neutrals_N1000;
 
   &__container {
     @extend %container;

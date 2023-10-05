@@ -9,13 +9,17 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
   flex-direction: column;
 
   height: 830px;
-  padding: 52px 0 52px 52px;
+  padding: 52px;
 
   border-radius: 16px;
 
   background-color: $neutrals_N0;
 
   overflow: hidden;
+
+  -webkit-box-shadow: 0px -4px 21px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px -4px 21px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px -4px 21px -8px rgba(0, 0, 0, 0.75);
 
   &__content {
     @extend %alignedRow;
@@ -73,7 +77,7 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
 
     img {
       position: absolute;
-      right: 0;
+      right: -52px;
       z-index: 1;
 
       object-fit: cover;
@@ -111,6 +115,7 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
         display: flex;
         align-self: center;
         position: relative;
+        right: 0;
 
         object-fit: contain;
 

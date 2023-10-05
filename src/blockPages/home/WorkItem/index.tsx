@@ -22,7 +22,7 @@ const WorkItem: FC<IWorkItem> = ({
   /* --------------------------------- Render ------------------------------- */
 
   return (
-    <li className="workItem">
+    <li className="workItem card">
       <div className="workItem__content">
         <div>
           <h3>{title}</h3>
