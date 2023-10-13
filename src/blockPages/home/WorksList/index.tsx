@@ -20,14 +20,6 @@ const WorksList: FC = () => {
     []
   );
 
-  const handleCardSnap = useCallback((value: number) => {
-    const snapPoints = [0, 0.33160415003990423, 0.664804469273743, 1]; //need to calculate somehow
-
-    return snapPoints.reduce(function (prev, curr) {
-      return Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev;
-    });
-  }, []);
-
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -38,7 +30,8 @@ const WorksList: FC = () => {
           end: `bottom bottom`,
           trigger: ".worksList__container" as any,
           scrub: 1,
-          snap: handleCardSnap,
+          snap: 1 / 3,
+          onUpdate: () => console.log("update!"),
           onLeave: handleFooterVisility(0),
           onEnterBack: handleFooterVisility(-300),
         },
