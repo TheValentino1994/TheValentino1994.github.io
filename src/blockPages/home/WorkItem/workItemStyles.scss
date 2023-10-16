@@ -36,19 +36,19 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
     }
 
     h3 {
-      @extend %subheading_H1;
+      @extend %subheading_H1_Desktop;
 
       color: $neutrals_N1000;
     }
 
     h4 {
-      @extend %subheading_H3;
+      @extend %subheading_H3_Desktop;
 
       color: $neutrals_N500;
     }
 
     p {
-      @extend %body_B1;
+      @extend %body_B1_Desktop;
 
       color: $neutrals_N500;
 
@@ -56,7 +56,7 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
     }
 
     a {
-      @extend %body_B3, %center;
+      @extend %body_B3_Desktop, %center;
 
       color: $neutrals_N500;
 
@@ -87,7 +87,7 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
   }
 
   &__timeline {
-    @extend %body_B1;
+    @extend %body_B1_Desktop;
 
     color: $neutrals_N500;
 
@@ -133,6 +133,28 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
 
     &__timeline {
       padding: 0 20px;
+    }
+  }
+
+  @media (max-width: $largeMobile) {
+    h3 {
+      @include subheading_H1_Mobile();
+    }
+
+    h4 {
+      @include subheading_H3_Mobile();
+    }
+
+    p {
+      @include body_B1_Mobile();
+    }
+
+    a {
+      @include body_B1_Mobile();
+    }
+
+    &__timeline {
+      @include body_B1_Mobile;
     }
   }
 }

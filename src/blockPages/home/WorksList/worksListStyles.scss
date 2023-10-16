@@ -7,7 +7,7 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
   @for $i from 1 through $cardsCount {
     li:nth-child(#{$i}) {
       position: sticky;
-      top: 76px;
+      top: 104px;
       z-index: $i;
     }
   }
@@ -19,7 +19,7 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
 
     transform: translate(0px, 0px) !important;
 
-    //cardHeight * cardCount + footerHeight
+    //cardHeight * cardCount + footerHeight+footerOffset
     height: calc(830px * 4 + 256px + 152px);
     padding-bottom: 152px;
 
@@ -31,7 +31,8 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
   }
 
   @media (max-width: $largeMobile) {
-    ul {
+    &__container {
+      width: 100%;
       li:nth-child(2n + 1) img {
         width: 100%;
 

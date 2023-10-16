@@ -9,8 +9,8 @@ import WorkItem from "../WorkItem";
 import { WORKS_LIST } from "../../../contentData/_worksList";
 
 /* -------------------------------- Libraries ------------------------------- */
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { gsap } from "gsap-trial";
+import { ScrollTrigger } from "gsap-trial/ScrollTrigger";
 
 const WorksList: FC = () => {
   const handleFooterVisility = useCallback(
@@ -26,12 +26,12 @@ const WorksList: FC = () => {
     let ctx = gsap.context(() => {
       gsap.timeline({
         scrollTrigger: {
-          start: `top 76px`,
+          start: `top 104px`,
           end: `bottom bottom`,
           trigger: ".worksList__container" as any,
           scrub: 1,
-          snap: 1 / 3,
-          onUpdate: () => console.log("update!"),
+          snap: 1 / 3, //fix, not working properly on laptops and smaller devices
+          // onUpdate: () => console.log("update!"),
           onLeave: handleFooterVisility(0),
           onEnterBack: handleFooterVisility(-300),
         },
@@ -39,6 +39,7 @@ const WorksList: FC = () => {
     });
 
     return () => {
+      ctx.revert();
       ctx.kill();
     };
   }, []);

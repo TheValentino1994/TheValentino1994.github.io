@@ -34,7 +34,7 @@
     h3,
     span,
     & + span {
-      @extend %subheading_H4;
+      @extend %subheading_H4_Desktop;
 
       color: $neutrals_N1000;
     }
@@ -50,7 +50,7 @@
   }
 
   a {
-    @extend %center, %body_B2;
+    @extend %center, %body_B2_Desktop;
 
     color: $neutrals_N1000;
 

@@ -8,7 +8,7 @@
   flex-direction: row;
   justify-content: space-between;
 
-  padding: 80px 0 120px;
+  padding: 184px 0 120px;
 
   &__content {
     padding: 0 52px;
@@ -23,7 +23,7 @@
   }
 
   h1 {
-    @extend %heading_H1;
+    @extend %heading_H1_Desktop;
 
     color: $neutrals_N100;
   }
@@ -40,20 +40,20 @@
   }
 
   h2 {
-    @extend %subheading_H1;
+    @extend %subheading_H1_Desktop;
 
     color: $neutrals_N100;
   }
 
   h2 + span {
-    @extend %subheading_H2;
+    @extend %subheading_H2_Desktop;
 
     color: $neutrals_N500;
   }
 
   h1 + span,
   p {
-    @extend %subheading_H3;
+    @extend %subheading_H3_Desktop;
 
     color: $neutrals_N500;
 
@@ -62,10 +62,6 @@
 
   p {
     margin-top: 40px;
-
-    &:nth-child(2) {
-      margin-top: 64px;
-    }
   }
 
   @media (max-width: $largeTablet) {
@@ -100,6 +96,25 @@
   @media (max-width: $smallTablet) {
     &__content {
       padding: 0;
+    }
+  }
+
+  @media (max-width: $largeMobile) {
+    h1 {
+      @include heading_H1_Mobile();
+    }
+
+    h2 {
+      @include subheading_H1_Mobile();
+    }
+
+    h2 + span {
+      @include subheading_H2_Mobile();
+    }
+
+    h1 + span,
+    p {
+      @include subheading_H3_Mobile();
     }
   }
 }

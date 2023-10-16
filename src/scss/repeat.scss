@@ -129,19 +129,16 @@
 
 //Headings
 
-%heading_H1 {
-  /* Heading Web/$H1 48-64 Medium */
-  font-family: $inter;
-  font-size: 48px;
-  font-weight: 500;
-  line-height: 64px;
-  letter-spacing: -1px;
+%heading_H1_Desktop {
+  @include generateFont($inter, 500, 48px, 64px, -1px);
+}
+
+@mixin heading_H1_Mobile() {
+  @include generateFont($inter, 500, 24px, 36px, -1px);
 }
 
 //!!Deprecated
 %heading_H2 {
-  //styleName: Heading/H2 48-52
-
   font-family: $kyivTypeSans;
   font-size: 48px;
   font-weight: 400;
@@ -149,8 +146,6 @@
 }
 //!!Deprecated
 %heading_H3 {
-  //styleName: Heading/H3 24-32
-
   font-family: $kyivTypeSans;
   font-size: 24px;
   font-weight: 500;
@@ -159,8 +154,6 @@
 }
 //!!Deprecated
 %heading_H4 {
-  //styleName: Heading/H4 24-32
-
   font-family: $kyivTypeSans;
   font-size: 24px;
   font-weight: 500;
@@ -170,72 +163,54 @@
 
 //Subheadings:
 
-%subheading_H1 {
-  /* Subheading Web/$SH1 38-48 Medium */
-  font-family: $inter;
-  font-size: 38px;
-  font-weight: 500;
-  line-height: 48px;
-  letter-spacing: -1px;
+%subheading_H1_Desktop {
+  @include generateFont($inter, 500, 38px, 48px, -1px);
 }
 
-%subheading_H2 {
-  /* Subheading Web/$SH2 32-48 Regular */
-  font-family: $inter;
-  font-size: 32px;
-  font-weight: 400;
-  line-height: 48px;
-  letter-spacing: -1px;
+@mixin subheading_H1_Mobile() {
+  @include generateFont($inter, 500, 24px, 32px, -1px);
 }
 
-%subheading_H3 {
-  /* Subheading Web/$SH3 28-40 Regular */
-  font-family: $inter;
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: -1px;
+%subheading_H2_Desktop {
+  @include generateFont($inter, 400, 32px, 48px, -1px);
 }
 
-%subheading_H4 {
-  /* Subheading Web/$SH4 18-28 Regular */
-  font-family: $inter;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 28px;
-  letter-spacing: -0.5px;
+@mixin subheading_H2_Mobile() {
+  @include generateFont($inter, 400, 18px, 28px, -0.5px);
+}
+
+%subheading_H3_Desktop {
+  @include generateFont($inter, 400, 28px, 40px, -1px);
+}
+
+@mixin subheading_H3_Mobile() {
+  @include generateFont($inter, 500, 14px, 20px, -0.5px);
+}
+
+%subheading_H4_Desktop {
+  @include generateFont($inter, 400, 18px, 28px, -0.5px);
 }
 
 //Body:
 
-%body_B1 {
-  /* Web Body/$B1 24-36 Medium */
-  font-family: $inter;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 36px; /* 150% */
+%body_B1_Desktop {
+  @include generateFont($inter, 400, 24px, 36px, 0px);
 }
 
-%body_B2 {
-  /* Web Body/$B2 16-24 Medium */
-  font-family: $inter;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
+@mixin body_B1_Mobile() {
+  @include generateFont($inter, 500, 16px, 24px, 0px);
 }
 
-%body_B3 {
-  /* Web Body/$B3 14-20 Medium */
-  font-family: $inter;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
+%body_B2_Desktop {
+  @include generateFont($inter, 500, 16px, 24px, 0px);
+}
+
+%body_B3_Desktop {
+  @include generateFont($inter, 500, 14px, 20px, 0px);
 }
 
 //!!Deprecated
 %body_B4_18 {
-  //styleName: Body/$B4 18-32 Regular;
-
   font-family: $kyivTypeTitling;
   font-size: 18px;
   font-weight: 400;
@@ -244,8 +219,6 @@
 
 //!!Deprecated
 %body_B4_16 {
-  //styleName: Body/16-24 Regular;
-
   font-family: $kyivTypeTitling;
   font-size: 16px;
   font-weight: 400;

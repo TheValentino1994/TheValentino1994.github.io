@@ -49,7 +49,7 @@
   }
 
   h3 {
-    @extend %body_B2;
+    @extend %body_B2_Desktop;
 
     margin-bottom: 4px;
 
@@ -57,7 +57,7 @@
   }
 
   &__mainText {
-    @extend %body_B1;
+    @extend %body_B1_Desktop;
 
     margin: 0;
     padding: 0 40px;

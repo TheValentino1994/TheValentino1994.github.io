@@ -3,7 +3,7 @@
 
 .header {
   width: 100%;
-  padding: 12px 0;
+  padding: 24px 0;
 
   position: fixed;
   z-index: 100;
@@ -18,9 +18,9 @@
   }
 
   a {
-    @extend %center, %subheading_H4;
+    @extend %center, %subheading_H4_Desktop;
 
-    padding: 12px 0;
+    padding: 14px 0;
 
     color: $neutrals_N0;
 
@@ -32,14 +32,30 @@
   a:not(:last-child) {
     margin-right: 40px;
   }
+}
 
-  @media (max-width: $smallTablet) {
+@media (max-width: $smallTablet) {
+  .header {
     &__container {
       justify-content: space-between;
     }
 
     a:not(:last-child) {
       margin-right: unset;
+    }
+  }
+}
+
+@media (max-width: $largeMobile) {
+  .header {
+    position: static;
+
+    padding: 0;
+
+    a {
+      @include subheading_H3_Mobile();
+
+      padding: 24px 0;
     }
   }
 }

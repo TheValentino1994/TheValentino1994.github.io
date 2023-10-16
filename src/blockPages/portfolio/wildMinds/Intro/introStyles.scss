@@ -90,7 +90,7 @@
   }
 
   h3 {
-    @extend %body_B2;
+    @extend %body_B2_Desktop;
 
     margin-bottom: 4px;
 
@@ -99,7 +99,7 @@
 
   p,
   a {
-    @extend %body_B1;
+    @extend %body_B1_Desktop;
 
     color: $neutrals_N500;
 

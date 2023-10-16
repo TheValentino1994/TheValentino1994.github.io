@@ -22,7 +22,7 @@ const Intro: FC = () => {
           I’m a UX / UI Designer from Lviv, dedicated to turning complex
           problems into user-friendly solutions.
         </h1>
-        <span>Currently Designing at Fivecube.</span>
+        <p>Currently Designing at Fivecube.</p>
         <p>
           Over the past 2 years, my journey as a designer has led me to build
           design and ship mobile and web products from the ground up.
