@@ -68,10 +68,10 @@
     flex-direction: column;
     justify-content: flex-start;
 
-    padding: 40px 0 120px;
+    padding: 144px 0 120px;
 
     &__content {
-      padding: 0 24px;
+      padding: 0;
 
       &:first-child,
       &:last-child {
@@ -85,7 +85,7 @@
     }
 
     p:last-child {
-      margin-top: 40px;
+      margin-top: 20px;
     }
 
     img {
@@ -100,6 +100,8 @@
   }
 
   @media (max-width: $largeMobile) {
+    padding-top: 108px;
+
     h1 {
       @include heading_H1_Mobile();
     }
@@ -108,13 +110,10 @@
       @include subheading_H1_Mobile();
     }
 
-    h2 + span {
-      @include subheading_H2_Mobile();
-    }
-
+    h2 + span,
     h1 + span,
     p {
-      @include subheading_H3_Mobile();
+      @include subheading_H2_Mobile();
     }
   }
 }

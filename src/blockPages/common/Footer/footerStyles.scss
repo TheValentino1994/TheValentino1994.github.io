@@ -65,7 +65,6 @@
 
   @media (max-width: $largeTablet) {
     padding: 20px 24px;
-    margin-top: 80px;
 
     &__container:first-child {
       flex-wrap: wrap;
@@ -84,6 +83,20 @@
 
     a {
       padding: 8px;
+    }
+  }
+
+  @media (max-width: $largeMobile) {
+    a {
+      @include body_B1_Mobile();
+    }
+
+    &__info {
+      h3,
+      span,
+      & + span {
+        @include subheading_H2_Mobile();
+      }
     }
   }
 }

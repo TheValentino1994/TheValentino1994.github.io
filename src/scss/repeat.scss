@@ -117,7 +117,7 @@
 
   align-self: center;
 
-  @media (max-width: $smallTablet) {
+  @media (max-width: $largeTablet) {
     width: calculatePercentage(
       $containerMobileMaxWidth,
       $designMobileLayoutWidth
@@ -203,6 +203,10 @@
 
 %body_B2_Desktop {
   @include generateFont($inter, 500, 16px, 24px, 0px);
+}
+
+@mixin body_B2_Mobile() {
+  @include generateFont($inter, 500, 14px, 16px, -0.4px);
 }
 
 %body_B3_Desktop {

@@ -15,7 +15,7 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
 
   background-color: $neutrals_N0;
 
-  overflow: hidden;
+  overflow-x: hidden;
 
   -webkit-box-shadow: 0 -4px 4px #8888880a;
   -moz-box-shadow: 0 -4px 4px #8888880a;
@@ -100,7 +100,9 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
     flex-direction: column;
     justify-content: flex-start;
 
-    height: unset;
+    overflow: visible;
+
+    height: fit-content;
     padding: 20px 0;
 
     &__content {
@@ -120,6 +122,8 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
         object-fit: contain;
 
         width: 100%;
+
+        margin-top: 20px;
       }
 
       p {
@@ -142,7 +146,7 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
     }
 
     h4 {
-      @include subheading_H3_Mobile();
+      @include subheading_H2_Mobile();
     }
 
     p {
@@ -150,11 +154,11 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
     }
 
     a {
-      @include body_B1_Mobile();
+      @include body_B2_Mobile();
     }
 
     &__timeline {
-      @include body_B1_Mobile;
+      @include body_B1_Mobile();
     }
   }
 }

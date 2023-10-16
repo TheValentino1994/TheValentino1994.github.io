@@ -10,6 +10,12 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
       top: 104px;
       z-index: $i;
     }
+
+    @media (max-width: $largeMobile) {
+      li:nth-child(#{$i}) {
+        top: 68px;
+      }
+    }
   }
 }
 
