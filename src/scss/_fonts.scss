@@ -134,6 +134,19 @@
 @font-face {
   font-family: $inter;
   font-style: normal;
+  font-weight: 600;
+  src: local(""),
+    /* Super Modern Browsers */
+      url("../assets/fonts/inter/Inter-SemiBold.woff2") format("woff2"),
+    /* Modern Browsers */ url("../assets/fonts/inter/Inter-SemiBold.woff")
+      format("woff"),
+    /* Old Browsers */ url("../assets/fonts/inter/Inter-SemiBold.otf")
+      format("opentype");
+}
+
+@font-face {
+  font-family: $inter;
+  font-style: normal;
   font-weight: 700;
   src: local(""),
     /* Super Modern Browsers */ url("../assets/fonts/inter/Inter-Bold.woff2")

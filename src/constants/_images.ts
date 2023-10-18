@@ -35,6 +35,15 @@ export const IMAGES = {
     },
     neobank: {
       preview: require("../assets/images/illustrations/neobank_mock_preview.png"),
+      intro: require("../assets/images/illustrations/neobank_1.png"),
+      userPersonas: require("../assets/images/illustrations/neobank_9.png"),
+      architecture: require("../assets/images/illustrations/neobank_2.png"),
+      uiKit1: require("../assets/images/illustrations/neobank_3.png"),
+      uiKit2: require("../assets/images/illustrations/neobank_4.png"),
+      uiKit3: require("../assets/images/illustrations/neobank_5.png"),
+      mobileApplication1: require("../assets/images/illustrations/neobank_6.png"),
+      mobileApplication2: require("../assets/images/illustrations/neobank_6.png"),
+      mobileApplication3: require("../assets/images/illustrations/neobank_6.png"),
     },
     loop: {
       preview: require("../assets/images/illustrations/loop_mock_preview.png"),

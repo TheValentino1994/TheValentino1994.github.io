@@ -34,7 +34,7 @@
     h3,
     span,
     & + span {
-      @extend %subheading_H4_Desktop;
+      @extend %subheading_H5_Desktop;
 
       color: $neutrals_N1000;
     }

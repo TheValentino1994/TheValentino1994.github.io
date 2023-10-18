@@ -1,6 +1,7 @@
 @import "./constants";
 @import "./colors";
 @import "./utils.scss";
+@import "./typography";
 
 %button {
   display: flex;
@@ -123,109 +124,4 @@
       $designMobileLayoutWidth
     );
   }
-}
-
-/* ------------------------------- Font styles ------------------------------ */
-
-//Headings
-
-%heading_H1_Desktop {
-  @include generateFont($inter, 500, 48px, 64px, -1px);
-}
-
-@mixin heading_H1_Mobile() {
-  @include generateFont($inter, 500, 24px, 36px, -1px);
-}
-
-//!!Deprecated
-%heading_H2 {
-  font-family: $kyivTypeSans;
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 52px;
-}
-//!!Deprecated
-%heading_H3 {
-  font-family: $kyivTypeSans;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 32px;
-  letter-spacing: 0.36px;
-}
-//!!Deprecated
-%heading_H4 {
-  font-family: $kyivTypeSans;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 32px;
-  letter-spacing: 1.5px;
-}
-
-//Subheadings:
-
-%subheading_H1_Desktop {
-  @include generateFont($inter, 500, 38px, 48px, -1px);
-}
-
-@mixin subheading_H1_Mobile() {
-  @include generateFont($inter, 500, 24px, 32px, -1px);
-}
-
-%subheading_H2_Desktop {
-  @include generateFont($inter, 400, 32px, 48px, -1px);
-}
-
-@mixin subheading_H2_Mobile() {
-  @include generateFont($inter, 400, 18px, 28px, -0.5px);
-}
-
-%subheading_H3_Desktop {
-  @include generateFont($inter, 400, 28px, 40px, -1px);
-}
-
-@mixin subheading_H3_Mobile() {
-  @include generateFont($inter, 500, 14px, 20px, -0.5px);
-}
-
-%subheading_H4_Desktop {
-  @include generateFont($inter, 400, 18px, 28px, -0.5px);
-}
-
-//Body:
-
-%body_B1_Desktop {
-  @include generateFont($inter, 400, 24px, 36px, 0px);
-}
-
-@mixin body_B1_Mobile() {
-  @include generateFont($inter, 500, 16px, 24px, 0px);
-}
-
-%body_B2_Desktop {
-  @include generateFont($inter, 500, 16px, 24px, 0px);
-}
-
-@mixin body_B2_Mobile() {
-  @include generateFont($inter, 500, 14px, 16px, -0.4px);
-}
-
-%body_B3_Desktop {
-  @include generateFont($inter, 500, 14px, 20px, 0px);
-}
-
-//!!Deprecated
-%body_B4_18 {
-  font-family: $kyivTypeTitling;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 32px;
-}
-
-//!!Deprecated
-%body_B4_16 {
-  font-family: $kyivTypeTitling;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.3px;
 }
