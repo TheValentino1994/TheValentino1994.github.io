@@ -7,7 +7,7 @@ const Intro: FC = () => {
   /* --------------------------------- Render --------------------------------- */
 
   return (
-    <div className="neobankIntro">
+    <section className="neobankIntro">
       <div className="neobankIntro__container">
         <div className="neobankIntro__row">
           <div className="neobankIntro__left">
@@ -53,7 +53,7 @@ const Intro: FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,67 +1,59 @@
 /* ------------------------------ Basic imports ----------------------------- */
-import React, { FC } from "react";
+import { FC } from "react";
 import "./challengesStyles.scss";
-
-/* -------------------------------- Constants ------------------------------- */
-import { VIDEOS } from "../../../../constants/_videos";
+import GradientCard, {
+  GradientCardProps,
+} from "../../../../components/GradientCard";
 import { IMAGES } from "../../../../constants/_images";
 
-/* ------------------------------- Components ------------------------------- */
-import { IphoneX } from "../../../../components";
-
-/* ---------------------------------- Hooks --------------------------------- */
-import { useSlides } from "../../../../hooks/useSlides";
+const GOALS: Array<GradientCardProps> = [
+  {
+    title: "Idea & Goals",
+    description:
+      "Create a convenient mobile application that contains functionality for financial management",
+  },
+  {
+    title: "Research",
+    description:
+      "Study of the subject area, analysis of competitors. Creating a Roadmap",
+  },
+  {
+    title: "Wireframes",
+    description: `Creating a user flow to display all possible user path options`,
+  },
+  {
+    type: "neobank",
+    title: "UI Design",
+    description:
+      "Drawing of all screen states depending on the concept. Creating a UIKit and clickable prototype.",
+  },
+];
 
 const Challenges: FC = () => {
-  const { slideToShow } = useSlides(5, 4000);
-
   /* --------------------------------- Render --------------------------------- */
 
   return (
-    <div className="lexerChallenges">
-      <div className="lexerChallenges__container">
-        <div className="lexerChallenges__demonstrationContainer">
-          <div className="lexerChallenges__demonstration">
-            <IphoneX
-              alt="Lexer challenges illustration"
-              videoSrc={VIDEOS.lexer.challanges1}
-            />
-          </div>
+    <section className="neobankChallenges">
+      <div className="neobankChallenges__container">
+        <GradientCard
+          title="Challenge"
+          description="To design a Neobank app that provides end-to-end banking and financial service to customers with multiple bank accounts, simplifying banking and is a single destination for all banking operations and more."
+        />
+        <GradientCard
+          type="neobank"
+          title="Solution"
+          description="To create a banking system fundamentally different from traditional banks, providing, linking of multiple bank accounts, hassle-free account creation, seamless payments, smart reporting, user-friendly interface."
+        />
 
-          <div className="lexerChallenges__demonstration">
-            <IphoneX
-              alt="Lexer challenges illustration"
-              screenshotSrc={IMAGES.projectsPhotos.lexer.slides1[slideToShow]}
-            />
-          </div>
-        </div>
-
-        <div className="lexerChallenges__row">
-          <div className="lexerChallenges__left">
-            <div>
-              <h3>Challenges</h3>
-              <p>Product manufacturing stage</p>
-            </div>
-          </div>
-
-          <div className="lexerChallenges__right lexerChallenges__mainText">
-            <h2>
-              Great ideas attract users, and thoughtful design makes them stay.
-            </h2>
-
-            <p>
-              One of the most demanded feature that Lexer provides to its users
-              is simple interaction with cryptocurrency.
-            </p>
-
-            <p>
-              Using Lexer, users get free access to wallets and fast,
-              transparent withdrawals and exchanges of cryptocurrency money.
-            </p>
-          </div>
-        </div>
+        <IMAGES.Illustrations.Ellipse />
       </div>
-    </div>
+
+      <div className="neobankChallenges__container">
+        {GOALS.map((item) => (
+          <GradientCard key={item.title} {...item} />
+        ))}
+      </div>
+    </section>
   );
 };
 

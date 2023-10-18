@@ -8,6 +8,7 @@ import IphoneX from "../assets/images/illustrations/iPhone_X.png";
 import { HomeIntroBigLava } from "../assets/images/illustrations/HomeIntroBigLava";
 import { HomeIntroSmallLava } from "../assets/images/illustrations/HomeIntroSmallLava";
 import { HomeIntroWave } from "../assets/images/illustrations/HomeIntroWave";
+import { ReactComponent as Ellipse } from "../assets/images/illustrations/ellipse.svg";
 
 /* ------------------------------- Backgrounds ------------------------------ */
 import FooterBg from "../assets/images/backgrounds/footerBg.svg";
@@ -23,6 +24,7 @@ export const IMAGES = {
     HomeIntroBigLava,
     HomeIntroSmallLava,
     HomeIntroWave,
+    Ellipse,
   },
 
   backgrounds: {

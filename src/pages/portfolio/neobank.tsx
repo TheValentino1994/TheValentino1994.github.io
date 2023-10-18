@@ -1,13 +1,8 @@
 /* ------------------------------ Basic imports ----------------------------- */
-import React, { FC } from "react";
+import { FC } from "react";
 
 /* ------------------------------- Block pages ------------------------------ */
-import {
-  Challenges,
-  Intro,
-  DesignSystem,
-  UiProcess,
-} from "../../blockPages/portfolio/neobank";
+import { Challenges, Intro } from "../../blockPages/portfolio/neobank";
 
 const Neobank: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -15,9 +10,7 @@ const Neobank: FC = () => {
   return (
     <>
       <Intro />
-      {/* <Challenges />
-      <UiProcess />
-      <DesignSystem /> */}
+      <Challenges />
     </>
   );
 };

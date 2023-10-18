@@ -1,98 +1,90 @@
 @import "../../../../scss/repeat.scss";
-@import "../../../../scss/colors.scss";
-@import "../../../../scss/animations.scss";
+@import "../../../../scss/colors";
 
-.lexerChallenges {
-  padding-bottom: 226px;
+@mixin placeItems($cardsCount, $cardsTopOffset) {
+  @for $i from 1 through $cardsCount {
+    &:nth-child(#{$i}) {
+      margin-top: map-get($cardsTopOffset, $i);
+    }
+
+    // @media (max-width: $largeMobile) {
+    //   &:nth-child(#{$i}) {
+    //     top: 68px;
+    //   }
+    // }
+  }
+}
+
+.neobankChallenges {
+  padding: 105px 0;
 
   &__container {
     @extend %container;
-  }
 
-  &__row {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  &__left {
-    width: 31.58%;
-
-    div:not(:last-child) {
-      margin-bottom: 56px;
-    }
-
-    p {
-      @extend %body_B4_18;
-    }
-  }
-
-  &__right {
-    width: calc(100% - 31.58% - 32px);
-  }
-
-  &__demonstrationContainer {
     flex-direction: row;
     justify-content: space-between;
 
-    margin: 0 0 56px;
-    padding: 0 40px;
-
-    height: 720px;
-    width: 100%;
+    padding-bottom: 80px;
   }
 
-  &__demonstration {
-    @extend %center;
+  &__container .gradientCard {
+    position: relative;
 
-    overflow: hidden;
+    &:last-child p {
+      color: $neutrals_N100;
+    }
+  }
 
-    background-color: $demonstrationBg;
+  &__container:first-child {
+    position: relative;
 
-    width: calc(100% - 48.59% - 32px);
-    height: 100%;
+    .gradientCard {
+      position: relative;
+      z-index: 2;
 
-    &:nth-child(2) {
-      .iphoneX {
-        @extend %slideSingleIphoneAnimation;
+      padding: 60px 40px;
+      width: calculatePercentage(548px, $containerDesktopMaxWidth);
+
+      p {
+        @extend %body_B1_Desktop;
+
+        margin-top: unset;
       }
+
+      @include placeItems(
+        2,
+        (
+          1: calculatePercentage(220, 874),
+          2: 0,
+        )
+      );
+    }
+
+    svg {
+      @extend %absoluteCenter;
+      z-index: 1;
+
+      width: 1000px;
+      height: 1000px;
+
+      top: calc(50% - 5%);
+      left: calc(50% + 25%);
     }
   }
 
-  h2 {
-    @extend %heading_H2;
+  &__container:last-child .gradientCard {
+    position: relative;
 
-    margin-bottom: 56px;
-  }
+    width: calculatePercentage(288px, $containerDesktopMaxWidth);
 
-  h3 {
-    @extend %body_B2_Desktop;
-
-    margin-bottom: 4px;
-    padding-left: 40px;
-  }
-
-  p {
-    @extend %body_B1_Desktop;
-
-    color: $neutrals_N500;
-
-    padding: 0 40px;
-
-    &:not(:last-child) {
-      margin-bottom: 8px;
-    }
-  }
-
-  &__mainText {
-    margin: 0;
-    padding: 0 40px;
-
-    p {
-      padding: 0;
-
-      &:not(:last-child) {
-        margin-bottom: 32px;
-      }
-    }
+    @include placeItems(
+      4,
+      (
+        1: calculatePercentage(100, 770),
+        2: calculatePercentage(200, 770),
+        3: calculatePercentage(140, 770),
+        4: 0,
+      )
+    );
   }
 }

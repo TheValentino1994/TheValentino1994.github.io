@@ -1,0 +1,52 @@
+@import "../../scss/_colors";
+@import "../../scss/repeat";
+
+.gradientCard {
+  height: fit-content;
+  padding: 28px;
+
+  border: 1px solid rgba($neutrals_N500, 0.3);
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  &.neobank {
+    background: linear-gradient(
+        242.51deg,
+        rgba(6, 166, 142, 0.28) -0.89%,
+        rgba(1, 34, 29, 0.8) 101.07%
+      ),
+      linear-gradient(243.8deg, #080808 0%, rgba(251, 255, 250, 0) 100%);
+
+    border-color: rgba(6, 166, 142, 0.28);
+  }
+
+  &.intrac {
+    background: linear-gradient(
+        243.8deg,
+        #080808 0%,
+        rgba(251, 255, 250, 0) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(7, 7, 7, 0.81) -2.83%,
+        rgba(101, 95, 212, 0.81) 29.84%,
+        rgba(56, 53, 115, 0.81) 72.69%,
+        rgba(7, 7, 7, 0.81) 100%
+      );
+  }
+
+  h3 {
+    @extend %subheading_H2_Desktop;
+
+    color: $neutrals_N100;
+  }
+
+  p {
+    @extend %subheading_H6_Desktop;
+
+    margin-top: 180px;
+
+    color: $neutrals_N500;
+  }
+}
