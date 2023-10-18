@@ -1,0 +1,77 @@
+@import "../../../../scss/repeat.scss";
+@import "../../../../scss/colors";
+
+.neobankIntro {
+  padding: 105px 0;
+
+  &__container {
+    @extend %container;
+
+    padding: 80px 0;
+  }
+
+  &__row {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__left {
+    flex: 1;
+    max-width: 255px;
+
+    margin-right: 52px;
+  }
+
+  &__right {
+    flex: 1;
+  }
+
+  h2 {
+    @extend %heading_H2_Desktop;
+
+    color: $neutrals_N100;
+  }
+
+  h3 {
+    @extend %subheading_H5_Desktop;
+
+    letter-spacing: 0px;
+    font-weight: 600;
+
+    margin-bottom: 4px;
+
+    color: $neutrals_N100;
+  }
+
+  p {
+    @extend %subheading_H5_Desktop;
+
+    color: $neutrals_N500;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__demonstration {
+    @extend %center;
+
+    width: 100%;
+    max-height: 1020px;
+    object-fit: contain;
+  }
+
+  &__mainText {
+    flex: 1;
+
+    p {
+      @extend %body_B1_Desktop;
+
+      color: $neutrals_N100;
+
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}

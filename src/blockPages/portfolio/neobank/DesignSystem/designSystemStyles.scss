@@ -1,0 +1,74 @@
+@import "../../../../scss/repeat.scss";
+@import "../../../../scss/colors.scss";
+
+.lexerDesignSystem {
+  padding-bottom: 226px;
+
+  &__container {
+    @extend %container;
+  }
+
+  &__row {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__left {
+    width: 31.58%;
+
+    div:not(:last-child) {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__right {
+    width: calc(100% - 31.58% - 32px);
+  }
+
+  &__demonstration {
+    background-color: $demonstrationBg;
+
+    margin: 0 40px 56px 40px;
+
+    width: calc(100% - 80px);
+    height: 720px;
+
+    img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+  }
+
+  h2 {
+    @extend %heading_H2;
+
+    margin-bottom: 56px;
+  }
+
+  h3 {
+    @extend %body_B2_Desktop;
+
+    margin-bottom: 4px;
+
+    padding-left: 40px;
+  }
+
+  &__mainText {
+    @extend %body_B1_Desktop;
+
+    margin: 0;
+    padding: 0 40px;
+
+    p {
+      padding: 0;
+
+      color: $neutrals_N500;
+
+      &:not(:last-child) {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
