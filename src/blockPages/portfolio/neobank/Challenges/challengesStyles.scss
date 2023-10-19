@@ -15,8 +15,41 @@
   }
 }
 
+@mixin placeEllipse() {
+  &__container:first-child svg {
+    transition: all 0.4s ease;
+
+    position: absolute;
+    z-index: 1;
+
+    height: 100%;
+    width: 150%;
+  }
+
+  @media (max-width: $designDesktopLayoutWidth) {
+    &__container:first-child svg {
+      width: 140%;
+      top: -2%;
+    }
+  }
+
+  @media (max-width: $smallDesktop) {
+    &__container:first-child svg {
+      width: 130%;
+      top: -4%;
+    }
+  }
+
+  @media (max-width: $largeTablet) {
+    &__container:first-child svg {
+      width: 115%;
+      top: 3%;
+    }
+  }
+}
+
 .neobankChallenges {
-  padding: 105px 0;
+  padding: 80px 0;
   width: 100%;
 
   &__container {
@@ -37,42 +70,32 @@
     }
   }
 
-  &__container:first-child {
-    .gradientCard {
-      z-index: 2;
+  &__container:first-child .gradientCard {
+    z-index: 2;
 
-      padding: 60px 40px;
-      width: calculatePercentage(548px, $containerDesktopMaxWidth);
+    padding: 60px 40px;
+    width: calculatePercentage(548px, $containerDesktopMaxWidth);
 
-      p {
-        @extend %body_B1_Desktop;
+    p {
+      @extend %body_B1_Desktop;
 
-        margin-top: unset;
-      }
-
-      @include placeItems(
-        2,
-        (
-          1: calculatePercentage(220, 874),
-          2: 0,
-        )
-      );
+      margin-top: unset;
     }
 
-    svg {
-      @extend %absoluteCenter;
-      z-index: 1;
-
-      // width: 1000px;
-      width: 90%;
-
-      top: calc(50% - 5%);
-      left: calc(50% + 25%);
-    }
+    @include placeItems(
+      2,
+      (
+        1: calculatePercentage(220, 874),
+        2: 0,
+      )
+    );
   }
+
+  @include placeEllipse();
 
   &__container:last-child .gradientCard {
     width: calculatePercentage(288px, $containerDesktopMaxWidth);
+    height: 398px;
 
     @include placeItems(
       4,

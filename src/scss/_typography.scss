@@ -120,3 +120,13 @@
   line-height: 24px;
   letter-spacing: 0.3px;
 }
+
+@mixin adaptiveFont($pcSize, $mobSize) {
+  $layoutWidth: 1440;
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $layoutWidth - 320;
+
+  font-size: calc(
+    #{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
+  );
+}
