@@ -29,7 +29,7 @@
       padding: 80px 0;
     }
 
-    & .gradientCard {
+    .gradientCard {
       position: relative;
 
       width: calculatePercentage(288px, $containerDesktopMaxWidth);
@@ -51,26 +51,22 @@
   }
 
   &__left {
-    flex: 1;
-    max-width: 255px;
+    @extend %subheading_H5_Desktop;
 
+    flex: 1;
+
+    max-width: 255px;
     margin-right: 52px;
 
-    p {
-      @extend %subheading_H5_Desktop;
-
-      color: $neutrals_N500;
-    }
+    color: $neutrals_N500;
   }
 
   &__right {
+    @extend %body_B1_Desktop;
+
     flex: 1;
 
-    p {
-      @extend %body_B1_Desktop;
-
-      color: $neutrals_N100;
-    }
+    color: $neutrals_N100;
   }
 
   img {
@@ -104,10 +100,6 @@
       max-width: unset;
 
       margin: 0 0 24px 0;
-
-      div {
-        flex-direction: row;
-      }
     }
 
     img {
@@ -116,11 +108,11 @@
   }
 
   @media (max-width: $largeMobile) {
-    p {
+    &__left {
       @include subheading_H3_Mobile();
     }
 
-    &__right p {
+    &__right {
       @include heading_H1_Mobile();
     }
   }

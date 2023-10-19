@@ -7,6 +7,12 @@
     padding: 80px 0;
   }
 
+  h3 {
+    @extend %subheading_H3_Desktop;
+
+    color: $neutrals_N100;
+  }
+
   &__phases {
     flex-direction: row;
     justify-content: space-between;
@@ -17,26 +23,20 @@
       $itemWidth: calc(($containerDesktopMaxWidth - 56px * 2) / 3);
 
       width: calculatePercentage($itemWidth, $containerDesktopMaxWidth);
+
+      h4 {
+        @extend %subheading_H2_Desktop;
+        color: $neutrals_N100;
+
+        margin-bottom: 16px;
+      }
+
+      p {
+        @extend %body_B2_Desktop;
+
+        color: $neutrals_N500;
+      }
     }
-  }
-
-  h3 {
-    @extend %subheading_H3_Desktop;
-
-    color: $neutrals_N100;
-  }
-
-  h4 {
-    @extend %subheading_H2_Desktop;
-    color: $neutrals_N100;
-
-    margin-bottom: 16px;
-  }
-
-  p {
-    @extend %body_B2_Desktop;
-
-    color: $neutrals_N500;
   }
 
   &__diagram {
@@ -91,12 +91,13 @@
   }
 
   @media (max-width: $largeMobile) {
-    p {
-      @include subheading_H3_Mobile();
+    h3 {
+      @include subheading_H2_Mobile();
+
+      font-weight: 600;
     }
 
-    &__right p {
-      @include heading_H1_Mobile();
+    &__phases p {
     }
   }
 }

@@ -10,18 +10,13 @@ const UIKit: FC = () => {
     <section className="neobankUIKit">
       <div className="neobankUIKit__container">
         <div className="neobankUIKit__row">
-          <div className="neobankUIKit__left">
-            <p>UI Kit</p>
-          </div>
+          <p className="neobankUIKit__left">UI Kit</p>
 
-          <div className="neobankUIKit__right neobankUIKit__mainText">
-            <p>
-              One of my roles was to create a comprehensive and exhaustive ui
-              kit. Handing over the project to the cycle development team was
-              key, and thanks to careful planning, I succeeded without any
-              difficulties.
-            </p>
-          </div>
+          <p className="neobankUIKit__right">
+            One of my roles was to create a comprehensive and exhaustive ui kit.
+            Handing over the project to the cycle development team was key, and
+            thanks to careful planning, I succeeded without any difficulties.
+          </p>
         </div>
         <img src={IMAGES.projectsPhotos.neobank.uiKit1} alt="Neobank uikit" />
 

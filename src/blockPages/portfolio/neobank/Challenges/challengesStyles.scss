@@ -63,53 +63,53 @@
     justify-content: space-between;
 
     padding-bottom: 80px;
-  }
 
-  &__container .gradientCard {
-    position: relative;
+    .gradientCard {
+      position: relative;
 
-    &:last-child p {
-      color: $neutrals_N100;
-    }
-  }
-
-  &__container:first-child .gradientCard {
-    z-index: 2;
-
-    padding: 60px 40px;
-    width: calculatePercentage(548px, $containerDesktopMaxWidth);
-
-    p {
-      @extend %body_B1_Desktop;
-
-      margin-top: 20px;
+      &:last-child p {
+        color: $neutrals_N100;
+      }
     }
 
-    @include placeItems(
-      2,
-      (
-        1: calculatePercentage(220, 874),
-        2: 0,
-      )
-    );
+    &:first-child .gradientCard {
+      z-index: 2;
+
+      padding: 60px 40px;
+      width: calculatePercentage(548px, $containerDesktopMaxWidth);
+
+      p {
+        @extend %body_B1_Desktop;
+
+        margin-top: 20px;
+      }
+
+      @include placeItems(
+        2,
+        (
+          1: calculatePercentage(220, 874),
+          2: 0,
+        )
+      );
+    }
+
+    &:last-child .gradientCard {
+      width: calculatePercentage(288px, $containerDesktopMaxWidth);
+      height: 398px;
+
+      @include placeItems(
+        4,
+        (
+          1: calculatePercentage(100, 770),
+          2: calculatePercentage(200, 770),
+          3: calculatePercentage(140, 770),
+          4: 0,
+        )
+      );
+    }
   }
 
   @include placeEllipse();
-
-  &__container:last-child .gradientCard {
-    width: calculatePercentage(288px, $containerDesktopMaxWidth);
-    height: 398px;
-
-    @include placeItems(
-      4,
-      (
-        1: calculatePercentage(100, 770),
-        2: calculatePercentage(200, 770),
-        3: calculatePercentage(140, 770),
-        4: 0,
-      )
-    );
-  }
 
   @media (max-width: $largeTablet) {
     padding-top: 40px;
