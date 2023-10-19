@@ -1,0 +1,96 @@
+@import "../../../../scss/repeat.scss";
+
+@mixin placeItems($cardsCount, $cardsTopOffset) {
+  @for $i from 1 through $cardsCount {
+    &:nth-child(#{$i}) {
+      margin-top: map-get($cardsTopOffset, $i);
+    }
+
+    // @media (max-width: $largeMobile) {
+    //   &:nth-child(#{$i}) {
+    //     top: 68px;
+    //   }
+    // }
+  }
+}
+
+.neobankApplication {
+  &__container {
+    @extend %container;
+  }
+
+  &__row {
+    position: relative;
+
+    flex-direction: row;
+    justify-content: space-between;
+
+    &:not(:nth-of-type(2)) {
+      padding: 80px 0;
+    }
+
+    & .gradientCard {
+      position: relative;
+
+      width: calculatePercentage(288px, $containerDesktopMaxWidth);
+
+      @include placeItems(
+        4,
+        (
+          1: calculatePercentage(100, 770),
+          2: calculatePercentage(200, 770),
+          3: calculatePercentage(140, 770),
+          4: 0,
+        )
+      );
+
+      &:last-child p {
+        color: $neutrals_N100;
+      }
+    }
+  }
+
+  &__left {
+    flex: 1;
+    max-width: 255px;
+
+    margin-right: 52px;
+
+    p {
+      @extend %subheading_H5_Desktop;
+
+      color: $neutrals_N500;
+    }
+  }
+
+  &__right {
+    flex: 1;
+
+    p {
+      @extend %body_B1_Desktop;
+
+      color: $neutrals_N100;
+    }
+  }
+
+  img {
+    width: 100%;
+
+    object-fit: contain;
+
+    margin-top: 52px;
+  }
+
+  &__fullWidthIllustration {
+    position: relative;
+
+    height: 100vh;
+
+    img {
+      position: absolute;
+      right: 0;
+
+      margin-top: unset;
+    }
+  }
+}

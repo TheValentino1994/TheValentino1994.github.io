@@ -1,14 +1,14 @@
 /* ------------------------------ Basic imports ----------------------------- */
-import { FC, useEffect } from "react";
+import { FC, ReactNode, useEffect } from "react";
 
 /* -------------------------------- Libraries ------------------------------- */
 import { useLocation } from "react-router-dom";
 
 /* ------------------------------- Block pages ------------------------------ */
-import { Footer } from "../../blockPages/common";
+import { Header } from "../../blockPages/home";
 import { DefaultLayoutProps } from "../../types";
 
-const MainLayout: FC<DefaultLayoutProps> = ({ children }) => {
+const HomeLayout: FC<DefaultLayoutProps> = ({ children }) => {
   /* ---------------------------------- Hooks --------------------------------- */
 
   const { pathname } = useLocation();
@@ -23,11 +23,11 @@ const MainLayout: FC<DefaultLayoutProps> = ({ children }) => {
 
   return (
     <>
-      {children}
+      <Header />
 
-      <Footer />
+      {children}
     </>
   );
 };
 
-export default MainLayout;
+export default HomeLayout;

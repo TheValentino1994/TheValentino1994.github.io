@@ -9,8 +9,8 @@ import WorkItem from "../WorkItem";
 import { WORKS_LIST } from "../../../contentData/_worksList";
 
 /* -------------------------------- Libraries ------------------------------- */
-import { gsap } from "gsap-trial";
-import { ScrollTrigger } from "gsap-trial/ScrollTrigger";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const WorksList: FC = () => {
   const handleFooterVisility = useCallback(

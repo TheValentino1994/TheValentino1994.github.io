@@ -5,10 +5,13 @@ import { FC, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 /* ------------------------------- Block pages ------------------------------ */
-import { Footer } from "../../blockPages/common";
+import { Header } from "../../blockPages/portfolio/components";
 import { DefaultLayoutProps } from "../../types";
+import { gsap } from "gsap-trial";
+import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
+import { ScrollTrigger } from "gsap-trial/ScrollTrigger";
 
-const MainLayout: FC<DefaultLayoutProps> = ({ children }) => {
+const CaseLayout: FC<DefaultLayoutProps> = ({ children }) => {
   /* ---------------------------------- Hooks --------------------------------- */
 
   const { pathname } = useLocation();
@@ -19,15 +22,25 @@ const MainLayout: FC<DefaultLayoutProps> = ({ children }) => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+    ScrollSmoother.create({
+      smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
+      effects: false, // looks for data-speed and data-lag attributes on elements
+      smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+    });
+  });
+
   /* --------------------------------- Render --------------------------------- */
 
   return (
     <>
-      {children}
+      <Header />
 
-      <Footer />
+      {children}
     </>
   );
 };
 
-export default MainLayout;
+export default CaseLayout;

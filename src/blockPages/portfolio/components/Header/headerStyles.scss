@@ -1,0 +1,70 @@
+@import "../../../../scss/repeat.scss";
+@import "../../../../scss/colors";
+
+.header {
+  width: 100%;
+  padding: 24px 0;
+
+  position: fixed;
+  z-index: 100;
+
+  background-color: $neutrals_N1000;
+
+  &__container {
+    @extend %container, %subheading_H6_Desktop;
+
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  h3 {
+    color: $neutrals_N100;
+  }
+
+  p {
+    color: $neutrals_N500;
+  }
+
+  button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+
+    background: $neutrals_N100;
+    outline: none;
+    border: none;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+  }
+}
+
+// @media (max-width: $smallTablet) {
+//   .header {
+//     &__container {
+//       justify-content: space-between;
+//     }
+
+//     a:not(:last-child) {
+//       margin-right: unset;
+//     }
+//   }
+// }
+
+// @media (max-width: $largeMobile) {
+//   .header {
+//     padding: 0;
+
+//     a {
+//       @include subheading_H3_Mobile();
+
+//       padding: 24px 0;
+//     }
+//   }
+// }
