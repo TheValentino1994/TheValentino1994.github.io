@@ -33,9 +33,11 @@ const Intro: FC = () => {
         <div className="neobankIntro__row">
           <div className="neobankIntro__left">
             <h3>My Contribution</h3>
-            <p>UX Audit</p>
-            <p>UX / UI Design </p>
-            <p>Research</p>
+            <div>
+              <p>UX Audit</p>
+              <p>UX / UI Design</p>
+              <p>Research</p>
+            </div>
           </div>
 
           <div className="neobankIntro__right neobankIntro__mainText">

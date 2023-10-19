@@ -43,28 +43,12 @@
 
     cursor: pointer;
   }
+
+  @media (max-width: $largeMobile) {
+    &__container {
+      @include subheading_H3_Mobile();
+
+      letter-spacing: -0.5px;
+    }
+  }
 }
-
-// @media (max-width: $smallTablet) {
-//   .header {
-//     &__container {
-//       justify-content: space-between;
-//     }
-
-//     a:not(:last-child) {
-//       margin-right: unset;
-//     }
-//   }
-// }
-
-// @media (max-width: $largeMobile) {
-//   .header {
-//     padding: 0;
-
-//     a {
-//       @include subheading_H3_Mobile();
-
-//       padding: 24px 0;
-//     }
-//   }
-// }

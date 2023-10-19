@@ -67,7 +67,7 @@
 }
 
 %subheading_H4_Desktop {
-  @include generateFont($inter, 400, 24px, 36px, -0px);
+  @include generateFont($inter, 400, 24px, 36px, 0px);
 }
 
 @mixin subheading_H4_Mobile() {
