@@ -114,4 +114,14 @@
       margin-top: 24px;
     }
   }
+
+  @media (max-width: $largeMobile) {
+    p {
+      @include subheading_H3_Mobile();
+    }
+
+    &__right p {
+      @include heading_H1_Mobile();
+    }
+  }
 }

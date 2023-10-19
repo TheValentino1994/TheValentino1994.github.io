@@ -127,5 +127,9 @@
     p {
       @include subheading_H3_Mobile();
     }
+
+    &__mainText p {
+      @include heading_H1_Mobile();
+    }
   }
 }
