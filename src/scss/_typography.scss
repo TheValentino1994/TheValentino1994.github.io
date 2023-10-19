@@ -2,6 +2,7 @@
 
 %heading_H1_Desktop {
   @include generateFont($inter, 500, 48px, 64px, -1px);
+  @include adaptiveFont(48, 24, 64, 36);
 }
 
 @mixin heading_H1_Mobile() {
@@ -10,6 +11,7 @@
 
 %heading_H2_Desktop {
   @include generateFont($inter, 500, 48px, 56px, 0px);
+  @include adaptiveFont(48, 24, 56, 32);
 }
 
 @mixin heading_H2_Mobile() {
@@ -44,6 +46,7 @@
 
 %subheading_H1_Desktop {
   @include generateFont($inter, 500, 38px, 48px, -1px);
+  @include adaptiveFont(38, 24, 48, 32);
 }
 
 @mixin subheading_H1_Mobile() {
@@ -52,6 +55,7 @@
 
 %subheading_H2_Desktop {
   @include generateFont($inter, 400, 32px, 48px, -1px);
+  @include adaptiveFont(32, 18, 48, 28);
 }
 
 @mixin subheading_H2_Mobile() {
@@ -60,6 +64,7 @@
 
 %subheading_H3_Desktop {
   @include generateFont($inter, 400, 28px, 40px, -1px);
+  @include adaptiveFont(28, 18, 40, 28);
 }
 
 @mixin subheading_H3_Mobile() {
@@ -68,6 +73,7 @@
 
 %subheading_H4_Desktop {
   @include generateFont($inter, 400, 24px, 36px, 0px);
+  @include adaptiveFont(24, 14, 36, 20);
 }
 
 @mixin subheading_H4_Mobile() {
@@ -86,6 +92,7 @@
 
 %body_B1_Desktop {
   @include generateFont($inter, 400, 24px, 36px, 0px);
+  @include adaptiveFont(24, 16, 36, 24);
 }
 
 @mixin body_B1_Mobile() {
@@ -94,10 +101,11 @@
 
 %body_B2_Desktop {
   @include generateFont($inter, 500, 16px, 24px, 0px);
+  @include adaptiveFont(16, 14, 24, 16);
 }
 
 @mixin body_B2_Mobile() {
-  @include generateFont($inter, 500, 14px, 16px, -0.4px);
+  @include generateFont($inter, 500, 14px, 16px, -0.5px);
 }
 
 %body_B3_Desktop {
@@ -119,14 +127,4 @@
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.3px;
-}
-
-@mixin adaptiveFont($pcSize, $mobSize) {
-  $layoutWidth: 1440;
-  $addSize: $pcSize - $mobSize;
-  $maxWidth: $layoutWidth - 320;
-
-  font-size: calc(
-    #{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
-  );
 }

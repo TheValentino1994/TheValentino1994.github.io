@@ -93,4 +93,25 @@
       margin-top: unset;
     }
   }
+
+  @media (max-width: $largeTablet) {
+    &__row:first-child {
+      flex-direction: column;
+      padding: 40px 0;
+    }
+
+    &__left {
+      max-width: unset;
+
+      margin: 0 0 24px 0;
+
+      div {
+        flex-direction: row;
+      }
+    }
+
+    img {
+      margin-top: 24px;
+    }
+  }
 }

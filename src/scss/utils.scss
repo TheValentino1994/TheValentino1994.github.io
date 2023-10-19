@@ -15,3 +15,22 @@
   line-height: $lineHeight;
   letter-spacing: $letterSpacing;
 }
+
+@mixin adaptiveFont(
+  $desktopSize,
+  $mobileSize,
+  $desktopLineHeight,
+  $mobileLineHeight
+) {
+  @media (max-width: $designDesktopLayoutWidth) and (min-width: $largeMobile) {
+    $layoutWidth: 1440;
+    $addSize: $desktopSize - $mobileSize;
+    $maxWidth: $layoutWidth - 320;
+
+    font-size: calc(
+      #{$mobileSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
+    );
+
+    $addHeight: $desktopLineHeight - $mobileLineHeight;
+  }
+}

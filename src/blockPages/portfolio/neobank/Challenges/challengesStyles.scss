@@ -36,24 +36,27 @@
   @media (max-width: $smallDesktop) {
     &__container:first-child svg {
       width: 130%;
-      top: -4%;
+      top: -2%;
+      left: -5%;
     }
   }
 
   @media (max-width: $largeTablet) {
     &__container:first-child svg {
-      width: 115%;
-      top: 3%;
+      width: 80%;
+      top: 15%;
+      left: 30%;
     }
   }
 }
 
 .neobankChallenges {
-  padding: 80px 0;
+  padding-top: 80px;
   width: 100%;
 
   &__container {
     @extend %container;
+
     position: relative;
 
     flex-direction: row;
@@ -79,7 +82,7 @@
     p {
       @extend %body_B1_Desktop;
 
-      margin-top: unset;
+      margin-top: 20px;
     }
 
     @include placeItems(
@@ -106,5 +109,13 @@
         4: 0,
       )
     );
+  }
+
+  @media (max-width: $largeTablet) {
+    padding-top: 40px;
+
+    &__container {
+      padding-bottom: 40px;
+    }
   }
 }

@@ -9,7 +9,7 @@ const UserPersonas: FC = () => {
   return (
     <section className="neobankUserPersonas">
       <div className="neobankUserPersonas__container">
-        <h3>Design phases</h3>
+        <h3>User Personas</h3>
 
         <img
           src={IMAGES.projectsPhotos.neobank.userPersonas}

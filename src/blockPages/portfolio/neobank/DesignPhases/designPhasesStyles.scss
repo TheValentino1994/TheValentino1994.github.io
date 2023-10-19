@@ -75,4 +75,18 @@
       }
     }
   }
+
+  @media (max-width: $largeTablet) {
+    &__container {
+      padding: 40px 0;
+    }
+
+    &__phases {
+      margin: 24px 0;
+    }
+
+    &__diagramHeader {
+      margin-bottom: 18px;
+    }
+  }
 }

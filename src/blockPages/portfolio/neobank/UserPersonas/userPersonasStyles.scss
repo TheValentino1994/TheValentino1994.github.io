@@ -20,4 +20,16 @@
 
     object-fit: contain;
   }
+
+  @media (max-width: $largeTablet) {
+    h3 {
+      margin-bottom: 12px;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    & {
+      display: none;
+    }
+  }
 }
