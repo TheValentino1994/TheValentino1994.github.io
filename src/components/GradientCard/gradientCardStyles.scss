@@ -49,4 +49,14 @@
 
     color: $neutrals_N500;
   }
+
+  @media (max-width: $largeMobile) {
+    h3 {
+      @include heading_H1_Mobile();
+    }
+
+    p {
+      @include subheading_H3_Mobile();
+    }
+  }
 }

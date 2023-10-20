@@ -46,7 +46,9 @@ const Application: FC = () => {
             user-friendly experience.
           </p>
         </div>
+      </div>
 
+      <div className="neobankApplication__container">
         <div className="neobankApplication__row">
           {SUMMARY.map((item) => (
             <GradientCard key={item.title} {...item} />

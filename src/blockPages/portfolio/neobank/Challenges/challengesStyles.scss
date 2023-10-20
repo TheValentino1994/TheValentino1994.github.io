@@ -48,6 +48,12 @@
       left: 30%;
     }
   }
+
+  @media (max-width: $tablet) {
+    &__container:first-child svg {
+      display: none;
+    }
+  }
 }
 
 .neobankChallenges {
@@ -116,6 +122,58 @@
 
     &__container {
       padding-bottom: 40px;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    &__container {
+      width: 100%;
+      padding: 0 24px 40px 24px;
+
+      justify-content: flex-start;
+
+      overflow-x: overlay;
+
+      .gradientCard {
+        margin-top: 0 !important;
+      }
+
+      &:first-child .gradientCard {
+        width: calc(100vw - 48px);
+        min-width: 320px;
+        height: unset;
+
+        flex: 1;
+
+        &:first-child {
+          margin-right: 14px;
+        }
+      }
+
+      &:last-child .gradientCard {
+        min-width: 288px;
+
+        &:not(:last-child) {
+          margin-right: 14px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $largeMobile) {
+    &__container {
+      &:first-child .gradientCard {
+        width: 288px;
+        min-width: 288px;
+
+        p {
+          @include subheading_H3_Mobile();
+        }
+      }
+
+      &:last-child .gradientCard {
+        min-width: 288px;
+      }
     }
   }
 }

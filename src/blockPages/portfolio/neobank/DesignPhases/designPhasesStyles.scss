@@ -56,6 +56,8 @@
     div {
       @extend %body_B1_Desktop, %center;
 
+      text-align: center;
+
       background: linear-gradient(
         242.51deg,
         rgba(6, 166, 142, 0.28) -0.89%,
@@ -97,7 +99,35 @@
       font-weight: 600;
     }
 
-    &__phases p {
+    &__phases {
+      flex-direction: column;
+
+      div {
+        width: 100%;
+
+        h4 {
+          @include heading_H1_Mobile();
+        }
+
+        p {
+          @include subheading_H3_Mobile();
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 18px;
+        }
+      }
+    }
+
+    &__diagramHeader div {
+      @include body_B1_Mobile();
+
+      &:first-child {
+        flex: 1;
+        width: unset;
+
+        margin-right: 8px;
+      }
     }
   }
 }
