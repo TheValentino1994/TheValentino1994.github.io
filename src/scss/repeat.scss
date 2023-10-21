@@ -119,9 +119,6 @@
   align-self: center;
 
   @media (max-width: $largeTablet) {
-    width: calculatePercentage(
-      $containerMobileMaxWidth,
-      $designMobileLayoutWidth
-    );
+    width: calc(100% - (24px * 2));
   }
 }
