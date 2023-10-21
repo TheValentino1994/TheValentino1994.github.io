@@ -1,0 +1,109 @@
+@import "../../../../scss/repeat.scss";
+
+.intracDesignSystem {
+  &__container {
+    @extend %container;
+  }
+
+  &__row {
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 80px 0;
+  }
+
+  &__left {
+    @extend %subheading_H5_Desktop;
+
+    flex: 1;
+
+    max-width: 255px;
+    margin-right: 52px;
+
+    color: $neutrals_N500;
+  }
+
+  &__right {
+    @extend %body_B1_Desktop;
+
+    flex: 1;
+
+    color: $neutrals_N100;
+  }
+
+  &__container:nth-child(2) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    img {
+      width: calculatePercentage(562px, $containerDesktopMaxWidth);
+
+      object-fit: contain;
+
+      &:nth-child(3),
+      &:nth-child(4) {
+        margin-top: 52px;
+      }
+    }
+  }
+
+  @media (max-width: $largeTablet) {
+    &__row {
+      flex-direction: column;
+
+      padding: 40px 0;
+    }
+
+    &__left {
+      max-width: unset;
+
+      margin: 0 0 24px 0;
+    }
+
+    &__container:nth-child(2) img {
+      width: calculatePercentage(576px, $containerDesktopMaxWidth);
+
+      &:nth-child(3),
+      &:nth-child(4) {
+        margin-top: 18px;
+      }
+    }
+  }
+
+  @media (max-width: $tablet) {
+    &__container:nth-child(2) {
+      width: 100%;
+
+      padding: 0 24px 0 24px;
+
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+
+      overflow-x: overlay;
+
+      img {
+        width: 90vw;
+
+        &:not(:last-child) {
+          margin-right: 16px;
+        }
+
+        &:nth-child(3),
+        &:nth-child(4) {
+          margin-top: unset;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $largeMobile) {
+    &__left {
+      @include subheading_H3_Mobile();
+    }
+
+    &__right {
+      @include heading_H1_Mobile();
+    }
+  }
+}

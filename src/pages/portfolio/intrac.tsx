@@ -5,10 +5,10 @@ import { FC } from "react";
 import {
   Challenges,
   Intro,
-  DesignPhases,
-  UserPersonas,
   DesignArchitecture,
-  UIKit,
+  Solution,
+  DesignSystem,
+  WebInterface,
   Application,
 } from "../../blockPages/portfolio/intrac";
 import { CaseLayout } from "../../layouts";
@@ -21,9 +21,9 @@ const Intrac: FC = () => {
       <Intro />
       <Challenges />
       <DesignArchitecture />
-      <DesignPhases />
-      <UserPersonas />
-      <UIKit />
+      <Solution />
+      <DesignSystem />
+      <WebInterface />
       <Application />
     </CaseLayout>
   );

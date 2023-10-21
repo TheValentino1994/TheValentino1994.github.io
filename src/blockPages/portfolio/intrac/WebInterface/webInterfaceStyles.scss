@@ -1,15 +1,19 @@
 @import "../../../../scss/repeat.scss";
 
-.neobankUIKit {
+.intracWebInterface {
+  padding: 80px 0;
+
   &__container {
     @extend %container;
+
+    &:not(:last-child) {
+      padding-bottom: 80px;
+    }
   }
 
   &__row {
     flex-direction: row;
     justify-content: space-between;
-
-    padding: 80px 0;
   }
 
   &__left {
@@ -35,27 +39,23 @@
     width: 100%;
 
     object-fit: contain;
-
-    &:nth-of-type(2) {
-      margin-top: 52px;
-    }
   }
 
   @media (max-width: $largeTablet) {
+    padding: 40px 0;
+
+    &__container:not(:last-child) {
+      padding-bottom: 40px;
+    }
+
     &__row {
       flex-direction: column;
-
-      padding: 40px 0;
     }
 
     &__left {
       max-width: unset;
 
       margin: 0 0 24px 0;
-    }
-
-    img:nth-of-type(2) {
-      margin-top: 24px;
     }
   }
 
