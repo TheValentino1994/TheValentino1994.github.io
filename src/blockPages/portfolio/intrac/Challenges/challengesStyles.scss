@@ -1,0 +1,86 @@
+@import "../../../../scss/repeat.scss";
+@import "../../../../scss/colors";
+
+@mixin placeItems($cardsCount, $cardsTopOffset) {
+  @for $i from 1 through $cardsCount {
+    &:nth-child(#{$i}) {
+      margin-top: map-get($cardsTopOffset, $i);
+    }
+  }
+}
+
+.intracChallenges {
+  padding: 80px 0;
+  width: 100%;
+
+  &__container {
+    @extend %container;
+
+    position: relative;
+
+    flex-direction: row;
+    justify-content: space-between;
+
+    .gradientCard {
+      position: relative;
+      z-index: 2;
+
+      width: calculatePercentage(288px, $containerDesktopMaxWidth);
+      height: 398px;
+
+      @include placeItems(
+        4,
+        (
+          1: calculatePercentage(100, 770),
+          2: calculatePercentage(200, 770),
+          3: calculatePercentage(140, 770),
+          4: 0,
+        )
+      );
+
+      &:last-child p {
+        color: $neutrals_N100;
+      }
+    }
+  }
+
+  @media (max-width: $largeTablet) {
+    padding-top: 40px;
+
+    &__container {
+      padding-bottom: 40px;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    &__container {
+      width: 100%;
+      padding: 0 24px 0 24px;
+
+      justify-content: flex-start;
+
+      overflow-x: overlay;
+
+      .gradientCard {
+        margin-top: 0 !important;
+
+        width: 288px;
+        min-width: 288px;
+
+        flex: 1;
+
+        &:not(:last-child) {
+          margin-right: 14px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $largeMobile) {
+    &__container {
+      .gradientCard p {
+        @include subheading_H3_Mobile();
+      }
+    }
+  }
+}

@@ -35,6 +35,23 @@ export const IMAGES = {
   projectsPhotos: {
     intrac: {
       preview: require("../assets/images/illustrations/intrack_mock_preview.png"),
+      intro: require("../assets/images/illustrations/intrac_1.png"),
+      architectureDiagram: require("../assets/images/illustrations/intrac_2.png"),
+      solution: [
+        require("../assets/images/illustrations/intrac_3.png"),
+        require("../assets/images/illustrations/intrac_4.png"),
+        require("../assets/images/illustrations/intrac_5.png"),
+        require("../assets/images/illustrations/intrac_6.png"),
+      ],
+      designSystem: [
+        require("../assets/images/illustrations/intrac_7.png"),
+        require("../assets/images/illustrations/intrac_8.png"),
+        require("../assets/images/illustrations/intrac_9.png"),
+        require("../assets/images/illustrations/intrac_10.png"),
+      ],
+      webInterface1: require("../assets/images/illustrations/intrac_11.png"),
+      webInterface2: require("../assets/images/illustrations/intrac_12.png"),
+      application: require("../assets/images/illustrations/intrac_13.png"),
     },
     neobank: {
       preview: require("../assets/images/illustrations/neobank_mock_preview.png"),

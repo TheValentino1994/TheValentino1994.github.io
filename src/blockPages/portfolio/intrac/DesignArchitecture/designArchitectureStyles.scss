@@ -1,0 +1,19 @@
+@import "../../../../scss/repeat.scss";
+
+.intracDesignArchitecture {
+  padding: 80px 0;
+
+  &__container {
+    @extend %container;
+  }
+
+  img {
+    width: 100%;
+
+    object-fit: contain;
+  }
+
+  @media (max-width: $largeTablet) {
+    padding: 40px 0;
+  }
+}

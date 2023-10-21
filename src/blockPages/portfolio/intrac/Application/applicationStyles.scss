@@ -1,0 +1,156 @@
+@import "../../../../scss/repeat.scss";
+
+@mixin placeItems($cardsCount, $cardsTopOffset) {
+  @for $i from 1 through $cardsCount {
+    &:nth-child(#{$i}) {
+      margin-top: map-get($cardsTopOffset, $i);
+    }
+
+    // @media (max-width: $largeMobile) {
+    //   &:nth-child(#{$i}) {
+    //     top: 68px;
+    //   }
+    // }
+  }
+}
+
+.neobankApplication {
+  &__container {
+    @extend %container;
+  }
+
+  &__row {
+    position: relative;
+
+    flex-direction: row;
+    justify-content: space-between;
+
+    .gradientCard {
+      position: relative;
+
+      width: calculatePercentage(288px, $containerDesktopMaxWidth);
+      height: 398px;
+
+      @include placeItems(
+        4,
+        (
+          1: calculatePercentage(100, 770),
+          2: calculatePercentage(200, 770),
+          3: calculatePercentage(140, 770),
+          4: 0,
+        )
+      );
+
+      &:last-child p {
+        color: $neutrals_N100;
+      }
+    }
+  }
+
+  &__container:not(:nth-of-type(2)) &__row {
+    padding: 80px 0;
+  }
+
+  &__left {
+    @extend %subheading_H5_Desktop;
+
+    flex: 1;
+
+    max-width: 255px;
+    margin-right: 52px;
+
+    color: $neutrals_N500;
+  }
+
+  &__right {
+    @extend %body_B1_Desktop;
+
+    flex: 1;
+
+    color: $neutrals_N100;
+  }
+
+  img {
+    width: 100%;
+
+    object-fit: contain;
+
+    margin-top: 52px;
+  }
+
+  &__fullWidthIllustration {
+    position: relative;
+
+    height: 100vh;
+
+    img {
+      position: absolute;
+      right: 0;
+
+      margin-top: unset;
+    }
+  }
+
+  @media (max-width: $largeTablet) {
+    &__container:first-child &__row:first-child {
+      flex-direction: column;
+      padding: 40px 0;
+    }
+
+    &__left {
+      max-width: unset;
+
+      margin: 0 0 24px 0;
+    }
+
+    img {
+      margin-top: 24px;
+    }
+
+    &__fullWidthIllustration {
+      position: relative;
+
+      width: 100%;
+      height: fit-content;
+
+      img {
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: $tablet) {
+    &__container:nth-child(2) {
+      width: 100%;
+    }
+
+    &__container:nth-child(2) &__row {
+      width: 100%;
+      padding: 0 24px;
+
+      justify-content: flex-start;
+
+      overflow-x: overlay;
+
+      .gradientCard {
+        margin-top: 0 !important;
+        min-width: 288px;
+
+        &:not(:last-child) {
+          margin-right: 14px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $largeMobile) {
+    &__left {
+      @include subheading_H3_Mobile();
+    }
+
+    &__right {
+      @include heading_H1_Mobile();
+    }
+  }
+}
