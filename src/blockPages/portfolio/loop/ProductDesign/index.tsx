@@ -12,15 +12,21 @@ const ProductDesign: FC = () => {
         <div className="loopProductDesign__row">
           <p className="loopProductDesign__left">Product design</p>
 
-          <p className="loopProductDesign__right">
-            I also assumed that there should be a solution for first-time users,
-            and it should focus on well-designed onboarding that clearly
-            introduces the user to the main features of the product to
-            demonstrate its usefulness immediately. In addition, I designed my
-            solution with one main call to action on the screens, no distracting
-            colors or messages, and a very clearly organized grouping of
-            information, tools, and functionality.
-          </p>
+          <div className="loopProductDesign__right loopProductDesign__mainText">
+            <p>
+              I also assumed that there should be a solution for first-time
+              users, and it should focus on well-designed onboarding that
+              clearly introduces the user to the main features of the product to
+              demonstrate its usefulness immediately.
+            </p>
+
+            <p className="loopProductDesign__right">
+              In addition, I designed my solution with one main call to action
+              on the screens, no distracting colors or messages, and a very
+              clearly organized grouping of information, tools, and
+              functionality.
+            </p>
+          </div>
         </div>
       </div>
 

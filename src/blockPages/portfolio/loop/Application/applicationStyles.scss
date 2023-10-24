@@ -1,19 +1,22 @@
 @import "../../../../scss/repeat.scss";
 
 .loopApplication {
+  @extend %loopSection;
+
   &__container {
     @extend %container;
+
+    padding: 80px 0;
+
+    &:last-child {
+      padding-top: 0;
+      padding-bottom: 20px;
+    }
   }
 
   &__row {
-    position: relative;
-
     flex-direction: row;
     justify-content: space-between;
-  }
-
-  &__container:not(:nth-of-type(2)) &__row {
-    padding: 80px 0;
   }
 
   &__left {
@@ -32,25 +35,36 @@
 
     flex: 1;
 
-    color: $neutrals_N100;
+    color: $neutrals_N1000;
   }
 
   img {
     width: 100%;
 
     object-fit: contain;
+
+    &:nth-child(2) {
+      margin-top: 52px;
+    }
   }
 
   @media (max-width: $largeTablet) {
-    &__container:first-child &__row {
-      flex-direction: column;
+    &__container {
       padding: 40px 0;
+    }
+
+    &__row {
+      flex-direction: column;
     }
 
     &__left {
       max-width: unset;
 
       margin: 0 0 24px 0;
+    }
+
+    img:nth-child(2) {
+      margin-top: 24px;
     }
   }
 
