@@ -31,6 +31,12 @@ const Application: FC = () => {
           alt={`loop application 2`}
         />
       </div>
+
+      <div className="loopApplication__container-mobile">
+        {IMAGES.projectsPhotos.loop.applicationMobile.map((item, index) => (
+          <img key={index} src={item} alt={`loop application ${index}`} />
+        ))}
+      </div>
     </section>
   );
 };

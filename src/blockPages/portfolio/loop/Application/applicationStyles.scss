@@ -12,6 +12,10 @@
       padding-top: 0;
       padding-bottom: 20px;
     }
+
+    &-mobile {
+      display: none;
+    }
   }
 
   &__row {
@@ -69,6 +73,33 @@
   }
 
   @media (max-width: $largeMobile) {
+    &__container {
+      display: none;
+
+      &-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        width: 100%;
+        padding: 40px 24px;
+
+        overflow-x: overlay;
+
+        img {
+          width: 60vw;
+
+          object-fit: contain;
+
+          margin-top: 0 !important;
+
+          &:not(:last-child) {
+            margin-right: 16px;
+          }
+        }
+      }
+    }
+
     &__left {
       @include subheading_H3_Mobile();
     }

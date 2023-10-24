@@ -81,6 +81,14 @@ export const IMAGES = {
       productDesign5: require("../assets/images/illustrations/loop_11.png"),
       application1: require("../assets/images/illustrations/loop_12.png"),
       application2: require("../assets/images/illustrations/loop_13.png"),
+      applicationMobile: [
+        require("../assets/images/illustrations/loop_14.png"),
+        require("../assets/images/illustrations/loop_15.png"),
+        require("../assets/images/illustrations/loop_16.png"),
+        require("../assets/images/illustrations/loop_17.png"),
+        require("../assets/images/illustrations/loop_18.png"),
+        require("../assets/images/illustrations/loop_19.png"),
+      ],
     },
     wingTipz: {
       preview: require("../assets/images/illustrations/wingtipz_mock_preview.png"),
