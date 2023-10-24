@@ -9,15 +9,15 @@
   &__container {
     @extend %container;
 
+    padding: 80px 0;
+
     &:first-of-type {
       padding-top: 184px;
     }
 
-    &:not(:last-child) {
-      padding: 80px 0;
-    }
-
     &:last-child {
+      padding: 0;
+
       position: absolute;
 
       bottom: -445px;

@@ -23,9 +23,21 @@ const DesignSystem: FC = () => {
       </div>
 
       <div className="loopDesignSystem__container">
-        {/* {IMAGES.projectsPhotos.loop.designSystem.map((item, index) => (
-          <img key={index} src={item} alt={`loop DesignSystem ${index}`} />
-        ))} */}
+        <img
+          src={IMAGES.projectsPhotos.loop.designSystem1}
+          alt={`loop design system 1`}
+        />
+        <img
+          src={IMAGES.projectsPhotos.loop.designSystem2}
+          alt={`loop design system 2`}
+        />
+      </div>
+
+      <div className="loopDesignSystem__container">
+        <img
+          src={IMAGES.projectsPhotos.loop.designSystem3}
+          alt={`loop design system 3`}
+        />
       </div>
     </section>
   );

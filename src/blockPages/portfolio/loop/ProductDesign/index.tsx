@@ -10,19 +10,47 @@ const ProductDesign: FC = () => {
     <section className="loopProductDesign">
       <div className="loopProductDesign__container">
         <div className="loopProductDesign__row">
-          <p className="loopProductDesign__left">The ProductDesign</p>
+          <p className="loopProductDesign__left">Product design</p>
 
           <p className="loopProductDesign__right">
-            To find and redesign create a platform for schools and other
-            non-profit organisations to help them manage inner process
+            I also assumed that there should be a solution for first-time users,
+            and it should focus on well-designed onboarding that clearly
+            introduces the user to the main features of the product to
+            demonstrate its usefulness immediately. In addition, I designed my
+            solution with one main call to action on the screens, no distracting
+            colors or messages, and a very clearly organized grouping of
+            information, tools, and functionality.
           </p>
         </div>
       </div>
 
       <div className="loopProductDesign__container">
-        {/* {IMAGES.projectsPhotos.loop.ProductDesign.map((item, index) => (
-          <img key={index} src={item} alt={`loop ProductDesign ${index}`} />
-        ))} */}
+        <img
+          src={IMAGES.projectsPhotos.loop.productDesign1}
+          alt={`loop product design 1`}
+        />
+        <img
+          src={IMAGES.projectsPhotos.loop.productDesign2}
+          alt={`loop product design 2`}
+        />
+      </div>
+
+      <div className="loopProductDesign__container">
+        <img
+          src={IMAGES.projectsPhotos.loop.productDesign3}
+          alt={`loop product design 3`}
+        />
+      </div>
+
+      <div className="loopProductDesign__container">
+        <img
+          src={IMAGES.projectsPhotos.loop.productDesign4}
+          alt={`loop product design 4`}
+        />
+        <img
+          src={IMAGES.projectsPhotos.loop.productDesign5}
+          alt={`loop product design 5`}
+        />
       </div>
     </section>
   );
