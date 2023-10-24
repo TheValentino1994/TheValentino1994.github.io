@@ -11,21 +11,23 @@ const Intro: FC = () => {
       <div className="loopIntro__container">
         <div className="loopIntro__row">
           <div className="loopIntro__left">
-            <h3>loop</h3>
-            <p>Productivity 2023</p>
+            <h3>Loop</h3>
+            <p>Web & Responsive Design</p>
+            <p>Productivity 2022</p>
           </div>
 
           <h2 className="loopIntro__right">
-            Employee management for non-profit organisations
+            A centralized productivity platform that allows Users to connect all
+            tools in one place to streamline workflow and maximize output.
           </h2>
         </div>
       </div>
 
-      {/* <img
+      <img
         alt="loop"
         className="loopIntro__demonstration"
-        src={IMAGES.projectsPhotos.loop.intro}
-      /> */}
+        src={IMAGES.projectsPhotos.loop.intro1}
+      />
 
       <div className="loopIntro__container">
         <div className="loopIntro__row">
@@ -33,9 +35,9 @@ const Intro: FC = () => {
             <h3>My Contribution</h3>
             <div>
               <p>Research</p>
-              <p>UX / UI Design</p>
+              <p>UX Audit</p>
               <p>Tablet Design</p>
-              <p>Responsive Design</p>
+              <p>Product Design</p>
               <p>Interaction Design</p>
               <p>Design System</p>
             </div>
@@ -43,19 +45,27 @@ const Intro: FC = () => {
 
           <div className="loopIntro__right loopIntro__mainText">
             <p>
-              loop is a comprehensive platform designed to streamline empoyee
-              management with a wide range of features.
+              As the second designer on the Loop product, my role was to focus
+              on the immediate needs of the users in sessions, ease of
+              integration, adaptation, and intuitive user flows.
             </p>
 
             <p>
-              The main challenge was to design a platform that simplify
-              perception of complicated interfaces. Help users to make a
-              decision by involving users to the entire context. Provide
-              different types of management for organizations depending on their
-              size and industry
+              I packed a huge amount of functionality and data into the user
+              interface without overwhelming the user experience. Design is
+              highly functional, streamlined, intuitive, responsive, and
+              beautiful.
             </p>
           </div>
         </div>
+      </div>
+
+      <div className="loopIntro__container">
+        <img
+          alt="loop"
+          className="loopIntro__demonstration"
+          src={IMAGES.projectsPhotos.loop.intro2}
+        />
       </div>
     </section>
   );

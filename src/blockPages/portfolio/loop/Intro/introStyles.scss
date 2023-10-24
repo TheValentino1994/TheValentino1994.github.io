@@ -2,13 +2,25 @@
 @import "../../../../scss/colors";
 
 .loopIntro {
+  position: relative;
+
+  padding-bottom: 223px;
+
   &__container {
     @extend %container;
 
-    padding: 80px 0;
-
     &:first-of-type {
       padding-top: 184px;
+    }
+
+    &:not(:last-child) {
+      padding: 80px 0;
+    }
+
+    &:last-child {
+      position: absolute;
+
+      bottom: -445px;
     }
   }
 
@@ -79,9 +91,9 @@
 
   @media (max-width: $largeTablet) {
     &__container {
-      @extend %container;
-
-      padding: 40px 0;
+      &:not(:last-child) {
+        padding: 40px 0;
+      }
 
       &:first-of-type {
         padding-top: 144px;
@@ -104,6 +116,7 @@
 
       & p:not(:last-child) {
         margin: unset;
+
         &::after {
           content: ",";
           margin-right: 4px;

@@ -1,19 +1,5 @@
 @import "../../../../scss/repeat.scss";
 
-@mixin placeItems($cardsCount, $cardsTopOffset) {
-  @for $i from 1 through $cardsCount {
-    &:nth-child(#{$i}) {
-      margin-top: map-get($cardsTopOffset, $i);
-    }
-
-    // @media (max-width: $largeMobile) {
-    //   &:nth-child(#{$i}) {
-    //     top: 68px;
-    //   }
-    // }
-  }
-}
-
 .loopApplication {
   &__container {
     @extend %container;
