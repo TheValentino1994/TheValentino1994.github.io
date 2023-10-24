@@ -4,7 +4,7 @@
 .loopIntro {
   position: relative;
 
-  padding-bottom: 223px;
+  padding-bottom: clamp(16px, 16vw, 223px);
 
   &__container {
     @extend %container;
@@ -20,7 +20,7 @@
 
       position: absolute;
 
-      bottom: -445px;
+      bottom: clamp(-445px, -30vw, -16px);
     }
   }
 
@@ -82,6 +82,8 @@
       @extend %body_B1_Desktop;
 
       color: $neutrals_N100;
+
+      font-weight: 500;
 
       &:not(:last-child) {
         margin-bottom: 40px;

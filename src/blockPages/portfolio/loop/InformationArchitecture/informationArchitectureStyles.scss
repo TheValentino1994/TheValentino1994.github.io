@@ -4,6 +4,7 @@
   @extend %loopSection;
 
   padding-top: 445px;
+  padding-top: clamp(16px, 30vw, 445px);
 
   &__container {
     @extend %container;
@@ -23,6 +24,7 @@
   &__left {
     @extend %subheading_H5_Desktop;
 
+    font-weight: 600;
     flex: 1;
 
     max-width: 255px;
@@ -33,6 +35,8 @@
 
   &__right {
     @extend %body_B1_Desktop;
+
+    font-weight: 500;
 
     flex: 1;
 

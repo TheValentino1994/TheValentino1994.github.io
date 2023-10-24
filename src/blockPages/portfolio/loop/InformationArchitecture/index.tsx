@@ -11,14 +11,16 @@ const InformationArchitecture: FC = () => {
       <div className="loopInformationArchitecture__container">
         <div className="loopInformationArchitecture__row">
           <p className="loopInformationArchitecture__left">
-            Mobile Application
+            Information Architecture and UX Design
           </p>
 
           <p className="loopInformationArchitecture__right loopInformationArchitecture__mainText">
-            The mobile experience required specific UX and UI thinking to allow
-            for optimal productivity for users on the go. Prioritization of
-            actions and reduction of functionality allowed for a focussed User
-            Experience.
+            When I created the architecture, I refocused and prioritized what
+            mattered most - quickly sorting new work. I made strategic UX
+            decisions to simplify the platform, establish hierarchy, and speed
+            up task completion. By working holistically, I was able to improve
+            usability at all levels, enhance contextual actions, and create a
+            lively aesthetic to make work fun.
           </p>
         </div>
       </div>
