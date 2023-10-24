@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MainLayout } from "../layouts";
 
 /* ---------------------------------- Pages --------------------------------- */
-import { WingTipz, Home, Neobank, Intrac } from "../pages";
+import { WingTipz, Home, Neobank, Intrac, Loop } from "../pages";
 
 /* -------------------------------- Constants ------------------------------- */
 import { ROUTES } from "../constants/_routes";
@@ -24,6 +24,7 @@ export const MainRouter: FC = () => {
           <Route path={ROUTES.PORTFOLIO_WING_TIPZ} element={<WingTipz />} />
           <Route path={ROUTES.PORTFOLIO_INTRAC} element={<Intrac />} />
           <Route path={ROUTES.PORTFOLIO_NEOBANK} element={<Neobank />} />
+          <Route path={ROUTES.PORTFOLIO_LOOP} element={<Loop />} />
         </Routes>
       </MainLayout>
     </BrowserRouter>
