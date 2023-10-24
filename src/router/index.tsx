@@ -1,8 +1,9 @@
 /* ------------------------------ Basic imports ----------------------------- */
-import React, { FC } from "react";
+import { FC, useLayoutEffect } from "react";
 
 /* -------------------------------- Libraries ------------------------------- */
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AOS from "aos";
 
 /* --------------------------------- Layouts -------------------------------- */
 import { MainLayout } from "../layouts";
@@ -14,6 +15,10 @@ import { WingTipz, Home, Neobank, Intrac, Loop } from "../pages";
 import { ROUTES } from "../constants/_routes";
 
 export const MainRouter: FC = () => {
+  useLayoutEffect(() => {
+    AOS.init();
+  }, []);
+
   /* --------------------------------- Render --------------------------------- */
 
   return (
