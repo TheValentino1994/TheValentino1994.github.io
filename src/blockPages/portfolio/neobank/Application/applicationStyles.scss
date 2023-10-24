@@ -65,6 +65,8 @@
   &__right {
     @extend %body_B1_Desktop;
 
+    font-weight: 500;
+
     flex: 1;
 
     color: $neutrals_N100;

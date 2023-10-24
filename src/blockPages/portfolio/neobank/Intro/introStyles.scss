@@ -69,6 +69,8 @@
     p {
       @extend %body_B1_Desktop;
 
+      font-weight: 500;
+
       color: $neutrals_N100;
 
       &:not(:last-child) {
