@@ -1,5 +1,5 @@
 /* ------------------------------ Basic imports ----------------------------- */
-import { FC, useLayoutEffect } from "react";
+import { FC, useEffect } from "react";
 
 /* -------------------------------- Libraries ------------------------------- */
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -15,8 +15,13 @@ import { WingTipz, Home, Neobank, Intrac, Loop } from "../pages";
 import { ROUTES } from "../constants/_routes";
 
 export const MainRouter: FC = () => {
-  useLayoutEffect(() => {
-    AOS.init();
+  useEffect(() => {
+    AOS.init({ offset: window.innerHeight / 4, duration: 650 });
+    window.addEventListener("load", AOS.refresh);
+
+    return () => {
+      window.removeEventListener("load", AOS.refresh);
+    };
   }, []);
 
   /* --------------------------------- Render --------------------------------- */

@@ -10,11 +10,17 @@ const InformationArchitecture: FC = () => {
     <section className="loopInformationArchitecture">
       <div className="loopInformationArchitecture__container">
         <div className="loopInformationArchitecture__row">
-          <p className="loopInformationArchitecture__left">
+          <p
+            data-aos="fade-right"
+            className="loopInformationArchitecture__left"
+          >
             Information Architecture and UX Design
           </p>
 
-          <p className="loopInformationArchitecture__right loopInformationArchitecture__mainText">
+          <p
+            data-aos="fade-left"
+            className="loopInformationArchitecture__right loopInformationArchitecture__mainText"
+          >
             When I created the architecture, I refocused and prioritized what
             mattered most - quickly sorting new work. I made strategic UX
             decisions to simplify the platform, establish hierarchy, and speed
@@ -25,7 +31,10 @@ const InformationArchitecture: FC = () => {
         </div>
       </div>
 
-      <div className="loopInformationArchitecture__container">
+      <div
+        data-aos="zoom-out-up"
+        className="loopInformationArchitecture__container"
+      >
         <img
           src={IMAGES.projectsPhotos.loop.informationArchitectureDiagram}
           alt="loop information architecture"

@@ -10,13 +10,13 @@ const Intro: FC = () => {
     <section className="loopIntro">
       <div className="loopIntro__container">
         <div className="loopIntro__row">
-          <div className="loopIntro__left">
+          <div data-aos="fade-right" className="loopIntro__left">
             <h3>Loop</h3>
             <p>Web & Responsive Design</p>
             <p>Productivity 2022</p>
           </div>
 
-          <h2 className="loopIntro__right">
+          <h2 data-aos="fade-left" className="loopIntro__right">
             A centralized productivity platform that allows Users to connect all
             tools in one place to streamline workflow and maximize output.
           </h2>
@@ -24,6 +24,7 @@ const Intro: FC = () => {
       </div>
 
       <img
+        data-aos="zoom-out-up"
         alt="loop"
         className="loopIntro__demonstration"
         src={IMAGES.projectsPhotos.loop.intro1}
@@ -31,7 +32,7 @@ const Intro: FC = () => {
 
       <div className="loopIntro__container">
         <div className="loopIntro__row">
-          <div className="loopIntro__left">
+          <div data-aos="fade-right" className="loopIntro__left">
             <h3>My Contribution</h3>
             <div>
               <p>Research</p>
@@ -43,7 +44,10 @@ const Intro: FC = () => {
             </div>
           </div>
 
-          <div className="loopIntro__right loopIntro__mainText">
+          <div
+            data-aos="fade-left"
+            className="loopIntro__right loopIntro__mainText"
+          >
             <p>
               As the second designer on the Loop product, my role was to focus
               on the immediate needs of the users in sessions, ease of
@@ -60,7 +64,7 @@ const Intro: FC = () => {
         </div>
       </div>
 
-      <div className="loopIntro__container">
+      <div data-aos="zoom-out-up" className="loopIntro__container">
         <img
           alt="loop"
           className="loopIntro__demonstration"

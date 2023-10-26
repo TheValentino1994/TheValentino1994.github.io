@@ -10,9 +10,14 @@ const ProductDesign: FC = () => {
     <section className="loopProductDesign">
       <div className="loopProductDesign__container">
         <div className="loopProductDesign__row">
-          <p className="loopProductDesign__left">Product design</p>
+          <p data-aos="fade-right" className="loopProductDesign__left">
+            Product design
+          </p>
 
-          <div className="loopProductDesign__right loopProductDesign__mainText">
+          <div
+            data-aos="fade-left"
+            className="loopProductDesign__right loopProductDesign__mainText"
+          >
             <p>
               I also assumed that there should be a solution for first-time
               users, and it should focus on well-designed onboarding that
@@ -32,10 +37,12 @@ const ProductDesign: FC = () => {
 
       <div className="loopProductDesign__container">
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.productDesign1}
           alt={`loop product design 1`}
         />
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.productDesign2}
           alt={`loop product design 2`}
         />
@@ -43,6 +50,7 @@ const ProductDesign: FC = () => {
 
       <div className="loopProductDesign__container">
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.productDesign3}
           alt={`loop product design 3`}
         />
@@ -50,10 +58,12 @@ const ProductDesign: FC = () => {
 
       <div className="loopProductDesign__container">
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.productDesign4}
           alt={`loop product design 4`}
         />
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.productDesign5}
           alt={`loop product design 5`}
         />
