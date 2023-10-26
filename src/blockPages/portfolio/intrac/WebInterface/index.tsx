@@ -10,9 +10,11 @@ const WebInterface: FC = () => {
     <section className="intracWebInterface">
       <div className="intracWebInterface__container">
         <div className="intracWebInterface__row">
-          <p className="intracWebInterface__left">Web interface</p>
+          <p data-aos="fade-right" className="intracWebInterface__left">
+            Web interface
+          </p>
 
-          <div className="intracWebInterface__right">
+          <div data-aos="fade-left" className="intracWebInterface__right">
             <p>
               We chose side pages as a solution to the problem, taking into
               account the requirements of the existing project and potential
@@ -30,6 +32,7 @@ const WebInterface: FC = () => {
 
       <div className="intracWebInterface__container">
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.intrac.webInterface1}
           alt={`intrac WebInterface 1`}
         />
@@ -37,6 +40,7 @@ const WebInterface: FC = () => {
 
       <div className="intracWebInterface__container">
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.intrac.webInterface2}
           alt={`intrac WebInterface 2`}
         />

@@ -10,9 +10,11 @@ const Solution: FC = () => {
     <section className="intracSolution">
       <div className="intracSolution__container">
         <div className="intracSolution__row">
-          <p className="intracSolution__left">The Solution</p>
+          <p data-aos="fade-right" className="intracSolution__left">
+            The Solution
+          </p>
 
-          <p className="intracSolution__right">
+          <p data-aos="fade-left" className="intracSolution__right">
             To find and redesign create a platform for schools and other
             non-profit organisations to help them manage inner process
           </p>
@@ -21,7 +23,12 @@ const Solution: FC = () => {
 
       <div className="intracSolution__container">
         {IMAGES.projectsPhotos.intrac.solution.map((item, index) => (
-          <img key={index} src={item} alt={`intrac solution ${index}`} />
+          <img
+            data-aos="zoom-out-up"
+            key={index}
+            src={item}
+            alt={`intrac solution ${index}`}
+          />
         ))}
       </div>
     </section>

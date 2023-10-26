@@ -1,6 +1,8 @@
 @import "../../../../scss/repeat.scss";
 
 .intracApplication {
+  padding-bottom: 152px;
+
   &__container {
     @extend %container;
   }
@@ -44,6 +46,8 @@
   }
 
   @media (max-width: $largeTablet) {
+    padding-bottom: 80px;
+
     &__container:first-child &__row {
       flex-direction: column;
       padding: 40px 0;

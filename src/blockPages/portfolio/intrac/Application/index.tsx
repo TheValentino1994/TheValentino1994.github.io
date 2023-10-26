@@ -10,9 +10,14 @@ const Application: FC = () => {
     <section className="intracApplication">
       <div className="intracApplication__container">
         <div className="intracApplication__row">
-          <p className="intracApplication__left">Mobile Application</p>
+          <p data-aos="fade-right" className="intracApplication__left">
+            Mobile Application
+          </p>
 
-          <p className="intracApplication__right intracApplication__mainText">
+          <p
+            data-aos="fade-left"
+            className="intracApplication__right intracApplication__mainText"
+          >
             The mobile experience required specific UX and UI thinking to allow
             for optimal productivity for users on the go. Prioritization of
             actions and reduction of functionality allowed for a focussed User
@@ -23,6 +28,7 @@ const Application: FC = () => {
 
       <div className="intracApplication__container">
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.intrac.application}
           alt="intrac application"
         />

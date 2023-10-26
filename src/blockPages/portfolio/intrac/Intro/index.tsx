@@ -10,18 +10,19 @@ const Intro: FC = () => {
     <section className="intracIntro">
       <div className="intracIntro__container">
         <div className="intracIntro__row">
-          <div className="intracIntro__left">
+          <div data-aos="fade-right" className="intracIntro__left">
             <h3>Intrac</h3>
             <p>Productivity 2023</p>
           </div>
 
-          <h2 className="intracIntro__right">
+          <h2 data-aos="fade-left" className="intracIntro__right">
             Employee management for non-profit organisations
           </h2>
         </div>
       </div>
 
       <img
+        data-aos="zoom-out-up"
         alt="intrac"
         className="intracIntro__demonstration"
         src={IMAGES.projectsPhotos.intrac.intro}
@@ -29,7 +30,7 @@ const Intro: FC = () => {
 
       <div className="intracIntro__container">
         <div className="intracIntro__row">
-          <div className="intracIntro__left">
+          <div data-aos="fade-right" className="intracIntro__left">
             <h3>My Contribution</h3>
             <div>
               <p>Research</p>
@@ -41,7 +42,10 @@ const Intro: FC = () => {
             </div>
           </div>
 
-          <div className="intracIntro__right intracIntro__mainText">
+          <div
+            data-aos="fade-left"
+            className="intracIntro__right intracIntro__mainText"
+          >
             <p>
               Intrac is a comprehensive platform designed to streamline empoyee
               management with a wide range of features.

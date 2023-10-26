@@ -9,7 +9,7 @@ const Footer: FC = () => {
   /* --------------------------------- Render --------------------------------- */
 
   return (
-    <footer className="footer">
+    <footer data-aos="fade-up" data-aos-offset={0} className="footer">
       <div className="footer__container">
         <div className="footer__info">
           <h3>Valentyn Kuchernoha</h3>
@@ -17,12 +17,7 @@ const Footer: FC = () => {
         </div>
 
         {SOCIALS_LIST.map((item) => (
-          <a
-            key={item.title}
-            href={item.link}
-            target="_blank"
-            rel="no-referrer noreferrer"
-          >
+          <a key={item.title} href={item.link} target="_blank" rel="noreferrer">
             {item.title}
             <span>+</span>
           </a>

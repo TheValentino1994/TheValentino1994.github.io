@@ -35,7 +35,7 @@ const Challenges: FC = () => {
     <section className="intracChallenges">
       <div className="intracChallenges__container">
         {GOALS.map((item) => (
-          <GradientCard key={item.title} {...item} />
+          <GradientCard animation="fade-up" key={item.title} {...item} />
         ))}
       </div>
     </section>

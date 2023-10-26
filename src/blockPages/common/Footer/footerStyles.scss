@@ -4,9 +4,6 @@
 .footer {
   @extend %container;
 
-  position: fixed;
-  bottom: -300px;
-
   padding: 52px 52px 40px;
 
   background-color: $neutrals_N0;

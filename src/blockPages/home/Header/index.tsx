@@ -11,12 +11,7 @@ const Header: FC = () => {
     <header className="header">
       <div className="header__container">
         {SOCIALS_LIST.map((item) => (
-          <a
-            key={item.title}
-            href={item.link}
-            target="_blank"
-            rel="no-referrer noreferrer"
-          >
+          <a key={item.title} href={item.link} target="_blank" rel="noreferrer">
             {item.title}
             <ICONS.Utils.LinkIcon />
           </a>

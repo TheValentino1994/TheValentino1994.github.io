@@ -3,6 +3,8 @@
 .loopApplication {
   @extend %loopSection;
 
+  margin-bottom: 152px;
+
   &__container {
     @extend %container;
 
@@ -55,6 +57,8 @@
   }
 
   @media (max-width: $largeTablet) {
+    margin-bottom: 80px;
+
     &__container {
       padding: 40px 0;
     }

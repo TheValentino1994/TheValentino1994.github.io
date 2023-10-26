@@ -10,9 +10,11 @@ const DesignSystem: FC = () => {
     <section className="intracDesignSystem">
       <div className="intracDesignSystem__container">
         <div className="intracDesignSystem__row">
-          <p className="intracDesignSystem__left">Design system</p>
+          <p data-aos="fade-right" className="intracDesignSystem__left">
+            Design system
+          </p>
 
-          <p className="intracDesignSystem__right">
+          <p data-aos="fade-left" className="intracDesignSystem__right">
             One of my roles was to create a comprehensive and exhaustive design
             system that would take into account all user flows, actions, and
             component states. Handing over the project to the cycle development
@@ -24,7 +26,12 @@ const DesignSystem: FC = () => {
 
       <div className="intracDesignSystem__container">
         {IMAGES.projectsPhotos.intrac.designSystem.map((item, index) => (
-          <img key={index} src={item} alt={`intrac DesignSystem ${index}`} />
+          <img
+            data-aos="zoom-out-up"
+            key={index}
+            src={item}
+            alt={`intrac DesignSystem ${index}`}
+          />
         ))}
       </div>
     </section>
