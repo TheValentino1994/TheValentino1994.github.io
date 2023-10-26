@@ -36,10 +36,12 @@ const Challenges: FC = () => {
     <section className="neobankChallenges">
       <div className="neobankChallenges__container">
         <GradientCard
+          animation="zoom-in-right"
           title="Challenge"
           description="To design a Neobank app that provides end-to-end banking and financial service to customers with multiple bank accounts, simplifying banking and is a single destination for all banking operations and more."
         />
         <GradientCard
+          animation="zoom-in-left"
           type="neobank"
           title="Solution"
           description="To create a banking system fundamentally different from traditional banks, providing, linking of multiple bank accounts, hassle-free account creation, seamless payments, smart reporting, user-friendly interface."
@@ -50,7 +52,7 @@ const Challenges: FC = () => {
 
       <div className="neobankChallenges__container">
         {GOALS.map((item) => (
-          <GradientCard key={item.title} {...item} />
+          <GradientCard animation="fade-up" key={item.title} {...item} />
         ))}
       </div>
     </section>

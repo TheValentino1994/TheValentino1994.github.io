@@ -10,12 +10,12 @@ const Intro: FC = () => {
     <section className="neobankIntro">
       <div className="neobankIntro__container">
         <div className="neobankIntro__row">
-          <div className="neobankIntro__left">
+          <div data-aos="fade-right" className="neobankIntro__left">
             <h3>Neobank</h3>
             <p>Cryptocurrency / iOS · Android · </p>
           </div>
 
-          <h2 className="neobankIntro__right">
+          <h2 data-aos="fade-left" className="neobankIntro__right">
             Neobanks are new-age banks without any physical location, present
             entirely online. They provide digital, mobile-first financial
             solutions for payments, money transfers, lending, and more.
@@ -24,6 +24,7 @@ const Intro: FC = () => {
       </div>
 
       <img
+        data-aos="zoom-out-up"
         alt="Neobank"
         className="neobankIntro__demonstration"
         src={IMAGES.projectsPhotos.neobank.intro}
@@ -31,7 +32,7 @@ const Intro: FC = () => {
 
       <div className="neobankIntro__container">
         <div className="neobankIntro__row">
-          <div className="neobankIntro__left">
+          <div data-aos="fade-right" className="neobankIntro__left">
             <h3>My Contribution</h3>
             <div>
               <p>UX Audit</p>
@@ -40,7 +41,10 @@ const Intro: FC = () => {
             </div>
           </div>
 
-          <div className="neobankIntro__right neobankIntro__mainText">
+          <div
+            data-aos="fade-left"
+            className="neobankIntro__right neobankIntro__mainText"
+          >
             <p>
               A Fintech mobile Neobank is a new type of digital bank that
               operates entirely online and through mobile applications.

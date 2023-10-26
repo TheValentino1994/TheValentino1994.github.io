@@ -10,11 +10,11 @@ const DesignArchitecture: FC = () => {
     <section className="neobankDesignArchitecture">
       <div className="neobankDesignArchitecture__container">
         <div className="neobankDesignArchitecture__row">
-          <p className="neobankDesignArchitecture__left">
+          <p data-aos="fade-right" className="neobankDesignArchitecture__left">
             Information Architecture and UX Design
           </p>
 
-          <p className="neobankDesignArchitecture__right">
+          <p data-aos="fade-left" className="neobankDesignArchitecture__right">
             I refocused and prioritize the experience on what matters most -
             quickly triaging new work. Made strategic UX decisions to simplify
             the platform, adjust hierarchies, and accelerate tasks. By working
@@ -24,11 +24,13 @@ const DesignArchitecture: FC = () => {
           </p>
         </div>
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.architectureDiagram}
           alt="Neobank design architecture diagram"
         />
 
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.architectureIllustration}
           alt="Neobank design architecture illustration"
         />

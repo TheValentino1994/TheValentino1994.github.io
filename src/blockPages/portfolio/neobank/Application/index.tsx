@@ -36,9 +36,14 @@ const Application: FC = () => {
     <section className="neobankApplication">
       <div className="neobankApplication__container">
         <div className="neobankApplication__row">
-          <p className="neobankApplication__left">Mobile Application</p>
+          <p data-aos="fade-right" className="neobankApplication__left">
+            Mobile Application
+          </p>
 
-          <p className="neobankApplication__right neobankApplication__mainText">
+          <p
+            data-aos="fade-left"
+            className="neobankApplication__right neobankApplication__mainText"
+          >
             Visual solution for the Neobank mobile application was a sleek and
             modern design that aligned with the brand's identity and values. The
             green color palette, minimalist design approach, and consistent
@@ -51,18 +56,20 @@ const Application: FC = () => {
       <div className="neobankApplication__container">
         <div className="neobankApplication__row">
           {SUMMARY.map((item) => (
-            <GradientCard key={item.title} {...item} />
+            <GradientCard animation="fade-up" key={item.title} {...item} />
           ))}
         </div>
       </div>
 
       <div className="neobankApplication__container">
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.mobileApplication1}
           alt="Neobank application"
         />
 
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.mobileApplication2}
           alt="Neobank application"
         />
@@ -70,6 +77,7 @@ const Application: FC = () => {
 
       <div className="neobankApplication__fullWidthIllustration">
         <img
+          data-aos="zoom-in-right"
           src={IMAGES.projectsPhotos.neobank.mobileApplication3}
           alt="Neobank application"
         />

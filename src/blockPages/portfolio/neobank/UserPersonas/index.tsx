@@ -9,9 +9,10 @@ const UserPersonas: FC = () => {
   return (
     <section className="neobankUserPersonas">
       <div className="neobankUserPersonas__container">
-        <h3>User Personas</h3>
+        <h3 data-aos="fade-right">User Personas</h3>
 
         <img
+          data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.userPersonas}
           alt="Neobank user personas"
         />
