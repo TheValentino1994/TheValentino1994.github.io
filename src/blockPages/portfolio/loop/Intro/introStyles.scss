@@ -5,9 +5,12 @@
   position: relative;
 
   padding-bottom: clamp(16px, 16vw, 223px);
+  overflow: visible !important;
 
   &__container {
     @extend %container;
+
+    overflow: hidden;
 
     padding: 80px 0;
 
@@ -92,6 +95,8 @@
   }
 
   @media (max-width: $largeTablet) {
+    padding-bottom: clamp(16px, 25vw, 223px);
+
     &__container {
       &:not(:last-child) {
         padding: 40px 0;

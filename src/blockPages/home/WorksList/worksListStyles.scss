@@ -20,6 +20,7 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
 }
 
 .worksList {
+  overflow: visible;
   &__container {
     @extend %container;
 
