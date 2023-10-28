@@ -140,6 +140,10 @@
 
       overflow-x: overlay;
 
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       .gradientCard {
         margin-top: 0 !important;
         min-width: 288px;

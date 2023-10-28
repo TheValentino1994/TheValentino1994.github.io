@@ -68,7 +68,7 @@
     flex-direction: column;
     justify-content: flex-start;
 
-    padding: 144px 0 120px;
+    padding: 40px 0 120px;
 
     &__content {
       padding: 0;
@@ -100,8 +100,6 @@
   }
 
   @media (max-width: $largeMobile) {
-    padding-top: 108px;
-
     h1 {
       @include heading_H1_Mobile();
     }
