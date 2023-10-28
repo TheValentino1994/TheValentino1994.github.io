@@ -32,8 +32,8 @@ const WorksList: FC = () => {
           scrub: 1,
           snap: 1 / 3, //fix, not working properly on laptops and smaller devices
           // onUpdate: () => console.log("update!"),
-          onLeave: handleFooterVisility(0),
-          onEnterBack: handleFooterVisility(-300),
+          // onLeave: handleFooterVisility(0),
+          // onEnterBack: handleFooterVisility(-300),
         },
       });
     });
