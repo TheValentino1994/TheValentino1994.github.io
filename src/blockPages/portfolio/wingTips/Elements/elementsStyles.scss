@@ -1,7 +1,7 @@
 @import "../../../../scss/repeat.scss";
 
-.wingTipzResults {
-  padding: 80px 0;
+.wingTipzElements {
+  padding-top: 80px;
 
   &__container {
     @extend %container;
@@ -35,10 +35,6 @@
     flex: 1;
 
     color: $neutrals_N100;
-
-    p:not(:last-child) {
-      margin-bottom: 40px;
-    }
   }
 
   img {
@@ -48,7 +44,7 @@
   }
 
   @media (max-width: $largeTablet) {
-    padding: 40px 0;
+    padding-top: 40px;
 
     &__container:not(:last-child) {
       padding-bottom: 40px;

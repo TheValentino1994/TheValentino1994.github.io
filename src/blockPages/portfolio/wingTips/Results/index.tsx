@@ -1,40 +1,46 @@
 /* ------------------------------ Basic imports ----------------------------- */
-import React, { FC } from "react";
+import { FC } from "react";
 import "./resultsStyles.scss";
-
-/* -------------------------------- Constants ------------------------------- */
 import { IMAGES } from "../../../../constants/_images";
 
 const Results: FC = () => {
   /* --------------------------------- Render --------------------------------- */
 
   return (
-    <div className="wingTipzResults">
+    <section className="wingTipzResults">
       <div className="wingTipzResults__container">
-        <div className="wingTipzResults__demonstration">
-          <img
-            src={IMAGES.projectsPhotos.wingTipz.result}
-            alt="WingTipz results"
-          />
-        </div>
-
         <div className="wingTipzResults__row">
-          <div className="wingTipzResults__left">
-            <h3>Results</h3>
-          </div>
+          <p data-aos="fade-right" className="wingTipzResults__left">
+            Results
+          </p>
 
-          <div className="wingTipzResults__right wingTipzResults__mainText">
-            <h2>New mobile application for instructors and users</h2>
+          <div data-aos="fade-left" className="wingTipzResults__right">
+            <p>New mobile application for instructors and users.</p>
 
             <p>
-              Based on user feedback about the first version of the app, we
-              focused on updating the core tasks in the mobile app - scheduling
-              appointments, communicating with coaches, managing availability.
+              Based on user feedback on the first version of the app, i focused
+              on updating the core tasks in the mobile app - scheduling
+              appointments, communicating with coaches, and managing
+              availability.
+            </p>
+
+            <p>
+              And for coaches, I created new ways to turn their phones into
+              full-fledged workstations. These new tools make the online booking
+              experience one and the most holistic.
             </p>
           </div>
         </div>
       </div>
-    </div>
+
+      <div className="wingTipzResults__container">
+        <img
+          data-aos="zoom-out-up"
+          src={IMAGES.projectsPhotos.wingTipz.results}
+          alt={`wingTipz Results`}
+        />
+      </div>
+    </section>
   );
 };
 

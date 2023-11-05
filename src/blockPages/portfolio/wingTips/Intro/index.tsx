@@ -1,66 +1,79 @@
 /* ------------------------------ Basic imports ----------------------------- */
-import React, { FC } from "react";
+import { FC } from "react";
 import "./introStyles.scss";
-
-/* -------------------------------- Constants ------------------------------- */
 import { IMAGES } from "../../../../constants/_images";
+import { IphoneX } from "../../../../components";
+import { VIDEOS } from "../../../../constants/_videos";
 
 const Intro: FC = () => {
   /* --------------------------------- Render --------------------------------- */
 
   return (
-    <div className="wingTipzIntro">
+    <section className="wingTipzIntro">
       <div className="wingTipzIntro__container">
         <div className="wingTipzIntro__row">
-          <div className="wingTipzIntro__left">
+          <div data-aos="fade-right" className="wingTipzIntro__left">
             <h3>Wingtipz</h3>
-            <p>Fitness /Health /iOS · Android · </p>
+            <p>Mobile App</p>
+            <p>Productivity 2022</p>
           </div>
 
-          <h2 className="wingTipzIntro__right">
-            An online application for finding various sports lessons in your
-            city.
+          <h2 data-aos="fade-left" className="wingTipzIntro__right">
+            An online application for finding lessons offering various sports in
+            your city.
           </h2>
         </div>
+      </div>
 
-        <img src={IMAGES.projectsPhotos.wingTipz.intro} alt="Lexer intro" />
+      <div data-aos="zoom-out-up" className="wingTipzIntro__demonstration">
+        <IphoneX
+          alt="WingTipz intro illustration"
+          videoSrc={VIDEOS.wingTipz.uiProcess1}
+        />
 
+        <img alt="wingTipz" src={IMAGES.projectsPhotos.wingTipz.intro1} />
+      </div>
+
+      <div className="wingTipzIntro__container">
         <div className="wingTipzIntro__row">
-          <div className="wingTipzIntro__left">
+          <div data-aos="fade-right" className="wingTipzIntro__left">
+            <h3>My Contribution</h3>
             <div>
-              <h3>My Contribution</h3>
-              <p>iOS App design</p>
               <p>Research</p>
-              <p>Design system</p>
-            </div>
-
-            <div>
-              <h3>Timeline</h3>
-              <p>2 month</p>
-              <p>(May 2022 - Now)</p>
+              <p>UX / UI Design</p>
             </div>
           </div>
 
-          <div className="wingTipzIntro__right wingTipzIntro__mainText">
+          <div
+            data-aos="fade-left"
+            className="wingTipzIntro__right wingTipzIntro__mainText"
+          >
             <p>
-              The service was launched in 2022. This is the MVP version, that
-              was created to discover demand on the market.
+              The service was launched in 2022. This is the MVP version to check
+              if there is demand in the market.
             </p>
 
             <p>
               After the first users and instructors appeared on the platform,
-              instructors highly appreciated the interaction with users and the
-              quality of applications in general.
+              the highly appreciated the interaction with users and the quality
+              of applications in general.
             </p>
 
             <p>
-              So I started working with team to improve the UX, visual design,
-              and prepare the service for its upcoming growth.
+              So I started working with the team to improve the UX, visual
+              design, and prepare the service for its upcoming growth.
             </p>
           </div>
         </div>
       </div>
-    </div>
+
+      <img
+        data-aos="zoom-out-up"
+        alt="wingTipz"
+        className="wingTipzIntro__demonstration"
+        src={IMAGES.projectsPhotos.wingTipz.intro2}
+      />
+    </section>
   );
 };
 

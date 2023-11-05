@@ -1,83 +1,79 @@
 @import "../../../../scss/repeat.scss";
-@import "../../../../scss/colors.scss";
 
 .wingTipzChallenges {
-  padding-bottom: 226px;
-
   &__container {
     @extend %container;
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    &:not(:last-child) {
+      padding-bottom: 80px;
+    }
   }
 
   &__row {
     flex-direction: row;
-
     justify-content: space-between;
   }
 
   &__left {
-    width: 31.58%;
+    @extend %subheading_H5_Desktop;
 
-    div:not(:last-child) {
-      margin-bottom: 56px;
-    }
+    flex: 1;
 
-    p {
-      @extend %body_B4_18;
-    }
+    max-width: 255px;
+    margin-right: 52px;
+
+    color: $neutrals_N500;
   }
 
   &__right {
-    width: calc(100% - 31.58% - 32px);
+    @extend %body_B1_Desktop;
+
+    font-weight: 500;
+
+    flex: 1;
+
+    color: $neutrals_N100;
+
+    p:not(:last-child) {
+      margin-bottom: 40px;
+    }
   }
 
   &__demonstration {
     @extend %center;
 
-    background-color: $demonstrationBg;
-
-    margin: 0 40px 56px 40px;
-
-    width: calc(100% - 80px);
-    height: 720px;
+    width: 100%;
+    max-height: 1020px;
+    object-fit: contain;
   }
 
-  h2 {
-    @extend %heading_H2;
+  @media (max-width: $largeTablet) {
+    &__container {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
 
-    margin-bottom: 56px;
-  }
+    &__row {
+      flex-direction: column;
+    }
 
-  h3 {
-    @extend %body_B2_Desktop;
+    &__left {
+      max-width: unset;
 
-    margin-bottom: 4px;
-
-    padding-left: 40px;
-  }
-
-  p {
-    @extend %body_B1_Desktop;
-
-    color: $neutrals_N500;
-
-    padding: 0 40px;
-
-    &:not(:last-child) {
-      margin-bottom: 8px;
+      margin: 0 0 24px 0;
     }
   }
 
-  &__mainText {
-    margin: 0;
+  @media (max-width: $largeMobile) {
+    &__left {
+      @include subheading_H3_Mobile();
+    }
 
-    padding: 0 40px;
-
-    p {
-      padding: 0;
-
-      &:not(:last-child) {
-        margin-bottom: 32px;
-      }
+    &__right {
+      @include heading_H1_Mobile();
     }
   }
 }

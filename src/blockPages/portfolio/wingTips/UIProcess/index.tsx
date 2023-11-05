@@ -1,14 +1,11 @@
 /* ------------------------------ Basic imports ----------------------------- */
-import React, { FC, useCallback } from "react";
+import { FC, useCallback } from "react";
 import "./uiProcessStyles.scss";
-
-/* -------------------------------- Constants ------------------------------- */
+import { IMAGES } from "../../../../constants/_images";
+import { IphoneX } from "../../../../components";
 import { VIDEOS } from "../../../../constants/_videos";
 
-/* ------------------------------- Components ------------------------------- */
-import { IphoneX } from "../../../../components";
-
-const UiProcess: FC = () => {
+const UIProcess: FC = () => {
   /* -------------------------------- Handlers -------------------------------- */
 
   const handleVideoEnd = useCallback(
@@ -22,68 +19,63 @@ const UiProcess: FC = () => {
   /* --------------------------------- Render --------------------------------- */
 
   return (
-    <div className="wingTipzUiProcess">
-      <div className="wingTipzUiProcess__container">
-        <div className="wingTipzUiProcess__demonstrationContainer">
-          <div className="wingTipzUiProcess__demonstration">
-            <IphoneX
-              videoProps={{
-                id: "wingTipzUi1",
-                loop: false,
-                onEnded: handleVideoEnd("wingTipzUi2"),
-              }}
-              alt="WingTipz ui process illustration"
-              videoSrc={VIDEOS.wingTipz.uiProcess1}
-            />
-          </div>
+    <section className="wingTipzUIProcess">
+      <div className="wingTipzUIProcess__container">
+        <div className="wingTipzUIProcess__row">
+          <p data-aos="fade-right" className="wingTipzUIProcess__left">
+            UI Process
+          </p>
 
-          <div className="wingTipzUiProcess__demonstration">
-            <IphoneX
-              videoProps={{
-                id: "wingTipzUi2",
-                loop: false,
-                autoPlay: false,
-                onEnded: handleVideoEnd("wingTipzUi1"),
-              }}
-              alt="WingTipz ui illustration"
-              videoSrc={VIDEOS.wingTipz.uiProcess2}
-            />
-          </div>
-        </div>
-
-        <div className="wingTipzUiProcess__row">
-          <div className="wingTipzUiProcess__left">
-            <div>
-              <h3>UI Process</h3>
-              <p>Live product realization stage</p>
-            </div>
-          </div>
-
-          <div className="wingTipzUiProcess__right wingTipzUiProcess__mainText">
-            <h2>Online booking just got easier</h2>
-
+          <div data-aos="fade-left" className="wingTipzUIProcess__right">
             <p>
               Working closely with the team and taking into account customer
-              feedback helped to create a greatly improved participation
+              feedback, we have created a greatly improved participation
               experience for all users.
             </p>
 
             <p>
-              We have simplified the user flow and made it more linear.As a
-              result, we achieved much better acceptance and understanding in
-              general for new users.
+              For users, I have simplified the user flow and made it more
+              linear. In this way, I have achieved much better acceptance and
+              understanding in general for new users.
             </p>
 
             <p>
-              And for coaches, we've created new ways to turn their phones into
+              And for coaches, I created new ways to turn their phones into
               full-fledged workstations. These new tools make the online booking
-              experience one and the holistic.
+              experience one and the most holistic.
             </p>
           </div>
         </div>
       </div>
-    </div>
+
+      <div className="wingTipzUIProcess__container wingTipzUIProcess__demonstrationContainer">
+        <div data-aos="fade-right" className="wingTipzUIProcess__demonstration">
+          <IphoneX
+            videoProps={{
+              id: "wingTipzUi1",
+              loop: false,
+              onEnded: handleVideoEnd("wingTipzUi2"),
+            }}
+            alt="WingTipz ui process illustration"
+            videoSrc={VIDEOS.wingTipz.uiProcess2}
+          />
+        </div>
+
+        <div data-aos="fade-left" className="wingTipzUIProcess__demonstration">
+          <IphoneX
+            videoProps={{
+              id: "wingTipzUi2",
+              loop: false,
+              autoPlay: false,
+              onEnded: handleVideoEnd("wingTipzUi1"),
+            }}
+            alt="WingTipz ui illustration"
+            videoSrc={VIDEOS.wingTipz.challenges1}
+          />
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default UiProcess;
+export default UIProcess;

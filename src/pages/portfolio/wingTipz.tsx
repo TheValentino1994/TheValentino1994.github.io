@@ -6,7 +6,8 @@ import {
   Challenges,
   Intro,
   Results,
-  UiProcess,
+  Elements,
+  UIProcess,
 } from "../../blockPages/portfolio/wingTips";
 
 const WingTipz: FC = () => {
@@ -16,7 +17,8 @@ const WingTipz: FC = () => {
     <>
       <Intro />
       <Challenges />
-      <UiProcess />
+      <UIProcess />
+      <Elements />
       <Results />
     </>
   );
