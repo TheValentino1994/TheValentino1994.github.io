@@ -75,13 +75,13 @@ const Application: FC = () => {
         />
       </div>
 
-      {/* <div className="neobankApplication__fullWidthIllustration">
+      <div className="neobankApplication__fullWidthIllustration">
         <img
           data-aos="zoom-in-right"
           src={IMAGES.projectsPhotos.neobank.mobileApplication3}
           alt="Neobank application"
         />
-      </div> */}
+      </div>
     </section>
   );
 };

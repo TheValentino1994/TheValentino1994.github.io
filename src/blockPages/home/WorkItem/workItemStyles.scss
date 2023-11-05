@@ -1,6 +1,7 @@
 @import "../../../scss/repeat.scss";
 @import "../../../scss/_colors.scss";
 @import "../../../scss/utils.scss";
+@import "../../../scss/animations.scss";
 
 $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
 
@@ -56,7 +57,7 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
     }
 
     a {
-      @extend %body_B3_Desktop, %center;
+      @extend %body_B3_Desktop, %center, %bounceAnimation;
 
       color: $neutrals_N500;
 
@@ -67,6 +68,7 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
       border-radius: 8px;
 
       svg {
+        transition: all 0.3s ease;
         margin-left: 4px;
 
         path {
