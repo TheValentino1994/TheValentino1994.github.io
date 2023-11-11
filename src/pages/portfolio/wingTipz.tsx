@@ -9,18 +9,19 @@ import {
   Elements,
   UIProcess,
 } from "../../blockPages/portfolio/wingTips";
+import { CaseLayout } from "../../layouts";
 
 const WingTipz: FC = () => {
   /* --------------------------------- Render --------------------------------- */
 
   return (
-    <>
+    <CaseLayout>
       <Intro />
       <Challenges />
       <UIProcess />
       <Elements />
       <Results />
-    </>
+    </CaseLayout>
   );
 };
 

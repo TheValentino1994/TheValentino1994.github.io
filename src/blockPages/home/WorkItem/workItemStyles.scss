@@ -57,9 +57,12 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
     }
 
     a {
-      @extend %body_B3_Desktop, %center, %bounceAnimation;
+      @extend %body_B3_Desktop, %center;
+
+      transition: all 0.4s ease;
 
       color: $neutrals_N500;
+      background-color: $neutrals_N0;
 
       padding: 10px 12px;
       width: fit-content;
@@ -68,11 +71,21 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
       border-radius: 8px;
 
       svg {
-        transition: all 0.3s ease;
-        margin-left: 4px;
-
+        width: 100%;
+        height: 100%;
         path {
+          transition: all 0.4s ease;
+
           fill: $neutrals_N500;
+        }
+      }
+
+      &:hover {
+        color: $neutrals_N0;
+        background-color: $neutrals_N1000;
+
+        svg path {
+          fill: $neutrals_N0;
         }
       }
     }

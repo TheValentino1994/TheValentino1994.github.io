@@ -5,7 +5,7 @@ import { FC, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 /* ------------------------------- Block pages ------------------------------ */
-import { Header } from "../../blockPages/portfolio/components";
+import Header from "../../blockPages/portfolio/Header";
 import { DefaultLayoutProps } from "../../types";
 
 const CaseLayout: FC<DefaultLayoutProps> = ({ children }) => {

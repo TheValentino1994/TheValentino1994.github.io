@@ -16,13 +16,18 @@
 
   a {
     @extend %center, %subheading_H5_Desktop;
+    transition: all 0.2s ease;
 
     padding: 14px 0;
 
     color: $neutrals_N0;
 
     svg {
-      margin-left: 5px;
+      width: 100%;
+      height: 100%;
+    }
+    &:hover {
+      @include subheading_H2_Mobile();
     }
   }
 
