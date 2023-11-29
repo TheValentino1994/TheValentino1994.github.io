@@ -6,12 +6,6 @@
     &:nth-child(#{$i}) {
       margin-top: map-get($cardsTopOffset, $i);
     }
-
-    // @media (max-width: $largeMobile) {
-    //   &:nth-child(#{$i}) {
-    //     top: 68px;
-    //   }
-    // }
   }
 }
 
@@ -113,6 +107,14 @@
         )
       );
     }
+
+    &__challenges-desktop {
+      display: flex;
+    }
+
+    &__challenges-mobile {
+      display: none;
+    }
   }
 
   @include placeEllipse();
@@ -161,6 +163,14 @@
           margin-right: 16px;
         }
       }
+    }
+
+    &__challenges-desktop {
+      display: none;
+    }
+
+    &__challenges-mobile {
+      display: flex;
     }
   }
 

@@ -47,7 +47,7 @@ const DesignPhases: FC = () => {
             <div data-aos="fade-left">UI Design</div>
           </div>
 
-          <div data-aos="fade-up">
+          <div className="neobankDesignPhases__diagramImage" data-aos="fade-up">
             <IMAGES.projectsPhotos.neobank.Neobank_designPhases />
           </div>
         </div>

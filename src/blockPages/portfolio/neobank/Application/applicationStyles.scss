@@ -82,10 +82,18 @@
     margin-top: 52px;
   }
 
+  @media (min-width: $designDesktopLayoutWidth) {
+    &__fullWidthIllustration {
+      display: none;
+    }
+  }
+
   &__fullWidthIllustration {
     position: relative;
 
     width: 100%;
+
+    align-items: flex-end;
 
     img {
       width: clamp(320px, 91vw, 1308px);
