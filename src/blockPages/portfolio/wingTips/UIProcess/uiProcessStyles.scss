@@ -44,7 +44,6 @@
 
     box-sizing: content-box;
 
-    height: 720px;
     width: 100%;
   }
 
@@ -54,7 +53,8 @@
     background-color: $demonstrationBg;
 
     width: calc(100% - 48.59% - 32px);
-    height: 100%;
+
+    padding: 52px 0;
   }
 
   @media (max-width: $largeTablet) {
@@ -71,6 +71,23 @@
       max-width: unset;
 
       margin: 0 0 24px 0;
+    }
+  }
+
+  @media (max-width: $smallTablet) {
+    &__demonstrationContainer {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    &__demonstration {
+      width: 100%;
+
+      padding: 24px;
+
+      &:first-child {
+        margin-bottom: 32px;
+      }
     }
   }
 

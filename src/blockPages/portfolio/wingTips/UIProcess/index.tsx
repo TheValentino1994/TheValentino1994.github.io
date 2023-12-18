@@ -1,7 +1,6 @@
 /* ------------------------------ Basic imports ----------------------------- */
 import { FC, useCallback } from "react";
 import "./uiProcessStyles.scss";
-import { IMAGES } from "../../../../constants/_images";
 import { IphoneX } from "../../../../components";
 import { VIDEOS } from "../../../../constants/_videos";
 
