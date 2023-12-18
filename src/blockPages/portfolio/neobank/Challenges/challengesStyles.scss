@@ -107,13 +107,34 @@
         )
       );
     }
+  }
 
-    &__challenges-desktop {
-      display: flex;
+  &__challenges-desktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__challenges-mobile {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+
+    div:first-child {
+      margin-right: 56px;
     }
 
-    &__challenges-mobile {
-      display: none;
+    h4 {
+      @extend %subheading_H2_Desktop;
+      color: $neutrals_N100;
+
+      margin-bottom: 16px;
+    }
+
+    p {
+      @extend %body_B2_Desktop;
+
+      color: $neutrals_N500;
     }
   }
 
@@ -187,6 +208,24 @@
 
       &:last-child .gradientCard {
         min-width: 288px;
+      }
+    }
+
+    &__challenges-mobile {
+      flex-direction: column;
+      justify-content: flex-start;
+
+      div:first-child {
+        margin-bottom: 18px;
+        margin-right: 0;
+      }
+
+      h4 {
+        @include heading_H1_Mobile();
+      }
+
+      p {
+        @include subheading_H3_Mobile();
       }
     }
   }
