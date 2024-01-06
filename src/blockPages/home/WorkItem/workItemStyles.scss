@@ -6,6 +6,8 @@
 $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
 
 .workItem {
+  position: relative;
+
   display: flex;
   flex-direction: column;
 
@@ -21,6 +23,20 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
   -webkit-box-shadow: 0 -4px 4px #8888880a;
   -moz-box-shadow: 0 -4px 4px #8888880a;
   box-shadow: 0 -4px 4px #8888880a;
+
+  &__animated-shadow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 30;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba($color: $neutrals_N1000, $alpha: 0.5);
+
+    pointer-events: none;
+  }
 
   &__content {
     @extend %alignedRow;
@@ -99,6 +115,10 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
 
       width: calculatePercentage(672px, $contentContainerWidth);
     }
+  }
+
+  &__btn {
+    width: fit-content;
   }
 
   &__timeline {

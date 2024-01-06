@@ -7,26 +7,40 @@ import { Link } from "react-router-dom";
 
 /* ---------------------------------- Types --------------------------------- */
 import { WorkItem as IWorkItem } from "../../../contentData/_worksList";
-import { motion } from "framer-motion";
+import { MotionValue, motion } from "framer-motion";
 
 /* -------------------------------- Constants ------------------------------- */
 import { ICONS } from "../../../constants/_icons";
 import { useHoverSpring } from "../../../hooks/useHoveSpring";
+import { useShadowAnimation } from "./useShadowAnimation";
 
-const WorkItem: FC<IWorkItem> = ({
+interface WorkItemProps extends IWorkItem {
+  scrollY: MotionValue<number>;
+  isLast: boolean;
+}
+
+const WorkItem: FC<WorkItemProps> = ({
   previewImage,
   title,
   subtitle,
   description,
   timeline,
   path,
+  scrollY,
+  isLast,
 }) => {
   const { svgSize, marginLeft, handleHover } = useHoverSpring();
+
+  const { ref, opacity } = useShadowAnimation({ scrollY });
 
   /* --------------------------------- Render ------------------------------- */
 
   return (
-    <li className="workItem card">
+    <li ref={ref} className="workItem card">
+      {!isLast && (
+        <motion.div style={{ opacity }} className="workItem__animated-shadow" />
+      )}
+
       <div className="workItem__content">
         <div>
           <h3>{title}</h3>
@@ -35,6 +49,7 @@ const WorkItem: FC<IWorkItem> = ({
           <p>{description}</p>
 
           <motion.div
+            className="workItem__btn"
             onHoverStart={handleHover(12, 8)}
             onHoverEnd={handleHover(10, 4)}
           >
