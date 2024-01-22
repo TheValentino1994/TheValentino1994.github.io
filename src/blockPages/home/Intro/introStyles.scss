@@ -5,6 +5,9 @@
 .homeIntro {
   @extend %container;
 
+  position: sticky;
+  top: 104px;
+
   flex-direction: row;
   justify-content: space-between;
 

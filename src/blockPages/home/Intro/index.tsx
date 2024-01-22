@@ -1,12 +1,16 @@
 /* ------------------------------ Basic imports ----------------------------- */
 import React, { FC } from "react";
 import "./introStyles.scss";
+import { useIntroAnimation } from "./useIntroAnimation";
+import { motion } from "framer-motion";
 
 const Intro: FC = () => {
+  const { ref, opacity, scale } = useIntroAnimation();
+
   /* --------------------------------- Render --------------------------------- */
 
   return (
-    <section className="homeIntro">
+    <motion.section style={{ opacity, scale }} ref={ref} className="homeIntro">
       <div className="homeIntro__content">
         <h2>Valentyn Kuchernoha</h2>
         <span>UX/UI Designer</span>
@@ -33,7 +37,7 @@ const Intro: FC = () => {
           into simple, user-friendly solutions that are accessible to all.
         </p>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

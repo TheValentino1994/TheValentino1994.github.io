@@ -1,5 +1,6 @@
 import { MotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import _ from "lodash";
 
 interface AnimationParams {
   scrollY: MotionValue<number>;

@@ -7,16 +7,12 @@ import WorkItem from "../WorkItem";
 
 /* ------------------------------ Constant data ----------------------------- */
 import { WORKS_LIST } from "../../../contentData/_worksList";
-import { useMotionValueEvent, useScroll } from "framer-motion";
+import { useScroll } from "framer-motion";
 
 /* -------------------------------- Libraries ------------------------------- */
 
 const WorksList: FC = () => {
   const { scrollY } = useScroll();
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log("Page scroll: ", latest);
-  });
 
   /* --------------------------------- Render ------------------------------- */
 

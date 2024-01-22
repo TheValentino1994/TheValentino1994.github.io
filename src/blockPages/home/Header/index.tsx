@@ -33,7 +33,7 @@ const Header: FC = () => {
     <header className="header">
       <div className="header__container">
         {SOCIALS_LIST.map((item) => (
-          <AnimatedLink {...item} />
+          <AnimatedLink key={item.title} {...item} />
         ))}
       </div>
     </header>
