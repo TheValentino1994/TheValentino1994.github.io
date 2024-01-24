@@ -1,0 +1,79 @@
+@import "../../../scss/repeat.scss";
+@import "../../../scss/colors.scss";
+
+.notFound {
+  @extend %container, %center;
+
+  height: 100vh;
+
+  text-align: center;
+
+  h1 {
+    @extend %heading_H1_Desktop;
+
+    font-size: 140px;
+    line-height: 160px;
+
+    color: $neutrals_N100;
+  }
+
+  p {
+    @extend %subheading_H3_Desktop;
+
+    color: $neutrals_N500;
+
+    margin-top: 24px;
+  }
+
+  button {
+    @extend %body_B2_Desktop;
+
+    transition: scale 0.4s ease;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    background-color: $neutrals_N0;
+    outline: none;
+    border: none;
+
+    cursor: pointer;
+
+    position: relative;
+
+    height: 68px;
+    width: 256px;
+
+    margin-top: 24px;
+
+    border-radius: 36px;
+
+    color: $neutrals_N1000;
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+
+  @media (max-width: $largeMobile) {
+    h1 {
+      @include heading_H1_Mobile();
+
+      font-size: 72px;
+      line-height: 80px;
+    }
+
+    p {
+      @include subheading_H2_Mobile();
+    }
+
+    button {
+      @include body_B2_Mobile();
+
+      height: 54px;
+      width: 200px;
+    }
+  }
+}

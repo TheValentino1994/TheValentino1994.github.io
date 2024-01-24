@@ -9,7 +9,7 @@ import AOS from "aos";
 import { MainLayout } from "../layouts";
 
 /* ---------------------------------- Pages --------------------------------- */
-import { WingTipz, Home, Neobank, Intrac, Loop } from "../pages";
+import { WingTipz, Home, Neobank, Intrac, Loop, Error404 } from "../pages";
 
 /* -------------------------------- Constants ------------------------------- */
 import { ROUTES } from "../constants/_routes";
@@ -30,6 +30,7 @@ export const MainRouter: FC = () => {
     <BrowserRouter>
       <MainLayout>
         <Routes>
+          <Route path={ROUTES.NOT_FOUND} element={<Error404 />} />
           <Route path={ROUTES.HOME} element={<Home />} />
           <Route path={ROUTES.PORTFOLIO_WING_TIPZ} element={<WingTipz />} />
           <Route path={ROUTES.PORTFOLIO_INTRAC} element={<Intrac />} />
