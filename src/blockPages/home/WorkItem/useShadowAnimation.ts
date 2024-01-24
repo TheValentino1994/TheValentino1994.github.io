@@ -1,12 +1,16 @@
 import { MotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import _ from "lodash";
+import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 interface AnimationParams {
   scrollY: MotionValue<number>;
 }
 export const useShadowAnimation = ({ scrollY }: AnimationParams) => {
   const ref = useRef<HTMLLIElement>(null);
+
+  const isResponsive = useMediaQuery("(max-width: 1024px)");
+
   const [breakpoints, setBreakpoints] = useState({
     start: 0,
     end: 0,
@@ -21,7 +25,7 @@ export const useShadowAnimation = ({ scrollY }: AnimationParams) => {
     }
   );
 
-  const opacity = useSpring(interpolatedValue, { duration: 200 });
+  const animatedOpacity = useSpring(interpolatedValue, { duration: 200 });
 
   useEffect(() => {
     if (ref.current) {
@@ -38,5 +42,11 @@ export const useShadowAnimation = ({ scrollY }: AnimationParams) => {
     }
   }, []);
 
-  return { opacity, ref };
+  return useMemo(
+    () => ({
+      opacity: isResponsive ? 0 : animatedOpacity,
+      ref,
+    }),
+    [isResponsive, animatedOpacity]
+  );
 };

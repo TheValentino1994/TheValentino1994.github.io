@@ -68,6 +68,9 @@
   }
 
   @media (max-width: $largeTablet) {
+    position: static;
+    top: 0;
+
     flex-direction: column;
     justify-content: flex-start;
 

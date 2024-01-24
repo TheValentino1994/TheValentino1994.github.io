@@ -11,9 +11,10 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
       z-index: $i;
     }
 
-    @media (max-width: $largeMobile) {
+    @media (max-width: $largeTablet) {
       li:nth-child(#{$i}) {
-        top: 68px;
+        top: 0 !important;
+        position: static !important;
       }
     }
   }
@@ -35,6 +36,13 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
     }
 
     @include placeItems(4);
+  }
+
+  @media (max-width: $largeTablet) {
+    &__container {
+      height: fit-content;
+      padding-bottom: 80px;
+    }
   }
 
   @media (max-width: $largeMobile) {
