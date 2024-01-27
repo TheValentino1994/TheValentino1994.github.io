@@ -43,6 +43,14 @@
     object-fit: contain;
   }
 
+  img[alt~="intrac web interface 1"] {
+    aspect-ratio: 392 / 265;
+  }
+
+  img[alt~="intrac web interface 2"] {
+    aspect-ratio: 98 / 69;
+  }
+
   @media (max-width: $largeTablet) {
     padding: 40px 0;
 

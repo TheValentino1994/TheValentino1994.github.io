@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./applicationStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const Application: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -27,7 +28,7 @@ const Application: FC = () => {
       </div>
 
       <div className="intracApplication__container">
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.intrac.application}
           alt="intrac application"

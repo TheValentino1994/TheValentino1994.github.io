@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./webInterfaceStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const WebInterface: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -31,18 +32,18 @@ const WebInterface: FC = () => {
       </div>
 
       <div className="intracWebInterface__container">
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.intrac.webInterface1}
-          alt={`intrac WebInterface 1`}
+          alt={`intrac web interface 1`}
         />
       </div>
 
       <div className="intracWebInterface__container">
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.intrac.webInterface2}
-          alt={`intrac WebInterface 2`}
+          alt={`intrac web interface 2`}
         />
       </div>
     </section>

@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./designSystemStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const DesignSystem: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -26,7 +27,7 @@ const DesignSystem: FC = () => {
 
       <div className="intracDesignSystem__container">
         {IMAGES.projectsPhotos.intrac.designSystem.map((item, index) => (
-          <img
+          <SuspenseImage
             data-aos="zoom-out-up"
             key={index}
             src={item}

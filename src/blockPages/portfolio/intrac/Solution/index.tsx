@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./solutionStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const Solution: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -23,7 +24,7 @@ const Solution: FC = () => {
 
       <div className="intracSolution__container">
         {IMAGES.projectsPhotos.intrac.solution.map((item, index) => (
-          <img
+          <SuspenseImage
             data-aos="zoom-out-up"
             key={index}
             src={item}
