@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./designArchitectureStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const DesignArchitecture: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -23,13 +24,13 @@ const DesignArchitecture: FC = () => {
             work a pleasurable experience.
           </p>
         </div>
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.architectureDiagram}
           alt="Neobank design architecture diagram"
         />
 
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.architectureIllustration}
           alt="Neobank design architecture illustration"

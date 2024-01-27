@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./introStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const Intro: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -23,7 +24,7 @@ const Intro: FC = () => {
         </div>
       </div>
 
-      <img
+      <SuspenseImage
         data-aos="zoom-out-up"
         alt="Neobank"
         className="neobankIntro__demonstration"

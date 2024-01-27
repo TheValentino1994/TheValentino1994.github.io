@@ -43,6 +43,13 @@
     }
   }
 
+  img[alt~="Neobank design architecture diagram"] {
+    aspect-ratio: 42 / 29;
+  }
+  img[alt~="Neobank design architecture illustration"] {
+    aspect-ratio: 1176 / 781;
+  }
+
   @media (max-width: $largeTablet) {
     &__row {
       flex-direction: column;

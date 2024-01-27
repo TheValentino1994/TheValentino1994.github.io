@@ -12,6 +12,10 @@
     }
   }
 
+  img[alt~="Neobank"] {
+    aspect-ratio: 1541 / 1020;
+  }
+
   &__row {
     flex-direction: row;
     justify-content: space-between;

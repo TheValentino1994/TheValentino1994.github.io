@@ -5,12 +5,6 @@
     &:nth-child(#{$i}) {
       margin-top: map-get($cardsTopOffset, $i);
     }
-
-    // @media (max-width: $largeMobile) {
-    //   &:nth-child(#{$i}) {
-    //     top: 68px;
-    //   }
-    // }
   }
 }
 
@@ -19,6 +13,16 @@
 
   &__container {
     @extend %container;
+
+    img[alt~="Neobank application 1"] {
+      aspect-ratio: 147 / 125;
+    }
+    img[alt~="Neobank application 2"] {
+      aspect-ratio: 1176 / 983;
+    }
+    img[alt~="Neobank application 3"] {
+      aspect-ratio: 327 / 503;
+    }
   }
 
   &__row {

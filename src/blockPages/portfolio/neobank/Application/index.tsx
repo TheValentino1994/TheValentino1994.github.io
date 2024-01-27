@@ -5,6 +5,7 @@ import { IMAGES } from "../../../../constants/_images";
 import GradientCard, {
   GradientCardProps,
 } from "../../../../components/GradientCard";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const SUMMARY: Array<GradientCardProps> = [
   {
@@ -62,24 +63,24 @@ const Application: FC = () => {
       </div>
 
       <div className="neobankApplication__container">
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.mobileApplication1}
-          alt="Neobank application"
+          alt="Neobank application 1"
         />
 
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.mobileApplication2}
-          alt="Neobank application"
+          alt="Neobank application 2"
         />
       </div>
 
       <div className="neobankApplication__fullWidthIllustration">
-        <img
+        <SuspenseImage
           data-aos="zoom-in-right"
           src={IMAGES.projectsPhotos.neobank.mobileApplication3}
-          alt="Neobank application"
+          alt="Neobank application 3"
         />
       </div>
     </section>

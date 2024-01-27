@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./userPersonasStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const UserPersonas: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -11,7 +12,7 @@ const UserPersonas: FC = () => {
       <div className="neobankUserPersonas__container">
         <h3 data-aos="fade-right">User Personas</h3>
 
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.userPersonas}
           alt="Neobank user personas"

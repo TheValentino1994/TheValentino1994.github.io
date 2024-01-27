@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./uiKitStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const UIKit: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -20,16 +21,16 @@ const UIKit: FC = () => {
             thanks to careful planning, I succeeded without any difficulties.
           </p>
         </div>
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.uiKit1}
-          alt="Neobank uikit"
+          alt="Neobank uikit 1"
         />
 
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.uiKit2}
-          alt="Neobank ui kit"
+          alt="Neobank ui kit 2"
         />
       </div>
     </section>
