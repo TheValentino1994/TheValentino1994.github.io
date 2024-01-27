@@ -56,6 +56,10 @@
     }
   }
 
+  &__container > img {
+    aspect-ratio: 588 / 409;
+  }
+
   @media (max-width: $largeTablet) {
     margin-bottom: 80px;
 

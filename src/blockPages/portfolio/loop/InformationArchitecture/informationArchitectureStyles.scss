@@ -46,6 +46,7 @@
     width: 100%;
 
     object-fit: contain;
+    aspect-ratio: 4 / 3;
   }
 
   @media (max-width: $largeTablet) {

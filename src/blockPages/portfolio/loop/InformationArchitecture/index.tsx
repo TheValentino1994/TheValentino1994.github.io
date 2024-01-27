@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./informationArchitectureStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const InformationArchitecture: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -35,7 +36,7 @@ const InformationArchitecture: FC = () => {
         data-aos="zoom-out-up"
         className="loopInformationArchitecture__container"
       >
-        <img
+        <SuspenseImage
           src={IMAGES.projectsPhotos.loop.informationArchitectureDiagram}
           alt="loop information architecture"
         />

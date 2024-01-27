@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./productDesignStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const ProductDesign: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -36,12 +37,12 @@ const ProductDesign: FC = () => {
       </div>
 
       <div className="loopProductDesign__container">
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.productDesign1}
           alt={`loop product design 1`}
         />
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.productDesign2}
           alt={`loop product design 2`}
@@ -49,7 +50,7 @@ const ProductDesign: FC = () => {
       </div>
 
       <div className="loopProductDesign__container">
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.productDesign3}
           alt={`loop product design 3`}
@@ -57,12 +58,12 @@ const ProductDesign: FC = () => {
       </div>
 
       <div className="loopProductDesign__container">
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.productDesign4}
           alt={`loop product design 4`}
         />
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.productDesign5}
           alt={`loop product design 5`}

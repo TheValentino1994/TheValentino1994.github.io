@@ -21,6 +21,22 @@
         @extend %container;
       }
     }
+
+    img[alt~="loop product design 1"] {
+      aspect-ratio: 1176 / 667;
+    }
+    img[alt~="loop product design 2"] {
+      aspect-ratio: 1176 / 667;
+    }
+    img[alt~="loop product design 3"] {
+      aspect-ratio: 28 / 19;
+    }
+    img[alt~="loop product design 4"] {
+      aspect-ratio: 1176 / 671;
+    }
+    img[alt~="loop product design 5"] {
+      aspect-ratio: 392 / 267;
+    }
   }
 
   &__row {

@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./designSystemStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const DesignSystem: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -25,12 +26,12 @@ const DesignSystem: FC = () => {
       </div>
 
       <div className="loopDesignSystem__container">
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.designSystem1}
           alt={`loop design system 1`}
         />
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.designSystem2}
           alt={`loop design system 2`}
@@ -38,7 +39,7 @@ const DesignSystem: FC = () => {
       </div>
 
       <div className="loopDesignSystem__container">
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.designSystem3}
           alt={`loop design system 3`}

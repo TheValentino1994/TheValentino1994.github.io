@@ -21,6 +21,16 @@
         @extend %container;
       }
     }
+
+    img[alt~="loop design system 1"] {
+      aspect-ratio: 84 / 71;
+    }
+    img[alt~="loop design system 2"] {
+      aspect-ratio: 392 / 321;
+    }
+    img[alt~="loop design system 3"] {
+      aspect-ratio: 84 / 59;
+    }
   }
 
   &__row {

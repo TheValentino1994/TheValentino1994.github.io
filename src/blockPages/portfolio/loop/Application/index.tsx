@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./applicationStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const Application: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -24,12 +25,12 @@ const Application: FC = () => {
       </div>
 
       <div className="loopApplication__container">
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.application1}
           alt={`loop application 1`}
         />
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.loop.application2}
           alt={`loop application 2`}
@@ -38,7 +39,7 @@ const Application: FC = () => {
 
       <div className="loopApplication__container-mobile">
         {IMAGES.projectsPhotos.loop.applicationMobile.map((item, index) => (
-          <img
+          <SuspenseImage
             data-aos="zoom-out-up"
             key={index}
             src={item}

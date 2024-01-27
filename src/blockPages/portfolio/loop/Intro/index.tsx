@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./introStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const Intro: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -23,7 +24,7 @@ const Intro: FC = () => {
         </div>
       </div>
 
-      <img
+      <SuspenseImage
         data-aos="zoom-out-up"
         alt="loop"
         className="loopIntro__demonstration"
@@ -65,8 +66,8 @@ const Intro: FC = () => {
       </div>
 
       <div data-aos="zoom-out-up" className="loopIntro__container">
-        <img
-          alt="loop"
+        <SuspenseImage
+          alt="loop intro"
           className="loopIntro__demonstration"
           src={IMAGES.projectsPhotos.loop.intro2}
         />

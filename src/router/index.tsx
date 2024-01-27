@@ -22,7 +22,7 @@ const Error404 = lazy(() => import("../pages/error404"));
 
 export const MainRouter: FC = () => {
   useEffect(() => {
-    AOS.init({ offset: window.innerHeight / 4, duration: 650 });
+    AOS.init({ offset: 200, duration: 650 });
     window.addEventListener("load", AOS.refresh);
 
     return () => {
