@@ -12,6 +12,14 @@
     }
   }
 
+  img[alt~="wingTipz"] {
+    aspect-ratio: 1541 / 1020;
+  }
+
+  img[alt~="wingTipz intro"] {
+    aspect-ratio: 240 / 161;
+  }
+
   &__row {
     flex-direction: row;
     justify-content: space-between;

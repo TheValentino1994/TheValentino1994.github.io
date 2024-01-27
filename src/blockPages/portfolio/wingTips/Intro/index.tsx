@@ -4,6 +4,7 @@ import "./introStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
 import { IphoneX } from "../../../../components";
 import { VIDEOS } from "../../../../constants/_videos";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const Intro: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -31,7 +32,10 @@ const Intro: FC = () => {
           videoSrc={VIDEOS.wingTipz.uiProcess1}
         />
 
-        <img alt="wingTipz" src={IMAGES.projectsPhotos.wingTipz.intro1} />
+        <SuspenseImage
+          alt="wingTipz"
+          src={IMAGES.projectsPhotos.wingTipz.intro1}
+        />
       </div>
 
       <div className="wingTipzIntro__container">
@@ -67,9 +71,9 @@ const Intro: FC = () => {
         </div>
       </div>
 
-      <img
+      <SuspenseImage
         data-aos="zoom-out-up"
-        alt="wingTipz"
+        alt="wingTipz intro"
         className="wingTipzIntro__demonstration"
         src={IMAGES.projectsPhotos.wingTipz.intro2}
       />

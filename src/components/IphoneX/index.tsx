@@ -9,6 +9,7 @@ import "./iphoneXStyles.scss";
 
 /* -------------------------------- Constants ------------------------------- */
 import { IMAGES } from "../../constants/_images";
+import SuspenseImage from "../SuspenseImage";
 
 interface IphoneXProps extends HTMLAttributes<HTMLDivElement> {
   alt: string;
@@ -31,7 +32,7 @@ const IphoneX: FC<IphoneXProps> = ({
   //
   return (
     <div {...props} className="iphoneX">
-      <img
+      <SuspenseImage
         className="iphoneX__body"
         src={IMAGES.Illustrations.IphoneX}
         alt={alt}
@@ -49,7 +50,7 @@ const IphoneX: FC<IphoneXProps> = ({
       ) : null}
 
       {screenshotSrc ? (
-        <img
+        <SuspenseImage
           alt="screenshot"
           src={screenshotSrc}
           className="iphoneX__screenshot"

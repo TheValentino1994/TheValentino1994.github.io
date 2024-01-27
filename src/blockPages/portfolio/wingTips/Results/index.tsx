@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./resultsStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const Results: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -34,7 +35,7 @@ const Results: FC = () => {
       </div>
 
       <div className="wingTipzResults__container">
-        <img
+        <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.wingTipz.results}
           alt={`wingTipz Results`}

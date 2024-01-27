@@ -2,6 +2,7 @@
 import { FC } from "react";
 import "./challengesStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
+import SuspenseImage from "../../../../components/SuspenseImage";
 
 const Challenges: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -38,7 +39,7 @@ const Challenges: FC = () => {
         </div>
       </div>
 
-      <img
+      <SuspenseImage
         className="wingTipzChallenges__demonstration"
         data-aos="zoom-out-up"
         src={IMAGES.projectsPhotos.wingTipz.challenges}
