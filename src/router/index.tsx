@@ -2,7 +2,7 @@
 import { FC, Suspense, lazy, useEffect } from "react";
 
 /* -------------------------------- Libraries ------------------------------- */
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import AOS from "aos";
 
 /* --------------------------------- Layouts -------------------------------- */
@@ -22,7 +22,7 @@ const Error404 = lazy(() => import("../pages/error404"));
 
 export const MainRouter: FC = () => {
   useEffect(() => {
-    AOS.init({ offset: 200, duration: 650 });
+    AOS.init({ offset: 200, once: false, duration: 650 });
     window.addEventListener("load", AOS.refresh);
 
     return () => {
@@ -34,7 +34,7 @@ export const MainRouter: FC = () => {
 
   return (
     <Suspense fallback={<SuspenseLoader />}>
-      <BrowserRouter>
+      <HashRouter>
         <MainLayout>
           <Routes>
             <Route path={ROUTES.NOT_FOUND} element={<Error404 />} />
@@ -45,7 +45,7 @@ export const MainRouter: FC = () => {
             <Route path={ROUTES.PORTFOLIO_LOOP} element={<Loop />} />
           </Routes>
         </MainLayout>
-      </BrowserRouter>
+      </HashRouter>
     </Suspense>
   );
 };
