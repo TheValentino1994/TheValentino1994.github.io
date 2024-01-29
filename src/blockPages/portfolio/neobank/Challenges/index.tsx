@@ -54,6 +54,7 @@ const Challenges: FC = () => {
         <div className="neobankChallenges__challenges-desktop">
           {CHALLENGES.map((item) => (
             <GradientCard
+              key={item.title}
               type={item.type}
               animation={item.animation}
               title={item.title}

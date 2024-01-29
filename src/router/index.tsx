@@ -1,5 +1,5 @@
 /* ------------------------------ Basic imports ----------------------------- */
-import { FC, Suspense, lazy, useEffect } from "react";
+import { FC, Suspense, lazy, useCallback, useEffect } from "react";
 
 /* -------------------------------- Libraries ------------------------------- */
 import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
@@ -21,12 +21,22 @@ const Loop = lazy(() => import("../pages/portfolio/loop"));
 const Error404 = lazy(() => import("../pages/error404"));
 
 export const MainRouter: FC = () => {
+  const pageScrollHandler = useCallback(() => {
+    const pathname = window.location.pathname;
+
+    if (pathname === "/") {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   useEffect(() => {
     AOS.init({ offset: 200, once: false, duration: 650 });
     window.addEventListener("load", AOS.refresh);
+    window.addEventListener("unload", pageScrollHandler);
 
     return () => {
       window.removeEventListener("load", AOS.refresh);
+      window.removeEventListener("unload", pageScrollHandler);
     };
   }, []);
 

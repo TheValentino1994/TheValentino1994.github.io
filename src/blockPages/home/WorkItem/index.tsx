@@ -31,7 +31,7 @@ const WorkItem: FC<WorkItemProps> = ({
 }) => {
   const { svgSize, marginLeft, handleHover } = useHoverSpring();
 
-  const { ref, opacity } = useShadowAnimation({ scrollY });
+  const { ref, opacity } = useShadowAnimation({ scrollY, title });
 
   /* --------------------------------- Render ------------------------------- */
 
