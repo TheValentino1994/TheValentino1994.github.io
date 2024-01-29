@@ -13,6 +13,7 @@ import { MotionValue, motion } from "framer-motion";
 import { ICONS } from "../../../constants/_icons";
 import { useHoverSpring } from "../../../hooks/useHoveSpring";
 import { useShadowAnimation } from "./useShadowAnimation";
+import SuspenseImage from "../../../components/SuspenseImage";
 
 interface WorkItemProps extends IWorkItem {
   scrollY: MotionValue<number>;
@@ -64,7 +65,7 @@ const WorkItem: FC<WorkItemProps> = ({
           </motion.div>
         </div>
 
-        <img alt={`${title} ${subtitle}`} src={previewImage} />
+        <SuspenseImage alt={`${title} ${subtitle}`} src={previewImage} />
       </div>
 
       <div className="workItem__timeline">

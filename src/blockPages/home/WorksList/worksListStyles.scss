@@ -50,13 +50,6 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
       width: 100%;
 
       padding-bottom: 80px;
-
-      li:nth-child(2n + 1) img {
-        width: 100%;
-
-        position: relative;
-        right: 22%;
-      }
     }
   }
 }
