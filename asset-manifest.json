@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.9ec7b575.css",
-    "main.js": "/static/js/main.b29fabd2.js",
+    "main.js": "/static/js/main.f59f8cfe.js",
     "static/js/874.49b90ab0.chunk.js": "/static/js/874.49b90ab0.chunk.js",
     "static/css/155.7aa6061e.chunk.css": "/static/css/155.7aa6061e.chunk.css",
     "static/js/155.5c0ffd5e.chunk.js": "/static/js/155.5c0ffd5e.chunk.js",
     "static/css/54.20ae2824.chunk.css": "/static/css/54.20ae2824.chunk.css",
-    "static/js/54.18a401d2.chunk.js": "/static/js/54.18a401d2.chunk.js",
+    "static/js/54.ed95b919.chunk.js": "/static/js/54.ed95b919.chunk.js",
     "static/css/391.7be742aa.chunk.css": "/static/css/391.7be742aa.chunk.css",
     "static/js/391.e04afdd4.chunk.js": "/static/js/391.e04afdd4.chunk.js",
     "static/css/647.fc830d51.chunk.css": "/static/css/647.fc830d51.chunk.css",
@@ -112,12 +112,12 @@
     "static/media/ArrowIcon.svg": "/static/media/ArrowIcon.7a059c7c7fce0241ecface14a3678ba9.svg",
     "static/media/LinkIcon.svg": "/static/media/LinkIcon.fc1e579d1aecc51c440f80eaa34a6b86.svg",
     "main.9ec7b575.css.map": "/static/css/main.9ec7b575.css.map",
-    "main.b29fabd2.js.map": "/static/js/main.b29fabd2.js.map",
+    "main.f59f8cfe.js.map": "/static/js/main.f59f8cfe.js.map",
     "874.49b90ab0.chunk.js.map": "/static/js/874.49b90ab0.chunk.js.map",
     "155.7aa6061e.chunk.css.map": "/static/css/155.7aa6061e.chunk.css.map",
     "155.5c0ffd5e.chunk.js.map": "/static/js/155.5c0ffd5e.chunk.js.map",
     "54.20ae2824.chunk.css.map": "/static/css/54.20ae2824.chunk.css.map",
-    "54.18a401d2.chunk.js.map": "/static/js/54.18a401d2.chunk.js.map",
+    "54.ed95b919.chunk.js.map": "/static/js/54.ed95b919.chunk.js.map",
     "391.7be742aa.chunk.css.map": "/static/css/391.7be742aa.chunk.css.map",
     "391.e04afdd4.chunk.js.map": "/static/js/391.e04afdd4.chunk.js.map",
     "647.fc830d51.chunk.css.map": "/static/css/647.fc830d51.chunk.css.map",
@@ -126,6 +126,6 @@
   },
   "entrypoints": [
     "static/css/main.9ec7b575.css",
-    "static/js/main.b29fabd2.js"
+    "static/js/main.f59f8cfe.js"
   ]
 }
