@@ -77,5 +77,10 @@
     &__right {
       @include heading_H1_Mobile();
     }
+
+    &__container:nth-child(2),
+    &__container:nth-child(3) {
+      width: 100%;
+    }
   }
 }

@@ -7,7 +7,7 @@
     padding-top: 80px;
     padding-bottom: 80px;
 
-    &:not(:last-child) {
+    &:not(:last-of-type) {
       padding-bottom: 80px;
     }
   }

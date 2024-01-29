@@ -3,6 +3,10 @@
 .neobankUIKit {
   &__container {
     @extend %container;
+
+    &:last-child {
+      margin-top: 52px;
+    }
   }
 
   &__row {
@@ -38,10 +42,6 @@
 
     object-fit: contain;
     aspect-ratio: 49 / 29;
-
-    &:nth-of-type(2) {
-      margin-top: 52px;
-    }
   }
 
   @media (max-width: $largeTablet) {
@@ -57,8 +57,8 @@
       margin: 0 0 24px 0;
     }
 
-    img:nth-of-type(2) {
-      margin-top: 24px;
+    &__container:last-child {
+      margin-top: 52px;
     }
   }
 
@@ -69,6 +69,11 @@
 
     &__right {
       @include heading_H1_Mobile();
+    }
+
+    &__container:nth-child(2),
+    &__container:nth-child(3) {
+      width: 100%;
     }
   }
 }

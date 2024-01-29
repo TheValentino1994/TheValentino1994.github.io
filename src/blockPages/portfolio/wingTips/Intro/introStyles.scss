@@ -12,11 +12,11 @@
     }
   }
 
-  img[alt~="wingTipz"] {
+  img[alt~="wingTipz intro"] {
     aspect-ratio: 1541 / 1020;
   }
 
-  img[alt~="wingTipz intro"] {
+  img[alt~="wingTipz intro 2"] {
     aspect-ratio: 240 / 161;
   }
 
@@ -63,7 +63,7 @@
     }
   }
 
-  &__demonstration {
+  &__demonstration:not(:last-child) {
     @extend %center;
 
     .iphoneX {
@@ -90,6 +90,10 @@
         object-fit: cover;
       }
     }
+  }
+
+  &__demonstration:last-child {
+    width: 100%;
   }
 
   &__mainText {
@@ -142,8 +146,7 @@
       }
     }
 
-    &__demonstration {
-      padding: 52px 0;
+    &__demonstration:not(:last-child) {
       height: fit-content;
     }
 

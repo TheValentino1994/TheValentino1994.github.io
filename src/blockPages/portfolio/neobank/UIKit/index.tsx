@@ -21,12 +21,17 @@ const UIKit: FC = () => {
             thanks to careful planning, I succeeded without any difficulties.
           </p>
         </div>
+      </div>
+
+      <div className="neobankUIKit__container">
         <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.uiKit1}
           alt="Neobank uikit 1"
         />
+      </div>
 
+      <div className="neobankUIKit__container">
         <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.uiKit2}

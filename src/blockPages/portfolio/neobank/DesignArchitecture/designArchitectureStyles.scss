@@ -3,6 +3,10 @@
 .neobankDesignArchitecture {
   &__container {
     @extend %container;
+
+    &:last-child {
+      margin-top: 52px;
+    }
   }
 
   &__row {
@@ -37,10 +41,6 @@
     width: 100%;
 
     object-fit: contain;
-
-    &:nth-of-type(2) {
-      margin-top: 52px;
-    }
   }
 
   img[alt~="Neobank design architecture diagram"] {
@@ -63,7 +63,7 @@
       margin: 0 0 24px 0;
     }
 
-    img:nth-of-type(2) {
+    &__container:last-child {
       margin-top: 24px;
     }
   }
@@ -75,6 +75,10 @@
 
     &__right {
       @include heading_H1_Mobile();
+    }
+
+    &__container:last-child {
+      width: 100%;
     }
   }
 }

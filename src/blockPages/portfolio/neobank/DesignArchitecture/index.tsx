@@ -29,7 +29,9 @@ const DesignArchitecture: FC = () => {
           src={IMAGES.projectsPhotos.neobank.architectureDiagram}
           alt="Neobank design architecture diagram"
         />
+      </div>
 
+      <div className="neobankDesignArchitecture__container">
         <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.architectureIllustration}

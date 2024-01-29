@@ -69,5 +69,9 @@
     &__right {
       @include heading_H1_Mobile();
     }
+
+    &__container:last-child {
+      width: 100%;
+    }
   }
 }

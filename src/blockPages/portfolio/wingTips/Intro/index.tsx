@@ -33,7 +33,7 @@ const Intro: FC = () => {
         />
 
         <SuspenseImage
-          alt="wingTipz"
+          alt="wingTipz intro"
           src={IMAGES.projectsPhotos.wingTipz.intro1}
         />
       </div>
@@ -73,7 +73,7 @@ const Intro: FC = () => {
 
       <SuspenseImage
         data-aos="zoom-out-up"
-        alt="wingTipz intro"
+        alt="wingTipz intro 2"
         className="wingTipzIntro__demonstration"
         src={IMAGES.projectsPhotos.wingTipz.intro2}
       />
