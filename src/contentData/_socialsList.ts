@@ -18,12 +18,12 @@ export const SOCIALS_LIST = [
   },
   {
     title: "Email",
-    link: "ValentynKuchernoha@gmail.com",
+    link: "mailto: ValentynKuchernoha@gmail.com",
     type: SOCIALS.EMAIL,
   },
   {
     title: "Valentyn.cv",
     link: `${window.location.origin}/Valentyn_Kuchernoha_CV.pdf`,
-    type: SOCIALS.EMAIL,
+    type: SOCIALS.CV,
   },
 ];
