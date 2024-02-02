@@ -93,6 +93,7 @@
   }
 
   &__demonstration:last-child {
+    @extend %container;
     width: 100%;
   }
 
@@ -112,10 +113,14 @@
     }
   }
 
+  @media (max-width: $designDesktopLayoutWidth) {
+    &__demonstration:last-child {
+      max-width: unset;
+    }
+  }
+
   @media (max-width: $largeTablet) {
     &__container {
-      @extend %container;
-
       padding: 40px 0;
 
       &:first-of-type {

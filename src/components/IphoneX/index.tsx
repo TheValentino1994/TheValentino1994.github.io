@@ -46,7 +46,6 @@ const IphoneX: FC<IphoneXProps> = ({
           controls={false}
           {...videoProps}
           src={videoSrc}
-          playsInline
         ></video>
       ) : null}
 
