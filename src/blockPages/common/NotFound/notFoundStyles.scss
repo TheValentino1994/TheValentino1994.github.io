@@ -4,7 +4,9 @@
 .notFound {
   @extend %container, %center;
 
-  height: 100vh;
+  height: 100dvb;
+
+  overflow: hidden !important;
 
   text-align: center;
 

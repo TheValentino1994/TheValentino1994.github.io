@@ -26,7 +26,7 @@ const Intro: FC = () => {
 
       <SuspenseImage
         data-aos="zoom-out-up"
-        alt="loop"
+        alt="loop intro 1"
         className="loopIntro__demonstration"
         src={IMAGES.projectsPhotos.loop.intro1}
       />
@@ -65,9 +65,9 @@ const Intro: FC = () => {
         </div>
       </div>
 
-      <div data-aos="zoom-out-up" className="loopIntro__container">
+      <div data-aos="flip-down" className="loopIntro__container">
         <SuspenseImage
-          alt="loop intro"
+          alt="loop intro 2"
           className="loopIntro__demonstration"
           src={IMAGES.projectsPhotos.loop.intro2}
         />

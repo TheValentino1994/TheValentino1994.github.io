@@ -4,7 +4,9 @@
 .suspense {
   @extend %container, %center;
 
-  height: 100vh;
+  overflow: hidden;
+
+  height: 100dvb;
 
   flex-direction: row;
 

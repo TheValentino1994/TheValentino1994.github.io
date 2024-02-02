@@ -24,7 +24,7 @@ const Intro: FC = () => {
 
       <SuspenseImage
         data-aos="zoom-out-up"
-        alt="intrac"
+        alt="intrac intro"
         className="intracIntro__demonstration"
         src={IMAGES.projectsPhotos.intrac.intro}
       />

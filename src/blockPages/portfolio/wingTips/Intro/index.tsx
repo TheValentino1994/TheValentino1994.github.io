@@ -33,7 +33,7 @@ const Intro: FC = () => {
         />
 
         <SuspenseImage
-          alt="wingTipz intro"
+          alt="wingTipz intro 1"
           src={IMAGES.projectsPhotos.wingTipz.intro1}
         />
       </div>
