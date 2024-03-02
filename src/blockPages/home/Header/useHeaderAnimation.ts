@@ -1,6 +1,5 @@
 import { useScroll, useTransform } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
-import _ from "lodash";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 export const useHeaderAnimation = () => {

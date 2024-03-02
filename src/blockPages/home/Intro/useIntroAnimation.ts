@@ -1,6 +1,5 @@
 import { useScroll, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import _ from "lodash";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 export const useIntroAnimation = () => {
