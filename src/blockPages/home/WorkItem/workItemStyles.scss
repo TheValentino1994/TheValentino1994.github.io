@@ -131,6 +131,11 @@ $contentContainerWidth: calc($containerDesktopMaxWidth - 52px * 2);
     }
   }
 
+  @media (min-width: $largeTablet) and (max-height: 880px) {
+    height: 700px;
+    overflow: hidden;
+  }
+
   @media (max-width: $largeTablet) {
     flex-direction: column;
     justify-content: flex-start;
