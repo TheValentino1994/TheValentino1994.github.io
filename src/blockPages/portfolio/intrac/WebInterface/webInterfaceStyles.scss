@@ -43,8 +43,9 @@
     object-fit: contain;
   }
 
-  img[alt~="intrac web interface 1"] {
+  #intrac_web_interface_1 {
     aspect-ratio: 392 / 265;
+    width: 100%;
   }
 
   img[alt~="intrac web interface 2"] {

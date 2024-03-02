@@ -4,6 +4,7 @@ import "./introStyles.scss";
 import { useIntroAnimation } from "./useIntroAnimation";
 import { motion } from "framer-motion";
 import SuspenseImage from "../../../components/SuspenseImage";
+import { IMAGES } from "../../../constants/_images";
 
 const Intro: FC = () => {
   const { ref, opacity, translateY, scale } = useIntroAnimation();
@@ -22,7 +23,7 @@ const Intro: FC = () => {
 
         <SuspenseImage
           alt="Valentyn Kuchernoha UX/UI Designer"
-          src={require("../../../assets/images/illustrations/Project.png")}
+          src={IMAGES.avatar}
         />
       </div>
 

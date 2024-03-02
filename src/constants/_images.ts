@@ -1,103 +1,119 @@
 /* ------------------------------ Illustrations ----------------------------- */
-import { FooterWaves } from "./../assets/images/illustrations/FooterWaves";
-import Planet1 from "../assets/images/illustrations/planet1.png";
-import Planet2 from "../assets/images/illustrations/planet2.png";
-import Astronaut1 from "../assets/images/illustrations/astronaut1.png";
-import Astronaut2 from "../assets/images/illustrations/astronaut2.png";
 import IphoneX from "../assets/images/illustrations/iPhone_X.png";
-import { HomeIntroBigLava } from "../assets/images/illustrations/HomeIntroBigLava";
-import { HomeIntroSmallLava } from "../assets/images/illustrations/HomeIntroSmallLava";
-import { HomeIntroWave } from "../assets/images/illustrations/HomeIntroWave";
 import { ReactComponent as Ellipse } from "../assets/images/illustrations/ellipse.svg";
 import { ReactComponent as Neobank_designPhases } from "../assets/images/illustrations/neobank_designPhases.svg";
 
-/* ------------------------------- Backgrounds ------------------------------ */
-import FooterBg from "../assets/images/backgrounds/footerBg.svg";
-
 export const IMAGES = {
+  avatar:
+    "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/Project.png",
   Illustrations: {
-    Planet1,
-    Planet2,
-    Astronaut1,
-    Astronaut2,
-    FooterWaves,
     IphoneX,
-    HomeIntroBigLava,
-    HomeIntroSmallLava,
-    HomeIntroWave,
     Ellipse,
-  },
-
-  backgrounds: {
-    FooterBg,
   },
 
   projectsPhotos: {
     intrac: {
-      preview: require("../assets/images/illustrations/intrack_mock_preview.png"),
-      intro: require("../assets/images/illustrations/intrac_1.png"),
-      architectureDiagram: require("../assets/images/illustrations/intrac_2.png"),
+      preview:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrack_mock_preview.png",
+      intro:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrac_1.png",
+      architectureDiagram:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrac_2.png",
       solution: [
-        require("../assets/images/illustrations/intrac_3.png"),
-        require("../assets/images/illustrations/intrac_4.png"),
-        require("../assets/images/illustrations/intrac_5.png"),
-        require("../assets/images/illustrations/intrac_6.png"),
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrac_3.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrac_4.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrac_5.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrac_6.png",
       ],
       designSystem: [
-        require("../assets/images/illustrations/intrac_7.png"),
-        require("../assets/images/illustrations/intrac_8.png"),
-        require("../assets/images/illustrations/intrac_9.png"),
-        require("../assets/images/illustrations/intrac_10.png"),
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrac_7.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrac_8.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrac_9.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrac_10.png",
       ],
-      webInterface1: require("../assets/images/illustrations/intrac_11.png"),
-      webInterface2: require("../assets/images/illustrations/intrac_12.png"),
-      application: require("../assets/images/illustrations/intrac_13.png"),
+
+      webInterface2:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrac_12.png",
+      application:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/intrac_13.png",
     },
     neobank: {
-      preview: require("../assets/images/illustrations/neobank_mock_preview.png"),
-      intro: require("../assets/images/illustrations/neobank_1.png"),
-      userPersonas: require("../assets/images/illustrations/neobank_9.png"),
-      architectureDiagram: require("../assets/images/illustrations/neobank_2.png"),
-      architectureIllustration: require("../assets/images/illustrations/neobank_3.png"),
-      uiKit1: require("../assets/images/illustrations/neobank_4.png"),
-      uiKit2: require("../assets/images/illustrations/neobank_5.png"),
-      mobileApplication1: require("../assets/images/illustrations/neobank_6.png"),
-      mobileApplication2: require("../assets/images/illustrations/neobank_7.png"),
-      mobileApplication3: require("../assets/images/illustrations/neobank_8.png"),
+      preview:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/neobank_mock_preview.png",
+      intro:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/neobank_1.png",
+      userPersonas:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/neobank_9.png",
+      architectureDiagram:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/neobank_2.png",
+      architectureIllustration:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/neobank_3.png",
+      uiKit1:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/neobank_4.png",
+      uiKit2:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/neobank_5.png",
+      mobileApplication1:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/neobank_6.png",
+      mobileApplication2:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/neobank_7.png",
+      mobileApplication3:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/neobank_8.png",
       Neobank_designPhases,
     },
     loop: {
-      preview: require("../assets/images/illustrations/loop_mock_preview.png"),
-      intro1: require("../assets/images/illustrations/loop_1.png"),
-      intro2: require("../assets/images/illustrations/loop_2.png"),
-      informationArchitectureDiagram: require("../assets/images/illustrations/loop_3.png"),
-      designSystem1: require("../assets/images/illustrations/loop_4.png"),
-      designSystem2: require("../assets/images/illustrations/loop_5.png"),
-      designSystem3: require("../assets/images/illustrations/loop_6.png"),
-      productDesign1: require("../assets/images/illustrations/loop_7.png"),
-      productDesign2: require("../assets/images/illustrations/loop_8.png"),
-      productDesign3: require("../assets/images/illustrations/loop_9.png"),
-      productDesign4: require("../assets/images/illustrations/loop_10.png"),
-      productDesign5: require("../assets/images/illustrations/loop_11.png"),
-      application1: require("../assets/images/illustrations/loop_12.png"),
-      application2: require("../assets/images/illustrations/loop_13.png"),
+      preview:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_mock_preview.png",
+      intro1:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_1.png",
+      intro2:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_2.png",
+      informationArchitectureDiagram:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_3.png",
+      designSystem1:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_4.png",
+      designSystem2:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_5.png",
+      designSystem3:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_6.png",
+      productDesign1:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_7.png",
+      productDesign2:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_8.png",
+      productDesign3:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_9.png",
+      productDesign4:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_10.png",
+      productDesign5:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_11.png",
+      application1:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_12.png",
+      application2:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_13.png",
       applicationMobile: [
-        require("../assets/images/illustrations/loop_14.png"),
-        require("../assets/images/illustrations/loop_15.png"),
-        require("../assets/images/illustrations/loop_16.png"),
-        require("../assets/images/illustrations/loop_17.png"),
-        require("../assets/images/illustrations/loop_18.png"),
-        require("../assets/images/illustrations/loop_19.png"),
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_14.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_15.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_16.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_17.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_18.png",
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/loop_19.png",
       ],
     },
     wingTipz: {
-      preview: require("../assets/images/illustrations/wingtipz_mock_preview.png"),
-      intro1: require("../assets/images/illustrations/wingtipz_1.png"),
-      intro2: require("../assets/images/illustrations/wingtipz_2.png"),
-      intro2Mobile: [require("../assets/images/illustrations/wingtipz_2.png")],
-      challenges: require("../assets/images/illustrations/wingtipz_3.png"),
-      elements: require("../assets/images/illustrations/wingtipz_4.png"),
-      results: require("../assets/images/illustrations/wingtipz_5.png"),
+      preview:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/wingtipz_mock_preview.png",
+      intro1:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/wingtipz_1.png",
+      intro2:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/wingtipz_2.png",
+      intro2Mobile: [
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/wingtipz_2.png",
+      ],
+      challenges:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/wingtipz_3.png",
+      elements:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/wingtipz_4.png",
+      results:
+        "https://maxbucketttt.s3.eu-north-1.amazonaws.com/projectsPhotos/illustrations/wingtipz_5.png",
     },
   },
 };

@@ -3,6 +3,7 @@ import { FC } from "react";
 import "./webInterfaceStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
 import SuspenseImage from "../../../../components/SuspenseImage";
+import { VIDEOS } from "../../../../constants/_videos";
 
 const WebInterface: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -32,10 +33,16 @@ const WebInterface: FC = () => {
       </div>
 
       <div className="intracWebInterface__container">
-        <SuspenseImage
+        <video
+          webkit-playsinline
+          playsInline
+          autoPlay
+          loop
+          muted
+          controls={false}
+          id="intrac_web_interface_1"
           data-aos="zoom-out-up"
-          src={IMAGES.projectsPhotos.intrac.webInterface1}
-          alt={`intrac web interface 1`}
+          src={VIDEOS.intrac.webInterface}
         />
       </div>
 
