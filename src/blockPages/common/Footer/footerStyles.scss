@@ -47,16 +47,19 @@
   }
 
   a {
-    @extend %center, %body_B2_Desktop;
-
     color: $neutrals_N1000;
 
     padding: 16px 20px;
 
-    span {
-      margin-left: 4px;
+    #line {
+      bottom: 10px;
+      left: 20px;
 
-      color: $neutrals_N1000;
+      background-color: $neutrals_N1000;
+    }
+
+    svg path {
+      fill: $neutrals_N1000;
     }
   }
 
@@ -81,14 +84,15 @@
 
     a {
       padding: 8px;
+
+      #line {
+        left: 8px;
+        bottom: 2px;
+      }
     }
   }
 
   @media (max-width: $largeMobile) {
-    a {
-      @include body_B1_Mobile();
-    }
-
     &__info {
       h3,
       span,

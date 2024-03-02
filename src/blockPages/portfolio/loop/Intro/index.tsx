@@ -3,6 +3,7 @@ import { FC } from "react";
 import "./introStyles.scss";
 import { IMAGES } from "../../../../constants/_images";
 import SuspenseImage from "../../../../components/SuspenseImage";
+import AnimatedLink from "../../../../components/AnimatedLink";
 
 const Intro: FC = () => {
   /* --------------------------------- Render --------------------------------- */
@@ -12,7 +13,13 @@ const Intro: FC = () => {
       <div className="loopIntro__container">
         <div className="loopIntro__row">
           <div data-aos="fade-right" className="loopIntro__left">
-            <h3>Loop</h3>
+            <AnimatedLink
+              link="https://loophq.com/"
+              title="Loop"
+              //@ts-ignore
+              target="_blank"
+              rel="no-refferer"
+            />
             <p>Web & Responsive Design</p>
             <p>Productivity 2022</p>
           </div>

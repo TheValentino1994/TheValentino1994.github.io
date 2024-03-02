@@ -1,0 +1,39 @@
+@import "../../scss/repeat.scss";
+@import "../../scss/colors";
+
+.animatedLink {
+  @extend %center, %subheading_H5_Desktop;
+  transition: all 0.2s ease;
+
+  position: relative;
+
+  color: $neutrals_N0;
+
+  #line {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+
+    background-color: $neutrals_N100;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+  &:hover {
+    @include subheading_H2_Mobile();
+  }
+}
+
+@media (max-width: $largeMobile) {
+  .animatedLink {
+    @include subheading_H4_Mobile();
+
+    &:hover {
+      @include subheading_H4_Mobile();
+      font-weight: 600;
+    }
+  }
+}

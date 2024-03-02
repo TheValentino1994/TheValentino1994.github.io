@@ -19,20 +19,11 @@
     justify-content: flex-end;
   }
 
-  a {
-    @extend %center, %subheading_H5_Desktop;
-    transition: all 0.2s ease;
-
+  .animatedLink {
     padding: 14px 0;
 
-    color: $neutrals_N0;
-
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-    &:hover {
-      @include subheading_H2_Mobile();
+    #line {
+      bottom: 8px;
     }
   }
 
@@ -58,9 +49,11 @@
     padding: 0;
 
     a {
-      @include subheading_H4_Mobile();
-
       padding: 24px 0;
+
+      #line {
+        bottom: 18px;
+      }
     }
   }
 }

@@ -3,8 +3,21 @@ import { FC, useMemo } from "react";
 import "./footerStyles.scss";
 
 /* ------------------------------ Constant data ----------------------------- */
-import { SOCIALS_LIST } from "../../../contentData/_socialsList";
+import { SOCIALS, SOCIALS_LIST } from "../../../contentData/_socialsList";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
+import AnimatedLink from "../../../components/AnimatedLink";
+
+export const Link = ({ type, ...props }: (typeof SOCIALS_LIST)[0]) => {
+  const linkProps = useMemo(
+    () =>
+      type !== SOCIALS.EMAIL
+        ? { target: "_blank", rel: "noreferrer", ...props }
+        : { ...props },
+    [type, props]
+  );
+
+  return <AnimatedLink {...linkProps} />;
+};
 
 const Footer: FC = () => {
   const isResponsive = useMediaQuery("(max-width: 1024px)");
@@ -31,10 +44,7 @@ const Footer: FC = () => {
         </div>
 
         {SOCIALS_LIST.map((item) => (
-          <a key={item.title} href={item.link} target="_blank" rel="noreferrer">
-            {item.title}
-            <span>+</span>
-          </a>
+          <Link key={item.title} {...item} />
         ))}
       </div>
 

@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 /* ------------------------------- Block pages ------------------------------ */
 import Header from "../../blockPages/portfolio/Header";
 import { DefaultLayoutProps } from "../../types";
+import { Footer } from "../../blockPages/common";
 
 const CaseLayout: FC<DefaultLayoutProps> = ({ children }) => {
   /* ---------------------------------- Hooks --------------------------------- */
@@ -26,6 +27,8 @@ const CaseLayout: FC<DefaultLayoutProps> = ({ children }) => {
       <Header />
 
       {children}
+
+      <Footer />
     </>
   );
 };

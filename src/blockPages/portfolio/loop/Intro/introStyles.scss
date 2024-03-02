@@ -43,19 +43,14 @@
     flex: 1;
   }
 
-  h2 {
-    @extend %heading_H2_Desktop;
+  .animatedLink {
+    width: fit-content;
 
-    color: $neutrals_N100;
+    margin-bottom: 8px;
   }
 
-  h3 {
-    @extend %subheading_H5_Desktop;
-
-    letter-spacing: 0px;
-    font-weight: 600;
-
-    margin-bottom: 4px;
+  h2 {
+    @extend %heading_H2_Desktop;
 
     color: $neutrals_N100;
   }
@@ -135,7 +130,7 @@
       }
     }
 
-    h3 {
+    a {
       margin-bottom: 12px;
     }
   }
@@ -143,10 +138,6 @@
   @media (max-width: $largeMobile) {
     h2 {
       @include heading_H1_Mobile();
-    }
-
-    h3 {
-      @include subheading_H2_Mobile();
     }
 
     p {

@@ -1,16 +1,17 @@
 import { useScroll, useSpring, useTransform } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import _ from "lodash";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 export const useIntroAnimation = () => {
   const ref = useRef<HTMLLIElement>(null);
 
-  const isResponsive = useMediaQuery("(max-width: 1024px)");
+  const isResponsive = useMediaQuery("(max-width: 1024px)", true);
+
+  console.log(isResponsive);
 
   const { scrollY } = useScroll();
   const [introHeight, setIntroHeight] = useState(0);
-  const [bottomOffset, setBottomOffset] = useState(0);
 
   const interpolatedTransitionTop = useTransform(
     scrollY,
@@ -47,17 +48,13 @@ export const useIntroAnimation = () => {
       const rect = element.getBoundingClientRect();
 
       setIntroHeight(rect.height);
-      setBottomOffset(window.innerHeight);
     }
   }, []);
 
-  return useMemo(
-    () => ({
-      opacity: isResponsive ? 1 : animatedOpacity,
-      scale: isResponsive ? 1 : animatedScale,
-      translateY: isResponsive ? 0 : interpolatedTransitionTop,
-      ref,
-    }),
-    [animatedScale, isResponsive, animatedOpacity, interpolatedTransitionTop]
-  );
+  return {
+    opacity: isResponsive ? 1 : animatedOpacity,
+    scale: isResponsive ? 1 : animatedScale,
+    translateY: isResponsive ? 0 : interpolatedTransitionTop,
+    ref,
+  };
 };

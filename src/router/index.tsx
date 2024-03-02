@@ -2,11 +2,8 @@
 import { FC, Suspense, lazy, useCallback, useEffect } from "react";
 
 /* -------------------------------- Libraries ------------------------------- */
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import AOS from "aos";
-
-/* --------------------------------- Layouts -------------------------------- */
-import { MainLayout } from "../layouts";
 
 /* -------------------------------- Constants ------------------------------- */
 import { ROUTES } from "../constants/_routes";
@@ -45,16 +42,14 @@ export const MainRouter: FC = () => {
   return (
     <Suspense fallback={<SuspenseLoader />}>
       <HashRouter>
-        <MainLayout>
-          <Routes>
-            <Route path={ROUTES.NOT_FOUND} element={<Error404 />} />
-            <Route path={ROUTES.HOME} element={<Home />} />
-            <Route path={ROUTES.PORTFOLIO_WING_TIPZ} element={<WingTipz />} />
-            <Route path={ROUTES.PORTFOLIO_INTRAC} element={<Intrac />} />
-            <Route path={ROUTES.PORTFOLIO_NEOBANK} element={<Neobank />} />
-            <Route path={ROUTES.PORTFOLIO_LOOP} element={<Loop />} />
-          </Routes>
-        </MainLayout>
+        <Routes>
+          <Route path={ROUTES.NOT_FOUND} element={<Error404 />} />
+          <Route path={ROUTES.HOME} element={<Home />} />
+          <Route path={ROUTES.PORTFOLIO_WING_TIPZ} element={<WingTipz />} />
+          <Route path={ROUTES.PORTFOLIO_INTRAC} element={<Intrac />} />
+          <Route path={ROUTES.PORTFOLIO_NEOBANK} element={<Neobank />} />
+          <Route path={ROUTES.PORTFOLIO_LOOP} element={<Loop />} />
+        </Routes>
       </HashRouter>
     </Suspense>
   );
