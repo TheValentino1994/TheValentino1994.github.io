@@ -47,6 +47,7 @@ body {
   background: $neutrals_N1000;
 
   overflow-y: overlay !important;
+  overscroll-behavior-y: none;
   overflow-x: hidden !important;
 }
 

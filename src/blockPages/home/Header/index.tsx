@@ -6,6 +6,7 @@ import { ICONS } from "../../../constants/_icons";
 import { useHoverSpring } from "../../../hooks/useHoveSpring";
 
 import { motion } from "framer-motion";
+import { useHeaderAnimation } from "./useHeaderAnimation";
 
 const AnimatedLink = ({ type, link, title }: (typeof SOCIALS_LIST)[0]) => {
   const { svgSize, marginLeft, handleHover } = useHoverSpring();
@@ -33,16 +34,19 @@ const AnimatedLink = ({ type, link, title }: (typeof SOCIALS_LIST)[0]) => {
   );
 };
 const Header: FC = () => {
+  /* ---------------------------------- Hooks --------------------------------- */
+  const { y, ref } = useHeaderAnimation();
+
   /* --------------------------------- Render ------------------------------- */
 
   return (
-    <header className="header">
+    <motion.header ref={ref} style={{ y }} className="header">
       <div className="header__container">
         {SOCIALS_LIST.map((item) => (
           <AnimatedLink key={item.title} {...item} />
         ))}
       </div>
-    </header>
+    </motion.header>
   );
 };
 

@@ -6,12 +6,16 @@ import { motion } from "framer-motion";
 import SuspenseImage from "../../../components/SuspenseImage";
 
 const Intro: FC = () => {
-  const { ref, opacity, scale } = useIntroAnimation();
+  const { ref, opacity, translateY, scale } = useIntroAnimation();
 
   /* --------------------------------- Render --------------------------------- */
 
   return (
-    <motion.section style={{ opacity, scale }} ref={ref} className="homeIntro">
+    <motion.section
+      style={{ opacity, scale, y: translateY }}
+      ref={ref}
+      className="homeIntro"
+    >
       <div className="homeIntro__content">
         <h2>Valentyn Kuchernoha</h2>
         <span>UX/UI Designer</span>

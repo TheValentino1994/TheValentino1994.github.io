@@ -10,10 +10,20 @@ export const useIntroAnimation = () => {
 
   const { scrollY } = useScroll();
   const [introHeight, setIntroHeight] = useState(0);
+  const [bottomOffset, setBottomOffset] = useState(0);
+
+  const interpolatedTransitionTop = useTransform(
+    scrollY,
+    [0, 184],
+    [0, 56 - 184],
+    {
+      clamp: true,
+    }
+  );
 
   const interpolatedOpacity = useTransform(
     scrollY,
-    [0, introHeight / 2],
+    [184, 184 + introHeight / 2],
     [1, 0],
     {
       clamp: true,
@@ -22,7 +32,7 @@ export const useIntroAnimation = () => {
 
   const interpolatedScale = useTransform(
     scrollY,
-    [0, introHeight / 2],
+    [184, 184 + introHeight / 2],
     [1, 0.9],
     {
       clamp: true,
@@ -37,6 +47,7 @@ export const useIntroAnimation = () => {
       const rect = element.getBoundingClientRect();
 
       setIntroHeight(rect.height);
+      setBottomOffset(window.innerHeight);
     }
   }, []);
 
@@ -44,8 +55,9 @@ export const useIntroAnimation = () => {
     () => ({
       opacity: isResponsive ? 1 : animatedOpacity,
       scale: isResponsive ? 1 : animatedScale,
+      translateY: isResponsive ? 0 : interpolatedTransitionTop,
       ref,
     }),
-    [animatedScale, isResponsive, animatedOpacity]
+    [animatedScale, isResponsive, animatedOpacity, interpolatedTransitionTop]
   );
 };
