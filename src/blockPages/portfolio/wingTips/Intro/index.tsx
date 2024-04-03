@@ -15,7 +15,7 @@ const Intro: FC = () => {
         <div className="wingTipzIntro__row">
           <div data-aos="fade-right" className="wingTipzIntro__left">
             <h3>Wingtipz</h3>
-            <p>Mobile App</p>
+            <p>Platform Mobile App</p>
             <p>Productivity 2022</p>
           </div>
 
@@ -44,7 +44,8 @@ const Intro: FC = () => {
             <h3>My Contribution</h3>
             <div>
               <p>Research</p>
-              <p>UX / UI Design</p>
+              <p>Wireframing & Visual Design</p>
+              <p>Design System / Ui Kit</p>
             </div>
           </div>
 
@@ -64,8 +65,8 @@ const Intro: FC = () => {
             </p>
 
             <p>
-              So I started working with the team to improve the UX, visual
-              design, and prepare the service for its upcoming growth.
+              So I started working with the team to improve UX, visual design,
+              and prepare the service for its upcoming growth.
             </p>
           </div>
         </div>

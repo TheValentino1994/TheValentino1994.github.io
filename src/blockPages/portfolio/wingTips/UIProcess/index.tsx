@@ -22,7 +22,7 @@ const UIProcess: FC = () => {
       <div className="wingTipzUIProcess__container">
         <div className="wingTipzUIProcess__row">
           <p data-aos="fade-right" className="wingTipzUIProcess__left">
-            UI Process
+            Solution
           </p>
 
           <div data-aos="fade-left" className="wingTipzUIProcess__right">

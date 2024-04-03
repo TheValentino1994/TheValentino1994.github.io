@@ -12,7 +12,7 @@ const Elements: FC = () => {
       <div className="wingTipzElements__container">
         <div className="wingTipzElements__row">
           <p data-aos="fade-right" className="wingTipzElements__left">
-            Elements
+            Design System / Ui Kit
           </p>
 
           <div data-aos="fade-left" className="wingTipzElements__right">

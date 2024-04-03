@@ -12,11 +12,11 @@ const Results: FC = () => {
       <div className="wingTipzResults__container">
         <div className="wingTipzResults__row">
           <p data-aos="fade-right" className="wingTipzResults__left">
-            Results
+            Summary
           </p>
 
           <div data-aos="fade-left" className="wingTipzResults__right">
-            <p>New mobile application for instructors and users.</p>
+            <p>A New mobile application for instructors and users.</p>
 
             <p>
               Based on user feedback on the first version of the app, i focused
@@ -26,7 +26,7 @@ const Results: FC = () => {
             </p>
 
             <p>
-              And for coaches, I created new ways to turn their phones into
+              For coaches, I created new ways to turn their phones into
               full-fledged workstations. These new tools make the online booking
               experience one and the most holistic.
             </p>
