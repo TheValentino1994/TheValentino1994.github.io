@@ -1,89 +1,89 @@
 //Headings
 
 %heading_H1_Desktop {
-  @include generateFont($inter, 500, 48px, 64px, -1px);
+  @include generateFont($jura, 500, 48px, 64px, -1px);
   @include adaptiveFont(48, 24, 64, 36);
 }
 
 @mixin heading_H1_Mobile() {
-  @include generateFont($inter, 500, 24px, 36px, -1px);
+  @include generateFont($jura, 500, 24px, 36px, -1px);
 }
 
 %heading_H2_Desktop {
-  @include generateFont($inter, 500, 48px, 56px, 0px);
+  @include generateFont($jura, 500, 48px, 56px, 0px);
   @include adaptiveFont(48, 24, 56, 32);
 }
 
 @mixin heading_H2_Mobile() {
-  @include generateFont($inter, 500, 24px, 32px, 0px);
+  @include generateFont($jura, 500, 24px, 32px, 0px);
 }
 
 //Subheadings:
 
 %subheading_H1_Desktop {
-  @include generateFont($inter, 500, 38px, 48px, -1px);
+  @include generateFont($jura, 500, 38px, 48px, -1px);
   @include adaptiveFont(38, 24, 48, 32);
 }
 
 @mixin subheading_H1_Mobile() {
-  @include generateFont($inter, 500, 24px, 32px, -1px);
+  @include generateFont($jura, 500, 24px, 32px, -1px);
 }
 
 %subheading_H2_Desktop {
-  @include generateFont($inter, 400, 32px, 48px, -1px);
+  @include generateFont($jura, 400, 32px, 48px, -1px);
   @include adaptiveFont(32, 18, 48, 28);
 }
 
 @mixin subheading_H2_Mobile() {
-  @include generateFont($inter, 600, 18px, 28px, 0px);
+  @include generateFont($jura, 600, 18px, 28px, 0px);
 }
 
 %subheading_H3_Desktop {
-  @include generateFont($inter, 400, 28px, 40px, -1px);
+  @include generateFont($jura, 400, 28px, 40px, -1px);
   @include adaptiveFont(28, 18, 40, 28);
 }
 
 @mixin subheading_H3_Mobile() {
-  @include generateFont($inter, 400, 18px, 28px, 0px);
+  @include generateFont($jura, 400, 18px, 28px, 0px);
 }
 
 %subheading_H4_Desktop {
-  @include generateFont($inter, 400, 24px, 36px, 0px);
+  @include generateFont($jura, 400, 24px, 36px, 0px);
   @include adaptiveFont(24, 14, 36, 20);
 }
 
 @mixin subheading_H4_Mobile() {
-  @include generateFont($inter, 500, 14px, 20px, 0px);
+  @include generateFont($jura, 500, 14px, 20px, 0px);
 }
 
 %subheading_H5_Desktop {
-  @include generateFont($inter, 400, 18px, 28px, 0px);
+  @include generateFont($jura, 400, 18px, 28px, 0px);
 }
 
 %subheading_H6_Desktop {
-  @include generateFont($inter, 400, 18px, 28px, -0.5px);
+  @include generateFont($jura, 400, 18px, 28px, -0.5px);
 }
 
 //Body:
 
 %body_B1_Desktop {
-  @include generateFont($inter, 400, 24px, 36px, 0px);
+  @include generateFont($jura, 400, 24px, 36px, 0px);
   @include adaptiveFont(24, 16, 36, 24);
 }
 
 @mixin body_B1_Mobile() {
-  @include generateFont($inter, 500, 16px, 24px, 0px);
+  @include generateFont($jura, 500, 16px, 24px, 0px);
 }
 
 %body_B2_Desktop {
-  @include generateFont($inter, 500, 16px, 24px, 0px);
+  @include generateFont($jura, 500, 16px, 24px, 0px);
   @include adaptiveFont(16, 14, 24, 16);
 }
 
 @mixin body_B2_Mobile() {
-  @include generateFont($inter, 500, 14px, 16px, -0.5px);
+  @include generateFont($jura, 500, 14px, 16px, -0.5px);
 }
 
 %body_B3_Desktop {
-  @include generateFont($inter, 500, 14px, 20px, 0px);
+  @include generateFont($jura, 500, 14px, 20px, 0px);
 }

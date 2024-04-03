@@ -32,15 +32,12 @@ const Intro: FC = () => {
           I’m a UX / UI Designer from Lviv, dedicated to turning complex
           problems into user-friendly solutions.
         </h1>
-        <p>Currently Designing at Fivecube.</p>
+        <p>Currently Rolling at Fivecube.</p>
         <p>
-          Over the past 2 years, my journey as a designer has led me to build
-          design and ship mobile and web products from the ground up.
-        </p>
-
-        <p>
-          My work has been dedicated to using design to turn complex problems
-          into simple, user-friendly solutions that are accessible to all.
+          Over my work as a designer has been dedicated to using design for
+          crafting intuitive products that seamlessly integrate into daily life
+          and turn complex problems into simple, user-friendly solutions that
+          are accessible to all.
         </p>
       </div>
     </motion.section>

@@ -1,52 +1,52 @@
 // ?? New fornts:
 @font-face {
-  font-family: $inter;
+  font-family: $jura;
   font-style: normal;
   font-weight: 400;
   src: local(""),
-    /* Super Modern Browsers */ url("../assets/fonts/inter/Inter-Regular.woff2")
+    /* Super Modern Browsers */ url("../assets/fonts/jura/Jura-Regular.woff2")
       format("woff2"),
-    /* Modern Browsers */ url("../assets/fonts/inter/Inter-Regular.woff")
+    /* Modern Browsers */ url("../assets/fonts/jura/Jura-Regular.woff")
       format("woff"),
-    /* Old Browsers */ url("../assets/fonts/inter/Inter-Regular.otf")
+    /* Old Browsers */ url("../assets/fonts/jura/Jura-Regular.ttf")
       format("opentype");
 }
 
 @font-face {
-  font-family: $inter;
+  font-family: $jura;
   font-style: normal;
   font-weight: 500;
   src: local(""),
-    /* Super Modern Browsers */ url("../assets/fonts/inter/Inter-Medium.woff2")
+    /* Super Modern Browsers */ url("../assets/fonts/jura/Jura-Medium.woff2")
       format("woff2"),
-    /* Modern Browsers */ url("../assets/fonts/inter/Inter-Medium.woff")
+    /* Modern Browsers */ url("../assets/fonts/jura/Jura-Medium.woff")
       format("woff"),
-    /* Old Browsers */ url("../assets/fonts/inter/Inter-Medium.otf")
-      format("opentype");
+    /* Old Browsers */ url("../assets/fonts/jura/Jura-Medium.ttf")
+      format("truetype");
 }
 
 @font-face {
-  font-family: $inter;
+  font-family: $jura;
   font-style: normal;
   font-weight: 600;
   src: local(""),
-    /* Super Modern Browsers */
-      url("../assets/fonts/inter/Inter-SemiBold.woff2") format("woff2"),
-    /* Modern Browsers */ url("../assets/fonts/inter/Inter-SemiBold.woff")
+    /* Super Modern Browsers */ url("../assets/fonts/jura/Jura-SemiBold.woff2")
+      format("woff2"),
+    /* Modern Browsers */ url("../assets/fonts/jura/Jura-SemiBold.woff")
       format("woff"),
-    /* Old Browsers */ url("../assets/fonts/inter/Inter-SemiBold.otf")
-      format("opentype");
+    /* Old Browsers */ url("../assets/fonts/jura/Jura-SemiBold.ttf")
+      format("truetype");
 }
 
 @font-face {
-  font-family: $inter;
+  font-family: $jura;
   font-style: normal;
   font-weight: 700;
   src: local(""),
-    /* Super Modern Browsers */ url("../assets/fonts/inter/Inter-Bold.woff2")
+    /* Super Modern Browsers */ url("../assets/fonts/jura/Jura-Bold.woff2")
       format("woff2"),
-    /* Modern Browsers */ url("../assets/fonts/inter/Inter-Bold.woff")
+    /* Modern Browsers */ url("../assets/fonts/jura/Jura-Bold.woff")
       format("woff"),
-    /* Old Browsers */ url("../assets/fonts/inter/Inter-Bold.otf")
-      format("opentype");
+    /* Old Browsers */ url("../assets/fonts/jura/Jura-Bold.ttf")
+      format("truetype");
 }
