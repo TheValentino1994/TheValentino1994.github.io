@@ -16,11 +16,10 @@ const DesignSystem: FC = () => {
           </p>
 
           <p data-aos="fade-left" className="intracDesignSystem__right">
-            One of my roles was to create a comprehensive and exhaustive design
-            system that would take into account all user flows, actions, and
-            component states. Handing over the project to the cycle development
-            team was key, and thanks to careful planning, I succeeded without
-            any difficulties.
+            When I work on massive projects like this design system and holistic
+            documentation is a very important pieces of the puzzle. I created
+            and maintained one design language that unites making it easy for
+            every user to move without feeling lost or disoriented.
           </p>
         </div>
       </div>

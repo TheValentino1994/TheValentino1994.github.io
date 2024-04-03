@@ -45,14 +45,12 @@
   }
 
   @media (max-width: $largeTablet) {
-    padding-top: 40px;
-
-    &__container {
-      padding-bottom: 40px;
-    }
+    padding: 40px 0;
   }
 
   @media (max-width: $tablet) {
+    padding: 40px 0;
+
     &__container {
       width: 100%;
       padding: 0 24px 0 24px;

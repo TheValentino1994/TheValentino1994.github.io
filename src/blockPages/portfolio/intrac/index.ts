@@ -5,3 +5,4 @@ export { default as Solution } from "./Solution";
 export { default as DesignSystem } from "./DesignSystem";
 export { default as WebInterface } from "./WebInterface";
 export { default as Application } from "./Application";
+export { default as Challenge } from "./Challenge";

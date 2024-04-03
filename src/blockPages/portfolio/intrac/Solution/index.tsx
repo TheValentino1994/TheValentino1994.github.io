@@ -17,7 +17,10 @@ const Solution: FC = () => {
 
           <p data-aos="fade-left" className="intracSolution__right">
             To find and redesign create a platform for schools and other
-            non-profit organisations to help them manage inner process
+            non-profit organisations to help them manage inner process. Help
+            users to make a decision by involving users to the entire context.
+            Provide different types of management for organizations depending on
+            their size and industry
           </p>
         </div>
       </div>

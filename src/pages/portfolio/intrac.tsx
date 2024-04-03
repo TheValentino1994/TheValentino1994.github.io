@@ -10,6 +10,7 @@ import {
   DesignSystem,
   WebInterface,
   Application,
+  Challenge,
 } from "../../blockPages/portfolio/intrac";
 import { CaseLayout } from "../../layouts";
 
@@ -20,6 +21,7 @@ const Intrac: FC = () => {
     <CaseLayout>
       <Intro />
       <Challenges />
+      <Challenge />
       <DesignArchitecture />
       <Solution />
       <DesignSystem />

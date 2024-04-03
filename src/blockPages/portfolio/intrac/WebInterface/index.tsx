@@ -18,9 +18,9 @@ const WebInterface: FC = () => {
 
           <div data-aos="fade-left" className="intracWebInterface__right">
             <p>
-              We chose side pages as a solution to the problem, taking into
-              account the requirements of the existing project and potential
-              growth in the future.
+              One of my solutions was to choose side pages as a solution to the
+              problem, taking into account the requirements of the existing
+              project and potential growth in the future.
             </p>
 
             <p>

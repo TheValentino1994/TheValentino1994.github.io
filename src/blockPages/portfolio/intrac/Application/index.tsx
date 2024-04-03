@@ -12,7 +12,7 @@ const Application: FC = () => {
       <div className="intracApplication__container">
         <div className="intracApplication__row">
           <p data-aos="fade-right" className="intracApplication__left">
-            Mobile Application
+            Mobile Responsive
           </p>
 
           <p
