@@ -10,25 +10,24 @@ const DesignArchitecture: FC = () => {
   return (
     <section className="neobankDesignArchitecture">
       <div className="neobankDesignArchitecture__container">
-        <div className="neobankDesignArchitecture__row">
-          <p data-aos="fade-right" className="neobankDesignArchitecture__left">
-            Information Architecture and UX Design
-          </p>
-
-          <p data-aos="fade-left" className="neobankDesignArchitecture__right">
-            I refocused and prioritize the experience on what matters most -
-            quickly triaging new work. Made strategic UX decisions to simplify
-            the platform, adjust hierarchies, and accelerate tasks. By working
-            holistically, we we able to improve usability across the board,
-            improve contextual actions, and create a lively aesthetic to make
-            work a pleasurable experience.
-          </p>
-        </div>
         <SuspenseImage
           data-aos="zoom-out-up"
           src={IMAGES.projectsPhotos.neobank.architectureDiagram}
           alt="Neobank design architecture diagram"
         />
+
+        <div className="neobankDesignArchitecture__row">
+          <p data-aos="fade-right" className="neobankDesignArchitecture__left">
+            Wireframing initial solution
+          </p>
+
+          <p data-aos="fade-left" className="neobankDesignArchitecture__right">
+            The strategic decision to leverage a design system proved
+            instrumental in achieving efficiency and consistency throughout the
+            design process also capitalized on a pre-established set of reusable
+            components, patterns, and guidelines.
+          </p>
+        </div>
       </div>
 
       <div className="neobankDesignArchitecture__container">

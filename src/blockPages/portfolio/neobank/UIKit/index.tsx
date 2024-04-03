@@ -12,14 +12,22 @@ const UIKit: FC = () => {
       <div className="neobankUIKit__container">
         <div className="neobankUIKit__row">
           <p data-aos="fade-right" className="neobankUIKit__left">
-            UI Kit
+            Design system / UI Kit
           </p>
 
-          <p data-aos="fade-left" className="neobankUIKit__right">
-            One of my roles was to create a comprehensive and exhaustive ui kit.
-            Handing over the project to the cycle development team was key, and
-            thanks to careful planning, I succeeded without any difficulties.
-          </p>
+          <div className="neobankUIKit__right">
+            <p data-aos="fade-left" className="neobankUIKit__right">
+              To present the brand consistently, I create a design system that
+              ensures that all designs are compatible. This design language
+              ensures consistency across all future products and features.
+            </p>
+
+            <p data-aos="fade-left" className="neobankUIKit__right">
+              This approach allowed for a more streamlined design workflow,
+              saving valuable time and resources compared to building the user
+              interface from scratch.
+            </p>
+          </div>
         </div>
       </div>
 

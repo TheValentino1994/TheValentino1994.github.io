@@ -23,6 +23,9 @@
   }
 
   @media (max-width: $largeTablet) {
+    &__container {
+      padding: 40px 0;
+    }
     h3 {
       margin-bottom: 12px;
     }

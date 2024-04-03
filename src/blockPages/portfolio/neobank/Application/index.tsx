@@ -38,19 +38,24 @@ const Application: FC = () => {
       <div className="neobankApplication__container">
         <div className="neobankApplication__row">
           <p data-aos="fade-right" className="neobankApplication__left">
-            Mobile Application
+            Usability Testing & Iteration
           </p>
 
-          <p
-            data-aos="fade-left"
-            className="neobankApplication__right neobankApplication__mainText"
-          >
-            Visual solution for the Neobank mobile application was a sleek and
-            modern design that aligned with the brand's identity and values. The
-            green color palette, minimalist design approach, and consistent
-            design language throughout the app ensured a visually appealing and
-            user-friendly experience.
-          </p>
+          <div className="neobankApplication__right neobankApplication__mainText">
+            <p data-aos="fade-left">
+              For the most part since I went about testing my wireframes
+              rigorously I managed to pick up lots of problems from the users
+              early on in the study- this allowed the hi fid phase to run more
+              smoothly
+            </p>
+            <p data-aos="fade-left">
+              Visual solution for the Neobank mobile application was a sleek and
+              modern design that aligned with the brand's identity and values.
+              The green color palette, minimalist design approach, and
+              consistent design language throughout the app ensured a visually
+              appealing and user-friendly experience.
+            </p>
+          </div>
         </div>
       </div>
 

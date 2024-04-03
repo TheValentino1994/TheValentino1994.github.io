@@ -13,13 +13,15 @@ const Intro: FC = () => {
         <div className="neobankIntro__row">
           <div data-aos="fade-right" className="neobankIntro__left">
             <h3>Neobank</h3>
-            <p>Cryptocurrency / iOS · Android · </p>
+            <p>Platform Mobile App</p>
+            <p>Productivity 2023</p>
           </div>
 
           <h2 data-aos="fade-left" className="neobankIntro__right">
-            Neobanks are new-age banks without any physical location, present
-            entirely online. They provide digital, mobile-first financial
-            solutions for payments, money transfers, lending, and more.
+            The mobile experience required specific UX and UI thinking to allow
+            for optimal productivity for users on the go. Prioritization of
+            actions and reduction of functionality allowed for a focussed User
+            Experience.
           </h2>
         </div>
       </div>
@@ -36,9 +38,10 @@ const Intro: FC = () => {
           <div data-aos="fade-right" className="neobankIntro__left">
             <h3>My Contribution</h3>
             <div>
-              <p>UX Audit</p>
-              <p>UX / UI Design</p>
-              <p>Research</p>
+              <p>Research & Analysis</p>
+              <p>Brainstorming & Ideation</p>
+              <p>Wireframing & Visual Design</p>
+              <p>Usability Testing & Iteration</p>
             </div>
           </div>
 

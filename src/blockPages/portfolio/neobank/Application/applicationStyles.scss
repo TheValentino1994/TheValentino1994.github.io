@@ -76,6 +76,10 @@
     flex: 1;
 
     color: $neutrals_N100;
+
+    p:not(:last-child) {
+      margin-bottom: 40px;
+    }
   }
 
   img {

@@ -7,6 +7,7 @@ import {
   Intro,
   DesignPhases,
   UserPersonas,
+  Research,
   DesignArchitecture,
   UIKit,
   Application,
@@ -21,6 +22,7 @@ const Neobank: FC = () => {
       <Intro />
       <Challenges />
       <DesignPhases />
+      <Research />
       <UserPersonas />
       <DesignArchitecture />
       <UIKit />

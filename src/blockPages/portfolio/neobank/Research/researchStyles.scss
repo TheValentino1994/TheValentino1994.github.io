@@ -1,12 +1,8 @@
 @import "../../../../scss/repeat.scss";
 
-.neobankUIKit {
+.neobankResearch {
   &__container {
     @extend %container;
-
-    &:last-child {
-      margin-top: 52px;
-    }
   }
 
   &__row {
@@ -41,13 +37,6 @@
     }
   }
 
-  img {
-    width: 100%;
-
-    object-fit: contain;
-    aspect-ratio: 49 / 29;
-  }
-
   @media (max-width: $largeTablet) {
     &__row {
       flex-direction: column;
@@ -60,10 +49,6 @@
 
       margin: 0 0 24px 0;
     }
-
-    &__container:last-child {
-      margin-top: 52px;
-    }
   }
 
   @media (max-width: $largeMobile) {
@@ -73,11 +58,6 @@
 
     &__right {
       @include heading_H1_Mobile();
-    }
-
-    &__container:nth-child(2),
-    &__container:nth-child(3) {
-      width: 100%;
     }
   }
 }

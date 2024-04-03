@@ -5,3 +5,4 @@ export { default as UserPersonas } from "./UserPersonas";
 export { default as DesignArchitecture } from "./DesignArchitecture";
 export { default as UIKit } from "./UIKit";
 export { default as Application } from "./Application";
+export { default as Research } from "./Research";
