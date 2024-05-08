@@ -40,15 +40,15 @@ const IphoneX: FC<IphoneXProps> = ({
 
       {videoSrc ? (
         <video
+          webkit-playsinline
+          playsInline
           autoPlay
           loop
           muted
           controls={false}
           {...videoProps}
           src={videoSrc}
-          webkit-playsinline
-          playsInline
-        ></video>
+        />
       ) : null}
 
       {screenshotSrc ? (
