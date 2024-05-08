@@ -103,6 +103,7 @@
 
       div {
         flex-direction: row;
+        flex-wrap: wrap;
       }
 
       & p:not(:last-child) {

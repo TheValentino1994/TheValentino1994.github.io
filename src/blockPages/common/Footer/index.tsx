@@ -54,7 +54,7 @@ const Footer: FC = () => {
           <span>UX/UI Designer</span>
         </div>
 
-        <span>&#169; 2023</span>
+        <span>&#169; 2024</span>
       </div>
     </footer>
   );
