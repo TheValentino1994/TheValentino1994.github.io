@@ -240,7 +240,6 @@
        ============================================ */
     .case-hero {
       padding-top: 80px;
-      padding-bottom: 80px;
     }
     .case-hero-grid {
       display: grid;
@@ -352,7 +351,7 @@
     /* ============================================
        SECTION — generic 50/50 layout (heading | text)
        ============================================ */
-    .case-section { padding-top: var(--section-gap); padding-bottom: var(--section-gap); }
+    .case-section { padding-top: var(--section-gap); }
     .section-grid {
       display: grid;
       grid-template-columns: 650px 650px;
@@ -390,8 +389,7 @@
        OVERVIEW (project info block)
        ============================================ */
     .overview {
-      padding-top: 120px;
-      padding-bottom: 200px;
+      padding-top: 200px;
     }
     .overview-grid {
       display: grid;
@@ -407,7 +405,7 @@
     .meta-item {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 4px;
     }
     .meta-label {
       font-family: 'Syne', sans-serif;
@@ -500,7 +498,7 @@
       grid-template-columns: 1fr auto;
       align-items: center;
       gap: 48px;
-      padding: 60px 0;
+      padding: 200px 0;
       text-decoration: none;
       color: inherit;
     }
@@ -619,13 +617,13 @@
     }
     @media (max-width: 767px) {
       .case-hero { padding-top: 0; }
-      .overview { padding-top: 0; padding-bottom: var(--section-gap); }
+      .overview {padding-top: var(--section-gap); }
       .case-section { padding-top: 0; }
       .next-case-link { padding: 24px 0; }
       .section-grid { grid-template-columns: 1fr; gap: 16px; }
       .overview-grid { grid-template-columns: 1fr; gap: 16px; }
       .meta-label { font-size: 12px !important; }
-      .meta-value { font-size: 13px !important; }
+      .meta-value { font-size: 14px !important; }
       .case-hero-title { font-size: 36px !important; line-height: 44px !important; }
       .section-heading { font-size: 28px !important; line-height: 34px !important; }
       .heading-display { font-size: 28px !important; line-height: 34px !important; }
@@ -649,9 +647,6 @@
       line-height: 88px;
       letter-spacing: -2.97px;
       color: var(--text-main);
-    }
-    .footer {
-      padding-top: 120px;
     }
     .footer-main {
       max-width: var(--max-width);
@@ -762,7 +757,7 @@
        RESPONSIVE — Mobile
        ============================================ */
     @media (max-width: 767px) {
-      :root { --section-gap: 24px; --block-gap: 20px; --side-padding: 24px; --card-gap: 12px; --image-gap: 24px; --col-gap: 32px; }
+      :root { --section-gap: 24px !important; --block-gap: 20px!important; --side-padding: 24px!important; --card-gap: 12px!important; --image-gap: 24px!important; --col-gap: 32px!important; }
       .header-nav { display: none; }
       .burger { display: flex; }
 
@@ -796,6 +791,9 @@
         flex-direction: column; align-items: flex-start; gap: 40px;
       }
       .footer-nav { flex-wrap: wrap; gap: 24px; }
+      .footer-bottom{
+        padding: 32px 24px;
+      }
     }
 
     /* Mobile menu */
@@ -864,7 +862,7 @@
       .next-case-link { padding: 40px 0; }
       .meta-label { font-size: 14px; }
       .meta-value { font-size: 14px; }
-      :root { --section-gap: 140px; --block-gap: 72px; --side-padding: 32px; --card-gap: 16px; --image-gap: 40px; --col-gap: 48px; }
+      :root { --section-gap: 200px; --block-gap: 72px; --side-padding: 32px; --card-gap: 16px; --image-gap: 40px; --col-gap: 48px; }
     }
     @media (max-width: 1024px) {
       .next-case-preview { display: none !important; }
@@ -1226,7 +1224,6 @@
   <!-- ============================================
        NEXT CASE
        ============================================ -->
-  <section class="case-section">
     <div class="container">
       <div class="next-case reveal">
         <a href="loop.html" target="_self" class="next-case-link">
@@ -1247,7 +1244,6 @@
         </a>
       </div>
     </div>
-  </section>
 
   <!-- ============================================
        FOOTER (Say hi!)
