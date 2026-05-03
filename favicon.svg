@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Green offset shadow -->
+  <rect x="4" y="4" width="24" height="24" fill="#1D9E75"/>
+  <!-- Main dark box -->
+  <rect x="2" y="2" width="24" height="24" fill="#070707" stroke="#edede8" stroke-width="1.5"/>
+  <!-- VK text -->
+  <text x="14" y="19" font-family="'Arial Black',Arial,sans-serif" font-size="13" font-weight="900" fill="#edede8" text-anchor="middle">VK</text>
+</svg>
