@@ -626,7 +626,7 @@
       .next-case-preview { width: 360px; height: 202px; }
     }
     @media (max-width: 767px) {
-      .lp-carousel-section { padding-left: 24px; padding-right: 24px; padding-top: var(--section-gap); }
+      .lp-carousel-section { padding-left: 24px; padding-right: 24px; padding-top: var(--section-gap); height:748px; align-items: center; justify-content: center;}
       .case-hero { padding-top: 0; }
       .overview { padding-top: var(--section-gap); }
       .case-section { padding-top: 0; }
@@ -1108,6 +1108,9 @@
     .lp-cinfo { margin-top: 16px; order: 2; }
     .lp-carousel { order: 1; }
     .lp-carousel-section { flex-direction: column; }
+
+  .lp-cinfo{margin-top:-32px;}
+
   }
   .lp-cname{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.4px;color:rgba(237,237,232,0.87);transition:opacity .4s;}
   .lp-cdesc{font-size:15px;color:#6B6B67;transition:opacity .4s;}
@@ -1565,11 +1568,13 @@
     </div>
     </div>
 
-    <div class="lp-cinfo">
+    
+  </section>
+
+  <div class="lp-cinfo">
       <div class="lp-cname" id="lpName">Welcome</div>
       <div class="lp-cdesc" id="lpDesc">All your platforms in one place</div>
     </div>
-  </section>
 
 
   <!-- ============================================
