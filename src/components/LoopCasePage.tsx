@@ -99,7 +99,7 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
                 <Body>As the primary UX/UI Designer, I worked across the core workspace experience, onboarding flow, design system, reusable interface patterns, and power-user features that shipped to production.</Body>
               </div>
               <div style={{ flex: 1, minWidth: 0, height: '288px', borderRadius: '20px', overflow: 'hidden', padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img alt="Loop tool integration illustration" src="/images/loop.png" style={{ width: '518px', height: '280px', objectFit: 'contain', display: 'block' }} />
+                <img alt="Loop tool integration illustration" src="/images/loop.webp" style={{ width: '518px', height: '280px', objectFit: 'contain', display: 'block' }} />
               </div>
             </div>
           </div>
@@ -265,7 +265,7 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
                 </video>
               </div>
               <div style={{ flex: 1, minWidth: 0, aspectRatio: '592 / 420', borderRadius: '16px', overflow: 'hidden' }}>
-                <img alt="" src="/images/loop%20right.png" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                <img alt="" src="/images/loop%20right.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </div>
             </div>
             <div style={{ width: '100%', aspectRatio: '1200 / 684', borderRadius: '32px', overflow: 'hidden' }}>
@@ -372,7 +372,7 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
           <Body>The product was designed not to replace tools like Slack, Drive, Notion, Zoom, or task managers, but to help teams understand what needs attention without constantly jumping between apps.</Body>
           <Body>As the primary UX/UI Designer, I worked across the core workspace experience, onboarding flow, design system, reusable interface patterns, and power-user features that shipped to production.</Body>
           <div style={{ borderRadius: '16px', overflow: 'hidden' }}>
-            <img alt="" src="/images/loop.png" style={{ width: '100%', display: 'block' }} />
+            <img alt="" src="/images/loop.webp" style={{ width: '100%', display: 'block' }} />
           </div>
         </div>
       </SectionMob>
@@ -510,7 +510,7 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
               </video>
             </div>
             <div style={{ width: '100%', aspectRatio: '592 / 420', borderRadius: '16px', overflow: 'hidden' }}>
-              <img alt="" src="/images/loop%20right.png" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <img alt="" src="/images/loop%20right.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             <div style={{ width: '100%', aspectRatio: '1200 / 684', borderRadius: '16px', overflow: 'hidden' }}>
               <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>

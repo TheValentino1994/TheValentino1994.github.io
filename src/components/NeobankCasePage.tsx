@@ -26,7 +26,7 @@ function PhoneCard({ video, loop = true, forcePlay = false }: { video: string; l
           <source src={video} type="video/mp4" />
         </video>
       )}
-      <img src="/images/iphone-17-black.png" alt="" style={{ width: '100%', height: '100%', display: 'block', position: 'relative', zIndex: 1 }} />
+      <img src="/images/iphone-17-black.webp" alt="" style={{ width: '100%', height: '100%', display: 'block', position: 'relative', zIndex: 1 }} />
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import React, { useLayoutEffect, useRef, useEffect, useState } from 'react'
 import { tokens as T } from '../constants/tokens'
 import { xboAssets as X } from '../constants/xboAssets'
-import { assets } from '../constants/assets'
 import { projects } from '../constants/projects'
 import { useIsMobile } from '../hooks/useIsMobile'
 import { useReveal } from '../hooks/useReveal'

@@ -270,7 +270,7 @@ export function IPhone17Frame({ src }: { src: string }) {
       {/* Device frame overlay (transparent screen area lets content show through) */}
       <img
         alt=""
-        src="/images/iphone-17-black.png"
+        src="/images/iphone-17-black.webp"
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
       />
     </div>

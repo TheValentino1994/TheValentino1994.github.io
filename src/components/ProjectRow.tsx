@@ -105,7 +105,7 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
         }}>
           <img
             alt=""
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: project.mockupObjectPosition ?? 'top center', display: 'block' }}
             src={project.mockupSrc}
           />
         </div>
@@ -166,7 +166,7 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
       onMouseEnter={() => { setHov(true); setCursorMode('view') }}
       onMouseLeave={() => { setHov(false); setCursorMode('default') }}
       style={{
-        position: 'relative', display: 'flex', gap: '120px', height: '300px',
+        position: 'relative', display: 'flex', gap: '120px', height: `${project.cardHeight ?? 300}px`,
         alignItems: 'center', padding: `0 ${T.px}`, width: '100%', boxSizing: 'border-box',
         cursor: 'pointer',
       }}
@@ -239,7 +239,7 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
 
       {/* IMAGE */}
       <div style={{
-        width: '520px', height: '300px', flexShrink: 0, borderRadius: '16px', overflow: 'hidden', position: 'relative',
+        width: '520px', height: `${project.cardHeight ?? 300}px`, flexShrink: 0, borderRadius: '16px', overflow: 'hidden', position: 'relative',
         opacity: vis ? 1 : 0,
         transform: vis ? 'translateX(0)' : 'translateX(24px)',
         transition: vis
@@ -253,9 +253,12 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
               <img alt="" style={{ position: 'absolute', inset: 0, display: 'block', width: '100%', height: '100%', maxWidth: 'none' }} src={project.extraSrc} />
             </div>
           )}
-          <div style={{ position: 'absolute', ...project.mockupStyle, zIndex: 1 }}>
-            <img alt="" style={{ position: 'absolute', inset: 0, objectFit: 'cover', pointerEvents: 'none', width: '100%', height: '100%', maxWidth: 'none' }} src={project.mockupSrc} />
-          </div>
+          <div style={{
+            position: 'absolute', ...project.mockupStyle, zIndex: 1,
+            backgroundImage: `url(${project.mockupSrc})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+          }} />
         </div>
         <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(135deg,rgba(70,255,244,0.04) 0%,transparent 50%)', opacity: hov ? 1 : 0, transition: 'opacity 0.4s', pointerEvents: 'none' }} />
       </div>

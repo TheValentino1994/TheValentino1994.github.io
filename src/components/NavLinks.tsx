@@ -3,7 +3,7 @@ import { ArrowDownToLine, Linkedin, Mail, Dribbble } from 'lucide-react'
 import { tokens as T } from '../constants/tokens'
 
 const NAV_ITEMS = [
-  { label: 'Download.cv', Icon: ArrowDownToLine, href: '/Valentyn_Kuchernoha_CV.pdf', target: '_blank' },
+  { label: 'Download.cv', Icon: ArrowDownToLine, href: '/images/Valentyn Kuchernoha_CV.pdf', target: '_blank' },
   { label: 'LinkedIn',    Icon: Linkedin,        href: 'https://www.linkedin.com/in/valentyn-kuchernoha-73aa59219/?locale=uk', target: '_blank' },
   { label: 'Email', Icon: Mail, href: 'mailto:valentynkuchernoha@gmail.com', target: undefined },
   { label: 'Dribbble',    Icon: Dribbble,        href: 'https://dribbble.com/Kuchernoha', target: '_blank' },
