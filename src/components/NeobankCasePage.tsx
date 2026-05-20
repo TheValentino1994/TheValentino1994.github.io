@@ -150,7 +150,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
             <p style={BODY18}>The goal was to design a mobile-first MVP that keeps these actions clear, accessible, and easy to navigate without making the interface feel overloaded.</p>
           </div>
           {/* Video — absolute bottom-right */}
-          <div style={{ position: 'absolute', bottom: 0, right: 0, width: '660px', height: '330px', borderRadius: '20px', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', bottom: 0, right: 0, maxWidth: '660px', width:'50%', borderRadius: '20px', overflow: 'hidden' }}>
             <video autoPlay muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
               <source src="/images/neobank%20graph.mp4" type="video/mp4" />
             </video>
@@ -161,16 +161,16 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
       {/* CORE PROBLEM */}
       <Section>
         <Label>Core Problem</Label>
-        <p style={H2D}>Private banking includes many complex financial actions, but mobile users need clarity, speed, and confidence.</p>
+        <p style={H2D}>Users lacked one clear place to understand and control their financial life on mobile</p>
         <div style={{ display: 'flex', gap: '40px', alignItems: 'flex-start' }}>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <p style={BODY18}>The problem was to structure accounts, cards, payments, exchange, activity, and investment-related information in a way that feels focused, premium, and easy to continue on a small screen.</p>
+            <p style={BODY18}>The product problem was to make mobile banking feel less fragmented. Users needed a single, clear experience where they could check account status, review card activity, make payments, exchange currency, and understand their financial activity without feeling lost between different flows.</p>
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ borderLeft: `3px solid ${T.accent}`, paddingLeft: '31px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', letterSpacing: '0.88px', textTransform: 'uppercase', color: T.accent, margin: 0 }}>Product Hypothesis</p>
               <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '20px', lineHeight: '24px', color: T.text, margin: 0 }}>Structure creates confidence.</p>
-              <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#93938f', margin: 0 }}>By grouping complex banking actions into clear mobile tasks, the product helps users understand what they see, what they can do, and where to go next.</p>
+              <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#93938f', margin: 0 }}>By creating a mobile-first solution where users could quickly see their money, understand its flow, and access key actions instantly.</p>
             </div>
           </div>
         </div>
@@ -178,16 +178,16 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
 
       {/* GOAL */}
       <Section>
-        <Label>Goal</Label>
-        <p style={H2D}>Define the foundation for a build-ready banking MVP</p>
+        <Label>Challenge</Label>
+        <p style={H2D}>Define the foundation for a mobile application concept</p>
         <div style={{ width: '580px', display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '40px' }}>
-          <p style={BODY18}>The goal was to turn the initial fintech concept into a clear mobile product foundation that could support core private banking scenarios from day one.</p>
-          <p style={BODY18}>This meant defining the main user flows, structuring the app around key financial actions, creating a consistent interface system, and preparing a design package that could be understood and used by engineering.</p>
+          <p style={BODY18}>The challenge was to turn the initial fintech idea into a clear mobile product that could support core private banking scenarios from day one.</p>
+          <p style={BODY18}>This meant defining the main user flows, structuring the app around key financial actions, creating a consistent interface system that customer will trust.</p>
         </div>
         <div style={{ display: 'flex', gap: '16px' }}>
           <GradCard index={0} num="01" title="Financial Overview" desc="Helping users understand their money at a glance." />
           <GradCard index={1} num="02" title="Core Banking Actions" desc="Making payments, cards, and exchange easy to access and complete." />
-          <GradCard index={2} num="03" title="Premium Mobile Foundation" desc="Creating a clean, scalable visual system for a private banking MVP." />
+          <GradCard index={2} num="03" title="Reliable mobile foundation" desc="Creating a trust between business and customers." />
         </div>
       </Section>
 
@@ -197,7 +197,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <Label>Design Approach</Label>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-            <p style={H2D}>Start with structure, then make it feel premium.</p>
+            <p style={{...H2D,marginBottom:0}}>Start with structure then make app looking premium</p>
             <div style={{ width: '580px' }}>
               <p style={BODY18}>I approached the product as a mobile-first banking MVP, where the main challenge was not only to make the interface look polished, but to make complex financial actions feel clear, predictable, and easy to continue.</p>
             </div>
@@ -207,40 +207,14 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
               <GradCard index={2} num="03" title="Reduce decision load" desc="I kept screens focused, with clear primary actions, predictable navigation, and fewer competing elements." />
               <GradCard index={3} num="04" title="Balance clarity with trust" desc="The visual direction was designed to feel premium and private-banking-ready, while still staying simple, readable, and practical for daily use." />
             </div>
-            {/* Core Experience list */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <Label>Core Experience</Label>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                {[
-                  { num: '01', title: 'Accounts', desc: 'Check balance and currency details.' },
-                  { num: '02', title: 'Cards', desc: 'Manage card status, balance, and actions.' },
-                  { num: '03', title: 'Payments', desc: 'Send money through a clear flow.' },
-                  { num: '04', title: 'Exchange', desc: 'Convert currencies with confirmation.' },
-                  { num: '05', title: 'Activity', desc: 'Review recent transactions and financial changes.' },
-                ].map(({ num, title, desc }) => (
-                  <div key={num} style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', borderBottom: '1px solid rgba(237,237,232,0.09)', padding: '20px 0' }}>
-                    <div style={{ width: '28px', flexShrink: 0 }}>
-                      <span style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', letterSpacing: '0.88px', color: T.muted }}>{num}</span>
-                    </div>
-                    <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                      <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '16px', lineHeight: 'normal', color: T.text, margin: 0 }}>{title}</p>
-                      <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22.4px', color: T.muted, margin: 0 }}>{desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </Section>
 
       {/* FINAL EXPERIENCE */}
       <Section>
-        <Label>Final Experience</Label>
-        <p style={H2D}>Key screens that shaped the mobile banking MVP</p>
-        <div style={{ width: '580px', marginBottom: '40px' }}>
-          <p style={BODY18}>Instead of designing isolated screens, I focused on the main moments where users need clarity: checking money, managing cards, sending payments, exchanging currency, and reviewing activity.</p>
-        </div>
+        <Label>OUTCOME</Label>
+        <p style={H2D}>Private banking actions brought into one clear mobile experience</p>
 
         {/* Rows — all 4 cards equal size */}
         {[
@@ -367,8 +341,8 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
         <div style={{ marginBottom: '12px' }}><Label>Product Context</Label></div>
         <H2Mob>Designing a mobile-first foundation for private banking</H2Mob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '16px' }}>
-          <p style={BODY_MOB_MUTED}>Neobank is a mobile banking project focused on private banking users who need to manage money across borders.</p>
-          <p style={BODY_MOB_MUTED}>The product was designed from scratch as a build-ready MVP, covering core financial actions such as account overview, cards, payments, currency exchange, and transaction activity.</p>
+          <p style={BODY_MOB_MUTED}>Private banking users often manage multiple financial actions at once: accounts, cards, payments, currency exchange, recent activity, and investment-related overviews.</p>
+          <p style={BODY_MOB_MUTED}>The goal was to design a mobile-first MVP that keeps these actions clear, accessible, and easy to navigate without making the interface feel overloaded.</p>
         </div>
         <div style={{ width: '100%', aspectRatio: '2 / 1', borderRadius: '16px', overflow: 'hidden' }}>
           <video autoPlay muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
@@ -380,10 +354,9 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
       {/* CORE PROBLEM */}
       <SectionMob>
         <div style={{ marginBottom: '12px' }}><Label>Core Problem</Label></div>
-        <H2Mob>Private banking has many financial actions, but mobile space is limited</H2Mob>
+        <H2Mob>Users lacked one clear place to understand and control their financial life on mobile</H2Mob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '24px' }}>
-          <p style={BODY_MOB_MUTED}>Private banking products often include many important actions: checking balances, managing accounts, using cards, sending payments, exchanging currencies, and reviewing financial activity.</p>
-          <p style={BODY_MOB_MUTED}>The challenge was to organize these actions into a clear product structure where users could quickly understand their money, find key actions, and move between banking features without feeling lost.</p>
+          <p style={BODY_MOB_MUTED}>The product problem was to make mobile banking feel less fragmented. Users needed a single, clear experience where they could check account status, review card activity, make payments, exchange currency, and understand their financial activity without feeling lost between different flows.</p>
         </div>
         <div style={{ borderLeft: `2px solid ${T.accent}`, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', letterSpacing: '1.4px', textTransform: 'uppercase', color: T.accent, margin: 0 }}>Product Hypothesis</p>
@@ -394,17 +367,17 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
 
       {/* GOAL */}
       <SectionMob>
-        <div style={{ marginBottom: '12px' }}><Label>Goal</Label></div>
-        <H2Mob>Define the foundation for a build-ready banking MVP</H2Mob>
+        <div style={{ marginBottom: '12px' }}><Label>Challenge</Label></div>
+        <H2Mob>Define the foundation for a mobile application concept</H2Mob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '24px' }}>
-          <p style={BODY_MOB_MUTED}>The goal was to turn the initial fintech concept into a clear mobile product foundation that could support core private banking scenarios from day one.</p>
-          <p style={BODY_MOB_MUTED}>This meant defining the main user flows, structuring the app around key financial actions, creating a consistent interface system, and preparing a design package that could be understood and used by engineering.</p>
+          <p style={BODY_MOB_MUTED}>The challenge was to turn the initial fintech idea into a clear mobile product that could support core private banking scenarios from day one.</p>
+          <p style={BODY_MOB_MUTED}>This meant defining the main user flows, structuring the app around key financial actions, creating a consistent interface system that customer will trust.</p>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {[
             { num: '01', title: 'Financial Overview', desc: 'Helping users understand their money at a glance.' },
             { num: '02', title: 'Core Banking Actions', desc: 'Making payments, cards, and exchange easy to access and complete.' },
-            { num: '03', title: 'Premium Mobile Foundation', desc: 'Creating a clean, scalable visual system for a private banking MVP.' },
+            { num: '03', title: 'Reliable mobile foundation', desc: 'Creating a trust between business and customers.' },
           ].map(({ num, title, desc }) => (
             <div key={num} style={{ background: GRAD_MOB, borderRadius: '16px', padding: '20px' }}>
               <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '28px', lineHeight: '28px', letterSpacing: '-0.5px', color: T.text, margin: '0 0 12px' }}>{num}</p>
@@ -418,14 +391,14 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
       {/* DESIGN APPROACH */}
       <SectionMob>
         <div style={{ marginBottom: '12px' }}><Label>Design Approach</Label></div>
-        <H2Mob>Start with structure, then move into interface</H2Mob>
-        <p style={{ ...BODY_MOB_MUTED, marginBottom: '24px' }}>I approached the project by first reducing the product complexity into clear flows and reusable patterns before moving into high-fidelity UI.</p>
+        <H2Mob>Start with structure then make app looking premium</H2Mob>
+        <p style={{ ...BODY_MOB_MUTED, marginBottom: '24px' }}>I approached the product as a mobile-first banking MVP, where the main challenge was not only to make the interface look polished, but to make complex financial actions feel clear, predictable, and easy to continue.</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {[
-            { num: '01', title: 'Map the core scenarios', desc: 'I started by identifying the main banking actions users would return to most often.' },
-            { num: '02', title: 'Define the app structure', desc: 'I organized those scenarios into a mobile-first navigation model and core flows.' },
-            { num: '03', title: 'Validate flows in wireframes', desc: 'Low-fidelity screens helped review the logic before visual design decisions were made.' },
-            { num: '04', title: 'Scale with a UI system', desc: 'Reusable components and patterns helped keep the final interface consistent and ready for handoff.' },
+            { num: '01', title: 'Map the core journeys', desc: 'I first defined the key banking flows users would need most: overview, cards, payments, currency exchange, activity, and profile.' },
+            { num: '02', title: 'Group actions by user intent', desc: 'Instead of exposing every feature at once, I grouped actions around what users are trying to do: check, manage, send, exchange, and review.' },
+            { num: '03', title: 'Reduce decision load', desc: 'I kept screens focused, with clear primary actions, predictable navigation, and fewer competing elements.' },
+            { num: '04', title: 'Balance clarity with trust', desc: 'The visual direction was designed to feel premium and private-banking-ready, while still staying simple, readable, and practical for daily use.' },
           ].map(({ num, title, desc }) => (
             <div key={num} style={{ background: GRAD_MOB, borderRadius: '16px', padding: '20px' }}>
               <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '28px', lineHeight: '28px', letterSpacing: '-0.5px', color: T.text, margin: '0 0 12px' }}>{num}</p>
@@ -438,9 +411,8 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
 
       {/* FINAL EXPERIENCE */}
       <SectionMob>
-        <div style={{ marginBottom: '12px' }}><Label>Final Experience</Label></div>
-        <H2Mob>Key screens that shaped the mobile banking MVP</H2Mob>
-        <p style={{ ...BODY_MOB_MUTED, marginBottom: '24px' }}>Instead of designing isolated screens, I focused on the main moments where users need clarity: checking money, managing cards, sending payments, exchanging currency, and reviewing activity.</p>
+        <div style={{ marginBottom: '12px' }}><Label>OUTCOME</Label></div>
+        <H2Mob>Private banking actions brought into one clear mobile experience</H2Mob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {[
             { video: '/images/Card%20management.mp4',  loop: true, forcePlay: false, mockup: true,  title: 'Card management',        desc: 'Manage physical and virtual cards, limits, status, and everyday card actions.' },

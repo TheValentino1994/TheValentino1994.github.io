@@ -780,10 +780,7 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
       <Section>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '20px', lineHeight: '32px', letterSpacing: '-0.3px', color: T.text, margin: 0 }}>
-            XBO is a live crypto-fintech ecosystem where users can verify accounts, deposit funds, manage digital assets, and use crypto-related financial services. When I joined the project, the product already existed and had core functionality in place. My role was to improve, extend, and clarify key parts of the experience across mobile, web, and selected CRM/admin surfaces.
-          </p>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '20px', lineHeight: '32px', letterSpacing: '-0.3px', color: T.text, margin: 0 }}>
-            Over 2 years, I worked inside the product team as a Middle UX/UI Designer, focusing on onboarding and verification, deposit flows, wallet-related actions, XBO Card, Arabic / RTL adaptation, OTP logic, and production handoff.
+            XBO is a live crypto exchange and digital asset platform built to make crypto actions easier to access — from account verification and fiat/crypto deposits to trading, wallet management, and crypto-powered financial services across mobile and web.
           </p>
         </div>
       </Section>
@@ -795,12 +792,11 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
           <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '32px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <Label>Product context & role</Label>
-              <H2>Improving a live crypto exchange ecosystem from inside the product team</H2>
+              <H2>Improving key journeys inside a live product</H2>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <Body>XBO is a live crypto-fintech ecosystem where users can verify accounts, deposit funds, manage digital assets, and use crypto-related financial services such as XBO Card. When I joined the project, the product already existed and had core functionality in place. My role was to improve, extend, and clarify key parts of the experience across mobile, web, and selected CRM/admin surfaces.</Body>
-              <Body>When I joined the project, the product already existed and had core functionality in place.</Body>
-              <Body>My role was to improve, extend, and clarify key parts of the experience across mobile, web, and selected CRM/admin surfaces.</Body>
+              <Body>I worked inside an active product team, where the challenge was not only to design from zero, but to improve and extend an existing platform without breaking familiar user behavior.</Body>
+              <Body>My role focused on simplifying high-friction flows, designing new product features, improving mobile, web and crm consistency, and turning product requirements into clear, build-ready design solutions.</Body>
             </div>
           </div>
           {/* Right: відео */}
@@ -821,32 +817,14 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
         label="Core Product Problem"
         heading="Crypto actions were powerful, but not always clear enough to complete with confidence"
         bodySlot={<>
-          <Body>XBO already had a working crypto-fintech product, but several key journeys needed more clarity, structure, and consistency as the platform continued to grow.</Body>
-          <Body>Users had to complete high-stakes actions such as onboarding, verification, deposits, wallet funding, and card-related flows. When these journeys included too many steps, unclear options, or missing guidance, users could hesitate or choose the wrong path.</Body>
-          <Body>The challenge was to improve these flows while keeping the product flexible enough for both new and more experienced crypto users.</Body>
+          <Body>Through user feedback and heatmap analysis, we identified three product areas where users were losing clarity and confidence: onboarding, deposits, and everyday use of funds.</Body>
+          <Body>These insights helped us focus on the journeys that mattered most for activation, funding, and continued product engagement.</Body>
         </>}
         extraBelow={
           <div style={{ display: 'flex', gap: '16px' }}>
-            <ProblemCard index={0} num="01" title="Too many steps"         desc="Onboarding and verification needed a shorter, clearer path." />
-            <ProblemCard index={1} num="02" title="Too many options"       desc="Deposit actions needed clearer entry points for crypto and fiat funding." />
-            <ProblemCard index={2} num="03" title="New financial behavior" desc="XBO Card had to connect USDT spot balance with card spending in a way users could understand." />
-          </div>
-        }
-      />
-
-      {/* ── CASE FOCUS ───────────────────────────────────────────── */}
-      <SplitSection
-        label="Case focus"
-        heading="I focused on three moments where users needed the most guidance"
-        bodySlot={<>
-          <Body>Instead of showing every task I worked on during 2 years, this case study focuses on three product areas where design had the strongest impact on the user journey.</Body>
-          <Body>Each area represented a different decision point: getting access to the product, funding the account, and using crypto balance in a more practical way.</Body>
-        </>}
-        extraBelow={
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <DecisionRow num="01" title="Onboarding & Verification" desc="Users had to complete verification before unlocking key financial features. The goal was to reduce drop-off by making the process easier to understand and continue." />
-            <DecisionRow num="02" title="Deposit Flow"              desc="Users needed a clearer way to choose how they wanted to add funds. The goal was to reduce choice overload and separate crypto and fiat deposit paths." />
-            <DecisionRow num="03" title="XBO Card"                  desc="Users needed to understand how USDT balance connects to card funding and spending. The goal was to make crypto-backed card usage feel more familiar and predictable." />
+            <ProblemCard index={0} num="01" title="Too many onboarding steps"         desc="User journey felt complex, unclear, or not guided enough." />
+            <ProblemCard index={1} num="02" title="Too many options in deposit flow"       desc="This hardened understanding of the difference between crypto and fiat deposit paths." />
+            <ProblemCard index={2} num="03" title="Use of funds improvment" desc="A convenient way of available crypto balance usage in real-life scenarios was missing." />
           </div>
         }
       />
@@ -856,18 +834,22 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
         label="Problem 01 / Onboarding & Verification"
         heading="Users were dropping off before unlocking the product"
         bodySlot={<>
-          <Body>Onboarding was one of the most important activation points in XBO. Before users could fully access deposits, wallets, and card-related features, they needed to complete verification.</Body>
-          <Body>The previous flow had several friction points: users could lose context between steps, misunderstand what verification level they were completing, or feel unsure where the OTP code would arrive. Higher verification requirements also needed stronger structure, because users had to understand what was required and why before continuing.</Body>
-          <Body>This created a risk at the very beginning of the product journey: users could leave before reaching the core financial features. In crypto-fintech, onboarding is not only registration — it is the first trust checkpoint.</Body>
+          <Body>Onboarding was one of the most important activation points in XBO. Before users could fully access the product, they needed to complete verification.</Body>
+          <Body>The original flow had several friction points: users could lose context between steps, misunderstand what verification level they were completing, or feel unsure where the OTP code would arrive. Verification requirements also needed stronger structure, because users had to understand what was required and why before continuing.</Body>
+          <Body>This created a risk at the very beginning of the product journey: users left their accounts unverified and never got back to the product.</Body>
         </>}
       />
 
       {/* ── SOLUTION 01 ──────────────────────────────────────────── */}
       <SplitSection
         label="Solution 01 / Onboarding & Verification"
-        heading="I redesigned the flow around progress, guidance, and fewer drop-off points"
+        heading="Redesign the flow around progress & crucial verification requirements"
         bodySlot={
-          <Body>To improve onboarding, I focused on the moments where users could lose momentum: unclear verification progression, OTP delivery, Level 3 requirements, and weak next-step guidance. The goal was not to remove important compliance steps, but to make them easier to understand and continue. Users needed to know what they were completing, why it was required, where the code would arrive, and what action came next.</Body>
+          <>
+          <Body>I started with a flow audit, user feedback, and heatmap insights to understand where users were losing clarity. Then I mapped the onboarding journey, identified friction points.</Body>
+          <Body>To shape the problem, I researched competitor fintech and crypto products to understand how they structure onboarding, explain verification requirements, and guide users through sensitive steps.</Body>
+          <Body>The comparison of progress indicators, step logic, CTA placement, requirement explanations, and trust patterns along with common ux practices (design for thumb zones, progressive disclosure & minimal friction and fluid feedback) helped me to build UX patterns that could reduce confusion and make the XBO onboarding flow feel natural and easy to complete.</Body>
+          </>
         }
       />
 
@@ -883,10 +865,9 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
       <SplitSection
         label="Outcome 01 / Onboarding Impact"
         heading="The redesigned onboarding flow reduced user drop-off"
-        bodySlot={<>
-          <Body>After the redesign, the team observed a 45% reduction in user drop-off. Clearer verification steps, visible missing requirements, OTP channel control, and document upload guidance helped more users continue through the activation journey.</Body>
-          <Body>This turned onboarding from a friction point into a clearer path toward account access, deposits, wallets, and card-related features.</Body>
-        </>}
+        bodySlot={
+          <Body>After redesign, the analytics showed a 45% reduction in user drop-off. Clearer verification steps, visible missing requirements, OTP channel control, and document upload guidance that helped more users continue through the activation journey until success.</Body>
+        }
         rightSlot={<DropOffChart />}
       />
 
@@ -895,9 +876,8 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
         label="Problem 02 / Funding"
         heading="Users were confused by mixed crypto and fiat deposit methods"
         bodySlot={<>
-          <Body>The previous deposit flow showed crypto and fiat-related methods together at the entry point. Users understood crypto deposits, but fiat deposit options were harder to recognize because card, bank, and payment methods appeared in the same mixed list.</Body>
-          <Body>This created confusion around which path to choose. Some users expected to deposit through card or bank without clearly understanding whether they were entering a crypto or fiat flow. As a result, users could hesitate, choose the wrong path, or leave before completing the deposit journey.</Body>
-          <Body>The goal was to improve deposit completion by making the first decision easier: am I depositing crypto or fiat?</Body>
+          <Body>The original deposit flow showed crypto and fiat-related methods together at the entry point. Card, bank, and payment methods appeared in the same view, which confused many users.</Body>
+          <Body>Some users expected to deposit through card or bank without clearly understanding whether they were entering a crypto or fiat flow. As a result, users could hesitate, choose the wrong path, or leave before completing the deposit journey.</Body>
         </>}
         rightSlot={
           <div style={{ borderLeft: `2px solid ${T.accent}`, paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -905,7 +885,7 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
             <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 500, fontSize: '17px', lineHeight: '26px', color: T.text, margin: 0 }}>
               If we separate crypto and fiat intent first, users will reach the right deposit path with less confusion
             </p>
-            <Body>If users first choose between Crypto Deposit and Fiat Deposit, the product can guide them into the right flow before showing detailed methods, assets, networks, or payment options. This should reduce confusion at the entry point, make switching easier, and help more users continue toward completing the deposit.</Body>
+            <Body>With having 2 options at the beginning: Crypto Deposit and Fiat Deposit, the product can guide user into the right flow before showing details. This should reduce confusion at the entry point, make switching easier, and help more users continue toward completing the action.</Body>
           </div>
         }
       />
@@ -913,31 +893,24 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
       {/* ── SOLUTION 02 ──────────────────────────────────────────── */}
       <SplitSection
         label="Solution 02 / Funding"
-        heading="I restructured the deposit flow around intent first, details second"
+        heading="Deposit flow restructuring around intent first, details second"
         bodySlot={<>
-          <Body>I redesigned the deposit journey so users first chose the funding direction: Crypto Deposit or Fiat Deposit. After that, the flow showed only the relevant path.</Body>
-          <Body>Users could still switch between crypto and fiat using a tab in the top-right corner, without returning to the wallet screen or restarting the journey.</Body>
-          <Body>For the crypto path, I also reduced the initial effort by adding a helpful default: BTC as the most popular asset, with a default network based on the last-used or most popular option.</Body>
+          <Body>High-level solution based on competitors comparison, user feedback and analytics was to separate crypto and fiat methods, explain payment options, and reduce uncertainty during deposits.</Body>
+          <Body>During the implementation phase the key point was to add a quick switching between Crypto and Fiat deposits inside the flow, so customers could change direction without returning to the wallet screen, reopening the deposit entry point, or restarting the journey.</Body>
+          <Body>I focused on UX patterns such as decision simplification, method grouping, progressive disclosure, and clear payment explanations.</Body>
+          <Body>As additional crypto deposit improvement was to reduce initial setup effort by adding helpful defaults: BTC as the default asset and a preselected network based on the last-used or most common option.</Body>
         </>}
         extraBelow={
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-            <Label>Key decisions</Label>
-            <DecisionRow num="01" title="Separate funding intent first"              desc="Users first choose between Crypto Deposit and Fiat Deposit, instead of seeing crypto and fiat methods mixed together." />
-            <DecisionRow num="02" title="Make switching lightweight"                 desc="A top-right tab allows users to switch between Crypto and Fiat deposit flows without going back or restarting the journey." />
-            <DecisionRow num="03" title="Reduce empty-state friction"                desc="The crypto deposit path opens with BTC selected by default, giving users a faster starting point." />
-            <DecisionRow num="04" title="Use smart defaults without removing control" desc="The network can be preselected based on the last-used or most popular option, while users can still change asset or network." />
+            <Label>Methods used</Label>
+            <DecisionRow num="01" title="Competitive flow analysis"              desc="Compared XBO’s deposit journey with crypto/fintech competitors." />
+            <DecisionRow num="02" title="Friction mapping"                 desc="Found where users could hesitate, choose the wrong path, or navigate backward." />
+            <DecisionRow num="03" title="Decision simplification"                desc="Reduced the first choice to two clear funding intents." />
+            <DecisionRow num="04" title="Progressive disclosure" desc="Showed only relevant methods and instructions after the user selected a path" />
+            <DecisionRow num="05" title="Flow optimization" desc="Reduced unnecessary back navigation and repeated entry points" />
           </div>
         }
       />
-
-      {/* ── SOLUTION 02 SCREENS ──────────────────────────────────── */}
-      <Section>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '40px' }}>
-          <Label>Solution 02 / Funding</Label>
-          <H2>Recording experience redesign</H2>
-        </div>
-        <Body style={{ maxWidth: '580px' }}>The redesign simplified the first funding decision, reduced setup friction, and helped users move faster toward completing both crypto and fiat deposits.</Body>
-      </Section>
 
       <VideoCompareSection
         src="/images/comp1.mp4"
@@ -957,48 +930,27 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
         afterText="Users can still change the network when needed, with fees and supporting labels helping them compare options more confidently."
       />
 
-
-      {/* ── WHAT CHANGED ─────────────────────────────────────────── */}
-      <Section>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-          <H2>What changed?</H2>
-          <Body style={{ maxWidth: '580px' }}>The redesign improved the deposit journey in three ways: it separated crypto and fiat paths at the start, reduced setup effort through helpful defaults, and made it faster for users to reach the deposit details.</Body>
-        </div>
-      </Section>
-
       {/* ── OUTCOME 02 ───────────────────────────────────────────── */}
       <SplitSection
         label="Outcome 02 / Funding"
-        heading="A clearer deposit structure built around how users think about funding"
-        bodySlot={<>
-          <Body>The redesigned deposit flow was approved and shipped to production. Separating Crypto Deposit and Fiat Deposit reduced confusion at the entry point, while helpful defaults made the crypto path faster to start.</Body>
-          <Body>The new structure helped users choose the right funding direction earlier and continue toward deposit completion with less hesitation.</Body>
-        </>}
-        extraBelow={
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <DecisionRow num="01" title="Reduced confusion"          desc="Users no longer had to decode mixed funding methods." />
-            <DecisionRow num="02" title="Faster path to details"     desc="Default asset and network reduced early setup friction." />
-            <DecisionRow num="03" title="Production-ready structure"  desc="The flow could scale with more methods, providers, and networks." />
-          </div>
+        heading="A clearer deposit structure built around how users understand funding"
+        bodySlot={
+          <Body>As a result, the deposit experience became more focused, easier to understand, and faster to complete. Users had fewer decisions upfront, clearer separation between funding types, and a smoother path toward successfully adding funds to their account.</Body>
         }
       />
 
       {/* ── PROBLEM 03 ───────────────────────────────────────────── */}
       <SplitSection
         label="Problem 03 / XBO Card"
-        heading="Getting a crypto-funded virtual card required more than a card UI"
+        heading="Users needed a convinient way to turn crypto funds into everyday spending"
         bodySlot={<>
-          <Body>XBO Card was not a single screen. Users had to understand a multi-step lifecycle: eligibility, required verification, card issuing, setup fee, initial top-up, card balance, and ongoing card management.</Body>
-          <Body>The main UX challenge was making this journey feel predictable. Users needed to understand what was required before getting the card, how much would be charged, what part of the payment was a fee, what part became spendable balance, and when the card was ready to use.</Body>
+          <Body>Users could manage digital assets inside XBO, but their balance needed a clearer real-world use case. The challenge was to create a more direct bridge between available crypto funds and everyday spending, making the product feel not only like a place to hold or manage assets, but a tool for practical financial use.</Body>
         </>}
         extraBelow={
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             <Label>Key user questions</Label>
-            <DecisionRow num="01" title="Am I eligible to get the card?"                     desc="Users needed to understand required steps such as Basic verification before starting the card flow." />
-            <DecisionRow num="02" title="What information is still missing?"                 desc="If POI/POR data was incomplete, the flow had to explain what additional document details were required." />
-            <DecisionRow num="03" title="How much will be charged from my Spot balance?"     desc="Users needed a clear breakdown of the issue fee, top-up amount, and total charged." />
-            <DecisionRow num="04" title="What part of the payment becomes spendable balance?" desc="The flow had to separate the one-time card issue fee from the initial top-up amount that becomes available on the card." />
-            <DecisionRow num="05" title="What happens after I confirm?"                      desc="Since the card becomes active immediately, users needed to know they would land in a ready-to-use card experience." />
+            <DecisionRow num="01" title="How can I use this balance without thinking like a trader?"                     desc="Users may have funds in the product, but not every user wants to constantly trade, swap, or manage assets. They need a more practical reason to keep funds inside the platform." />
+            <DecisionRow num="02" title="Can I use my funds for something simple, not only crypto actions?"                 desc="Crypto actions can feel technical. Users need a use case that feels closer to normal financial behavior: access, spend, manage, and control money." />
           </div>
         }
       />
@@ -1006,11 +958,12 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
       {/* ── SOLUTION 03 ──────────────────────────────────────────── */}
       <SplitSection
         label="Solution 03 / XBO Card"
-        heading="I designed the card journey around requirements, payment breakdown, and ready-to-use state"
+        heading="Making crypto funds usable through a virtual card experience"
         bodySlot={<>
-          <Body>To make the XBO Card flow easier to understand, I structured it as a guided issuing journey instead of a single card purchase screen.</Body>
-          <Body>The experience answered the user's main questions step by step: whether they were eligible, what information was missing, how much would be charged from Spot balance, what part of the payment was a one-time issue fee, and what amount would become available on the card.</Body>
-          <Body>After confirmation, the card became active immediately, so the final state had to clearly show that the card was issued, funded, and ready to manage or use.</Body>
+          <Body>The solution was to design the XBO Card as a complete use-of-funds journey, not only a card interface.</Body>
+          <Body>I connected the virtual card flow to the user’s Spot balance, so users could understand how their available funds turn into a card balance that can be used beyond the wallet experience.</Body>
+          <Body>To reduce uncertainty, I structured the issuing flow around clear decision points: eligibility, required information, payment breakdown, one-time issuing fee, and final available card balance.</Body>
+          <Body>The final state was designed to close the loop: after confirmation, users could immediately see that the card was active, funded, and ready for further management or spending.</Body>
         </>}
       />
 
@@ -1025,18 +978,14 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
       {/* ── OVERALL OUTCOME ──────────────────────────────────────── */}
       <SplitSection
         label="Overall outcome"
-        heading="Improving the journey from account access to funded usage"
-        bodySlot={<>
-          <Body>Across onboarding, deposits, and XBO Card, my work focused on reducing uncertainty in the moments where users had to make important financial decisions.</Body>
-          <Body>The improvements helped users move through the product with clearer next steps: completing verification, choosing the right deposit path, understanding funding details, and using a virtual card connected to their Spot balance.</Body>
-          <Body>Together, these changes made key crypto-fintech flows easier to understand, more consistent across the product, and better prepared for real production use.</Body>
-        </>}
+        heading="Improved user journey from account access to funds usage"
+        bodySlot={<></>}
         extraBelow={
           <div style={{ display: 'flex', border: `1px solid ${BORDER}`, borderRadius: '16px', overflow: 'hidden' }}>
             {([
-              { stat: '45%',  title: 'Onboarding & Verification', desc: 'Drop-off reduced after redesigning verification steps, OTP delivery, and missing requirement guidance.' },
+              { stat: '45%',  title: 'Onboarding & Verification', desc: 'Drop-off reduction after verification steps, OTP delivery, and requirement guidance redesign.' },
               { stat: '2×',   title: 'Deposit Flow',              desc: 'Faster path to deposit completion after separating crypto and fiat intent at the entry point.' },
-              { stat: '1350', title: 'XBO Card',                  desc: 'New virtual card activations in the first two weeks after the guided issuing flow launched.' },
+              { stat: '1350', title: 'XBO Card',                  desc: 'New virtual card activations in the first two weeks since guided issuing flow launch.' },
             ] as const).map(({ stat, title, desc }, i, arr) => (
               <div key={title} style={{
                 flex: '1 0 0', minWidth: 0, padding: '40px 32px',
@@ -1129,8 +1078,7 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
       {/* ROLE */}
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '27px', color: T.text, margin: 0 }}>XBO is a live crypto-fintech ecosystem where users can verify accounts, deposit funds, manage digital assets, and use crypto-related financial services. When I joined the project, the product already existed and had core functionality in place. My role was to improve, extend, and clarify key parts of the experience across mobile, web, and selected CRM/admin surfaces.</p>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '27px', color: T.text, margin: 0 }}>Over 2 years, I worked inside the product team as a Middle UX/UI Designer, focusing on onboarding and verification, deposit flows, wallet-related actions, XBO Card, Arabic / RTL adaptation, OTP logic, and production handoff.</p>
+          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '27px', color: T.text, margin: 0 }}>XBO is a live crypto exchange and digital asset platform built to make crypto actions easier to access — from account verification and fiat/crypto deposits to trading, wallet management, and crypto-powered financial services across mobile and web.</p>
         </div>
       </SectionMob>
 
@@ -1138,8 +1086,9 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Label>Product context & role</Label>
-          <H2Mob>Improving a live crypto exchange ecosystem from inside the product team</H2Mob>
-          <Body>XBO is a live crypto-fintech ecosystem where users can verify accounts, deposit funds, manage digital assets, and use crypto-related financial services. When I joined, the product already existed and had core functionality in place.</Body>
+          <H2Mob>Improving key journeys inside a live product</H2Mob>
+          <Body>I worked inside an active product team, where the challenge was not only to design from zero, but to improve and extend an existing platform without breaking familiar user behavior.</Body>
+          <Body>My role focused on simplifying high-friction flows, designing new product features, improving mobile, web and crm consistency, and turning product requirements into clear, build-ready design solutions.</Body>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '-40px' }}>
             <video autoPlay loop muted playsInline style={{ width: '70%', display: 'block', mixBlendMode: 'screen' }}>
               <source src="/images/xbo.mp4" type="video/mp4" />
@@ -1153,25 +1102,12 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Label>Core Product Problem</Label>
           <H2Mob>Crypto actions were powerful, but not always clear enough to complete with confidence</H2Mob>
-          <Body>XBO already had a working crypto-fintech product, but several key journeys needed more clarity, structure, and consistency as the platform continued to grow.</Body>
+          <Body>Through user feedback and heatmap analysis, we identified three product areas where users were losing clarity and confidence: onboarding, deposits, and everyday use of funds.</Body>
+          <Body>These insights helped us focus on the journeys that mattered most for activation, funding, and continued product engagement.</Body>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <ProblemCard index={0} num="01" title="Too many steps"         desc="Onboarding and verification needed a shorter, clearer path." />
-            <ProblemCard index={1} num="02" title="Too many options"       desc="Deposit actions needed clearer entry points for crypto and fiat funding." />
-            <ProblemCard index={2} num="03" title="New financial behavior" desc="XBO Card had to connect USDT spot balance with card spending in a way users could understand." />
-          </div>
-        </div>
-      </SectionMob>
-
-      {/* CASE FOCUS */}
-      <SectionMob>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <Label>Case focus</Label>
-          <H2Mob>I focused on three moments where users needed the most guidance</H2Mob>
-          <Body>This case study focuses on three product areas where design had the strongest impact on the user journey.</Body>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <DecisionRow num="01" title="Onboarding & Verification" desc="Users had to complete verification before unlocking key financial features. The goal was to reduce drop-off by making the process easier to understand and continue." />
-            <DecisionRow num="02" title="Deposit Flow"              desc="Users needed a clearer way to choose how they wanted to add funds. The goal was to reduce choice overload and separate crypto and fiat deposit paths." />
-            <DecisionRow num="03" title="XBO Card"                  desc="Users needed to understand how USDT balance connects to card funding and spending. The goal was to make crypto-backed card usage feel more familiar and predictable." />
+            <ProblemCard index={0} num="01" title="Too many onboarding steps"         desc="User journey felt complex, unclear, or not guided enough." />
+            <ProblemCard index={1} num="02" title="Too many options in deposit flow"       desc="This hardened understanding of the difference between crypto and fiat deposit paths." />
+            <ProblemCard index={2} num="03" title="Use of funds improvment" desc="A convenient way of available crypto balance usage in real-life scenarios was missing." />
           </div>
         </div>
       </SectionMob>
@@ -1181,8 +1117,9 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <Label>Problem 01 / Onboarding & Verification</Label>
           <H2Mob>Users were dropping off before unlocking the product</H2Mob>
-          <Body>Onboarding was one of the most important activation points in XBO. The previous flow had several friction points: users could lose context between steps, misunderstand what verification level they were completing, or feel unsure where the OTP code would arrive.</Body>
-          <Body>This created a risk at the very beginning of the product journey — users could leave before reaching the core financial features.</Body>
+          <Body>Onboarding was one of the most important activation points in XBO. Before users could fully access the product, they needed to complete verification.</Body>
+          <Body>The original flow had several friction points: users could lose context between steps, misunderstand what verification level they were completing, or feel unsure where the OTP code would arrive. Verification requirements also needed stronger structure, because users had to understand what was required and why before continuing.</Body>
+          <Body>This created a risk at the very beginning of the product journey: users left their accounts unverified and never got back to the product.</Body>
         </div>
       </SectionMob>
 
@@ -1190,8 +1127,10 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <Label>Solution 01 / Onboarding & Verification</Label>
-          <H2Mob>I redesigned the flow around progress, guidance, and fewer drop-off points</H2Mob>
-          <Body>I focused on moments where users could lose momentum: unclear verification progression, OTP delivery, Level 3 requirements, and weak next-step guidance.</Body>
+          <H2Mob>Redesign the flow around progress & crucial verification requirements</H2Mob>
+          <Body>I started with a flow audit, user feedback, and heatmap insights to understand where users were losing clarity. Then I mapped the onboarding journey, identified friction points.</Body>
+          <Body>To shape the problem, I researched competitor fintech and crypto products to understand how they structure onboarding, explain verification requirements, and guide users through sensitive steps.</Body>
+          <Body>The comparison of progress indicators, step logic, CTA placement, requirement explanations, and trust patterns along with common ux practices (design for thumb zones, progressive disclosure & minimal friction and fluid feedback) helped me to build UX patterns that could reduce confusion and make the XBO onboarding flow feel natural and easy to complete.</Body>
         </div>
       </SectionMob>
       <PhoneScrollSection slides={[
@@ -1207,7 +1146,7 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Label>Outcome 01 / Onboarding Impact</Label>
           <H2Mob>The redesigned onboarding flow reduced user drop-off</H2Mob>
-          <Body>Clearer verification steps, visible missing requirements, OTP channel control, and document upload guidance helped more users continue through the activation journey.</Body>
+          <Body>After redesign, the analytics showed a 45% reduction in user drop-off. Clearer verification steps, visible missing requirements, OTP channel control, and document upload guidance that helped more users continue through the activation journey until success.</Body>
           <DropOffChart />
         </div>
       </SectionMob>
@@ -1217,11 +1156,12 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Label>Problem 02 / Funding</Label>
           <H2Mob>Users were confused by mixed crypto and fiat deposit methods</H2Mob>
-          <Body>The previous deposit flow showed crypto and fiat methods together at the entry point. Users could hesitate, choose the wrong path, or leave before completing the deposit journey.</Body>
+          <Body>The original deposit flow showed crypto and fiat-related methods together at the entry point. Card, bank, and payment methods appeared in the same view, which confused many users.</Body>
+          <Body>Some users expected to deposit through card or bank without clearly understanding whether they were entering a crypto or fiat flow. As a result, users could hesitate, choose the wrong path, or leave before completing the deposit journey.</Body>
           <div style={{ borderLeft: `2px solid ${T.accent}`, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <AccentLabel>Product hypothesis</AccentLabel>
             <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 500, fontSize: '16px', lineHeight: '24px', color: T.text, margin: 0 }}>If we separate crypto and fiat intent first, users will reach the right deposit path with less confusion</p>
-            <Body>Separating Crypto Deposit and Fiat Deposit should reduce confusion at the entry point and help more users continue toward completing the deposit.</Body>
+            <Body>With having 2 options at the beginning: Crypto Deposit and Fiat Deposit, the product can guide user into the right flow before showing details. This should reduce confusion at the entry point, make switching easier, and help more users continue toward completing the action.</Body>
           </div>
         </div>
       </SectionMob>
@@ -1230,8 +1170,20 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <Label>Solution 02 / Funding</Label>
-          <H2Mob>Recording experience redesign</H2Mob>
-          <Body>The redesign simplified the first funding decision, reduced setup friction, and helped users move faster toward completing both crypto and fiat deposits.</Body>
+          <H2Mob>Deposit flow restructuring around intent first, details second</H2Mob>
+          <Body>High-level solution based on competitors comparison, user feedback and analytics was to separate crypto and fiat methods, explain payment options, and reduce uncertainty during deposits.</Body>
+          <Body>During the implementation phase the key point was to add a quick switching between Crypto and Fiat deposits inside the flow, so customers could change direction without returning to the wallet screen, reopening the deposit entry point, or restarting the journey.</Body>
+          <Body>I focused on UX patterns such as decision simplification, method grouping, progressive disclosure, and clear payment explanations.</Body>
+          <Body>As additional crypto deposit improvement was to reduce initial setup effort by adding helpful defaults: BTC as the default asset and a preselected network based on the last-used or most common option.</Body>
+
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Label>Methods used</Label>
+            <DecisionRow num="01" title="Competitive flow analysis"              desc="Compared XBO’s deposit journey with crypto/fintech competitors." />
+            <DecisionRow num="02" title="Friction mapping"                 desc="Found where users could hesitate, choose the wrong path, or navigate backward." />
+            <DecisionRow num="03" title="Decision simplification"                desc="Reduced the first choice to two clear funding intents." />
+            <DecisionRow num="04" title="Progressive disclosure" desc="Showed only relevant methods and instructions after the user selected a path" />
+            <DecisionRow num="05" title="Flow optimization" desc="Reduced unnecessary back navigation and repeated entry points" />
+          </div>
 
           {/* Video card 1 */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -1289,21 +1241,6 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
               </div>
             </div>
           </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <DecisionRow num="01" title="Separate funding intent first"               desc="Users first choose between Crypto Deposit and Fiat Deposit, instead of seeing crypto and fiat methods mixed together." />
-            <DecisionRow num="02" title="Make switching lightweight"                  desc="A top-right tab allows users to switch between Crypto and Fiat deposit flows without going back or restarting the journey." />
-            <DecisionRow num="03" title="Reduce empty-state friction"                 desc="The crypto deposit path opens with BTC selected by default, giving users a faster starting point." />
-            <DecisionRow num="04" title="Use smart defaults without removing control" desc="The network can be preselected based on the last-used or most popular option, while users can still change asset or network." />
-          </div>
-        </div>
-      </SectionMob>
-
-      {/* WHAT CHANGED */}
-      <SectionMob>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <H2Mob>What changed?</H2Mob>
-          <Body>The redesign improved the deposit journey in three ways: it separated crypto and fiat paths at the start, reduced setup effort through helpful defaults, and made it faster for users to reach the deposit details.</Body>
         </div>
       </SectionMob>
 
@@ -1311,13 +1248,8 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Label>Outcome 02 / Funding</Label>
-          <H2Mob>A clearer deposit structure built around how users think about funding</H2Mob>
-          <Body>Separating Crypto and Fiat Deposit reduced confusion at the entry point, while helpful defaults made the crypto path faster to start.</Body>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <DecisionRow num="01" title="Reduced confusion"          desc="Users no longer had to decode mixed funding methods." />
-            <DecisionRow num="02" title="Faster path to details"     desc="Default asset and network reduced early setup friction." />
-            <DecisionRow num="03" title="Production-ready structure"  desc="The flow could scale with more methods, providers, and networks." />
-          </div>
+          <H2Mob>A clearer deposit structure built around how users understand funding</H2Mob>
+          <Body>As a result, the deposit experience became more focused, easier to understand, and faster to complete. Users had fewer decisions upfront, clearer separation between funding types, and a smoother path toward successfully adding funds to their account.</Body>
         </div>
       </SectionMob>
 
@@ -1327,6 +1259,11 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
           <Label>Problem 03 / XBO Card</Label>
           <H2Mob>Getting a crypto-funded virtual card required more than a card UI</H2Mob>
           <Body>XBO Card was not a single screen. Users had to understand eligibility, required verification, card issuing, setup fee, initial top-up, card balance, and ongoing card management.</Body>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+            <Label>Methods used</Label>
+            <DecisionRow num="01" title="How can I use this balance without thinking like a trader?"              desc="Users may have funds in the product, but not every user wants to constantly trade, swap, or manage assets. They need a more practical reason to keep funds inside the platform." />
+            <DecisionRow num="02" title="Can I use my funds for something simple, not only crypto actions?"                 desc="Crypto actions can feel technical. Users need a use case that feels closer to normal financial behavior: access, spend, manage, and control money." />
+           </div>
         </div>
       </SectionMob>
 
@@ -1334,8 +1271,11 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <Label>Solution 03 / XBO Card</Label>
-          <H2Mob>I designed the card journey around requirements, payment breakdown, and ready-to-use state</H2Mob>
-          <Body>I structured it as a guided issuing journey — answering the user's main questions step by step before they committed to payment.</Body>
+          <H2Mob>Making crypto funds usable through a virtual card experience</H2Mob>
+          <Body>The solution was to design the XBO Card as a complete use-of-funds journey, not only a card interface.</Body>
+          <Body>I connected the virtual card flow to the user’s Spot balance, so users could understand how their available funds turn into a card balance that can be used beyond the wallet experience.</Body>
+          <Body>To reduce uncertainty, I structured the issuing flow around clear decision points: eligibility, required information, payment breakdown, one-time issuing fee, and final available card balance.</Body>
+          <Body>The final state was designed to close the loop: after confirmation, users could immediately see that the card was active, funded, and ready for further management or spending.</Body>
         </div>
       </SectionMob>
       <PhoneScrollSection slides={[
@@ -1346,27 +1286,16 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
         { src: X.sol3s5, caption: "After confirmation, users land on an active card dashboard with all management tools." },
       ]} />
 
-      <SectionMob>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <DecisionRow num="01" title="Am I eligible to get the card?"                      desc="Users needed to understand required steps such as Basic verification before starting the card flow." />
-          <DecisionRow num="02" title="What information is still missing?"                  desc="If POI/POR data was incomplete, the flow had to explain what additional document details were required." />
-          <DecisionRow num="03" title="How much will be charged from my Spot balance?"      desc="Users needed a clear breakdown of the issue fee, top-up amount, and total charged." />
-          <DecisionRow num="04" title="What part of the payment becomes spendable balance?" desc="The flow had to separate the one-time card issue fee from the initial top-up amount that becomes available on the card." />
-          <DecisionRow num="05" title="What happens after I confirm?"                       desc="Since the card becomes active immediately, users needed to know they would land in a ready-to-use card experience." />
-        </div>
-      </SectionMob>
-
       {/* OVERALL OUTCOME */}
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Label>Overall outcome</Label>
-          <H2Mob>Improving the journey from account access to funded usage</H2Mob>
-          <Body>Across onboarding, deposits, and XBO Card, my work focused on reducing uncertainty where users had to make important financial decisions.</Body>
+          <H2Mob>Improved user journey from account access to funds usage</H2Mob>
           <div style={{ display: 'flex', flexDirection: 'column', border: `1px solid ${BORDER}`, borderRadius: '16px', overflow: 'hidden' }}>
             {([
-              { stat: '45%',  title: 'Onboarding & Verification', desc: 'Drop-off reduced after redesigning verification steps, OTP delivery, and missing requirement guidance.' },
+              { stat: '45%',  title: 'Onboarding & Verification', desc: 'Drop-off reduction after verification steps, OTP delivery, and requirement guidance redesign.' },
               { stat: '2×',   title: 'Deposit Flow',              desc: 'Faster path to deposit completion after separating crypto and fiat intent at the entry point.' },
-              { stat: '1350', title: 'XBO Card',                  desc: 'New virtual card activations in the first two weeks after the guided issuing flow launched.' },
+              { stat: '1350', title: 'XBO Card',                  desc: 'New virtual card activations in the first two weeks since guided issuing flow launch.' },
             ] as const).map(({ stat, title, desc }, i, arr) => (
               <div key={title} style={{
                 padding: '32px 24px',

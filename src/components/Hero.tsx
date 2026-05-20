@@ -45,8 +45,8 @@ function useScramble(text: string, trigger: boolean, delayMs: number, duration: 
 }
 
 const TAGS = [
-  'Systems Thinking', 'PRODUCT FLOWS', 'INTERFACE SYSTEMS',
-  'MOBILE & WEB', 'FINTECH UX', 'PROTOTYPING', 'HANDOFF', 'CROSS-FUNCTIONAL WORK',
+  'AI-ASSISTED WORKFLOWS', 'SYSTEM THINKING', 'PRODUCT FLOWS',
+  'DESIGN SYSTEMS', 'CROSS-FUNCTIONAL WORK', 'MOBILE & WEB', 'HANDOFF',
 ]
 
 function Marquee({ inset = '0' }: { inset?: string }) {

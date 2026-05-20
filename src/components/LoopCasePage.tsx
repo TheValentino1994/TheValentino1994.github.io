@@ -78,10 +78,7 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
       <Section>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '20px', lineHeight: '32px', letterSpacing: '-0.3px', color: T.text, margin: 0 }}>
-            Loop is a live productivity workspace that brings work signals from connected tools into one place: tasks, files, meetings, messages, and updates. The product was designed not to replace tools like Slack, Drive, Notion, Zoom, or task managers, but to help teams understand what needs attention without constantly jumping between apps.
-          </p>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '20px', lineHeight: '32px', letterSpacing: '-0.3px', color: T.text, margin: 0 }}>
-            As the primary UX/UI Designer, I worked across the core workspace experience, onboarding flow, design system, reusable interface patterns, and power-user features that shipped to production.
+            Loop is a live productivity workspace that brings work signals from connected tools into one place: tasks, files, meetings, messages, and updates. It's designed not to replace tools like Slack, Drive, Notion, Zoom, or task managers, but to help teams understand what needs attention without constantly jumping between apps.
           </p>
         </div>
       </Section>
@@ -91,12 +88,11 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <Label>Product context & role</Label>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-            <H2 style={{ maxWidth: '815px' }}>A workspace layer for teams working across multiple tools</H2>
-            <div style={{ display: 'flex', gap: '40px', alignItems: 'center' }}>
+            <H2 style={{ maxWidth: '815px' }}>A workspace for teams working across multiple tools</H2>
+            <div style={{ display: 'flex', gap: '40px', alignItems:"center" }}>
               <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                <Body>Loop is a live productivity workspace that brings work signals from connected tools into one place: tasks, files, meetings, messages, and updates.</Body>
-                <Body>The product was designed not to replace tools like Slack, Drive, Notion, Zoom, or task managers, but to help teams understand what needs attention without constantly jumping between apps.</Body>
                 <Body>As the primary UX/UI Designer, I worked across the core workspace experience, onboarding flow, design system, reusable interface patterns, and power-user features that shipped to production.</Body>
+                <Body>My role focused on building solid ground for product's design system, and turning product requirements into clear, first class design solutions.</Body>
               </div>
               <div style={{ flex: 1, minWidth: 0, height: '288px', borderRadius: '20px', overflow: 'hidden', padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <img alt="Loop tool integration illustration" src="/images/loop.webp" style={{ width: '518px', height: '280px', objectFit: 'contain', display: 'block' }} />
@@ -119,9 +115,9 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
           <div style={{ borderLeft: `2px solid ${T.accent}`, paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <AccentLabel>Product Hypothesis</AccentLabel>
             <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '20px', lineHeight: '28px', color: T.text, margin: 0 }}>
-              If work signals are organized around attention, teams can spend less time switching and more time acting
+              If work signals are organized around team focused workspace, people will not lose crucial information from their tools
             </p>
-            <Body>If Loop could bring tasks, files, meetings, messages, and updates into one structured workspace, users would not need to manually check every tool to understand what mattered.</Body>
+            <Body>Having one structured workspace with tasks, files, meetings, messages, and updates users would not need to manually check every tool to get information they need.</Body>
           </div>
         }
       />
@@ -131,110 +127,27 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <Label>Case focus</Label>
-            <H2 style={{ maxWidth: '815px' }}>I focused on three areas that turn scattered signals into a usable workspace</H2>
+            <H2 style={{ maxWidth: '815px' }}>Three areas that turn scattered signals into a usable workspace</H2>
           </div>
           <div style={{ maxWidth: '580px' }}>
-            <Body>To avoid designing another overloaded dashboard, I focused the case around three product areas: helping users understand what needs attention, making connected sources trustworthy, and creating a structure that could scale as more tools and workflows were added.</Body>
+            <Body>To avoid designing another overloaded dashboard, the focus was on helping users understand what needs attention, making connected sources trustworthy, and create a structure that could scale as more tools and workflows were added.</Body>
           </div>
           <div style={{ display: 'flex', gap: '16px' }}>
             <ProblemCard index={0} num="01" title="Helping users understand what needs attention"                   desc="Users needed a clear starting point for the day — a place to scan tasks, meetings, files, messages, and updates without opening every connected tool." />
-            <ProblemCard index={1} num="02" title="Making integrations understandable and trustworthy"             desc="Loop depended on external tools, so users needed to understand what was connected, where each item came from, and what data was available." />
-            <ProblemCard index={2} num="03" title="Preventing the workspace from becoming another cluttered dashboard" desc="As more tools and signals were added, the product needed navigation, hierarchy, reusable patterns, and states that kept the experience easy to scan." />
+            <ProblemCard index={1} num="02" title="Making integrations understandable and trustworthy"             desc="Loop depended on external tools, so users needed to see what was connected, where each item came from, and what data was available." />
+            <ProblemCard index={2} num="03" title="Preventing the workspace from becoming another cluttered dashboard" desc="With more tools added the workspace may start getting out of control and create additional chaos." />
           </div>
         </div>
       </Section>
 
-      {/* ── PROBLEM 01 ───────────────────────────────────────────── */}
-      <SplitSection
-        label="Problem Daily Focus"
-        heading="Users needed one place to understand what required attention"
-        bodySlot={<>
-          <Body>For teams working across multiple tools, the beginning of the day could quickly turn into a routine of checking Slack, Drive, Notion, calendar, tasks, and other sources separately.</Body>
-          <Body>The issue was not only the number of apps. Users had to rebuild context manually: scan updates, remember where files lived, check meetings, find tasks, and decide what mattered first.</Body>
-          <Body>Loop needed a daily starting point that could turn scattered work signals into a focused view of what needed attention.</Body>
-        </>}
-        rightSlot={
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div style={{ borderLeft: `2px solid ${T.accent}`, paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <AccentLabel>Product question</AccentLabel>
-              <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 500, fontSize: '17px', lineHeight: '26px', color: T.text, margin: 0 }}>
-                How might we help users start their day without opening every connected tool first?
-              </p>
-              <Body>If Loop surfaced tasks, meetings, files, messages, and updates in one structured view, users could start from a focused overview instead of rebuilding context manually across apps.</Body>
-            </div>
-          </div>
-        }
-      />
-
-      {/* ── RESEARCH & ANALYSIS ──────────────────────────────────── */}
-      <SplitSection
-        label="Research & Analysis"
-        heading="Three workstreams, one direction"
-        bodySlot={<>
-          <Body>I analyzed how teams manage daily work across tools like Slack, Asana, Zoom, Notion, Google Drive, and email. The main problem was fragmentation: communication, tasks, files, and decisions lived in separate places, making it harder to keep context and find what matters.</Body>
-          <Body>The analysis focused on tool switching, lost information, and disconnected workflows. This helped define Loop as a unified workspace layer that brings updates, tasks, files, and communication into one clear structure without forcing teams to change how they already work.</Body>
-        </>}
-        extraBelow={
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <DecisionRow num="01" title="Tool switching"        desc="How might we help users understand what is happening across tools without having to switch between them?" />
-            <DecisionRow num="02" title="Lost context"          desc="How might we prevent important decisions and files from getting buried across separate channels and tools?" />
-            <DecisionRow num="03" title="Disconnected workflows" desc="How might we connect communication and execution so that progress stays visible in one place?" />
-          </div>
-        }
-      />
-
       {/* ── SOLUTION DAILY FOCUS ─────────────────────────────────── */}
       <SplitSection
-        label="Solution Daily Focus"
-        heading="I designed a daily workspace that turns scattered signals into a focused overview"
+        label="Solution"
+        heading="Reduce the need for users to check every tool manually by providing a single platform"
         bodySlot={<>
-          <Body>To reduce the need for users to check every tool manually, I structured the experience around a daily workspace: one place where tasks, meetings, files, messages, and updates could be scanned together.</Body>
-          <Body>The goal was not to show everything at once. The goal was to help users understand what deserves attention first, where each item came from, and what action they could take next.</Body>
-        </>}
-        extraBelow={
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ marginBottom: '8px' }}><Label>Key decisions</Label></div>
-            {[
-              {
-                num: '01',
-                title: 'Organize by attention, not by tool',
-                desc: 'Instead of separating information only by source, the workspace needed to surface work based on relevance and actionability.',
-                why: 'Users do not start their day thinking "which app should I open?" They think "what needs my attention right now?"',
-              },
-              {
-                num: '02',
-                title: 'Keep source context visible',
-                desc: 'Each item needed to show where it came from — Slack, Drive, Notion and others — so users could trust the context and act.',
-                why: 'Aggregation without source clarity makes information feel disconnected or unreliable, even when the content itself is accurate.',
-              },
-              {
-                num: '03',
-                title: 'Make scanning fast',
-                desc: 'Cards, grouping, labels, and hierarchy helped users quickly understand what each item was: task, file, meeting, message, or update.',
-                why: 'The workspace had to reduce cognitive load and support action, not become another layer of noise to manage every day.',
-              },
-            ].map(({ num, title, desc, why }) => (
-              <div key={num} style={{ display: 'flex', gap: '28px', padding: '24px 0', borderBottom: `1px solid ${BORDER}` }}>
-                <span style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '20px', color: T.muted, flexShrink: 0, width: '28px', paddingTop: '2px' }}>{num}</span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
-                  <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>{title}</p>
-                  <Body>{desc}</Body>
-                  <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '26px', color: T.muted, margin: 0 }}>
-                    <span style={{ color: T.accent, fontWeight: 500 }}>Why it matters&nbsp;&nbsp;</span>{why}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        }
-      />
-
-      {/* ── PROCESSING ───────────────────────────────────────────── */}
-      <SplitSection
-        label="Processing"
-        heading="The risk with aggregation is that you just move the chaos, not solve it."
-        bodySlot={<>
-          <Body>The daily workspace helped users scan tasks, meetings, files, messages, and updates from connected tools in one place. Instead of checking every app separately, users could start from a focused overview and understand what needed attention first.</Body>
+          <Body>I designed an unique workspace that connects  multiple corporate tools. The platform provides convenient way of accessing to files, meetings, tasks, and messages. </Body>
+          <Body>To keep the experience transparent, every item keeps its source visible — Slack, Drive, Notion, calendar, or other connected tools. This builds trust between users and information they see. </Body>
+          <Body>Quick access was achieved by grouping important items based on relevance, urgency, and work context.</Body>
         </>}
         extraBelow={
           <div style={{ display: 'flex', gap: '16px', alignItems: 'stretch' }}>
@@ -245,17 +158,14 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
         }
       />
 
+    
+
       {/* ── OUTCOME ──────────────────────────────────────────────── */}
       <Section>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <Label>Outcome</Label>
-            <H2>I designed Loop as a focused workspace layer, not another dashboard</H2>
-          </div>
-          <div style={{ maxWidth: '646px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            <Body>To solve the problem of scattered work signals, I structured Loop around three product principles: focus, source context, and scalability.</Body>
-            <Body>The goal was not to bring every possible update into one screen. The goal was to help users understand what needs attention, where each item came from, and how to move from information to action without opening every connected tool.</Body>
-            <Body>This shaped the core workspace experience: daily overview, connected sources, reusable cards, navigation patterns, onboarding flow, and power-user features that shipped to production.</Body>
+            <H2>Structured place for every day interaction with corporate mess</H2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ display: 'flex', gap: '16px' }}>
@@ -358,8 +268,7 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
       {/* ROLE */}
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '27px', color: T.text, margin: 0 }}>Loop is a live productivity workspace that brings work signals from connected tools into one place: tasks, files, meetings, messages, and updates. The product was designed not to replace tools like Slack, Drive, Notion, Zoom, or task managers, but to help teams understand what needs attention without constantly jumping between apps.</p>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '27px', color: T.text, margin: 0 }}>As the primary UX/UI Designer, I worked across the core workspace experience, onboarding flow, design system, reusable interface patterns, and power-user features that shipped to production.</p>
+          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '27px', color: T.text, margin: 0 }}>Loop is a live productivity workspace that brings work signals from connected tools into one place: tasks, files, meetings, messages, and updates. It's designed not to replace tools like Slack, Drive, Notion, Zoom, or task managers, but to help teams understand what needs attention without constantly jumping between apps.</p>
         </div>
       </SectionMob>
 
@@ -368,9 +277,8 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Label>Product context & role</Label>
           <H2Mob>A workspace layer for teams working across multiple tools</H2Mob>
-          <Body>Loop is a live productivity workspace that brings work signals from connected tools into one place: tasks, files, meetings, messages, and updates.</Body>
-          <Body>The product was designed not to replace tools like Slack, Drive, Notion, Zoom, or task managers, but to help teams understand what needs attention without constantly jumping between apps.</Body>
           <Body>As the primary UX/UI Designer, I worked across the core workspace experience, onboarding flow, design system, reusable interface patterns, and power-user features that shipped to production.</Body>
+          <Body>My role focused on building solid ground for product's design system, and turning product requirements into clear, first class design solutions.</Body>
           <div style={{ borderRadius: '16px', overflow: 'hidden' }}>
             <img alt="" src="/images/loop.webp" style={{ width: '100%', display: 'block' }} />
           </div>
@@ -382,14 +290,15 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Label>Core Product Problem</Label>
           <H2Mob>Important work signals were scattered across too many tools</H2Mob>
-          <Body>Teams were using Slack, Drive, Notion, Zoom, and task managers to get work done. But the more tools they connected, the harder it became to understand what needed attention.</Body>
+          <Body> Teams were using Slack, Drive, Notion, Zoom, and task managers to get work done. But the more tools they connected, the harder it became to understand what needed attention.</Body>
+          <Body>Tasks, files, meetings, messages, and updates lived in different places. Users had to switch between apps, remember where things were, and manually rebuild context before taking action.</Body>
           <Body>The deeper issue was fragmented attention: users could see activity everywhere, but still miss what mattered.</Body>
           <div style={{ borderLeft: `2px solid ${T.accent}`, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <AccentLabel>Product Hypothesis</AccentLabel>
             <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '24px', color: T.text, margin: 0 }}>
-              If work signals are organized around attention, teams can spend less time switching and more time acting
+              If work signals are organized around team focused workspace, people will not lose crucial information from their tools
             </p>
-            <Body>If Loop could bring tasks, files, meetings, messages, and updates into one structured workspace, users would not need to manually check every tool to understand what mattered.</Body>
+            <Body>Having one structured workspace with tasks, files, meetings, messages, and updates users would not need to manually check every tool to get information they need.</Body>
           </div>
         </div>
       </SectionMob>
@@ -398,40 +307,12 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Label>Case focus</Label>
-          <H2Mob>I focused on three areas that turn scattered signals into a usable workspace</H2Mob>
-          <Body>To avoid designing another overloaded dashboard, I focused the case around three product areas: helping users understand what needs attention, making connected sources trustworthy, and creating a structure that could scale as more tools and workflows were added.</Body>
+          <H2Mob>Three areas that turn scattered signals into a usable workspace</H2Mob>
+          <Body>To avoid designing another overloaded dashboard, the focus was on helping users understand what needs attention, making connected sources trustworthy, and create a structure that could scale as more tools and workflows were added.</Body>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <ProblemCard index={0} num="01" title="Helping users understand what needs attention"                   desc="Users needed a clear starting point for the day — a place to scan tasks, meetings, files, messages, and updates without opening every connected tool." />
-            <ProblemCard index={1} num="02" title="Making integrations understandable and trustworthy"             desc="Loop depended on external tools, so users needed to understand what was connected, where each item came from, and what data was available." />
-            <ProblemCard index={2} num="03" title="Preventing the workspace from becoming another cluttered dashboard" desc="As more tools and signals were added, the product needed navigation, hierarchy, reusable patterns, and states that kept the experience easy to scan." />
-          </div>
-        </div>
-      </SectionMob>
-
-      {/* PROBLEM 01 */}
-      <SectionMob>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <Label>Problem Daily Focus</Label>
-          <H2Mob>Users needed one place to understand what required attention</H2Mob>
-          <Body>For teams working across multiple tools, the beginning of the day could quickly turn into a routine of checking Slack, Drive, Notion, calendar, tasks, and other sources separately.</Body>
-          <Body>Loop needed a daily starting point that could turn scattered work signals into a focused view of what needed attention.</Body>
-          <div style={{ borderLeft: `2px solid ${T.accent}`, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <AccentLabel>Product question</AccentLabel>
-            <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 500, fontSize: '16px', lineHeight: '24px', color: T.text, margin: 0 }}>How might we help users start their day without opening every connected tool first?</p>
-          </div>
-        </div>
-      </SectionMob>
-
-      {/* RESEARCH & ANALYSIS */}
-      <SectionMob>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <Label>Research & Analysis</Label>
-          <H2Mob>Three workstreams, one direction</H2Mob>
-          <Body>I analyzed how teams manage daily work across tools like Slack, Asana, Zoom, Notion, Google Drive, and email. The main problem was fragmentation: communication, tasks, files, and decisions lived in separate places.</Body>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <DecisionRow num="01" title="Tool switching"        desc="How might we help users understand what is happening across tools without having to switch between them?" />
-            <DecisionRow num="02" title="Lost context"          desc="How might we prevent important decisions and files from getting buried across separate channels and tools?" />
-            <DecisionRow num="03" title="Disconnected workflows" desc="How might we connect communication and execution so that progress stays visible in one place?" />
+            <ProblemCard index={1} num="02" title="Making integrations understandable and trustworthy"             desc="Loop depended on external tools, so users needed to see what was connected, where each item came from, and what data was available." />
+            <ProblemCard index={2} num="03" title="Preventing the workspace from becoming another cluttered dashboard" desc="With more tools added the workspace may start getting out of control and create additional chaos." />
           </div>
         </div>
       </SectionMob>
@@ -439,57 +320,16 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
       {/* SOLUTION DAILY FOCUS */}
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <Label>Solution Daily Focus</Label>
-          <H2Mob>I designed a daily workspace that turns scattered signals into a focused overview</H2Mob>
-          <Body>To reduce the need for users to check every tool manually, I structured the experience around a daily workspace: one place where tasks, meetings, files, messages, and updates could be scanned together.</Body>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ marginBottom: '8px' }}><Label>Key decisions</Label></div>
-            {[
-              {
-                num: '01',
-                title: 'Organize by attention, not by tool',
-                desc: 'Instead of separating information only by source, the workspace needed to surface work based on relevance and actionability.',
-                why: 'Users do not start their day thinking "which app should I open?" They think "what needs my attention right now?"',
-              },
-              {
-                num: '02',
-                title: 'Keep source context visible',
-                desc: 'Each item needed to show where it came from — Slack, Drive, Notion and others — so users could trust the context and act.',
-                why: 'Aggregation without source clarity makes information feel disconnected or unreliable, even when the content itself is accurate.',
-              },
-              {
-                num: '03',
-                title: 'Make scanning fast',
-                desc: 'Cards, grouping, labels, and hierarchy helped users quickly understand what each item was: task, file, meeting, message, or update.',
-                why: 'The workspace had to reduce cognitive load and support action, not become another layer of noise to manage every day.',
-              },
-            ].map(({ num, title, desc, why }) => (
-              <div key={num} style={{ display: 'flex', gap: '20px', padding: '20px 0', borderBottom: `1px solid ${BORDER}` }}>
-                <span style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '20px', color: T.muted, flexShrink: 0, width: '24px', paddingTop: '2px' }}>{num}</span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
-                  <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>{title}</p>
-                  <Body>{desc}</Body>
-                  <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', color: T.muted, margin: 0 }}>
-                    <span style={{ color: T.accent, fontWeight: 500 }}>Why it matters&nbsp;&nbsp;</span>{why}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </SectionMob>
-
-      {/* PROCESSING */}
-      <SectionMob>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <Label>Processing</Label>
-          <H2Mob>The risk with aggregation is that you just move the chaos, not solve it.</H2Mob>
-          <Body>The daily workspace helped users scan tasks, meetings, files, messages, and updates from connected tools in one place. Instead of checking every app separately, users could start from a focused overview and understand what needed attention first.</Body>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <Label>Solution</Label>
+          <H2Mob>Reduce the need for users to check every tool manually by providing a single platform</H2Mob>
+          <Body>I designed an unique workspace that connects multiple corporate tools. The platform provides convenient way of accessing to files, meetings, tasks, and messages.</Body>
+          <Body>To keep the experience transparent, every item keeps its source visible — Slack, Drive, Notion, calendar, or other connected tools. This builds trust between users and information they see.</Body>
+          <Body>Quick access was achieved by grouping important items based on relevance, urgency, and work context.</Body>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <img alt="Navigation sidebar UI" src={L.processingCard1} style={{ width: '100%', display: 'block', borderRadius: '16px' }} />
             <img alt="Multi-platform content list" src={L.processingCard2} style={{ width: '100%', display: 'block', borderRadius: '16px' }} />
             <img alt="Smart notifications stack" src={L.processingCard3} style={{ width: '100%', display: 'block', borderRadius: '16px' }} />
-          </div>
+        </div>
         </div>
       </SectionMob>
 
@@ -497,12 +337,7 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <Label>Outcome</Label>
-          <H2Mob>I designed Loop as a focused workspace layer, not another dashboard</H2Mob>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <Body>To solve the problem of scattered work signals, I structured Loop around three product principles: focus, source context, and scalability.</Body>
-            <Body>The goal was not to bring every possible update into one screen. The goal was to help users understand what needs attention, where each item came from, and how to move from information to action without opening every connected tool.</Body>
-            <Body>This shaped the core workspace experience: daily overview, connected sources, reusable cards, navigation patterns, onboarding flow, and power-user features that shipped to production.</Body>
-          </div>
+          <H2Mob>Structured place for every day interaction with corporate mess</H2Mob>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <div style={{ width: '100%', aspectRatio: '592 / 420', borderRadius: '16px', overflow: 'hidden' }}>
               <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
