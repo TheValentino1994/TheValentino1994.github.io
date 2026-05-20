@@ -151,9 +151,32 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
         </>}
         extraBelow={
           <div style={{ display: 'flex', gap: '16px', alignItems: 'stretch' }}>
-            <img alt="Navigation sidebar UI" src={L.processingCard1} style={{ flex: 1, minWidth: 0, display: 'block', borderRadius: '16px', objectFit: 'cover' }} />
-            <img alt="Multi-platform content list" src={L.processingCard2} style={{ flex: 1, minWidth: 0, display: 'block', borderRadius: '16px', objectFit: 'cover' }} />
-            <img alt="Smart notifications stack" src={L.processingCard3} style={{ flex: 1, minWidth: 0, display: 'block', borderRadius: '16px', objectFit: 'cover' }} />
+            {([
+              { src: L.processingCard1, title: 'Grouping things together is helpful!',     desc: 'Communication and execution are separated, making progress harder to track.' },
+              { src: L.processingCard2, title: 'Stuff related to different platforms.',     desc: 'Manage your content effortlessly, schedule calls, or send files with our system integration.' },
+              { src: L.processingCard3, title: 'Smart Notifications!',                      desc: 'Get instant alerts for the updates that matter most to you.' },
+            ] as const).map(({ src, title, desc }) => (
+              <div key={title} style={{
+                flex: '1 0 0', minWidth: 1,
+                border: '1px solid #2d2d2e', borderRadius: '16px',
+                overflow: 'hidden', display: 'flex', flexDirection: 'column',
+              }}>
+                {/* Image area with bottom fade */}
+                <div style={{ display: "flex", justifyContent:"center", alignItems:"center", height: '260px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+                  <img alt="" src={src} style={{ width: 'calc(100% - 32px*2)', height: 'calc(100% - 32px*2)', objectFit: 'cover', objectPosition: 'top center', display: 'block' }} />
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    background: 'linear-gradient(180deg, transparent 30%, rgba(2,2,2,0.92) 100%)',
+                    pointerEvents: 'none',
+                  }} />
+                </div>
+                {/* Text */}
+                <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '24px', letterSpacing: '-0.5px', color: '#edede8', margin: 0 }}>{title}</p>
+                  <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', color: '#6b6b67', margin: 0 }}>{desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         }
       />
@@ -325,11 +348,28 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
           <Body>I designed an unique workspace that connects multiple corporate tools. The platform provides convenient way of accessing to files, meetings, tasks, and messages.</Body>
           <Body>To keep the experience transparent, every item keeps its source visible — Slack, Drive, Notion, calendar, or other connected tools. This builds trust between users and information they see.</Body>
           <Body>Quick access was achieved by grouping important items based on relevance, urgency, and work context.</Body>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <img alt="Navigation sidebar UI" src={L.processingCard1} style={{ width: '100%', display: 'block', borderRadius: '16px' }} />
-            <img alt="Multi-platform content list" src={L.processingCard2} style={{ width: '100%', display: 'block', borderRadius: '16px' }} />
-            <img alt="Smart notifications stack" src={L.processingCard3} style={{ width: '100%', display: 'block', borderRadius: '16px' }} />
-        </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {([
+              { src: L.processingCard1, title: 'Grouping things together is helpful!',  desc: 'Communication and execution are separated, making progress harder to track.' },
+              { src: L.processingCard2, title: 'Stuff related to different platforms.', desc: 'Manage your content effortlessly, schedule calls, or send files with our system integration.' },
+              { src: L.processingCard3, title: 'Smart Notifications!',                  desc: 'Get instant alerts for the updates that matter most to you.' },
+            ] as const).map(({ src, title, desc }) => (
+              <div key={title} style={{ border: '1px solid #2d2d2e', borderRadius: '16px', overflow: 'hidden' }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", position: 'relative', overflow: 'hidden' }}>
+                  <img alt="" src={src} style={{ width: 'calc(100% - 16px*2)', height: 'calc(100% - 16px*2)', marginTop: "16px", 'display': 'block' }} />
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    background: 'linear-gradient(180deg, transparent 30%, rgba(2,2,2,0.92) 100%)',
+                    pointerEvents: 'none',
+                  }} />
+                </div>
+                <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '24px', letterSpacing: '-0.5px', color: '#edede8', margin: 0 }}>{title}</p>
+                  <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', color: '#6b6b67', margin: 0 }}>{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </SectionMob>
 
