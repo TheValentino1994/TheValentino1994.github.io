@@ -264,26 +264,7 @@ function PhoneScrollSection({ slides }: { slides: { src: string; caption: string
   )
 
   if (isMobile) {
-    return (
-      <div ref={containerRef} style={{ position: 'relative', height: `${n * 100}vh`, width: '100%' }}>
-        <div style={{
-          position: 'sticky', top: 0, height: '100vh',
-          background: T.bg, display: 'flex', flexDirection: 'column',
-          alignItems: 'center', justifyContent: 'center', gap: '28px',
-          padding: '0 24px', boxSizing: 'border-box',
-        }}>
-          {phoneJSX}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center', maxWidth: '280px' }}>
-            <span ref={numRef} style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', letterSpacing: '1.4px', textTransform: 'uppercase', color: T.muted }}>
-              01 / {String(n).padStart(2, '0')}
-            </span>
-            <p ref={captionRef} style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: T.text, margin: 0, textAlign: 'center' }}>
-              {slides[0].caption}
-            </p>
-          </div>
-        </div>
-      </div>
-    )
+    return <PhoneSlideshowMob slides={slides} />
   }
 
   return (
@@ -309,63 +290,141 @@ function PhoneScrollSection({ slides }: { slides: { src: string; caption: string
   )
 }
 
-// ─── Mobile swipe carousel ───────────────────────────────────────────────────
+// ─── Mobile depth-track carousel ─────────────────────────────────────────────
 
 function PhoneSlideshowMob({ slides }: { slides: { src: string; caption: string }[] }) {
-  const [idx, setIdx] = useState(0)
-  const touchX = useRef(0)
+  const [idx, setIdx]       = useState(0)
+  const touchStartX         = useRef(0)
+  const touchStartY         = useRef(0)
+  const smoothRef           = useRef(0)
+  const targetRef           = useRef(0)
+  const phoneRefs           = useRef<(HTMLDivElement | null)[]>([])
+  const captionRef          = useRef<HTMLParagraphElement>(null)
+  const numRef              = useRef<HTMLSpanElement>(null)
+  const lastSnapRef         = useRef(0)
+  const slidesRef           = useRef(slides)
+  slidesRef.current         = slides
   const n = slides.length
 
-  const prev = () => setIdx(i => (i - 1 + n) % n)
-  const next = () => setIdx(i => (i + 1) % n)
+  const PHONE_W = 190
+  const CARD    = 185   // center-to-center distance
+
+  const goTo = (next: number) => {
+    const clamped = Math.max(0, Math.min(n - 1, next))
+    targetRef.current = clamped
+    setIdx(clamped)
+  }
+
+  useEffect(() => {
+    let raf: number
+    const tick = () => {
+      smoothRef.current += (targetRef.current - smoothRef.current) * 0.10
+      const s = smoothRef.current
+
+      phoneRefs.current.forEach((phone, i) => {
+        if (!phone) return
+        const dist    = i - s
+        const absDist = Math.abs(dist)
+        const scale   = Math.max(0.66, 1 - absDist * 0.17)
+        const opacity = Math.max(0.20, 1 - absDist * 0.78)
+        const rotY    = dist * -7
+        const tx      = dist * CARD
+        const blur    = Math.min(absDist * 1.5, 3)
+        phone.style.transform = `translate(calc(-50% + ${tx}px), -50%) rotateY(${rotY}deg) scale(${scale})`
+        phone.style.opacity   = String(opacity)
+        phone.style.filter    = blur > 0.15 ? `blur(${blur.toFixed(1)}px)` : ''
+      })
+
+      const snap = Math.min(Math.max(Math.round(s), 0), n - 1)
+      if (snap !== lastSnapRef.current) {
+        const dir = snap > lastSnapRef.current ? 1 : -1
+        lastSnapRef.current = snap
+        if (numRef.current)
+          numRef.current.textContent = `${String(snap + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`
+        if (captionRef.current) {
+          captionRef.current.style.transition = 'opacity 0.15s ease, transform 0.15s ease'
+          captionRef.current.style.opacity    = '0'
+          captionRef.current.style.transform  = `translateY(${dir * 6}px)`
+          const cap = captionRef.current
+          setTimeout(() => {
+            cap.textContent      = slidesRef.current[snap].caption
+            cap.style.transition = 'opacity 0.4s ease, transform 0.42s cubic-bezier(0.16,1,0.3,1)'
+            cap.style.opacity    = '1'
+            cap.style.transform  = 'translateY(0)'
+          }, 160)
+        }
+      }
+
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [n, CARD])
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-      {/* Phone */}
+
+      {/* ── 3D depth track ─────────────────────────────────────── */}
       <div
-        style={{ display: 'flex', justifyContent: 'center', userSelect: 'none' }}
-        onTouchStart={e => { touchX.current = e.touches[0].clientX }}
+        style={{
+          position: 'relative', height: '420px', overflow: 'hidden',
+          perspective: '900px', perspectiveOrigin: '50% 50%',
+        }}
+        onTouchStart={e => {
+          touchStartX.current = e.touches[0].clientX
+          touchStartY.current = e.touches[0].clientY
+        }}
         onTouchEnd={e => {
-          const dx = e.changedTouches[0].clientX - touchX.current
-          if (dx < -40) next()
-          else if (dx > 40) prev()
+          const dx = e.changedTouches[0].clientX - touchStartX.current
+          const dy = Math.abs(e.changedTouches[0].clientY - touchStartY.current)
+          if (Math.abs(dx) > 35 && Math.abs(dx) > dy) goTo(dx < 0 ? idx + 1 : idx - 1)
         }}
       >
-        <div style={{ width: '200px', position: 'relative' }}>
-          <div style={{
-            borderRadius: '40px',
-            background: 'linear-gradient(160deg, #2e2e2e 0%, #1a1a1a 100%)',
-            border: '1px solid rgba(255,255,255,0.11)',
-            boxShadow: '0 12px 32px rgba(0,0,0,0.6)',
-            padding: '8px',
-          }}>
-            <div style={{ borderRadius: '32px', overflow: 'hidden', background: '#000', aspectRatio: '9/19.5', position: 'relative' }}>
-              {slides.map((s, i) => (
-                <img key={i} alt="" src={s.src} style={{
-                  position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block',
-                  opacity: i === idx ? 1 : 0, transition: 'opacity 0.4s ease',
-                }} />
-              ))}
-              <div style={{
-                position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)',
-                width: '33%', height: '4.5%', background: '#000', borderRadius: '999px', zIndex: 10,
-              }} />
-            </div>
+        {/* Edge vignette */}
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: 10, pointerEvents: 'none',
+          background: 'linear-gradient(to right, rgba(2,2,2,0.92) 0%, transparent 22%, transparent 78%, rgba(2,2,2,0.92) 100%)',
+        }} />
+
+        {slides.map((s, i) => (
+          <div
+            key={i}
+            ref={el => { phoneRefs.current[i] = el }}
+            onClick={() => { if (i !== idx) goTo(i) }}
+            style={{
+              position: 'absolute', left: '50%', top: '50%',
+              width: `${PHONE_W}px`, willChange: 'transform, opacity, filter',
+              cursor: i !== idx ? 'pointer' : 'default',
+            }}
+          >
+            <img src={s.src} alt="" style={{ width: '100%', display: 'block' }} />
           </div>
-        </div>
+        ))}
       </div>
 
-      {/* Caption */}
-      <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0, textAlign: 'center' }}>
-        {slides[idx].caption}
-      </p>
+      {/* ── Counter + caption ──────────────────────────────────── */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', padding: '0 28px' }}>
+        <span ref={numRef} style={{
+          fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px',
+          letterSpacing: '1.4px', textTransform: 'uppercase', color: T.muted,
+        }}>
+          01 / {String(n).padStart(2, '0')}
+        </span>
+        <p ref={captionRef} style={{
+          fontFamily: "'Inter',sans-serif", fontWeight: 400,
+          fontSize: '14px', lineHeight: '21px', color: T.text,
+          margin: 0, textAlign: 'center',
+        }}>
+          {slides[0].caption}
+        </p>
+      </div>
 
-      {/* Dots */}
+      {/* ── Dot nav ────────────────────────────────────────────── */}
       <div style={{ display: 'flex', gap: '6px', alignItems: 'center', justifyContent: 'center' }}>
         {slides.map((_, i) => (
           <button
             key={i}
-            onClick={() => setIdx(i)}
+            onClick={() => goTo(i)}
             style={{
               width: i === idx ? '20px' : '6px', height: '6px', borderRadius: '3px',
               background: i === idx ? T.accent : 'rgba(255,255,255,0.18)',
@@ -375,6 +434,7 @@ function PhoneSlideshowMob({ slides }: { slides: { src: string; caption: string 
           />
         ))}
       </div>
+
     </div>
   )
 }
