@@ -411,9 +411,11 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
 
       {/* FINAL EXPERIENCE */}
       <SectionMob>
-        <div style={{ marginBottom: '12px' }}><Label>OUTCOME</Label></div>
-        <H2Mob>Private banking actions brought into one clear mobile experience</H2Mob>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <Label>OUTCOME</Label>
+          <H2Mob>Private banking actions brought into one clear mobile experience</H2Mob>
+        </div>
+        <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {[
             { video: '/images/Card%20management.mp4',  loop: true, forcePlay: false, mockup: true,  title: 'Card management',        desc: 'Manage physical and virtual cards, limits, status, and everyday card actions.' },
             { video: '/images/Currency-Exchange-Playful.mp4', loop: true, forcePlay: false, mockup: true, title: 'Currency exchange', desc: 'Users need to convert money quickly while understanding the currency pair, amount, and exchange rate.' },

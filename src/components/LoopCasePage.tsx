@@ -89,7 +89,7 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
           <Label>Product context & role</Label>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
             <H2 style={{ maxWidth: '815px' }}>A workspace for teams working across multiple tools</H2>
-            <div style={{ display: 'flex', gap: '40px', alignItems:"center" }}>
+            <div style={{ display: 'flex', gap: '40px', alignItems:"flex-start" }}>
               <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 <Body>As the primary UX/UI Designer, I worked across the core workspace experience, onboarding flow, design system, reusable interface patterns, and power-user features that shipped to production.</Body>
                 <Body>My role focused on building solid ground for product's design system, and turning product requirements into clear, first class design solutions.</Body>
