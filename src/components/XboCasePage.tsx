@@ -456,12 +456,12 @@ function PhoneFlipSection({
   const phoneRefs    = useRef<(HTMLDivElement | null)[]>([])
   const shadowRefs   = useRef<(HTMLDivElement | null)[]>([])
   const glowRefs     = useRef<(HTMLDivElement | null)[]>([])
-  const targetRef    = useRef(0)
-  const smoothRef    = useRef(0)
-  const lastIdx      = useRef(0)
-  const dimRef       = useRef<HTMLDivElement>(null)
-  const slidesRef    = useRef(slides)
-  slidesRef.current  = slides
+  const targetRef      = useRef(0)
+  const smoothRef      = useRef(0)
+  const lastIdx        = useRef(0)
+  const dimRef         = useRef<HTMLDivElement>(null)
+  const slidesRef      = useRef(slides)
+slidesRef.current    = slides
 
   const n = slides.length
   const [phoneW, setPhoneW] = useState(340)
@@ -510,8 +510,9 @@ function PhoneFlipSection({
         const opacity = Math.max(0.35, Math.pow(Math.max(0, 1 - absDist), 1.5))
         const rotY    = dist * (-5)
         const tx      = dist * CARD - phoneW / 2
-        phone.style.transform = `translateX(${tx}px) translateY(-50%) rotateY(${rotY}deg) scale(${scale})`
-        phone.style.opacity   = String(opacity)
+        phone.style.transform    = `translateX(${tx}px) translateY(-50%) rotateY(${rotY}deg) scale(${scale})`
+        phone.style.opacity      = String(opacity)
+        phone.style.pointerEvents = absDist < 1.5 ? 'auto' : 'none'
 
         const shadow = shadowRefs.current[i]
         if (shadow) {
@@ -575,7 +576,6 @@ function PhoneFlipSection({
   // ── Wheel snap: one scroll gesture = one slide ──────────────────────────────
   useEffect(() => {
     if (n < 1 || isMobile) return
-    let isSnapping = false
 
     const handleWheel = (e: WheelEvent) => {
       const el = containerRef.current
@@ -584,26 +584,19 @@ function PhoneFlipSection({
       const trackH = height - window.innerHeight
       if (trackH <= 0) return
 
-      // Only intercept while sticky section is active
       if (top > 5 || top < -(trackH + 5)) return
 
       const progress = Math.max(0, Math.min(1, -top / trackH))
-      const currentIdx = Math.round(progress * (n - 1))
       const dir = e.deltaY > 0 ? 1 : -1
+      const currentIdx = Math.round(progress * (n - 1))
+      const targetIdx = Math.max(0, Math.min(n - 1, currentIdx + dir))
 
-      // At boundaries allow natural scroll to exit the section
-      if (currentIdx === 0 && dir < 0) return
-      if (currentIdx === n - 1 && dir > 0) return
+      if (targetIdx === currentIdx) return
 
       e.preventDefault()
-      if (isSnapping) return
 
-      const targetIdx = Math.max(0, Math.min(n - 1, currentIdx + dir))
       const targetScrollY = window.scrollY + (targetIdx / (n - 1) - progress) * trackH
-
-      isSnapping = true
       window.scrollTo({ top: targetScrollY, behavior: 'smooth' })
-      setTimeout(() => { isSnapping = false }, 900)
     }
 
     window.addEventListener('wheel', handleWheel, { passive: false })
@@ -688,22 +681,11 @@ function PhoneFlipSection({
               <div
                 key={i}
                 ref={el => { phoneRefs.current[i] = el }}
-                onClick={() => {
-                  const el = containerRef.current
-                  if (!el) return
-                  const { top, height } = el.getBoundingClientRect()
-                  const trackH = height - window.innerHeight
-                  if (trackH <= 0) return
-                  const progress = Math.max(0, Math.min(1, -top / trackH))
-                  const targetScrollY = window.scrollY + (i / (n - 1) - progress) * trackH
-                  window.scrollTo({ top: targetScrollY, behavior: 'smooth' })
-                }}
                 style={{
                   position:'absolute', left:0, top:0,
                   transform:`translateX(${i * CARD - phoneW / 2}px) translateY(-50%)`,
                   opacity: i === 0 ? 1 : 0.35,
                   willChange:'transform, opacity',
-                  cursor: 'pointer',
                 }}
               >
                 {/* Accent glow under active phone */}
@@ -1269,7 +1251,7 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
           {/* Video card 1 */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ borderRadius: '16px', overflow: 'hidden' }}>
-              <video autoPlay loop muted playsInline style={{ width: '100%', display: 'block' }}>
+              <video autoPlay muted playsInline style={{ width: '100%', display: 'block' }}>
                 <source src="/images/comp1.mp4" type="video/mp4" />
               </video>
             </div>
@@ -1288,7 +1270,7 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
           {/* Video card 2 */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ borderRadius: '16px', overflow: 'hidden' }}>
-              <video autoPlay loop muted playsInline style={{ width: '100%', display: 'block' }}>
+              <video autoPlay muted playsInline style={{ width: '100%', display: 'block' }}>
                 <source src="/images/comp2.mp4" type="video/mp4" />
               </video>
             </div>
@@ -1307,7 +1289,7 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
           {/* Video card 3 */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ borderRadius: '16px', overflow: 'hidden' }}>
-              <video autoPlay loop muted playsInline style={{ width: '100%', display: 'block' }}>
+              <video autoPlay muted playsInline style={{ width: '100%', display: 'block' }}>
                 <source src="/images/comp3.mp4" type="video/mp4" />
               </video>
             </div>
