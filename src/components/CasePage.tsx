@@ -596,19 +596,25 @@ export function ScrollIndicator() {
 // ─── Nav ──────────────────────────────────────────────────────────────────────
 
 function BackBtn({ onBack }: { onBack: () => void }) {
-  const magRef = useMagnetic(0.36, 0.12)
+  const [hov, setHov] = useState(false)
   return (
-    <div ref={magRef} style={{ display: 'inline-flex' }}>
-      <button
-        onClick={onBack}
-        onMouseEnter={() => setCursorMode('view')}
-        onMouseLeave={() => setCursorMode('default')}
-        style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'transparent', border: `1px solid ${BORDER}`, borderRadius: '100px', padding: '8px 16px', cursor: 'pointer', color: T.text, fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '13px', lineHeight: '16px', flexShrink: 0 }}
-      >
-        <ArrowLeft size={12} strokeWidth={1.5} />
-        Back home
-      </button>
-    </div>
+    <button
+      onClick={onBack}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{
+        display: 'inline-flex', alignItems: 'center', gap: '6px',
+        background: hov ? 'rgba(237,237,232,0.13)' : 'transparent',
+        border: `1px solid ${hov ? 'rgba(237,237,232,0.5)' : BORDER}`,
+        borderRadius: '100px', padding: '8px 16px', cursor: 'pointer',
+        color: T.text, fontFamily: "'Inter',sans-serif", fontWeight: 400,
+        fontSize: '13px', lineHeight: '16px', flexShrink: 0,
+        transition: 'background 0.2s ease, border-color 0.2s ease',
+      }}
+    >
+      <ArrowLeft size={12} strokeWidth={1.5} />
+      Back home
+    </button>
   )
 }
 
@@ -680,7 +686,7 @@ export function CaseNav({ onBack, isMobile }: { onBack: () => void; isMobile: bo
         willChange: 'width, border-radius',
         pointerEvents: 'all',
       }}>
-        <span onClick={onBack} onMouseEnter={() => setCursorMode('view')} onMouseLeave={() => setCursorMode('default')} style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: scrolled ? '14px' : '16px', lineHeight: '20px', color: T.text, letterSpacing: '-0.3333px', cursor: 'pointer', transition: 'font-size 0.4s cubic-bezier(0.16,1,0.3,1)', whiteSpace: 'nowrap', flexShrink: 0 }}>
+        <span onClick={onBack} style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: scrolled ? '14px' : '16px', lineHeight: '20px', color: T.text, letterSpacing: '-0.3333px', cursor: 'pointer', transition: 'font-size 0.4s cubic-bezier(0.16,1,0.3,1)', whiteSpace: 'nowrap', flexShrink: 0 }}>
           Valkuch
         </span>
         <BackBtn onBack={onBack} />

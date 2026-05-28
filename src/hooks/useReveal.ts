@@ -1,9 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 
-// Bidirectional IntersectionObserver — vis toggles on every enter/exit.
-// rootMargin '-8% 0px 0px 0px' makes elements begin fading while ~8vh is still
-// visible at the top of the viewport, giving a visible "scroll-past" wow effect.
-export function useReveal(threshold = 0.05) {
+export function useReveal(threshold = 0.05, once = false) {
   const ref = useRef<HTMLDivElement>(null)
   const [vis, setVis] = useState(false)
 
@@ -11,12 +8,19 @@ export function useReveal(threshold = 0.05) {
     const el = ref.current
     if (!el) return
     const obs = new IntersectionObserver(
-      ([entry]) => { setVis(entry.isIntersecting) },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVis(true)
+          if (once) obs.disconnect()
+        } else if (!once) {
+          setVis(false)
+        }
+      },
       { threshold, rootMargin: '-6% 0px 0px 0px' },
     )
     obs.observe(el)
     return () => obs.disconnect()
-  }, [threshold])
+  }, [threshold, once])
 
   return [ref, vis] as const
 }

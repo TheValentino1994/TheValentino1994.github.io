@@ -77,6 +77,7 @@ function IntracCasePageDesktop({ onBack }: { onBack: () => void }) {
           transition: 'transform 2.2s cubic-bezier(0.25,0.46,0.45,0.94)',
         }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(2,2,2,0) 0%, rgba(2,2,2,0.4) 40%, rgba(2,2,2,0.85) 68%, #020202 90%)' }} />
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '160px', background: 'linear-gradient(180deg, rgba(2,2,2,0.28) 0%, rgba(2,2,2,0.10) 50%, transparent 100%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '130px', left: '120px', right: '120px' }}>
           <div style={{ overflow: 'hidden', marginBottom: '48px', maxWidth: '1100px' }}>
             <h1 style={{
@@ -247,6 +248,7 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
           transition: 'transform 2s cubic-bezier(0.25,0.46,0.45,0.94)',
         }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(2,2,2,0) 10%, rgba(2,2,2,0.6) 55%, rgba(2,2,2,1) 90%)' }} />
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '100px', background: 'linear-gradient(180deg, rgba(2,2,2,0.28) 0%, rgba(2,2,2,0.10) 50%, transparent 100%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '20px', left: '20px', right: '20px' }}>
           <h1 style={{
             fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: '26px', lineHeight: '32px', letterSpacing: '-1px', color: T.text, margin: 0,

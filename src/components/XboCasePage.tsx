@@ -20,7 +20,7 @@ import {
 
 function DropOffChart() {
   const GREEN = '#00c96b'
-  const [ref, vis] = useReveal(0.1)
+  const [ref, vis] = useReveal(0.1, true)
   const [count, setCount] = useState(0)
 
   useEffect(() => {
@@ -463,10 +463,21 @@ function PhoneFlipSection({
   const slidesRef    = useRef(slides)
   slidesRef.current  = slides
 
-  const n       = slides.length
-  const PHONE_W = 340
-  const GAP     = 48
-  const CARD    = PHONE_W + GAP
+  const n = slides.length
+  const [phoneW, setPhoneW] = useState(340)
+  const GAP  = 48
+  const CARD = phoneW + GAP
+
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const ro = new ResizeObserver(entries => {
+      const w = entries[0].contentRect.width
+      setPhoneW(Math.min(340, Math.max(220, Math.round(w * 0.24))))
+    })
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
 
   useEffect(() => {
     if (n < 1 || isMobile) return
@@ -498,7 +509,7 @@ function PhoneFlipSection({
         const scale   = Math.max(0.72, 1.10 - absDist * 0.13)
         const opacity = Math.max(0.35, Math.pow(Math.max(0, 1 - absDist), 1.5))
         const rotY    = dist * (-5)
-        const tx      = dist * CARD - PHONE_W / 2
+        const tx      = dist * CARD - phoneW / 2
         phone.style.transform = `translateX(${tx}px) translateY(-50%) rotateY(${rotY}deg) scale(${scale})`
         phone.style.opacity   = String(opacity)
 
@@ -559,7 +570,7 @@ function PhoneFlipSection({
       window.removeEventListener('scroll', onScroll)
       cancelAnimationFrame(raf)
     }
-  }, [n, isMobile, CARD, PHONE_W])
+  }, [n, isMobile, CARD, phoneW])
 
   // ── Wheel snap: one scroll gesture = one slide ──────────────────────────────
   useEffect(() => {
@@ -627,10 +638,9 @@ function PhoneFlipSection({
         {slides.map(s => <img key={s.src} src={s.src} alt="" />)}
       </div>
 
-      <div style={{
-        position:'sticky', top:0, height:'100vh',
-        overflow:'hidden', background:T.bg,
-      }}>
+      <div
+        style={{ position:'sticky', top:0, height:'100vh', overflow:'hidden', background:T.bg }}
+      >
         {/* ── Exit dim overlay ── */}
         <div ref={dimRef} style={{
           position:'absolute', inset:0, zIndex:20,
@@ -678,11 +688,22 @@ function PhoneFlipSection({
               <div
                 key={i}
                 ref={el => { phoneRefs.current[i] = el }}
+                onClick={() => {
+                  const el = containerRef.current
+                  if (!el) return
+                  const { top, height } = el.getBoundingClientRect()
+                  const trackH = height - window.innerHeight
+                  if (trackH <= 0) return
+                  const progress = Math.max(0, Math.min(1, -top / trackH))
+                  const targetScrollY = window.scrollY + (i / (n - 1) - progress) * trackH
+                  window.scrollTo({ top: targetScrollY, behavior: 'smooth' })
+                }}
                 style={{
                   position:'absolute', left:0, top:0,
-                  transform:`translateX(${i * CARD - PHONE_W / 2}px) translateY(-50%)`,
+                  transform:`translateX(${i * CARD - phoneW / 2}px) translateY(-50%)`,
                   opacity: i === 0 ? 1 : 0.35,
                   willChange:'transform, opacity',
+                  cursor: 'pointer',
                 }}
               >
                 {/* Accent glow under active phone */}
@@ -700,7 +721,7 @@ function PhoneFlipSection({
                 <div
                   ref={el => { shadowRefs.current[i] = el }}
                   style={{
-                    position:'relative', width:`${PHONE_W}px`,
+                    position:'relative', width:`${phoneW}px`,
                     filter: i === 0
                       ? 'drop-shadow(0 40px 80px rgba(0,0,0,0.85)) drop-shadow(0 8px 20px rgba(0,0,0,0.5))'
                       : 'drop-shadow(0 8px 24px rgba(0,0,0,0.35))',
@@ -732,7 +753,7 @@ export function XboCasePage({ onBack }: { onBack: () => void }) {
 function VideoCompareSection({ src, beforeText, afterText }: {
   src: string; beforeText: string; afterText: string
 }) {
-  const [ref, vis] = useReveal(0.05)
+  const [ref, vis] = useReveal(0.05, true)
   return (
     <div ref={ref} style={{ width: '100%', boxSizing: 'border-box', padding: '0 120px 96px' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
@@ -742,7 +763,7 @@ function VideoCompareSection({ src, beforeText, afterText }: {
           transform: vis ? 'translateY(0)' : 'translateY(24px)',
           transition: `opacity 0.75s ${EASE}, transform 0.75s ${EASE}`,
         }}>
-          <video autoPlay loop muted playsInline style={{ width: '100%', display: 'block' }}>
+          <video autoPlay muted playsInline style={{ width: '100%', display: 'block' }}>
             <source src={src} type="video/mp4" />
           </video>
         </div>

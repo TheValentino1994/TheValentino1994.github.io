@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { useScrollVis } from '../hooks/useScrollVis'
 import { tokens as T } from '../constants/tokens'
-import { setCursorMode } from './CustomCursor'
 import { useIsMobile } from '../hooks/useIsMobile'
 import { useMagnetic } from '../hooks/useMagnetic'
 import type { Project } from '../constants/projects'
@@ -163,8 +162,8 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
     <div
       ref={ref}
       onClick={onPress}
-      onMouseEnter={() => { setHov(true); setCursorMode('view') }}
-      onMouseLeave={() => { setHov(false); setCursorMode('default') }}
+      onMouseEnter={() => { setHov(true) }}
+      onMouseLeave={() => { setHov(false) }}
       style={{
         position: 'relative', display: 'flex', gap: '120px', height: `${project.cardHeight ?? 300}px`,
         alignItems: 'center', padding: `0 ${T.px}`, width: '100%', boxSizing: 'border-box',
