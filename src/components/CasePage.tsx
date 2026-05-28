@@ -506,8 +506,8 @@ export function DecisionRow({ num, title, desc }: { num: string; title: string; 
         color: T.muted, flexShrink: 0, width: '28px',
       }}>{num}</span>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', flex: 1 }}>
-        <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>{title}</p>
-        <Body>{desc}</Body>
+        <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '22px', color: T.text, margin: 0 }}>{title}</p>
+        <Body style={{ fontSize: '14px', lineHeight: '20px' }}>{desc}</Body>
       </div>
     </div>
   )
