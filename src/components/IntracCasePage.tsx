@@ -16,17 +16,17 @@ const SEC: React.CSSProperties = {
 }
 
 const LABEL: React.CSSProperties = {
-  fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px',
+  fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px',
   letterSpacing: '1.155px', textTransform: 'uppercase', color: T.muted, marginBottom: '12px',
 }
 
 const H2D: React.CSSProperties = {
-  fontFamily: "'Inter',sans-serif", fontWeight: 500, fontSize: '40px', lineHeight: '52px',
+  fontFamily: "'Albert Sans',sans-serif", fontWeight: 500, fontSize: '40px', lineHeight: '52px',
   letterSpacing: '-1px', color: T.text, maxWidth: '815px', margin: '0 0 40px',
 }
 
 const BODY18: React.CSSProperties = {
-  fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '18px', lineHeight: '24px',
+  fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '18px', lineHeight: '24px',
   color: T.muted, margin: 0,
 }
 
@@ -44,11 +44,11 @@ function GradCard({ num, title, desc, index = 0 }: { num: string; title: string;
       transition: `opacity 0.6s ease ${delay}, transform 0.6s ${EASE} ${delay}`,
     }}>
       <div style={{ padding: '24px 24px 16px' }}>
-        <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '32px', lineHeight: '32px', letterSpacing: '-0.5px', color: T.text, margin: 0 }}>{num}</p>
+        <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '32px', lineHeight: '32px', letterSpacing: '-0.5px', color: T.text, margin: 0 }}>{num}</p>
       </div>
       <div style={{ padding: '0 24px 24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '24px', letterSpacing: '-0.5px', color: T.text, margin: 0 }}>{title}</p>
-        <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', color: T.muted, margin: 0 }}>{desc}</p>
+        <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', color: T.muted, margin: 0 }}>{desc}</p>
       </div>
     </div>
   )
@@ -101,8 +101,8 @@ function IntracCasePageDesktop({ onBack }: { onBack: () => void }) {
               { label: 'Type', value: 'B2B, SaaS' },
             ].map(({ label, value }, i, arr) => (
               <div key={label} style={{ borderRight: i < arr.length - 1 ? `1px solid ${META_BORDER}` : 'none', padding: '16px 20px', display: 'flex', flexDirection: 'column', gap: '6px', minWidth: '120px', transform: entered ? 'translateY(0)' : 'translateY(14px)', transition: `transform 0.55s ${EASE} ${0.52 + i * 0.06}s` }}>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>{label}</p>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0, whiteSpace: 'nowrap' }}>{value}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>{label}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0, whiteSpace: 'nowrap' }}>{value}</p>
               </div>
             ))}
           </div>
@@ -112,7 +112,7 @@ function IntracCasePageDesktop({ onBack }: { onBack: () => void }) {
 
       {/* ROLE */}
       <Section>
-        <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '24px', lineHeight: '36px', color: T.text, margin: 0 }}>
+        <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '24px', lineHeight: '36px', color: T.text, margin: 0 }}>
           Platform that connects operations for class-based businesses to manage bookings, enrolments, payments, staff, customers, reporting, and communication from one organized system.
         </p>
       </Section>
@@ -207,13 +207,25 @@ function IntracCasePageDesktop({ onBack }: { onBack: () => void }) {
       </Section>
 
       {/* NEXT PROJECT */}
-      <section style={{ width: '100%', padding: `${T.pyWork} 0`, boxSizing: 'border-box', borderTop: `1px solid ${BORDER}` }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <span style={{ padding: `0 ${T.px}`, fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', letterSpacing: '1.155px', textTransform: 'uppercase', color: T.muted }}>
-            Next project
-          </span>
-          <ProjectRow project={projects[0]} index={0} onPress={() => { window.location.hash = '#xbo' }} />
-        </div>
+      <section style={{
+        padding: `0 ${T.px}`,
+        marginTop: 'clamp(60px, 8.33vw, 120px)',
+        width: '100%',
+        boxSizing: 'border-box'
+      }}>
+        <span style={{
+          fontFamily: T.fontBody,
+          fontSize: 'var(--label-size)',
+          lineHeight: 'var(--label-line)',
+          letterSpacing: '1.155px',
+          textTransform: 'uppercase',
+          color: T.muted,
+          display: 'block',
+          marginBottom: '12px'
+        }}>
+          Next project
+        </span>
+        <ProjectRow project={projects[0]} index={0} onPress={() => { window.location.hash = '#xbo' }} />
       </section>
 
       <Footer paddingX="120px" width="100%" />
@@ -225,7 +237,7 @@ function IntracCasePageDesktop({ onBack }: { onBack: () => void }) {
 
 function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
   const BODY_MOB: React.CSSProperties = {
-    fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '27px', color: T.text, margin: 0,
+    fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '27px', color: T.text, margin: 0,
   }
   const BODY_MOB_MUTED: React.CSSProperties = { ...BODY_MOB, color: T.muted }
 
@@ -270,15 +282,15 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
           <div key={ri} style={{ display: 'flex', borderBottom: `1px solid ${META_BORDER}` }}>
             {row.map(({ label, value }, ci) => (
               <div key={label} style={{ flex: 1, padding: '14px 16px', borderRight: ci === 0 ? `1px solid ${META_BORDER}` : 'none', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>{label}</p>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>{value}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>{label}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>{value}</p>
               </div>
             ))}
           </div>
         ))}
         <div style={{ padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>Type</p>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>B2B, SaaS</p>
+          <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>Type</p>
+          <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>B2B, SaaS</p>
         </div>
       </div>
 
@@ -297,7 +309,7 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
       </div>
 
       {/* THE PROBLEM */}
-      <SectionMob>
+      <SectionMob style={{ marginTop: '40px' }}>
         <div style={{ marginBottom: '12px' }}><Label>The problem</Label></div>
         <H2Mob>Growing businesses were still running on fragmented admin workflows</H2Mob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', margin: '24px 0' }}>
@@ -311,10 +323,10 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
             { num: '03', title: 'Operational mistakes', desc: 'Overbooked classes, outdated records, and slow communication.' },
           ].map(({ num, title, desc }) => (
             <div key={num} style={{ background: GRAD, borderRadius: '16px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '28px', lineHeight: '28px', letterSpacing: '-0.5px', color: T.text, margin: 0 }}>{num}</p>
+              <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '28px', lineHeight: '28px', letterSpacing: '-0.5px', color: T.text, margin: 0 }}>{num}</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '22px', color: T.text, margin: 0 }}>{title}</p>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.muted, margin: 0 }}>{desc}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.muted, margin: 0 }}>{desc}</p>
               </div>
             </div>
           ))}
@@ -322,7 +334,7 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
       </SectionMob>
 
       {/* GOAL */}
-      <SectionMob>
+      <SectionMob style={{ marginTop: '40px' }}>
         <div style={{ marginBottom: '12px' }}><Label>Challenge</Label></div>
         <H2Mob>Turn fragmented admin work into connected workflows</H2Mob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', margin: '24px 0' }}>
@@ -338,7 +350,7 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
       </SectionMob>
 
       {/* MY ROLE */}
-      <SectionMob>
+      <SectionMob style={{ marginTop: '40px' }}>
         <div style={{ marginBottom: '12px' }}><Label>My Role</Label></div>
         <H2Mob>Designing a connected operations product  for class-based businesses</H2Mob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', margin: '24px 0' }}>
@@ -352,10 +364,10 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
             { num: '04', title: 'Creating patterns for a growing platform', desc: 'Create reusable patterns for repeated workflows, helping the product stay consistent, easier to scale, and faster to extend with new features.' },
           ].map(({ num, title, desc }) => (
             <div key={num} style={{ background: GRAD, borderRadius: '16px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '28px', lineHeight: '28px', letterSpacing: '-0.5px', color: T.text, margin: 0 }}>{num}</p>
+              <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '28px', lineHeight: '28px', letterSpacing: '-0.5px', color: T.text, margin: 0 }}>{num}</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '22px', color: T.text, margin: 0 }}>{title}</p>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.muted, margin: 0 }}>{desc}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.muted, margin: 0 }}>{desc}</p>
               </div>
             </div>
           ))}
@@ -363,7 +375,7 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
       </SectionMob>
 
       {/* OUTCOME */}
-      <SectionMob>
+      <SectionMob style={{ marginTop: '40px' }}>
         <div style={{ marginBottom: '12px' }}><Label>OUTCOME</Label></div>
         <H2Mob>One operational workspace for busy class-based businesses</H2Mob>
         <p style={{ ...BODY_MOB_MUTED, margin: '24px 0' }}>The final platform experience brought daily business operations into one connected workspace. Instead of managing work through disconnected tools and manual follow-ups, teams could move through schedules, customer actions, payments, records, and staff workflows from a clearer, more structured interface.</p>
@@ -393,8 +405,23 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
       </SectionMob>
 
       {/* NEXT PROJECT */}
-      <section style={{ width: '100%', padding: '48px 20px', boxSizing: 'border-box', borderTop: `1px solid ${BORDER}`, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        <span style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', letterSpacing: '0.3128px', textTransform: 'uppercase', color: T.muted }}>
+      <section style={{
+        padding: '0 20px',
+        marginTop: 'clamp(48px, 12vw, 80px)',
+        width: '100%',
+        boxSizing: 'border-box',
+        overflow: 'visible'
+      }}>
+        <span style={{
+          fontFamily: T.fontBody,
+          fontSize: 'var(--label-size)',
+          lineHeight: 'var(--label-line)',
+          letterSpacing: '1.155px',
+          textTransform: 'uppercase',
+          color: T.muted,
+          display: 'block',
+          marginBottom: '12px'
+        }}>
           Next project
         </span>
         <ProjectRow project={projects[0]} index={0} onPress={() => { window.location.hash = '#xbo' }} />

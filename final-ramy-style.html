@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentyn Kuchernoha - UX/UI Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fafafa;
+            color: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        /* PARTICLE CANVAS */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        /* HEADER */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(250, 250, 250, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            color: #0a0a0a;
+            cursor: pointer;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav a {
+            font-size: 15px;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #0a0a0a;
+        }
+
+        .nav a.resume {
+            color: #0a0a0a;
+            font-weight: 600;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 60px 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        .label {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 120px;
+            line-height: 1.1;
+            letter-spacing: -4px;
+            color: #0a0a0a;
+            margin-bottom: 60px;
+            max-width: 1200px;
+        }
+
+        .hero-subtitle {
+            font-size: 28px;
+            line-height: 1.6;
+            color: #666;
+            max-width: 900px;
+            margin-bottom: 60px;
+        }
+
+        .scroll-cta {
+            font-size: 16px;
+            color: #999;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-cta:hover {
+            color: #0a0a0a;
+            gap: 16px;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 120px 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 1.2;
+            letter-spacing: -2px;
+            color: #0a0a0a;
+            margin-bottom: 80px;
+        }
+
+        /* WHAT I DO BEST - ACCORDION */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 40px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            padding-left: 20px;
+        }
+
+        .accordion-header {
+            display: flex;
+            gap: 60px;
+            align-items: baseline;
+        }
+
+        .accordion-number {
+            font-size: 16px;
+            color: #ccc;
+            font-weight: 500;
+            width: 50px;
+            flex-shrink: 0;
+        }
+
+        .accordion-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 1.2;
+            letter-spacing: -1.5px;
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-title {
+            color: #0a0a0a;
+        }
+
+        .accordion-item.active .accordion-number {
+            color: #0a0a0a;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, margin-top 0.4s ease;
+            margin-left: 110px;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            margin-top: 32px;
+        }
+
+        .accordion-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #666;
+            max-width: 800px;
+        }
+
+        /* TOOLS */
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .tool-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 28px;
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 50px;
+            font-size: 15px;
+            color: #666;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tool-pill:hover {
+            border-color: #0a0a0a;
+            color: #0a0a0a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .tool-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        /* PHILOSOPHY */
+        .philosophy-content {
+            max-width: 1000px;
+        }
+
+        .philosophy-statement {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 1.4;
+            letter-spacing: -1.5px;
+            color: #0a0a0a;
+            margin-bottom: 40px;
+        }
+
+        .philosophy-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 32px;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .project-card {
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            padding: 48px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 0, 0, 0.12);
+        }
+
+        .project-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            letter-spacing: -1px;
+            color: #0a0a0a;
+            margin-bottom: 16px;
+        }
+
+        .project-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .project-meta {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 24px;
+        }
+
+        .project-achievements {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .achievement {
+            font-size: 14px;
+            color: #666;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .achievement::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #0a0a0a;
+        }
+
+        .achievement strong {
+            color: #0a0a0a;
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 120px 60px 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 120px;
+            line-height: 1.1;
+            letter-spacing: -4px;
+            color: #0a0a0a;
+            margin-bottom: 80px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            padding-left: 12px;
+            border-color: #0a0a0a;
+        }
+
+        .footer-link-label {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #999;
+            width: 140px;
+        }
+
+        .footer-link-value {
+            font-size: 24px;
+            color: #0a0a0a;
+            font-weight: 500;
+        }
+
+        .footer-link:hover .footer-link-value {
+            color: #666;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #999;
+            text-align: center;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 20px 24px;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 24px 60px;
+            }
+
+            .hero-title {
+                font-size: 56px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .section {
+                padding: 80px 24px;
+            }
+
+            .section-title {
+                font-size: 40px;
+                margin-bottom: 48px;
+            }
+
+            .accordion-header {
+                gap: 24px;
+            }
+
+            .accordion-number {
+                font-size: 14px;
+                width: 40px;
+            }
+
+            .accordion-title {
+                font-size: 28px;
+            }
+
+            .accordion-content {
+                margin-left: 64px;
+            }
+
+            .accordion-text {
+                font-size: 16px;
+            }
+
+            .philosophy-statement {
+                font-size: 32px;
+            }
+
+            .philosophy-text {
+                font-size: 16px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .project-card {
+                padding: 32px;
+            }
+
+            .project-title {
+                font-size: 28px;
+            }
+
+            .footer {
+                padding: 80px 24px 40px;
+            }
+
+            .footer-title {
+                font-size: 56px;
+            }
+
+            .footer-link-label {
+                width: 100px;
+            }
+
+            .footer-link-value {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PARTICLE CANVAS -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-inner">
+            <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Valkuch</div>
+            <nav class="nav">
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#resume" class="resume">Резюме</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="label">UX/UI Designer</div>
+            <h1 class="hero-title">I start with "Why?" move to "What if?" end with "How now?"</h1>
+            <p class="hero-subtitle">
+                5 years designing fintech, crypto, and SaaS products that move metrics and ship clean.
+            </p>
+            <div class="scroll-cta" onclick="document.querySelector('#about').scrollIntoView({behavior: 'smooth'})">
+                <span>See my work</span>
+                <span>↓</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT I DO BEST -->
+    <section class="section" id="about">
+        <div class="section-inner">
+            <h2 class="section-title">What I Do Best</h2>
+
+            <div class="accordion">
+                <div class="accordion-item active" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <span class="accordion-number">01</span>
+                        <h3 class="accordion-title">From zero to one</h3>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">
+                            I don't wait for briefs to be perfect. I take ambiguity and shape it into flows, interfaces, and prototypes — iterating until the product feels inevitable. I start with "Why?", explore "What if?", and ship "How now?"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <span class="accordion-number">02</span>
+                        <h3 class="accordion-title">Systems over screens</h3>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">
+                            I build design systems that scale. Every component, pattern, and token is intentional — making it easier for teams to ship fast without breaking consistency. Systems that developers trust and designers actually use.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <span class="accordion-number">03</span>
+                        <h3 class="accordion-title">Product flows over pixels</h3>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">
+                            I map user journeys, find friction points, and design flows that feel effortless. Analytics, user research, and real feedback shape every decision. The result: products that people actually complete, not just admire.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <span class="accordion-number">04</span>
+                        <h3 class="accordion-title">Handoff that works</h3>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">
+                            I work with developers, not against them. Clean specs, documented components, and prototypes that show intent — not just aesthetics. Handoff is collaboration, and the best products come from designers who understand code, business, and users.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section class="section">
+        <div class="section-inner">
+            <h2 class="section-title">What do I use</h2>
+
+            <div class="tools-grid">
+                <div class="tool-pill">
+                    <svg class="tool-icon" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#F24E1E"/><path d="M8 12h8M8 8h8M8 16h5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                    <span>Figma</span>
+                </div>
+                <div class="tool-pill">
+                    <svg class="tool-icon" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#0ACF83"/></svg>
+                    <span>FigJam</span>
+                </div>
+                <div class="tool-pill">
+                    <svg class="tool-icon" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#0055FF"/></svg>
+                    <span>Protopie</span>
+                </div>
+                <div class="tool-pill">
+                    <svg class="tool-icon" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#000"/></svg>
+                    <span>Framer</span>
+                </div>
+                <div class="tool-pill">
+                    <span>User Research</span>
+                </div>
+                <div class="tool-pill">
+                    <span>Wireframing</span>
+                </div>
+                <div class="tool-pill">
+                    <span>Prototyping</span>
+                </div>
+                <div class="tool-pill">
+                    <span>Design Systems</span>
+                </div>
+                <div class="tool-pill">
+                    <span>A/B Testing</span>
+                </div>
+                <div class="tool-pill">
+                    <span>AI-assisted workflows</span>
+                </div>
+                <div class="tool-pill">
+                    <svg class="tool-icon" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#D97757"/></svg>
+                    <span>Claude</span>
+                </div>
+                <div class="tool-pill">
+                    <span>Midjourney</span>
+                </div>
+                <div class="tool-pill">
+                    <span>Analytics</span>
+                </div>
+                <div class="tool-pill">
+                    <span>Notion</span>
+                </div>
+                <div class="tool-pill">
+                    <span>Jira</span>
+                </div>
+                <div class="tool-pill">
+                    <span>Slack</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="section">
+        <div class="section-inner">
+            <h2 class="section-title">Design Philosophy</h2>
+
+            <div class="philosophy-content">
+                <p class="philosophy-statement">
+                    Every pixel should earn its place. I approach design as a craft where restraint is a feature, not a limitation.
+                </p>
+
+                <p class="philosophy-text">
+                    The best interfaces disappear — they let people focus on what they came to do, not how to do it. I believe in systems over one-offs, clarity over decoration, and shipping over perfecting.
+                </p>
+
+                <p class="philosophy-text">
+                    Design is a team sport, and the best outcomes come from designers who understand code, business, and the humans using the product.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section" id="work">
+        <div class="section-inner">
+            <h2 class="section-title">Selected Projects</h2>
+
+            <div class="projects-grid">
+                <!-- XBO -->
+                <div class="project-card">
+                    <h3 class="project-title">XBO</h3>
+                    <p class="project-desc">Crypto-fintech ecosystem for buying, exchanging, trading, and managing digital assets across web and mobile.</p>
+                    <p class="project-meta">Product design • 2+ years • Live product</p>
+                    <div class="project-achievements">
+                        <div class="achievement"><strong>45% dropoff reduction</strong> through onboarding redesign</div>
+                        <div class="achievement"><strong>2x faster deposits</strong> after core flow rework</div>
+                        <div class="achievement">Shipped virtual card product</div>
+                        <div class="achievement">Led mobile app improvements</div>
+                    </div>
+                </div>
+
+                <!-- Loop -->
+                <div class="project-card">
+                    <h3 class="project-title">Loop</h3>
+                    <p class="project-desc">Task management platform designed to help teams collaborate and stay organized.</p>
+                    <p class="project-meta">Product design • 6 months • SaaS</p>
+                    <div class="project-achievements">
+                        <div class="achievement">Mapped communication, media, and workflow actions</div>
+                        <div class="achievement">Structured interface logic around task completion</div>
+                    </div>
+                </div>
+
+                <!-- Intrac -->
+                <div class="project-card">
+                    <h3 class="project-title">Intrac</h3>
+                    <p class="project-desc">Sports management platform for admin portal and client management.</p>
+                    <p class="project-meta">Product design • Agency • B2B SaaS</p>
+                    <div class="project-achievements">
+                        <div class="achievement"><strong>30% less admin time</strong> via improved structure</div>
+                        <div class="achievement">Redesigned admin portal and dashboard</div>
+                    </div>
+                </div>
+
+                <!-- Neobank -->
+                <div class="project-card">
+                    <h3 class="project-title">Neobank</h3>
+                    <p class="project-desc">Mobile private banking platform for managing accounts, cards, and payments.</p>
+                    <p class="project-meta">Product design • MVP • Fintech</p>
+                    <div class="project-achievements">
+                        <div class="achievement">Designed full mobile banking from scratch</div>
+                        <div class="achievement">Card management, transfers, multi-currency</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="footer-inner">
+            <h2 class="footer-title">Let's talk</h2>
+
+            <div class="footer-links">
+                <a href="mailto:valentynkuchernoha@gmail.com" class="footer-link">
+                    <span class="footer-link-label">Email</span>
+                    <span class="footer-link-value">valentynkuchernoha@gmail.com</span>
+                </a>
+
+                <a href="https://linkedin.com" target="_blank" class="footer-link">
+                    <span class="footer-link-label">LinkedIn</span>
+                    <span class="footer-link-value">linkedin.com/in/valkuch</span>
+                </a>
+
+                <a href="https://t.me/valkuch" target="_blank" class="footer-link">
+                    <span class="footer-link-label">Telegram</span>
+                    <span class="footer-link-value">@valkuch</span>
+                </a>
+            </div>
+
+            <div class="copyright">© 2026 Valentyn Kuchernoha · UX/UI Designer</div>
+        </div>
+    </footer>
+
+    <script>
+        // Accordion toggle
+        function toggleAccordion(item) {
+            const allItems = document.querySelectorAll('.accordion-item');
+            const isActive = item.classList.contains('active');
+
+            allItems.forEach(i => i.classList.remove('active'));
+
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Particle Animation
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.baseX = x;
+                this.baseY = y;
+                this.size = Math.random() * 2 + 1;
+                this.density = Math.random() * 30 + 1;
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            update() {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let maxDistance = mouse.radius;
+                let force = (maxDistance - distance) / maxDistance;
+                let directionX = forceDirectionX * force * this.density;
+                let directionY = forceDirectionY * force * this.density;
+
+                if (distance < mouse.radius) {
+                    this.x -= directionX;
+                    this.y -= directionY;
+                } else {
+                    if (this.x !== this.baseX) {
+                        let dx = this.x - this.baseX;
+                        this.x -= dx / 10;
+                    }
+                    if (this.y !== this.baseY) {
+                        let dy = this.y - this.baseY;
+                        this.y -= dy / 10;
+                    }
+                }
+            }
+        }
+
+        function init() {
+            particles = [];
+            // Create curved shape pattern
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = 200;
+
+            for (let angle = 0; angle < Math.PI * 1.5; angle += 0.05) {
+                for (let r = 0; r < radius; r += 8) {
+                    const x = centerX + Math.cos(angle) * r + (Math.random() - 0.5) * 5;
+                    const y = centerY + Math.sin(angle) * r + (Math.random() - 0.5) * 5;
+                    particles.push(new Particle(x, y));
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].draw();
+                particles[i].update();
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+    </script>
+</body>
+</html>

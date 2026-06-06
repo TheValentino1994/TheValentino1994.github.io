@@ -31,7 +31,7 @@ export function Label({ children }: { children: string }) {
   const vis = useContext(RevealCtx)
   return (
     <p style={{
-      fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px',
+      fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px',
       lineHeight: '20px', letterSpacing: '1.4px', textTransform: 'uppercase',
       color: T.muted, margin: 0,
       opacity: vis ? 1 : 0,
@@ -47,7 +47,7 @@ export function Label({ children }: { children: string }) {
 export function AccentLabel({ children }: { children: string }) {
   return (
     <p style={{
-      fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px',
+      fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px',
       lineHeight: '20px', letterSpacing: '1.4px', textTransform: 'uppercase',
       color: T.accent, margin: 0,
     }}>{children}</p>
@@ -85,7 +85,7 @@ export function Body({ children, style }: { children: React.ReactNode; style?: R
   const vis = useContext(RevealCtx)
   return (
     <p style={{
-      fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '18px',
+      fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '18px',
       lineHeight: '28px', color: T.muted, margin: 0,
       ...style,
       opacity: vis ? 1 : 0,
@@ -369,7 +369,7 @@ export function PhoneMockup({ src, caption, index = 0 }: { src: string; caption?
     }}>
       <IPhone17Frame src={src} />
       {caption && (
-        <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0, opacity: 0.65 }}>{caption}</p>
+        <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0, opacity: 0.65 }}>{caption}</p>
       )}
     </div>
   )
@@ -404,10 +404,10 @@ export function ProblemCard({ num, title, desc, index = 0 }: { num: string; titl
           : `opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease`,
       }}
     >
-      <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '32px', lineHeight: '32px', letterSpacing: '-0.5px', color: '#EDEDE8', margin: 0 }}>{num}</p>
+      <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '32px', lineHeight: '32px', letterSpacing: '-0.5px', color: '#EDEDE8', margin: 0 }}>{num}</p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '24px', letterSpacing: '-0.5px', color: '#EDEDE8', margin: 0 }}>{title}</p>
-        <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', letterSpacing: '0px', color: '#6B6B67', margin: 0 }}>{desc}</p>
+        <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', letterSpacing: '0px', color: '#6B6B67', margin: 0 }}>{desc}</p>
       </div>
     </div>
   )
@@ -445,7 +445,7 @@ export function FeatureCard({ icon, title, desc, radialPos, index = 0 }: { icon:
       }}>{icon}</div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
         <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '24px', letterSpacing: '-0.5px', color: T.text, margin: 0 }}>{title}</p>
-        <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', color: T.muted, margin: 0 }}>{desc}</p>
+        <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', color: T.muted, margin: 0 }}>{desc}</p>
       </div>
     </div>
   )
@@ -476,9 +476,9 @@ export function AccentItem({ label, title, desc, index = 0 }: { label: string; t
             ? `transform 0.45s ${EASE} ${delay}`
             : `transform 0.25s ease`,
         }} />
-        <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', letterSpacing: '1.2px', textTransform: 'uppercase', color: T.accent, margin: 0 }}>{label}</p>
-        <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '20px', lineHeight: '24px', color: T.text, margin: 0 }}>{title}</p>
-        {desc && <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: T.muted, margin: 0 }}>{desc}</p>}
+        <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', letterSpacing: '1.2px', textTransform: 'uppercase', color: T.accent, margin: 0 }}>{label}</p>
+        <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '20px', lineHeight: '24px', color: T.text, margin: 0 }}>{title}</p>
+        {desc && <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: T.muted, margin: 0 }}>{desc}</p>}
       </div>
     </div>
   )
@@ -502,11 +502,11 @@ export function DecisionRow({ num, title, desc }: { num: string; title: string; 
         : `opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease`,
     }}>
       <span style={{
-        fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px',
+        fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px',
         color: T.muted, flexShrink: 0, width: '28px',
       }}>{num}</span>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', flex: 1 }}>
-        <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '22px', color: T.text, margin: 0 }}>{title}</p>
+        <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '22px', color: T.text, margin: 0 }}>{title}</p>
         <Body style={{ fontSize: '14px', lineHeight: '20px' }}>{desc}</Body>
       </div>
     </div>
@@ -583,7 +583,7 @@ export function ScrollIndicator() {
           <span style={{
             display: 'block',
             transform: 'rotate(90deg)',
-            fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '11px',
+            fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '11px',
             letterSpacing: '3px', textTransform: 'uppercase',
             color: T.muted, whiteSpace: 'nowrap',
           }}>Scroll</span>
@@ -607,7 +607,7 @@ function BackBtn({ onBack }: { onBack: () => void }) {
         background: hov ? 'rgba(237,237,232,0.13)' : 'transparent',
         border: `1px solid ${hov ? 'rgba(237,237,232,0.5)' : BORDER}`,
         borderRadius: '100px', padding: '8px 16px', cursor: 'pointer',
-        color: T.text, fontFamily: "'Inter',sans-serif", fontWeight: 400,
+        color: T.text, fontFamily: "'Albert Sans',sans-serif", fontWeight: 400,
         fontSize: '13px', lineHeight: '16px', flexShrink: 0,
         transition: 'background 0.2s ease, border-color 0.2s ease',
       }}
@@ -639,7 +639,7 @@ export function CaseNav({ onBack, isMobile }: { onBack: () => void; isMobile: bo
         <div style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           width: scrolled ? 'calc(100% - 32px)' : '100%',
-          padding: scrolled ? '8px 16px' : '16px 20px',
+          padding: scrolled ? '8px 16px' : 'var(--padding-y) var(--padding-x)',
           boxSizing: 'border-box',
           background: scrolled ? 'rgba(10,10,10,0.55)' : 'transparent',
           backdropFilter: scrolled ? 'blur(28px) saturate(160%)' : 'none',
@@ -654,7 +654,7 @@ export function CaseNav({ onBack, isMobile }: { onBack: () => void; isMobile: bo
           <span onClick={onBack} style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: scrolled ? '14px' : '16px', lineHeight: '20px', color: T.text, letterSpacing: '-0.3px', cursor: 'pointer', transition: 'font-size 0.4s cubic-bezier(0.16,1,0.3,1)' }}>
             Valkuch
           </span>
-          <button onClick={onBack} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'transparent', border: `1px solid ${BORDER}`, borderRadius: '100px', padding: '8px 16px', cursor: 'pointer', color: T.text, fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px' }}>
+          <button onClick={onBack} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'transparent', border: `1px solid ${BORDER}`, borderRadius: '100px', padding: '8px 16px', cursor: 'pointer', color: T.text, fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px' }}>
             <ArrowLeft size={12} strokeWidth={1.5} />
             Back home
           </button>
@@ -674,7 +674,7 @@ export function CaseNav({ onBack, isMobile }: { onBack: () => void; isMobile: bo
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         width: scrolled ? '736px' : '100%',
-        padding: scrolled ? '10px 10px 10px 28px' : '24px 120px',
+        padding: scrolled ? '10px 10px 10px 28px' : 'var(--padding-y) var(--padding-x)',
         boxSizing: 'border-box',
         background: scrolled ? 'rgba(10,10,10,0.55)' : 'transparent',
         backdropFilter: scrolled ? 'blur(28px) saturate(160%)' : 'none',

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { useScrollVis } from '../hooks/useScrollVis'
 import { tokens as T } from '../constants/tokens'
@@ -42,7 +42,7 @@ function ViewCaseBtn({ hovered }: { hovered: boolean }) {
         background: T.bg,
       }}>
         <span style={{
-          fontFamily: "'Inter',sans-serif", fontWeight: 400,
+          fontFamily: "'Albert Sans',sans-serif", fontWeight: 400,
           fontSize: '14px', lineHeight: '20px', color: T.text, whiteSpace: 'nowrap',
         }}>View case</span>
         <ArrowRight
@@ -72,8 +72,38 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
   const [ref, vis] = useScrollVis(0.1)
   const [hov, setHov] = useState(false)
   const isMobile = useIsMobile()
+  const [isTablet, setIsTablet] = useState(false)
   const magRef = useMagnetic(0.38, 0.12, !isMobile)
   const d = index * 0.06 // stagger entry delay per row
+
+  // Animation state: show placeholder tags for first project (demo)
+  const [animationStep, setAnimationStep] = useState(index === 0 ? 0 : 5)
+  const placeholderTags = ['CRYPTO', 'WEB', 'MOBILE', 'FINTECH']
+
+  useEffect(() => {
+    if (index !== 0 || !vis) return
+
+    const timings = [
+      { step: 1, delay: 400 },   // First tag
+      { step: 2, delay: 800 },   // Second tag
+      { step: 3, delay: 1200 },  // Third tag
+      { step: 4, delay: 1600 },  // Fourth tag
+      { step: 5, delay: 2400 },  // Show image (tags fade out)
+    ]
+
+    const timers = timings.map(({ step, delay }) =>
+      setTimeout(() => setAnimationStep(step), delay)
+    )
+
+    return () => timers.forEach(clearTimeout)
+  }, [index, vis])
+
+  useEffect(() => {
+    const check = () => setIsTablet(window.innerWidth >= 768 && window.innerWidth <= 1024)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   // Entry transition (slow, staggered)
   const entryT = (prop: string, extra = '') =>
@@ -123,10 +153,12 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
 
         {/* SUBTITLE */}
         <div style={{
-          fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px',
+          fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '16px',
           lineHeight: '24px', color: T.text, marginBottom: '12px',
           opacity: vis ? 1 : 0, transform: vis ? 'translateY(0)' : 'translateY(10px)',
           transition: td(0.16),
+          wordWrap: 'break-word',
+          overflowWrap: 'break-word'
         }}>{project.subtitle}</div>
 
         {/* FOCUS + TAGS */}
@@ -134,13 +166,15 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
           display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px',
           opacity: vis ? 1 : 0, transform: vis ? 'translateY(0)' : 'translateY(8px)',
           transition: td(0.22),
+          wordWrap: 'break-word',
+          overflowWrap: 'break-word'
         }}>
           <div style={{
-            fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px',
+            fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px',
             lineHeight: '20px', color: T.muted, fontFeatureSettings: "'calt' 0,'dlig' 1",
           }}>{project.focus}</div>
           <p style={{
-            fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px',
+            fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px',
             lineHeight: '20px', color: T.muted, margin: 0, fontFeatureSettings: "'calt' 0,'dlig' 1",
           }}>{project.tags}</p>
         </div>
@@ -165,7 +199,7 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
       onMouseEnter={() => { setHov(true) }}
       onMouseLeave={() => { setHov(false) }}
       style={{
-        position: 'relative', display: 'flex', gap: '120px', height: `${project.cardHeight ?? 300}px`,
+        position: 'relative', display: 'flex', gap: isTablet ? '40px' : '120px', height: `${project.cardHeight ?? 300}px`,
         alignItems: 'center', padding: `0 ${T.px}`, width: '100%', boxSizing: 'border-box',
         cursor: 'pointer',
       }}
@@ -196,7 +230,7 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
 
             {/* SUBTITLE */}
             <div style={{
-              fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px',
+              fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '16px',
               lineHeight: '28px', letterSpacing: '-0.9443px', color: T.text,
               flexShrink: 0, minWidth: '100%', whiteSpace: 'pre-wrap',
               opacity: vis ? 1 : 0,
@@ -208,7 +242,7 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
 
             {/* FOCUS */}
             <div style={{
-              fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px',
+              fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px',
               lineHeight: '20px', color: T.muted, flexShrink: 0, minWidth: '100%',
               whiteSpace: 'pre-wrap', fontFeatureSettings: "'calt' 0,'dlig' 1",
               opacity: vis ? 1 : 0,
@@ -220,7 +254,7 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
 
             {/* TAGS */}
             <p style={{
-              fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px',
+              fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px',
               lineHeight: '20px', color: T.muted, margin: 0,
               flexShrink: 0, minWidth: '100%', fontFeatureSettings: "'calt' 0,'dlig' 1",
               opacity: vis ? 1 : 0,
@@ -238,28 +272,71 @@ export function ProjectRow({ project, index, onPress }: ProjectRowProps) {
 
       {/* IMAGE */}
       <div style={{
-        width: '520px', height: `${project.cardHeight ?? 300}px`, flexShrink: 0, borderRadius: '16px', overflow: 'hidden', position: 'relative',
+        width: isTablet ? '400px' : '520px', height: `${project.cardHeight ?? 300}px`, flexShrink: 0, borderRadius: '16px', overflow: 'hidden', position: 'relative',
         opacity: vis ? 1 : 0,
         transform: vis ? 'translateX(0)' : 'translateX(24px)',
         transition: vis
           ? entryT('opacity, transform', `box-shadow 0.5s`)
           : `${exitT('opacity')}, ${exitT('transform')}, box-shadow 0.5s`,
         boxShadow: hov ? '0 24px 64px rgba(0,0,0,0.6)' : '0 6px 24px rgba(0,0,0,0.3)',
+        border: animationStep < 5 ? '1px solid rgba(237,237,232,0.12)' : 'none',
       }}>
-        <div style={{ position: 'absolute', inset: 0, transform: hov ? 'scale(1.04)' : 'scale(1)', transition: 'transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94)' }}>
-          {project.extraSrc && project.extraStyle && (
-            <div style={{ position: 'absolute', ...project.extraStyle, zIndex: 2 }}>
-              <img alt="" style={{ position: 'absolute', inset: 0, display: 'block', width: '100%', height: '100%', maxWidth: 'none' }} src={project.extraSrc} />
-            </div>
-          )}
+        {animationStep < 5 && (
+          /* PLACEHOLDER - Border + Sequential Tags */
           <div style={{
-            position: 'absolute', ...project.mockupStyle, zIndex: 1,
-            backgroundImage: `url(${project.mockupSrc})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-          }} />
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '12px',
+            background: 'radial-gradient(circle at center, rgba(70,255,244,0.02) 0%, transparent 70%)',
+          }}>
+            {placeholderTags.map((tag, i) => (
+              <div
+                key={tag}
+                style={{
+                  fontFamily: "'Albert Sans',sans-serif",
+                  fontWeight: 600,
+                  fontSize: '16px',
+                  lineHeight: '24px',
+                  letterSpacing: '2px',
+                  textTransform: 'uppercase',
+                  color: T.text,
+                  opacity: animationStep > i ? 1 : 0,
+                  transform: animationStep > i ? 'translateY(0)' : 'translateY(8px)',
+                  transition: 'opacity 0.4s cubic-bezier(0.16,1,0.3,1), transform 0.4s cubic-bezier(0.16,1,0.3,1)',
+                }}
+              >
+                {tag}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* ACTUAL IMAGE */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: animationStep >= 5 ? 1 : 0,
+          transition: 'opacity 0.6s ease',
+        }}>
+          <div style={{ position: 'absolute', inset: 0, transform: hov ? 'scale(1.04)' : 'scale(1)', transition: 'transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94)' }}>
+            {project.extraSrc && project.extraStyle && (
+              <div style={{ position: 'absolute', ...project.extraStyle, zIndex: 2 }}>
+                <img alt="" style={{ position: 'absolute', inset: 0, display: 'block', width: '100%', height: '100%', maxWidth: 'none' }} src={project.extraSrc} />
+              </div>
+            )}
+            <div style={{
+              position: 'absolute', ...project.mockupStyle, zIndex: 1,
+              backgroundImage: `url(${project.mockupSrc})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center',
+            }} />
+          </div>
+          <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(135deg,rgba(70,255,244,0.04) 0%,transparent 50%)', opacity: hov ? 1 : 0, transition: 'opacity 0.4s', pointerEvents: 'none' }} />
         </div>
-        <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(135deg,rgba(70,255,244,0.04) 0%,transparent 50%)', opacity: hov ? 1 : 0, transition: 'opacity 0.4s', pointerEvents: 'none' }} />
       </div>
     </div>
   )

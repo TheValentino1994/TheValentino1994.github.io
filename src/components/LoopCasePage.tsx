@@ -66,8 +66,8 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
                 transform: entered ? 'translateY(0)' : 'translateY(14px)',
                 transition: `transform 0.55s ${EASE} ${0.52 + i * 0.06}s`,
               }}>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>{label}</p>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0, whiteSpace: 'nowrap' }}>{value}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>{label}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0, whiteSpace: 'nowrap' }}>{value}</p>
               </div>
             ))}
           </div>
@@ -78,7 +78,7 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
       {/* ── ROLE ─────────────────────────────────────────────────── */}
       <Section>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '20px', lineHeight: '32px', letterSpacing: '-0.3px', color: T.text, margin: 0 }}>
+          <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '20px', lineHeight: '32px', letterSpacing: '-0.3px', color: T.text, margin: 0 }}>
             Loop is a live productivity workspace that brings work signals from connected tools into one place: tasks, files, meetings, messages, and updates. It's designed not to replace tools like Slack, Drive, Notion, Zoom, or task managers, but to help teams understand what needs attention without constantly jumping between apps.
           </p>
         </div>
@@ -115,7 +115,7 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
         rightSlot={
           <div style={{ borderLeft: `2px solid ${T.accent}`, paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <AccentLabel>Product Hypothesis</AccentLabel>
-            <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '20px', lineHeight: '28px', color: T.text, margin: 0 }}>
+            <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '20px', lineHeight: '28px', color: T.text, margin: 0 }}>
               If work signals are organized around team focused workspace, people will not lose crucial information from their tools
             </p>
             <Body>Having one structured workspace with tasks, files, meetings, messages, and updates users would not need to manually check every tool to get information they need.</Body>
@@ -174,7 +174,7 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
                 {/* Text */}
                 <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '24px', letterSpacing: '-0.5px', color: '#edede8', margin: 0 }}>{title}</p>
-                  <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', color: '#6b6b67', margin: 0 }}>{desc}</p>
+                  <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', color: '#6b6b67', margin: 0 }}>{desc}</p>
                 </div>
               </div>
             ))}
@@ -222,7 +222,7 @@ function LoopCasePageDesktop({ onBack }: { onBack: () => void }) {
       {/* ── NEXT PROJECT — Neobank ───────────────────────────────── */}
       <section style={{ width: '100%', padding: `${T.pyWork} 0`, boxSizing: 'border-box', borderTop: `1px solid ${BORDER}` }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <span style={{ padding: `0 ${T.px}`, fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', letterSpacing: '1.155px', textTransform: 'uppercase', color: T.muted }}>
+          <span style={{ padding: `0 ${T.px}`, fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', letterSpacing: '1.155px', textTransform: 'uppercase', color: T.muted }}>
             Next project
           </span>
           <ProjectRow project={projects[2]} index={0} onPress={() => { window.location.hash = '#neobank' }} />
@@ -278,22 +278,22 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
           <div key={ri} style={{ display: 'flex', borderBottom: '1px solid #2e2e2e' }}>
             {row.map(({ label, value }, ci) => (
               <div key={label} style={{ flex: 1, padding: '14px 16px', borderRight: ci === 0 ? '1px solid #2e2e2e' : 'none', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>{label}</p>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>{value}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>{label}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>{value}</p>
               </div>
             ))}
           </div>
         ))}
         <div style={{ padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>Type</p>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>Productivity platform</p>
+          <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>Type</p>
+          <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>Productivity platform</p>
         </div>
       </div>
 
       {/* ROLE */}
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '27px', color: T.text, margin: 0 }}>Loop is a live productivity workspace that brings work signals from connected tools into one place: tasks, files, meetings, messages, and updates. It's designed not to replace tools like Slack, Drive, Notion, Zoom, or task managers, but to help teams understand what needs attention without constantly jumping between apps.</p>
+          <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '27px', color: T.text, margin: 0 }}>Loop is a live productivity workspace that brings work signals from connected tools into one place: tasks, files, meetings, messages, and updates. It's designed not to replace tools like Slack, Drive, Notion, Zoom, or task managers, but to help teams understand what needs attention without constantly jumping between apps.</p>
         </div>
       </SectionMob>
 
@@ -320,7 +320,7 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
           <Body>The deeper issue was fragmented attention: users could see activity everywhere, but still miss what mattered.</Body>
           <div style={{ borderLeft: `2px solid ${T.accent}`, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <AccentLabel>Product Hypothesis</AccentLabel>
-            <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '24px', color: T.text, margin: 0 }}>
+            <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '24px', color: T.text, margin: 0 }}>
               If work signals are organized around team focused workspace, people will not lose crucial information from their tools
             </p>
             <Body>Having one structured workspace with tasks, files, meetings, messages, and updates users would not need to manually check every tool to get information they need.</Body>
@@ -367,7 +367,7 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
                 </div>
                 <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '24px', letterSpacing: '-0.5px', color: '#edede8', margin: 0 }}>{title}</p>
-                  <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', color: '#6b6b67', margin: 0 }}>{desc}</p>
+                  <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '24px', color: '#6b6b67', margin: 0 }}>{desc}</p>
                 </div>
               </div>
             ))}
@@ -406,7 +406,7 @@ function LoopCasePageMobile({ onBack }: { onBack: () => void }) {
 
       {/* NEXT PROJECT */}
       <section style={{ width: '100%', padding: '48px 20px', boxSizing: 'border-box', borderTop: `1px solid ${BORDER}`, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        <span style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', letterSpacing: '0.3128px', textTransform: 'uppercase', color: T.muted }}>
+        <span style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', letterSpacing: '0.3128px', textTransform: 'uppercase', color: T.muted }}>
           Next project
         </span>
         <ProjectRow project={projects[2]} index={0} onPress={() => { window.location.hash = '#neobank' }} />

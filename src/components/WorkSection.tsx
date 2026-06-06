@@ -17,14 +17,18 @@ export function WorkSection() {
   /* ── MOBILE ─────────────────────────────────────────── */
   if (isMobile) {
     return (
-      <section ref={sectionRef} style={{ width: '100%', padding: '0 20px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: '36px', position: 'relative' }}>
+      <section id="work" ref={sectionRef} style={{ width: '100%', padding: '0 20px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: '40px', position: 'relative' }}>
         {/* label + first card grouped at gap-12 (matches Figma) */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div
             ref={lRef}
-            style={{ opacity: lVis ? 1 : 0, transform: lVis ? 'translateY(0)' : 'translateY(14px)', transition: `opacity 0.6s ${EASE}, transform 0.6s ${EASE}` }}
+            style={{
+              opacity: lVis ? 1 : 0,
+              transform: lVis ? 'translateY(0)' : 'translateY(14px)',
+              transition: `opacity 0.7s ${EASE}, transform 0.7s ${EASE}`,
+            }}
           >
-            <span style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', letterSpacing: '0.3128px', textTransform: 'uppercase', color: T.muted }}>
+            <span style={{ fontFamily: T.fontBody, fontWeight: 500, fontSize: '12px', lineHeight: '16px', letterSpacing: '1px', textTransform: 'uppercase', color: T.muted }}>
               Selected Projects
             </span>
           </div>
@@ -47,15 +51,30 @@ export function WorkSection() {
 
   /* ── DESKTOP ─────────────────────────────────────────── */
   return (
-    <section ref={sectionRef} style={{ width: '1440px', padding: `${T.pyWork} 0`, display: 'flex', alignItems: 'center', position: 'relative' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '44px', alignItems: 'center', width: '1440px', flexShrink: 0 }}>
+    <section id="work" ref={sectionRef} style={{ width: '100%', maxWidth: '1440px', padding: `${T.pyWork} 0`, display: 'flex', alignItems: 'center', position: 'relative' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '44px', alignItems: 'center', width: '100%', flexShrink: 0 }}>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'flex-start', width: '100%', flexShrink: 0 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start', width: '100%', flexShrink: 0 }}>
           <div
             ref={lRef}
-            style={{ padding: `0 ${T.px}`, width: '100%', boxSizing: 'border-box', opacity: lVis ? 1 : 0, transform: lVis ? 'translateY(0)' : 'translateY(8px)', transition: 'opacity 0.5s, transform 0.5s' }}
+            style={{
+              padding: `0 ${T.px}`,
+              width: '100%',
+              boxSizing: 'border-box',
+              opacity: lVis ? 1 : 0,
+              transform: lVis ? 'translateY(0)' : 'translateY(12px)',
+              transition: 'opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)',
+            }}
           >
-            <span style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', letterSpacing: '1.155px', textTransform: 'uppercase', color: T.muted }}>
+            <span style={{
+              fontFamily: T.fontBody,
+              fontWeight: 500,
+              fontSize: '14px',
+              lineHeight: '20px',
+              letterSpacing: '1.2px',
+              textTransform: 'uppercase',
+              color: T.muted,
+            }}>
               Selected Projects
             </span>
           </div>

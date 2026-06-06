@@ -5,10 +5,15 @@ import { CustomCursor } from './components/CustomCursor'
 import { NoiseOverlay } from './components/CasePage'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
+import { Intro } from './components/Intro'
 import { WorkSection } from './components/WorkSection'
+import { AboutSection } from './components/AboutSection'
+import { BottomNav } from './components/BottomNav'
 import { Footer } from './components/Footer'
 import { XboCasePage } from './components/XboCasePage'
+import { XboCasePageNew } from './components/XboCasePageNew'
 import { LoopCasePage } from './components/LoopCasePage'
+import { LoopCasePageNew } from './components/LoopCasePageNew'
 import { NeobankCasePage } from './components/NeobankCasePage'
 import { IntracCasePage } from './components/IntracCasePage'
 
@@ -37,11 +42,14 @@ const FADE_IN_MS  = 520
 
 export default function App() {
   useSmoothScroll()
-  useTabletZoom()
+  // useTabletZoom() // DISABLED - html.style.zoom breaks position: fixed
   const isMobile   = useIsMobile()
   const [displayHash, setDisplayHash] = useState(() => window.location.hash)
   const [opacity, setOpacity]         = useState(1)
   const [fadingOut, setFadingOut]     = useState(false)
+  const [introComplete, setIntroComplete] = useState(() => window.location.hash !== '')
+  const [introKey] = useState(() => Math.random())
+  console.log('🔄 App mounted, introKey:', introKey)
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const navigate = useCallback((newHash: string) => {
@@ -79,38 +87,44 @@ export default function App() {
 
   // ── Render current page ──────────────────────────────────
   let page: React.ReactNode
-  if      (displayHash === '#xbo')     page = <XboCasePage     onBack={goHome} />
-  else if (displayHash === '#loop')    page = <LoopCasePage    onBack={goHome} />
+  const isHomepage = displayHash === ''
+
+  if      (displayHash === '#xbo')     page = <XboCasePageNew     onBack={goHome} />
+  else if (displayHash === '#loop')    page = <LoopCasePageNew    onBack={goHome} />
   else if (displayHash === '#neobank') page = <NeobankCasePage onBack={goHome} />
   else if (displayHash === '#intrac')  page = <IntracCasePage  onBack={goHome} />
   else page = (
-    <>
-      <Header />
-      <div style={{
-        minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative',
-        alignItems: isMobile ? 'flex-start' : 'center',
-        gap: isMobile ? '40px' : 0,
-      }}>
-        <Hero />
-        <WorkSection />
-        <Footer />
-        {isMobile && (
-          <p style={{
-            fontFamily: "'Inter',sans-serif", fontWeight: 400,
-            fontSize: '12px', lineHeight: '16px',
-            color: '#6b6b67', textAlign: 'center',
-            whiteSpace: 'nowrap', margin: 0,
-            padding: '0 20px 48px', width: '100%', boxSizing: 'border-box',
-          }}>© 2026 Valentyn Kuchernoha · UX/UI Designer</p>
-        )}
-      </div>
-    </>
+    <div style={{
+      minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative',
+      alignItems: isMobile ? 'flex-start' : 'center',
+      gap: isMobile ? '40px' : 0,
+    }}>
+      <Hero startAnimation={introComplete} />
+      <WorkSection />
+      <AboutSection />
+      <Footer />
+      {isMobile && (
+        <p style={{
+          fontFamily: "'Inter',sans-serif", fontWeight: 400,
+          fontSize: '12px', lineHeight: '16px',
+          color: '#6b6b67', textAlign: 'center',
+          whiteSpace: 'nowrap', margin: 0,
+          padding: '0 20px 48px', width: '100%', boxSizing: 'border-box',
+        }}>© 2026 Valentyn Kuchernoha · UX/UI Designer</p>
+      )}
+    </div>
   )
 
   return (
     <>
+      { displayHash === '' && <Intro key={introKey} onComplete={() => setIntroComplete(true)} />}
+
+      {/* Header - always fixed on all pages */}
+      <Header />
+
       {!isMobile && <CustomCursor />}
       <NoiseOverlay />
+
       <div style={{
         opacity,
         transition: fadingOut
@@ -119,6 +133,9 @@ export default function App() {
       }}>
         {page}
       </div>
+
+      {/* BottomNav - always fixed, outside opacity wrapper */}
+      {isHomepage && isMobile && <BottomNav />}
     </>
   )
 }

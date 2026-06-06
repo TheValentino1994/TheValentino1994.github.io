@@ -10,7 +10,6 @@ const MOB_LINKS = [
   { label: 'Download.cv', Icon: ArrowDownToLine, href: '/images/Valentyn Kuchernoha_CV.pdf', target: '_blank' },
   { label: 'LinkedIn',    Icon: Linkedin,        href: 'https://www.linkedin.com/in/valentyn-kuchernoha-73aa59219/?locale=uk', target: '_blank' },
   { label: 'Email', Icon: Mail, href: 'mailto:valentynkuchernoha@gmail.com', target: undefined },
-  { label: 'Dribbble',    Icon: Dribbble,        href: 'https://dribbble.com/Kuchernoha', target: '_blank' },
 ] as const
 
 const STAGGER = 28   // ms delay per character
@@ -40,7 +39,7 @@ function MobLink({ label, Icon, href, target, onHoverIn, onHoverOut }: {
         transform: hov ? 'scale(0.82)' : 'scale(1)', flexShrink: 0,
       }} />
       <span style={{
-        fontFamily: "'Inter',sans-serif", fontWeight: 400,
+        fontFamily: "'Albert Sans',sans-serif", fontWeight: 400,
         fontSize: '16px', lineHeight: '20px',
         color: hov ? T.text : T.muted, whiteSpace: 'nowrap',
         transition: 'color 0.25s ease',
@@ -57,7 +56,7 @@ function MobLink({ label, Icon, href, target, onHoverIn, onHoverOut }: {
 
 type WavePhase = 'idle' | 'out' | 'in-prime' | 'in'
 
-export function Footer({ paddingX = '120px', width = '1440px' }: { paddingX?: string; width?: string } = {}) {
+export function Footer({ paddingX = '120px', width = '1440px', maxWidth }: { paddingX?: string; width?: string; maxWidth?: string } = {}) {
   const [ref, vis] = useReveal(0.1)
   const isMobile = useIsMobile()
 
@@ -141,10 +140,10 @@ export function Footer({ paddingX = '120px', width = '1440px' }: { paddingX?: st
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', width: '100%' }}>
           {/* Say hi! — clip reveal on mount, wave morph on hover */}
-          <div style={{ overflow: vis ? 'visible' : 'hidden', lineHeight: '60px' }}>
+          <div style={{ overflow: vis ? 'visible' : 'hidden', lineHeight: '48px' }}>
             <h2 style={{
               fontFamily: "'Syne',sans-serif", fontWeight: 700,
-              fontSize: '56px', lineHeight: '60px', letterSpacing: '-2px',
+              fontSize: '44px', lineHeight: '48px', letterSpacing: '-2px',
               color: T.text, margin: 0, whiteSpace: 'nowrap',
               transform: vis ? 'translateY(0)' : 'translateY(105%)',
               transition: 'transform 0.9s cubic-bezier(0.16,1,0.3,1)',
@@ -175,7 +174,7 @@ export function Footer({ paddingX = '120px', width = '1440px' }: { paddingX?: st
     <footer
       ref={ref}
       style={{
-        width, padding: `${T.pyFoot} ${paddingX}`,
+        width, maxWidth, padding: `${T.pyFoot} ${paddingX}`,
         display: 'flex', flexDirection: 'column',
         gap: '40px', alignItems: 'flex-start', boxSizing: 'border-box', flexShrink: 0,
         ...fadeStyle,
@@ -201,7 +200,7 @@ export function Footer({ paddingX = '120px', width = '1440px' }: { paddingX?: st
         width: '100%', boxSizing: 'border-box',
       }}>
         <span style={{
-          fontFamily: "'Inter',sans-serif", fontWeight: 400,
+          fontFamily: "'Albert Sans',sans-serif", fontWeight: 400,
           fontSize: '14px', lineHeight: '20px',
           color: T.muted, textAlign: 'center', whiteSpace: 'nowrap',
         }}>

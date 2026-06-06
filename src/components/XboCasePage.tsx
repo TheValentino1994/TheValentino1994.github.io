@@ -45,7 +45,7 @@ function DropOffChart() {
       display: 'flex', flexDirection: 'column', gap: '24px',
       height: '100%', boxSizing: 'border-box',
     }}>
-      <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: 'normal', color: '#93938f', margin: 0, letterSpacing: '1.1px', textTransform: 'uppercase' }}>
+      <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: 'normal', color: '#93938f', margin: 0, letterSpacing: '1.1px', textTransform: 'uppercase' }}>
         Onboarding drop-off — Before / After Redesign
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -58,7 +58,7 @@ function DropOffChart() {
               transformOrigin: 'center bottom',
               transition: `transform 0.85s ${EASE}`,
             }} />
-            <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: 'normal', color: '#93938f', margin: 0, textAlign: 'center' }}>Before - High friction during verification</p>
+            <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: 'normal', color: '#93938f', margin: 0, textAlign: 'center' }}>Before - High friction during verification</p>
           </div>
           {/* After — 45px */}
           <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
@@ -68,7 +68,7 @@ function DropOffChart() {
               transformOrigin: 'center bottom',
               transition: `transform 0.85s ${EASE} 0.25s`,
             }} />
-            <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: 'normal', color: '#93938f', margin: 0, textAlign: 'center' }}>After - Clearer flow with fewer drop-off points</p>
+            <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: 'normal', color: '#93938f', margin: 0, textAlign: 'center' }}>After - Clearer flow with fewer drop-off points</p>
           </div>
         </div>
       </div>
@@ -129,12 +129,12 @@ function PhoneSlideshow({ slides }: { slides: { src: string; caption: string }[]
         {/* Right: counter + caption + progress + dots */}
         <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '32px' }}>
           {/* Counter */}
-          <span style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', letterSpacing: '1.4px', textTransform: 'uppercase', color: T.muted }}>
+          <span style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', letterSpacing: '1.4px', textTransform: 'uppercase', color: T.muted }}>
             {String(idx + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}
           </span>
 
           {/* Caption */}
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '20px', lineHeight: '30px', color: T.text, margin: 0 }}>
+          <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '20px', lineHeight: '30px', color: T.text, margin: 0 }}>
             {slide.caption}
           </p>
 
@@ -276,10 +276,10 @@ function PhoneScrollSection({ slides }: { slides: { src: string; caption: string
       }}>
         {/* Caption column */}
         <div style={{ width: '360px', flexShrink: 0, display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <span ref={numRef} style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', letterSpacing: '1.4px', textTransform: 'uppercase', color: T.muted }}>
+          <span ref={numRef} style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', letterSpacing: '1.4px', textTransform: 'uppercase', color: T.muted }}>
             01 / {String(n).padStart(2, '0')}
           </span>
-          <p ref={captionRef} style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '24px', lineHeight: '34px', color: T.text, margin: 0 }}>
+          <p ref={captionRef} style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '24px', lineHeight: '34px', color: T.text, margin: 0 }}>
             {slides[0].caption}
           </p>
         </div>
@@ -405,13 +405,13 @@ function PhoneSlideshowMob({ slides }: { slides: { src: string; caption: string 
       {/* ── Counter + caption ──────────────────────────────────── */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', padding: '0 28px' }}>
         <span ref={numRef} style={{
-          fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px',
+          fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '12px',
           letterSpacing: '1.4px', textTransform: 'uppercase', color: T.muted,
         }}>
           01 / {String(n).padStart(2, '0')}
         </span>
         <p ref={captionRef} style={{
-          fontFamily: "'Inter',sans-serif", fontWeight: 400,
+          fontFamily: "'Albert Sans',sans-serif", fontWeight: 400,
           fontSize: '14px', lineHeight: '21px', color: T.text,
           margin: 0, textAlign: 'center',
         }}>
@@ -610,13 +610,13 @@ slidesRef.current    = slides
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '32px 0' }}>
         {label && (
-          <p style={{ fontFamily:"'Inter',sans-serif", fontWeight:400, fontSize:'12px', letterSpacing:'1.4px', textTransform:'uppercase', color:T.muted, margin:'0 20px' }}>{label}</p>
+          <p style={{ fontFamily:"'Albert Sans',sans-serif", fontWeight:400, fontSize:'12px', letterSpacing:'1.4px', textTransform:'uppercase', color:T.muted, margin:'0 20px' }}>{label}</p>
         )}
         <div style={{ display:'flex', gap:'12px', overflowX:'auto', scrollbarWidth:'none', scrollSnapType:'x mandatory', padding:'0 20px 16px' }}>
           {slides.map((slide, i) => (
             <div key={i} style={{ flexShrink:0, scrollSnapAlign:'center', display:'flex', flexDirection:'column', gap:'10px' }}>
               <img src={slide.src} alt="" style={{ width:'160px', display:'block' }} />
-              <p style={{ fontFamily:"'Inter',sans-serif", fontWeight:400, fontSize:'12px', lineHeight:'16px', color:T.muted, margin:0, maxWidth:'160px' }}>{slide.caption}</p>
+              <p style={{ fontFamily:"'Albert Sans',sans-serif", fontWeight:400, fontSize:'12px', lineHeight:'16px', color:T.muted, margin:0, maxWidth:'160px' }}>{slide.caption}</p>
             </div>
           ))}
         </div>
@@ -648,7 +648,7 @@ slidesRef.current    = slides
           zIndex:10,
         }}>
           {label && (
-            <p style={{ fontFamily:"'Inter',sans-serif", fontWeight:400, fontSize:'14px', letterSpacing:'1.4px', textTransform:'uppercase', color:T.muted, margin:0, textAlign:'center' }}>{label}</p>
+            <p style={{ fontFamily:"'Albert Sans',sans-serif", fontWeight:400, fontSize:'14px', letterSpacing:'1.4px', textTransform:'uppercase', color:T.muted, margin:0, textAlign:'center' }}>{label}</p>
           )}
           <div style={{
             display:'flex', flexDirection:'column', gap:'14px',
@@ -659,12 +659,12 @@ slidesRef.current    = slides
             padding:'28px 32px',
             border:'1px solid rgba(237,237,232,0.08)',
           }}>
-            <span ref={numRef} style={{ fontFamily:"'Inter',sans-serif", fontWeight:400, fontSize:'13px', letterSpacing:'1.8px', textTransform:'uppercase', color:T.muted }}>
+            <span ref={numRef} style={{ fontFamily:"'Albert Sans',sans-serif", fontWeight:400, fontSize:'13px', letterSpacing:'1.8px', textTransform:'uppercase', color:T.muted }}>
               01 — {String(n).padStart(2, '0')}
             </span>
             <p
               ref={captionRef}
-              style={{ fontFamily:"'Inter',sans-serif", fontWeight:400, fontSize:'20px', lineHeight:'30px', color:'rgba(237,237,232,0.82)', margin:0 }}
+              style={{ fontFamily:"'Albert Sans',sans-serif", fontWeight:400, fontSize:'20px', lineHeight:'30px', color:'rgba(237,237,232,0.82)', margin:0 }}
             >{slides[0].caption}</p>
           </div>
         </div>
@@ -757,7 +757,7 @@ function VideoCompareSection({ src, beforeText, afterText }: {
             transition: `opacity 0.6s ease 0.3s, transform 0.6s ${EASE} 0.3s`,
           }}>
             <Label>Before</Label>
-            <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: T.text, margin: 0 }}>{beforeText}</p>
+            <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: T.text, margin: 0 }}>{beforeText}</p>
           </div>
           <div style={{
             flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '16px',
@@ -766,7 +766,7 @@ function VideoCompareSection({ src, beforeText, afterText }: {
             transition: `opacity 0.6s ease 0.4s, transform 0.6s ${EASE} 0.4s`,
           }}>
             <Label>After</Label>
-            <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: T.text, margin: 0 }}>{afterText}</p>
+            <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: T.text, margin: 0 }}>{afterText}</p>
           </div>
         </div>
       </div>
@@ -830,8 +830,8 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
                 transform: entered ? 'translateY(0)' : 'translateY(14px)',
                 transition: `transform 0.55s ${EASE} ${0.52 + i * 0.06}s`,
               }}>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>{label}</p>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0, whiteSpace: 'nowrap' }}>{value}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>{label}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0, whiteSpace: 'nowrap' }}>{value}</p>
               </div>
             ))}
           </div>
@@ -842,7 +842,7 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
       {/* ── ROLE (text only, no split) ────────────────────────────── */}
       <Section>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '20px', lineHeight: '32px', letterSpacing: '-0.3px', color: T.text, margin: 0 }}>
+          <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '20px', lineHeight: '32px', letterSpacing: '-0.3px', color: T.text, margin: 0 }}>
             XBO is a live crypto exchange and digital asset platform built to make crypto actions easier to access — from account verification and fiat/crypto deposits to trading, wallet management, and crypto-powered financial services across mobile and web.
           </p>
         </div>
@@ -945,7 +945,7 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
         rightSlot={
           <div style={{ borderLeft: `2px solid ${T.accent}`, paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <AccentLabel>Product hypothesis</AccentLabel>
-            <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 500, fontSize: '17px', lineHeight: '26px', color: T.text, margin: 0 }}>
+            <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 500, fontSize: '17px', lineHeight: '26px', color: T.text, margin: 0 }}>
               If we separate crypto and fiat intent first, users will reach the right deposit path with less confusion
             </p>
             <Body>With having 2 options at the beginning: Crypto Deposit and Fiat Deposit, the product can guide user into the right flow before showing details. This should reduce confusion at the entry point, make switching easier, and help more users continue toward completing the action.</Body>
@@ -1055,9 +1055,9 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
                 display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center',
                 borderRight: i < arr.length - 1 ? `1px solid ${BORDER}` : 'none',
               }}>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 800, fontSize: '64px', lineHeight: '64px', letterSpacing: '-2.56px', color: T.accent, margin: 0, textAlign: 'center' }}>{stat}</p>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '20px', lineHeight: '24px', color: T.text, margin: 0, textAlign: 'center' }}>{title}</p>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#93938f', margin: 0, textAlign: 'center', maxWidth: '260px' }}>{desc}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 800, fontSize: '64px', lineHeight: '64px', letterSpacing: '-2.56px', color: T.accent, margin: 0, textAlign: 'center' }}>{stat}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '20px', lineHeight: '24px', color: T.text, margin: 0, textAlign: 'center' }}>{title}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#93938f', margin: 0, textAlign: 'center', maxWidth: '260px' }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -1067,7 +1067,7 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
       {/* ── NEXT PROJECT ────────────────────────────────────────────── */}
       <section style={{ width: '100%', padding: `${T.pyWork} 0`, boxSizing: 'border-box', borderTop: `1px solid ${BORDER}` }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <span style={{ padding: `0 ${T.px}`, fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', letterSpacing: '1.155px', textTransform: 'uppercase', color: T.muted }}>
+          <span style={{ padding: `0 ${T.px}`, fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', letterSpacing: '1.155px', textTransform: 'uppercase', color: T.muted }}>
             Next project
           </span>
           <ProjectRow project={projects[1]} index={0} onPress={() => { window.location.hash = '#loop' }} />
@@ -1126,22 +1126,22 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
           <div key={ri} style={{ display: 'flex', borderBottom: '1px solid #2e2e2e' }}>
             {row.map(({ label, value }, ci) => (
               <div key={label} style={{ flex: 1, padding: '14px 16px', borderRight: ci === 0 ? '1px solid #2e2e2e' : 'none', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>{label}</p>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>{value}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>{label}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>{value}</p>
               </div>
             ))}
           </div>
         ))}
         <div style={{ padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>Type</p>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>Crypto-fintech ecosystem</p>
+          <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: T.muted, margin: 0, textTransform: 'uppercase', letterSpacing: '1.26px' }}>Type</p>
+          <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '20px', color: T.text, margin: 0 }}>Crypto-fintech ecosystem</p>
         </div>
       </div>
 
       {/* ROLE */}
       <SectionMob>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '27px', color: T.text, margin: 0 }}>XBO is a live crypto exchange and digital asset platform built to make crypto actions easier to access — from account verification and fiat/crypto deposits to trading, wallet management, and crypto-powered financial services across mobile and web.</p>
+          <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '27px', color: T.text, margin: 0 }}>XBO is a live crypto exchange and digital asset platform built to make crypto actions easier to access — from account verification and fiat/crypto deposits to trading, wallet management, and crypto-powered financial services across mobile and web.</p>
         </div>
       </SectionMob>
 
@@ -1223,7 +1223,7 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
           <Body>Some users expected to deposit through card or bank without clearly understanding whether they were entering a crypto or fiat flow. As a result, users could hesitate, choose the wrong path, or leave before completing the deposit journey.</Body>
           <div style={{ borderLeft: `2px solid ${T.accent}`, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <AccentLabel>Product hypothesis</AccentLabel>
-            <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 500, fontSize: '16px', lineHeight: '24px', color: T.text, margin: 0 }}>If we separate crypto and fiat intent first, users will reach the right deposit path with less confusion</p>
+            <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 500, fontSize: '16px', lineHeight: '24px', color: T.text, margin: 0 }}>If we separate crypto and fiat intent first, users will reach the right deposit path with less confusion</p>
             <Body>With having 2 options at the beginning: Crypto Deposit and Fiat Deposit, the product can guide user into the right flow before showing details. This should reduce confusion at the entry point, make switching easier, and help more users continue toward completing the action.</Body>
           </div>
         </div>
@@ -1258,11 +1258,11 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
             <div style={{ display: 'flex', gap: '16px' }}>
               <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <Label>Before</Label>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.text, margin: 0 }}>Crypto and fiat methods in one list — users had to figure out the right path.</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.text, margin: 0 }}>Crypto and fiat methods in one list — users had to figure out the right path.</p>
               </div>
               <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <Label>After</Label>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.text, margin: 0 }}>Crypto and Fiat Deposit separated at the entry point — first decision is immediate.</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.text, margin: 0 }}>Crypto and Fiat Deposit separated at the entry point — first decision is immediate.</p>
               </div>
             </div>
           </div>
@@ -1277,11 +1277,11 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
             <div style={{ display: 'flex', gap: '16px' }}>
               <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <Label>Before</Label>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.text, margin: 0 }}>Asset and network had to be selected from scratch after choosing crypto.</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.text, margin: 0 }}>Asset and network had to be selected from scratch after choosing crypto.</p>
               </div>
               <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <Label>After</Label>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.text, margin: 0 }}>Crypto flow opens with BTC preselected — fewer choices before continuing.</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.text, margin: 0 }}>Crypto flow opens with BTC preselected — fewer choices before continuing.</p>
               </div>
             </div>
           </div>
@@ -1296,11 +1296,11 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
             <div style={{ display: 'flex', gap: '16px' }}>
               <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <Label>Before</Label>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.text, margin: 0 }}>Network selection added another step before the deposit address appeared.</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.text, margin: 0 }}>Network selection added another step before the deposit address appeared.</p>
               </div>
               <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <Label>After</Label>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.text, margin: 0 }}>Users can change the network with fees visible to compare options.</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.text, margin: 0 }}>Users can change the network with fees visible to compare options.</p>
               </div>
             </div>
           </div>
@@ -1365,9 +1365,9 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
                 display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center',
                 borderBottom: i < arr.length - 1 ? `1px solid ${BORDER}` : 'none',
               }}>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 800, fontSize: '48px', lineHeight: '48px', letterSpacing: '-2px', color: T.accent, margin: 0, textAlign: 'center' }}>{stat}</p>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 600, fontSize: '18px', lineHeight: '24px', color: T.text, margin: 0, textAlign: 'center' }}>{title}</p>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#93938f', margin: 0, textAlign: 'center' }}>{desc}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 800, fontSize: '48px', lineHeight: '48px', letterSpacing: '-2px', color: T.accent, margin: 0, textAlign: 'center' }}>{stat}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '18px', lineHeight: '24px', color: T.text, margin: 0, textAlign: 'center' }}>{title}</p>
+                <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#93938f', margin: 0, textAlign: 'center' }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -1376,7 +1376,7 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
 
       {/* NEXT PROJECT */}
       <section style={{ width: '100%', padding: '48px 20px', boxSizing: 'border-box', borderTop: `1px solid ${BORDER}`, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        <span style={{ fontFamily: "'Inter',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', letterSpacing: '0.3128px', textTransform: 'uppercase', color: T.muted }}>
+        <span style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '20px', letterSpacing: '0.3128px', textTransform: 'uppercase', color: T.muted }}>
           Next project
         </span>
         <ProjectRow project={projects[1]} index={0} onPress={() => { window.location.hash = '#loop' }} />

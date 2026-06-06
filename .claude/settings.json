@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:designlab.com)",
+      "WebFetch(domain:www.casestudy.club)",
+      "Bash(cp /tmp/hero-new.tsx src/components/Hero.tsx)",
+      "Bash(node -e ' *)"
+    ],
+    "additionalDirectories": [
+      "/private/tmp"
+    ]
+  }
+}
