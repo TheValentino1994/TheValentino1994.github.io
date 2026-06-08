@@ -837,37 +837,39 @@ function SolutionScreenCard({ data }: { data: typeof solutionScreens[0] }) {
               }} />
             )}
 
-            {/* Close button */}
-            <button
-              onClick={() => setShowPopup(false)}
-              style={{
-                position: 'absolute',
-                top: isMobile ? '16px' : '24px',
-                right: isMobile ? '16px' : '24px',
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: 'transparent',
-                border: `1px solid ${T.border}`,
-                color: T.muted,
-                fontSize: '24px',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'all 0.2s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#2e2e2e'
-                e.currentTarget.style.color = T.text
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent'
-                e.currentTarget.style.color = '#8d8c8c'
-              }}
-            >
-              ×
-            </button>
+            {/* Close button - desktop only */}
+            {!isMobile && (
+              <button
+                onClick={() => setShowPopup(false)}
+                style={{
+                  position: 'absolute',
+                  top: '24px',
+                  right: '24px',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  background: 'transparent',
+                  border: `1px solid ${T.border}`,
+                  color: T.muted,
+                  fontSize: '24px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.2s ease',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#2e2e2e'
+                  e.currentTarget.style.color = T.text
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent'
+                  e.currentTarget.style.color = '#8d8c8c'
+                }}
+              >
+                ×
+              </button>
+            )}
 
             {/* Content */}
             <h2 style={{
