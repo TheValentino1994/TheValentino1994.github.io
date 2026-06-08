@@ -261,7 +261,7 @@ export function Footer() {
             <div style={{ display: 'flex', gap: '12px', position: 'relative' }}>
               <SocialIcon href="mailto:valentynkuchernoha@gmail.com" icon={Mail} tooltip="let's talk" onClick={handleEmailClick} />
               <SocialIcon href="https://www.linkedin.com/in/valentyn-kuchernoha-73aa59219/?locale=uk" icon={Linkedin} tooltip="let's connect" />
-              <SocialIcon href="https://t.me/aroundzworldz" icon={Send} tooltip="let's chat" onClick={() => setShowQR(true)} />
+              <SocialIcon href="https://t.me/aroundzworldz" icon={Send} tooltip="let's chat" onClick={!isMobile ? () => setShowQR(true) : undefined} />
 
               {/* Email copied notification */}
               {showEmailCopied && (
