@@ -261,7 +261,7 @@ export function Footer() {
             <div style={{ display: 'flex', gap: '12px', position: 'relative' }}>
               <SocialIcon href="mailto:valentynkuchernoha@gmail.com" icon={Mail} tooltip="let's talk" onClick={handleEmailClick} />
               <SocialIcon href="https://www.linkedin.com/in/valentyn-kuchernoha-73aa59219/?locale=uk" icon={Linkedin} tooltip="let's connect" />
-              <SocialIcon href="https://t.me/aroundzworldz" icon={Send} tooltip="let's chat" onClick={!isMobile ? () => setShowQR(true) : undefined} />
+              <SocialIcon href="https://t.me/aroundzworldz" icon={Send} tooltip="let's chat" />
 
               {/* Email copied notification */}
               {showEmailCopied && (
@@ -285,126 +285,6 @@ export function Footer() {
               )}
             </div>
 
-
-            {/* QR Code Popup */}
-            {showQR && (
-              <>
-                {/* Backdrop */}
-                <div
-                  onClick={() => setShowQR(false)}
-                  style={{
-                    position: 'fixed',
-                    inset: 0,
-                    background: 'rgba(0,0,0,0.8)',
-                    backdropFilter: 'blur(12px)',
-                    zIndex: 9999,
-                    display: 'flex',
-                    alignItems: isMobile ? 'flex-end' : 'center',
-                    justifyContent: 'center',
-                    animation: 'fadeIn 0.25s ease',
-                    padding: isMobile ? '0' : '20px',
-                  }}
-                >
-                  {/* QR Card */}
-                  <div
-                    onClick={(e) => e.stopPropagation()}
-                    style={{
-                      background: T.bg,
-                      border: `1px solid ${T.border}`,
-                      borderBottom: isMobile ? 'none' : `1px solid ${T.border}`,
-                      borderRadius: isMobile ? '24px 24px 0 0' : '20px',
-                      padding: isMobile ? '24px 24px 40px 24px' : '32px',
-                      maxWidth: isMobile ? '100%' : '400px',
-                      width: isMobile ? '100%' : '90%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '20px',
-                      alignItems: 'center',
-                      animation: isMobile ? 'slideUpFromBottom 0.4s cubic-bezier(0.16,1,0.3,1)' : 'slideUp 0.3s cubic-bezier(0.16,1,0.3,1)',
-                      boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-                      maxHeight: isMobile ? '85vh' : 'auto',
-                      overflowY: 'auto',
-                    }}
-                  >
-                    {/* Handle bar for mobile */}
-                    {isMobile && (
-                      <div style={{
-                        width: '40px',
-                        height: '4px',
-                        background: '#2e2e2e',
-                        borderRadius: '2px',
-                        marginBottom: '12px',
-                      }} />
-                    )}
-
-                    <h3 style={{
-                      fontFamily: "'Syne',sans-serif",
-                      fontSize: isMobile ? '20px' : '24px',
-                      fontWeight: 700,
-                      color: T.text,
-                      margin: 0,
-                    }}>Let's chat on Telegram</h3>
-
-                    <div style={{
-                      width: '100%',
-                      aspectRatio: '1',
-                      borderRadius: '12px',
-                      overflow: 'hidden',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}>
-                      <img
-                        src="/images/telegram-qr.webp"
-                        alt="Telegram QR Code"
-                        style={{
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'cover',
-                        }}
-                      />
-                    </div>
-
-                    <p style={{
-                      fontFamily: "'Albert Sans',sans-serif",
-                      fontSize: '14px',
-                      color: T.muted,
-                      margin: 0,
-                      textAlign: 'center',
-                    }}>
-                      Scan with your phone to open chat
-                    </p>
-
-                    {!isMobile && (
-                      <button
-                        onClick={() => setShowQR(false)}
-                        style={{
-                          padding: '12px 24px',
-                          background: 'none',
-                          border: `1px solid ${T.border}`,
-                          borderRadius: '40px',
-                          color: T.text,
-                          fontFamily: "'Albert Sans',sans-serif",
-                          fontSize: '14px',
-                          cursor: 'pointer',
-                          transition: 'all 0.2s ease',
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.borderColor = T.text
-                          e.currentTarget.style.background = 'rgba(237,237,232,0.05)'
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = T.border
-                          e.currentTarget.style.background = 'none'
-                        }}
-                      >
-                        Close
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </>
-            )}
           </div>
         </div>
       </footer>
