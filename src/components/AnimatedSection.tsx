@@ -33,16 +33,18 @@ export function AnimatedSection({
         transform: vis ? 'translateY(0)' : 'translateY(20px)',
         transition: `opacity 0.8s cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
       },
-    })
+    } as any)
   })
 
+  const ElementType = Component as any
+
   return (
-    <Component
-      ref={ref as any}
+    <ElementType
+      ref={ref}
       style={style}
       {...props}
     >
       {animatedChildren}
-    </Component>
+    </ElementType>
   )
 }

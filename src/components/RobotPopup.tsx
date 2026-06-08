@@ -68,7 +68,7 @@ export function RobotPopup() {
   useEffect(() => {
     if (hasShown) return
 
-    let timeoutId: NodeJS.Timeout
+    let timeoutId: ReturnType<typeof setTimeout>
 
     const resetTimer = () => {
       clearTimeout(timeoutId)
@@ -186,37 +186,39 @@ export function RobotPopup() {
           boxShadow: '0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.08) inset',
         }}
       >
-        {/* Close Button */}
-        <button
-          onClick={handleClose}
-          style={{
-            position: 'absolute',
-            top: '-12px',
-            right: '-12px',
-            background: 'linear-gradient(145deg, rgba(25,25,28,0.98) 0%, rgba(18,18,20,0.98) 100%)',
-            border: '1.5px solid rgba(255,255,255,0.12)',
-            borderRadius: '12px',
-            width: '36px',
-            height: '36px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            transition: 'all 0.25s ease',
-            zIndex: 2,
-            boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'linear-gradient(145deg, rgba(35,35,38,0.98) 0%, rgba(28,28,30,0.98) 100%)'
-            e.currentTarget.style.transform = 'scale(1.05)'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'linear-gradient(145deg, rgba(25,25,28,0.98) 0%, rgba(18,18,20,0.98) 100%)'
-            e.currentTarget.style.transform = 'scale(1)'
-          }}
-        >
-          <X size={18} color="#fff" strokeWidth={2.5} />
-        </button>
+        {/* Close Button - desktop only */}
+        {!isMobile && (
+          <button
+            onClick={handleClose}
+            style={{
+              position: 'absolute',
+              top: '-12px',
+              right: '-12px',
+              background: 'linear-gradient(145deg, rgba(25,25,28,0.98) 0%, rgba(18,18,20,0.98) 100%)',
+              border: '1.5px solid rgba(255,255,255,0.12)',
+              borderRadius: '12px',
+              width: '36px',
+              height: '36px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              transition: 'all 0.25s ease',
+              zIndex: 2,
+              boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(145deg, rgba(35,35,38,0.98) 0%, rgba(28,28,30,0.98) 100%)'
+              e.currentTarget.style.transform = 'scale(1.05)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(145deg, rgba(25,25,28,0.98) 0%, rgba(18,18,20,0.98) 100%)'
+              e.currentTarget.style.transform = 'scale(1)'
+            }}
+          >
+            <X size={18} color="#fff" strokeWidth={2.5} />
+          </button>
+        )}
 
         {/* Robot Video */}
         <div

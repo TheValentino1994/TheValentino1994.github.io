@@ -121,7 +121,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
           <img
             src="/images/Loop/Loop-hero.webp"
             alt="Loop workspace interface"
-            fetchpriority="high"
+            fetchPriority="high"
             loading="eager"
             style={{
               width: '100%',
