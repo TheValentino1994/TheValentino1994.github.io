@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { tokens as T, breakpoints } from '../constants/tokens'
 import { useIsMobile } from '../hooks/useIsMobile'
+import { useScrollVis } from '../hooks/useScrollVis'
+import { useStaggerChildren } from '../hooks/useStaggerChildren'
 import { CaseNav } from './CasePage'
 import { HeroTitle, HeroMeta, HeroImage, Container, RoleText, StatCard, SectionLabel, SectionTitle, SectionBody, SectionBodyText, ContextCard, Divider, ProblemCard, ProblemVisual } from './XboComponents'
 import { XboLogo } from './XboLogo'
 import { ProjectRow } from './ProjectRow'
 import { projects } from '../constants/projects'
 import { Footer } from './Footer'
+import { AnimatedSection } from './AnimatedSection'
+import { RobotPopup } from './RobotPopup'
 
 // Solution screens data
 const solutionScreens = [
@@ -14,11 +18,11 @@ const solutionScreens = [
     index: 1,
     title: 'OTP Delivery Control',
     subtitle: 'Channel selection',
-    description: 'Users choose delivery method upfront — Telegram, WhatsApp, or SMS. Brand icons make options instantly recognizable. Selected state confirms the choice before code is sent.',
+    description: '"Where\'s my code?" was the most common support question. The old flow just sent OTPs somewhere without telling you. Now you pick upfront — Telegram, WhatsApp, or SMS. Tap one, watch it highlight, code goes there. Done guessing which app to check.',
     improvements: [
-      'Prevents "where is my code" support tickets',
-      'Visual confirmation reduces delivery uncertainty',
-      'Single tap to select and proceed',
+      'Kills the "where\'s my code" problem',
+      'Your choice lights up before sending',
+      'One tap, then move on',
     ],
     gradient: 'radial-gradient(circle at top left, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%)',
   },
@@ -26,11 +30,11 @@ const solutionScreens = [
     index: 2,
     title: 'Verification Status Card',
     subtitle: 'Progress visibility',
-    description: 'Compact card shows completion status and time estimate. Expandable details reveal what is verified and what is missing. "Retry" button surfaces when action is needed.',
+    description: 'People stared at the screen wondering if verification was working or broken. Small card at the top fixes this — verified, pending, or failed. "1-2 min" tells you how long instead of leaving you hanging. Tap "See details" for the full breakdown. Something failed? Retry button right there.',
     improvements: [
-      'Time estimate (1-2 min) sets expectations',
-      '"See details" expands requirement breakdown',
-      'Status at a glance without reading labels',
+      'Time estimate answers "how long?" upfront',
+      'Details tucked away until needed',
+      'Quick glance tells you the status',
     ],
     gradient: 'radial-gradient(circle at top right, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%)',
   },
@@ -38,11 +42,11 @@ const solutionScreens = [
     index: 3,
     title: 'Requirement Breakdown',
     subtitle: 'Verification checklist',
-    description: 'Expanded view shows verification level hierarchy and per-item status. Email verified, phone pending, documents incomplete — each with its own indicator. Collapsible to avoid overwhelming users.',
+    description: 'Verification fails but nobody knows why. Expand this and see the full list — Basic, Intermediate, Advanced levels broken into specific checks. Email verified, phone pending, documents incomplete. Each one gets its own icon. Passed checks, failed checks, what\'s blocking you. Collapse it when done.',
     improvements: [
-      'Hierarchical structure groups related requirements',
-      'Color-coded status eliminates confusion',
-      'Warning icons highlight what needs action',
+      'Requirements grouped by level',
+      'Colors and icons remove guessing',
+      'Warning icons show blockers',
     ],
     gradient: 'radial-gradient(circle at bottom left, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%)',
   },
@@ -50,11 +54,11 @@ const solutionScreens = [
     index: 4,
     title: 'Document Quality Guide',
     subtitle: 'Pre-upload validation',
-    description: 'Shows good vs bad document examples before photo capture. Clear criteria — visible, not blurry, good lighting, no flash. Prevents rejection loop.',
+    description: 'Blurry photos got rejected constantly. People uploaded, waited, got rejected, started over. Brutal loop. Catch them before the camera opens — show good vs bad examples side by side. Document visible, no blur, good light, no flash glare. Learn the rules before shooting. Way fewer rejections, way fewer angry support tickets.',
     improvements: [
-      'Visual examples teach what works',
-      'Proactive guidance before camera opens',
-      'Reduces upload failures and re-work',
+      'Examples show what works',
+      'Rules before the photo',
+      'Kills the rejection loop',
     ],
     gradient: 'radial-gradient(circle at bottom right, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%)',
   },
@@ -66,11 +70,11 @@ const solution03Screens = [
     index: 5,
     title: 'How to Get a Card',
     subtitle: 'Entry point',
-    description: 'Entry screen explains how card activation works, what happens after they connect it, and what they need to proceed. The card tier they receive depends on their verification level, so I showed which tier they qualify for and the requirements needed.',
+    description: 'Nobody knew what card activation actually involved. Start here — how it works, what happens after, what you need. Your card tier matches your verification level. We show which tier you get and what\'s required. Missing something? See the requirements now, decide if you want to continue or verify first.',
     improvements: [
-      'Clear explanation of activation process',
-      'Users see which card tier matches their verification',
-      'Requirements listed upfront before starting',
+      'Process laid out upfront',
+      'Your tier shown immediately',
+      'Requirements before you commit',
     ],
     gradient: 'radial-gradient(circle at top left, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%)',
   },
@@ -78,11 +82,11 @@ const solution03Screens = [
     index: 7,
     title: 'Initial Top-Up',
     subtitle: 'First-time setup',
-    description: 'Users set their initial card balance up to 2000. Since the card requires a one-time payment to activate, I showed the fee separately and let them adjust the top-up amount. The math updates live so they see what leaves their Spot balance.',
+    description: 'Activating the card means funding it plus a one-time fee. People got confused about total cost. Set your card balance up to 2000. Activation fee shows separately below. Slide the amount, math updates live, see what leaves your Spot balance. No checkout surprises.',
     improvements: [
-      'Adjustable top-up amount with 2000 limit',
-      'One-time activation fee shown separately',
-      'Live calculation as user changes amount',
+      'Pick any amount up to 2000',
+      'Fee separate from balance',
+      'Live math as you adjust',
     ],
     gradient: 'radial-gradient(circle at top right, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%)',
   },
@@ -90,11 +94,11 @@ const solution03Screens = [
     index: 8,
     title: 'Payment Breakdown',
     subtitle: 'Before confirmation',
-    description: 'Information screen that shows how the charge will be processed. The fee is displayed at the top, and below is the breakdown of what gets deducted from Spot. Users review everything before tapping Get a card.',
+    description: 'Last stop before money moves. See the full picture — activation fee, card top-up, total leaving Spot balance. Each line broken out. Fee at the top (not buried), card amount, total. One last look before tapping Get a card. Looks wrong? Back out now.',
     improvements: [
-      'Fee shown clearly at the top',
-      'Full deduction breakdown from Spot balance',
-      'Last chance to review before confirming',
+      'Fee up top, visible',
+      'Line-by-line charges',
+      'Final check before money moves',
     ],
     gradient: 'radial-gradient(circle at bottom left, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%)',
   },
@@ -102,11 +106,11 @@ const solution03Screens = [
     index: 9,
     title: 'Card Dashboard',
     subtitle: 'Active card',
-    description: 'Once the card is active, users land here. I put all the card functions in one screen: top-up, check transactions, see cashback, transaction history, settings, freeze or delete card, and connect to Apple Wallet.',
+    description: 'Card active. Now manage it without jumping around. Current balance, recent transactions, cashback earned, full history, settings — all here. Bottom has quick actions: freeze if lost, delete permanently, add to Apple Wallet. No hunting through menus.',
     improvements: [
-      'Top-up and transaction view in one place',
-      'Cashback tracking visible at a glance',
-      'Quick actions: freeze, delete, add to Apple Wallet',
+      'Balance and transactions together',
+      'Cashback visible',
+      'Freeze, delete, wallet — fast access',
     ],
     gradient: 'radial-gradient(circle at bottom right, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%)',
   },
@@ -116,6 +120,11 @@ const solution03Screens = [
 
 function HeroSection({ isMobile }: { isMobile: boolean }) {
   const [entered, setEntered] = useState(false)
+  const roleRef = useRef<HTMLElement>(null)
+  const [roleRefVis, roleVis] = useScrollVis(0.15)
+
+  // Stagger animation for role section children
+  useStaggerChildren(roleRef, roleVis, 80)
 
   useEffect(() => {
     requestAnimationFrame(() => {
@@ -183,15 +192,38 @@ function HeroSection({ isMobile }: { isMobile: boolean }) {
         boxSizing: 'border-box',
         marginBottom: 'var(--hero-image-gap)',
       }}>
-        <HeroImage
-          src="/images/XBO/heroxbo.webp"
-          alt="XBO crypto platform interface"
-          entered={entered}
-        />
+        <div style={{
+          height: isMobile ? '240px' : 'auto',
+          overflow: 'hidden',
+          borderRadius: 'var(--hero-radius)',
+          position: 'relative',
+        }}>
+          <div style={{
+            width: '100%',
+            height: '100%',
+          }}>
+            <img
+              src="/images/XBO/heroxbo.webp"
+              alt="XBO crypto platform interface"
+              style={{
+                width: '100%',
+                height: isMobile ? '100%' : 'auto',
+                objectFit: isMobile ? 'cover' : 'contain',
+                display: 'block',
+                opacity: entered ? 1 : 0,
+                transform: entered ? 'translateY(0)' : 'translateY(24px)',
+                transition: 'opacity 0.8s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Role Section */}
-      <section style={{
+      <section ref={(el) => {
+        (roleRefVis as any).current = el;
+        (roleRef as any).current = el;
+      }} style={{
         display: 'flex',
         flexDirection: 'column',
         gap: 'var(--section-gap-role)',
@@ -352,7 +384,7 @@ function HeroSection({ isMobile }: { isMobile: boolean }) {
       </section>
 
       {/* Core Product Problem Section */}
-      <section style={{
+      <section id="core-problem" style={{
         display: 'flex',
         flexDirection: 'column',
         gap: isMobile ? '12px' : 'var(--header-gap)',
@@ -613,6 +645,11 @@ function TimelineVisualization() {
 // ─── Problem 01 Section ───────────────────────────────────────────────────────
 
 function Problem01Section({ isMobile }: { isMobile: boolean }) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [refForVis, sectionVis] = useScrollVis(0.15)
+
+  // Use stagger animation for all children
+  useStaggerChildren(sectionRef, sectionVis, 80)
 
   // Tablet breakpoint - treat as mobile up to 1024px for layout
   const [isTabletOrMobile, setIsTabletOrMobile] = useState(true)
@@ -625,7 +662,10 @@ function Problem01Section({ isMobile }: { isMobile: boolean }) {
   }, [])
 
   return (
-    <section style={{
+    <section ref={(el) => {
+      (refForVis as any).current = el;
+      (sectionRef as any).current = el;
+    }} style={{
       display: 'flex',
       flexDirection: 'column',
       gap: isMobile ? '12px' : 'var(--header-gap)',
@@ -699,7 +739,7 @@ function SolutionScreenCard({ data }: { data: typeof solutionScreens[0] }) {
         style={{
           position: 'relative',
           background: data.gradient,
-          borderRadius: isMobile ? '12px' : 'clamp(24px, 3vw, 32px)',
+          borderRadius: 'var(--context-card-radius)',
           padding: isMobile ? '24px' : 'clamp(32px, 3vw, 48px)',
           display: 'flex',
           alignItems: 'center',
@@ -743,7 +783,7 @@ function SolutionScreenCard({ data }: { data: typeof solutionScreens[0] }) {
             style={{
               width: '100%',
               height: 'auto',
-              borderRadius: isMobile ? '12px' : '20px',
+              borderRadius: 'var(--context-card-radius)',
               boxShadow: isMobile ? '0 20px 60px rgba(0,0,0,0.4)' : '0 40px 100px rgba(0,0,0,0.4)',
             }}
           />
@@ -835,57 +875,23 @@ function SolutionScreenCard({ data }: { data: typeof solutionScreens[0] }) {
               fontSize: 'var(--h2-size)',
               fontWeight: 500,
               color: T.text,
-              marginBottom: '12px',
+              marginBottom: '16px',
               lineHeight: 'var(--h2-line)',
               letterSpacing: '-1px',
               fontVariationSettings: '"opsz" 14, "wdth" 100',
               paddingRight: '40px',
             }}>
-              {data.title}
-            </h2>
-
-            <p style={{
-              fontFamily: T.fontBody,
-              fontSize: 'var(--label-size)',
-              color: T.muted,
-              textTransform: 'uppercase',
-              letterSpacing: '1.155px',
-              marginBottom: '24px',
-            }}>
               {data.subtitle}
-            </p>
+            </h2>
 
             <p style={{
               fontFamily: T.fontBody,
               fontSize: 'var(--body-size)',
               lineHeight: 'var(--body-line)',
               color: T.muted,
-              marginBottom: '32px',
             }}>
               {data.description}
             </p>
-
-            {/* Improvements as paragraphs */}
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '16px',
-            }}>
-              {data.improvements.map((improvement, idx) => (
-                <p
-                  key={idx}
-                  style={{
-                    fontFamily: T.fontBody,
-                    fontSize: 'var(--body-size)',
-                    lineHeight: 'var(--body-line)',
-                    color: T.muted,
-                    margin: 0,
-                  }}
-                >
-                  {improvement}
-                </p>
-              ))}
-            </div>
           </div>
         </div>
       )}
@@ -911,9 +917,17 @@ function SolutionScreenCard({ data }: { data: typeof solutionScreens[0] }) {
 }
 
 function Solution01Section({ isMobile }: { isMobile: boolean }) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [refForVis, sectionVis] = useScrollVis(0.15)
+
+  // Use stagger animation for all children
+  useStaggerChildren(sectionRef, sectionVis, 80)
 
   return (
-    <section style={{
+    <section ref={(el) => {
+      (refForVis as any).current = el;
+      (sectionRef as any).current = el;
+    }} style={{
       display: 'flex',
       flexDirection: 'column',
       gap: isMobile ? '12px' : 'var(--header-gap)',
@@ -966,6 +980,29 @@ function Solution01Section({ isMobile }: { isMobile: boolean }) {
           <SolutionScreenCard key={index} data={data} />
         ))}
       </div>
+
+      {/* After Improvements Video */}
+      <div style={{
+        width: '100%',
+        marginTop: isMobile ? 'clamp(32px, 8vw, 48px)' : 'clamp(48px, 5.56vw, 80px)',
+        borderRadius: isMobile ? '12px' : '20px',
+        overflow: 'hidden',
+        border: `1px solid ${T.border}`,
+      }}>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            width: '100%',
+            height: 'auto',
+            display: 'block',
+          }}
+        >
+          <source src="/images/XBO/after improvments.mp4" type="video/mp4" />
+        </video>
+      </div>
     </section>
   )
 }
@@ -1001,6 +1038,9 @@ const methodsUsed = [
 ]
 
 function Solution02Section({ isMobile }: { isMobile: boolean }) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [refForVis, sectionVis] = useScrollVis(0.15)
+  useStaggerChildren(sectionRef, sectionVis, 80)
 
   // Tablet breakpoint - treat as mobile up to 1024px for layout
   const [isTabletOrMobile, setIsTabletOrMobile] = useState(true)
@@ -1013,7 +1053,10 @@ function Solution02Section({ isMobile }: { isMobile: boolean }) {
   }, [])
 
   return (
-    <section style={{
+    <section ref={(el) => {
+      (refForVis as any).current = el;
+      (sectionRef as any).current = el;
+    }} style={{
       display: 'flex',
       flexDirection: 'column',
       gap: isMobile ? '12px' : 'var(--header-gap)',
@@ -1161,10 +1204,333 @@ function Solution02Section({ isMobile }: { isMobile: boolean }) {
 
 // ─── Problem 02 Section ───────────────────────────────────────────────────────
 
-function Problem02Section({ isMobile }: { isMobile: boolean }) {
+// ─── Outcome 01 Section ───────────────────────────────────────────────────────
+
+function ImprovementVisualization() {
+  const ref = useRef<HTMLDivElement>(null)
+  const progress = useScrollAnimation(ref)
+  const isMobile = useIsMobile()
+
+  const [isTabletOrMobile, setIsTabletOrMobile] = useState(true)
+
+  useEffect(() => {
+    const check = () => setIsTabletOrMobile(window.innerWidth <= 1024)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  const steps = [
+    {
+      label: 'OTP Issue',
+      before: 55,
+      after: 12,
+      isEntry: false,
+    },
+    {
+      label: 'Context Lost',
+      before: 27,
+      after: 7,
+      isEntry: false,
+    },
+    {
+      label: 'Requirements',
+      before: 16,
+      after: 4,
+      isEntry: false,
+    },
+  ]
+
+  const labelHeight = isTabletOrMobile ? '46px' : '40px'
 
   return (
-    <section style={{
+    <div ref={ref} style={{
+      position: 'relative',
+      width: '100%',
+      minHeight: 'auto',
+      padding: 0,
+      boxSizing: 'border-box',
+    }}>
+      {/* Legend */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+        zIndex: 10,
+      }}>
+        <div style={{
+          fontFamily: T.fontBody,
+          fontSize: isTabletOrMobile ? '11px' : '12px',
+          color: T.muted,
+          fontWeight: 600,
+          textTransform: 'uppercase',
+          letterSpacing: '0.5px',
+        }}>
+          User drop-off
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{
+              width: '12px',
+              height: '12px',
+              borderRadius: '50%',
+              background: '#ff4757',
+            }} />
+            <span style={{
+              fontFamily: T.fontBody,
+              fontSize: isTabletOrMobile ? '13px' : '14px',
+              color: T.text,
+            }}>Before</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{
+              width: '12px',
+              height: '12px',
+              borderRadius: '50%',
+              background: '#51cf66',
+            }} />
+            <span style={{
+              fontFamily: T.fontBody,
+              fontSize: isTabletOrMobile ? '13px' : '14px',
+              color: T.text,
+            }}>After</span>
+          </div>
+        </div>
+      </div>
+
+      <div style={{
+        display: 'flex',
+        gap: isTabletOrMobile ? '8px' : '10px',
+        alignItems: 'flex-end',
+        height: isTabletOrMobile ? '240px' : 'clamp(260px, 23vw, 280px)',
+        position: 'relative',
+        paddingBottom: 0,
+        zIndex: 2,
+      }}>
+        {steps.map((step, index) => {
+          const isVisible = progress > index * 0.12
+
+          return (
+            <div key={index} style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              height: '100%',
+              opacity: isVisible ? 1 : 0,
+              transition: `opacity 0.6s ease ${index * 0.12}s`,
+              position: 'relative',
+            }}>
+              <div style={{
+                width: '100%',
+                height: `calc(100% - ${labelHeight})`,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-end',
+                marginBottom: isTabletOrMobile ? '10px' : '12px',
+              }}>
+{step.isEntry ? (
+                  // Entry - single green bar
+                  <div style={{
+                    width: '100%',
+                    height: '100%',
+                    background: '#40c057',
+                    borderRadius: isTabletOrMobile ? '6px 6px 0 0' : '8px 8px 0 0',
+                    transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                    boxShadow: '0 -4px 20px rgba(64, 192, 87, 0.3)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                    {progress > 0.8 && (
+                      <div style={{
+                        fontFamily: T.fontPrimary,
+                        fontSize: isTabletOrMobile ? 'clamp(16px, 4vw, 20px)' : 'clamp(16px, 1.6vw, 20px)',
+                        color: '#fff',
+                        fontWeight: 800,
+                        fontVariationSettings: '"opsz" 14, "wdth" 100',
+                      }}>
+                        100%
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  // Two bars side by side: red (before) and green (after)
+                  <div style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    gap: isTabletOrMobile ? '3px' : '4px',
+                    alignItems: 'flex-end',
+                  }}>
+                    {/* Red bar (before) */}
+                    <div style={{
+                      flex: 1,
+                      height: `${step.before * progress}%`,
+                      minHeight: isTabletOrMobile ? '50px' : '55px',
+                      background: '#ff4757',
+                      borderRadius: isTabletOrMobile ? '6px 6px 0 0' : '8px 8px 0 0',
+                      transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                      boxShadow: '0 -4px 20px rgba(255, 71, 87, 0.3)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                      {progress > 0.8 && (
+                        <div style={{
+                          fontFamily: T.fontPrimary,
+                          fontSize: isTabletOrMobile ? 'clamp(13px, 3.2vw, 16px)' : 'clamp(13px, 1.3vw, 16px)',
+                          color: '#fff',
+                          fontWeight: 800,
+                          fontVariationSettings: '"opsz" 14, "wdth" 100',
+                        }}>
+                          {step.before}%
+                        </div>
+                      )}
+                    </div>
+                    {/* Green bar (after) */}
+                    <div style={{
+                      flex: 1,
+                      height: isTabletOrMobile ? '35px' : '40px',
+                      background: '#51cf66',
+                      borderRadius: isTabletOrMobile ? '6px 6px 0 0' : '8px 8px 0 0',
+                      transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                      boxShadow: '0 -4px 20px rgba(81, 207, 102, 0.3)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                      {progress > 0.8 && (
+                        <div style={{
+                          fontFamily: T.fontPrimary,
+                          fontSize: isTabletOrMobile ? 'clamp(13px, 3.2vw, 16px)' : 'clamp(13px, 1.3vw, 16px)',
+                          color: '#fff',
+                          fontWeight: 800,
+                          fontVariationSettings: '"opsz" 14, "wdth" 100',
+                        }}>
+                          {step.after}%
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div style={{
+                fontFamily: T.fontBody,
+                fontSize: isTabletOrMobile ? 'clamp(13px, 3.2vw, 15px)' : 'var(--body-size)',
+                color: T.muted,
+                textAlign: 'center',
+                lineHeight: isTabletOrMobile ? '1.3' : 'var(--body-line)',
+                height: labelHeight,
+                whiteSpace: isTabletOrMobile ? 'normal' : 'nowrap',
+                fontWeight: 400,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: isTabletOrMobile ? '0 2px' : '0',
+              }}>{step.label}</div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function Outcome01Section({ isMobile }: { isMobile: boolean }) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [refForVis, sectionVis] = useScrollVis(0.15)
+  useStaggerChildren(sectionRef, sectionVis, 80)
+
+  const [isTabletOrMobile, setIsTabletOrMobile] = useState(true)
+
+  useEffect(() => {
+    const check = () => setIsTabletOrMobile(window.innerWidth <= 1024)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  return (
+    <section ref={(el) => {
+      (refForVis as any).current = el;
+      (sectionRef as any).current = el;
+    }} style={{
+      display: 'flex',
+      flexDirection: 'column',
+      gap: isMobile ? '12px' : 'var(--header-gap)',
+      padding: isMobile ? '0 24px' : '0 var(--padding-x)',
+      width: '100%',
+      boxSizing: 'border-box',
+    }}>
+      {/* Label + Title */}
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: T.spacing.md,
+      }}>
+        <SectionLabel>Outcome 01 / Onboarding Impact</SectionLabel>
+        <SectionTitle maxWidth="890px">
+          The redesigned onboarding flow reduced user drop-off
+        </SectionTitle>
+      </div>
+
+      {/* Divider */}
+      <Divider />
+
+      {/* Two column layout: Text left, Visualization right */}
+      <div style={{
+        display: 'flex',
+        flexDirection: isTabletOrMobile ? 'column' : 'row',
+        gap: isTabletOrMobile ? 'var(--header-gap)' : 'clamp(32px, 4vw, 64px)',
+        alignItems: isTabletOrMobile ? 'flex-start' : 'flex-start',
+      }}>
+        {/* Body Text - Left Column */}
+        <div style={{
+          flex: isTabletOrMobile ? 'none' : '1 1 50%',
+          maxWidth: isTabletOrMobile ? '100%' : '50%',
+        }}>
+          <SectionBody>
+            <SectionBodyText>
+              After redesign, the analytics showed a 45% reduction in user drop-off during the onboarding flow.
+            </SectionBodyText>
+            <SectionBodyText>
+              Clearer verification steps, visible missing requirements, OTP channel control, and document upload guidance helped more users continue through the activation journey until success.
+            </SectionBodyText>
+            <SectionBodyText>
+              The completion rate improved from 45% to 70%, meaning significantly more users were able to unlock the full product experience and begin their journey with XBO.
+            </SectionBodyText>
+          </SectionBody>
+        </div>
+
+        {/* Improvement Visualization - Right Column */}
+        <div style={{
+          flex: isTabletOrMobile ? 'none' : '1 1 50%',
+          maxWidth: isTabletOrMobile ? '100%' : '50%',
+          width: '100%',
+        }}>
+          <ImprovementVisualization />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ─── Problem 02 Section ───────────────────────────────────────────────────────
+
+function Problem02Section({ isMobile }: { isMobile: boolean }) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [refForVis, sectionVis] = useScrollVis(0.15)
+  useStaggerChildren(sectionRef, sectionVis, 80)
+
+  return (
+    <section ref={(el) => {
+      (refForVis as any).current = el;
+      (sectionRef as any).current = el;
+    }} style={{
       display: 'flex',
       flexDirection: 'column',
       gap: isMobile ? '12px' : 'var(--header-gap)',
@@ -1281,6 +1647,9 @@ function Problem02Section({ isMobile }: { isMobile: boolean }) {
 
 function BeforeAfterSection() {
   const isMobile = useIsMobile()
+  const sectionRef = useRef<HTMLElement>(null)
+  const [refForVis, sectionVis] = useScrollVis(0.15)
+  useStaggerChildren(sectionRef, sectionVis, 80)
 
   const screens = [
     {
@@ -1307,7 +1676,10 @@ function BeforeAfterSection() {
   ]
 
   return (
-    <section style={{
+    <section ref={(el) => {
+      (refForVis as any).current = el;
+      (sectionRef as any).current = el;
+    }} style={{
       display: 'flex',
       flexDirection: 'column',
       gap: isMobile ? 'clamp(40px, 10vw, 60px)' : 'clamp(48px, 5vw, 72px)',
@@ -1427,9 +1799,15 @@ function BeforeAfterSection() {
 // ─── Outcome 02 Section ───────────────────────────────────────────────────────
 
 function Outcome02Section({ isMobile }: { isMobile: boolean }) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [refForVis, sectionVis] = useScrollVis(0.15)
+  useStaggerChildren(sectionRef, sectionVis, 80)
 
   return (
-    <section style={{
+    <section ref={(el) => {
+      (refForVis as any).current = el;
+      (sectionRef as any).current = el;
+    }} style={{
       display: 'flex',
       flexDirection: 'column',
       gap: isMobile ? 'clamp(12px, 3vw, 16px)' : '6px',
@@ -1450,7 +1828,7 @@ function Outcome02Section({ isMobile }: { isMobile: boolean }) {
           width: isMobile ? '100%' : 'auto',
           minWidth: 0,
           ...(isMobile && { height: 'clamp(180px, 45vw, 240px)' }),
-          borderRadius: isMobile ? '12px' : 'var(--context-card-radius)',
+          borderRadius: 'var(--context-card-radius)',
           background: 'linear-gradient(235.93deg, #071545 21.2%, #30C2CF 102.72%)',
           overflow: 'hidden',
           position: 'relative',
@@ -1474,7 +1852,7 @@ function Outcome02Section({ isMobile }: { isMobile: boolean }) {
           width: isMobile ? '100%' : 'auto',
           minWidth: 0,
           ...(isMobile && { height: 'clamp(180px, 45vw, 240px)' }),
-          borderRadius: isMobile ? '12px' : 'var(--context-card-radius)',
+          borderRadius: 'var(--context-card-radius)',
           background: 'linear-gradient(218.84deg, #071545 25.21%, #30C2CF 87.22%)',
           overflow: 'hidden',
           position: 'relative',
@@ -1522,6 +1900,9 @@ function Outcome02Section({ isMobile }: { isMobile: boolean }) {
 
 function Outcome02FinalSection() {
   const isMobile = useIsMobile()
+  const sectionRef = useRef<HTMLElement>(null)
+  const [refForVis, sectionVis] = useScrollVis(0.15)
+  useStaggerChildren(sectionRef, sectionVis, 80)
 
   // Tablet breakpoint
   const [isTabletOrMobile, setIsTabletOrMobile] = useState(true)
@@ -1537,7 +1918,10 @@ function Outcome02FinalSection() {
   }, [])
 
   return (
-    <section style={{
+    <section ref={(el) => {
+      (refForVis as any).current = el;
+      (sectionRef as any).current = el;
+    }} style={{
       display: 'flex',
       flexDirection: 'column',
       gap: isMobile ? '12px' : 'var(--header-gap)',
@@ -1577,16 +1961,16 @@ function Outcome02FinalSection() {
           flexDirection: 'column',
           gap: 'clamp(12px, 3vw, 16px)',
         }}>
-          <div style={{ borderRadius: '12px', overflow: 'hidden', background: 'radial-gradient(circle at 0% 0%, rgba(63,64,64,1) 0%, rgba(43,43,43,1) 50%, rgba(22,22,22,1) 100%)', minHeight: 'clamp(200px, 50vw, 260px)' }}>
+          <div style={{ borderRadius: 'var(--context-card-radius)', overflow: 'hidden', background: 'radial-gradient(circle at 0% 0%, rgba(63,64,64,1) 0%, rgba(43,43,43,1) 50%, rgba(22,22,22,1) 100%)', minHeight: 'clamp(200px, 50vw, 260px)' }}>
             <img src={`/images/XBO/outcome-top-left.webp?v=${cacheBust}`} alt="Portfolio view" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
-          <div style={{ borderRadius: '12px', overflow: 'hidden', background: 'radial-gradient(circle at 50% 50%, rgba(63,64,64,1) 0%, rgba(43,43,43,1) 50%, rgba(22,22,22,1) 100%)', minHeight: 'clamp(200px, 50vw, 260px)' }}>
+          <div style={{ borderRadius: 'var(--context-card-radius)', overflow: 'hidden', background: 'radial-gradient(circle at 50% 50%, rgba(63,64,64,1) 0%, rgba(43,43,43,1) 50%, rgba(22,22,22,1) 100%)', minHeight: 'clamp(200px, 50vw, 260px)' }}>
             <img src={`/images/XBO/outcome-top-center.webp?v=${cacheBust}`} alt="Deposit screen" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
-          <div style={{ borderRadius: '12px', overflow: 'hidden', background: 'radial-gradient(circle at 0% 50%, rgba(63,64,64,1) 0%, rgba(43,43,43,1) 50%, rgba(22,22,22,1) 100%)', minHeight: 'clamp(200px, 50vw, 260px)' }}>
+          <div style={{ borderRadius: 'var(--context-card-radius)', overflow: 'hidden', background: 'radial-gradient(circle at 0% 50%, rgba(63,64,64,1) 0%, rgba(43,43,43,1) 50%, rgba(22,22,22,1) 100%)', minHeight: 'clamp(200px, 50vw, 260px)' }}>
             <img src={`/images/XBO/outcome-bottom-left.webp?v=${cacheBust}`} alt="Deposit crypto" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
-          <div style={{ borderRadius: '12px', overflow: 'hidden', background: 'radial-gradient(circle at 50% 50%, rgba(63,64,64,1) 0%, rgba(43,43,43,1) 50%, rgba(22,22,22,1) 100%)', minHeight: 'clamp(200px, 50vw, 260px)' }}>
+          <div style={{ borderRadius: 'var(--context-card-radius)', overflow: 'hidden', background: 'radial-gradient(circle at 50% 50%, rgba(63,64,64,1) 0%, rgba(43,43,43,1) 50%, rgba(22,22,22,1) 100%)', minHeight: 'clamp(200px, 50vw, 260px)' }}>
             <img src={`/images/XBO/outcome-bottom-center.webp?v=${cacheBust}`} alt="Wallet view" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </div>
@@ -1623,6 +2007,9 @@ function Outcome02FinalSection() {
 
 function Problem03Section() {
   const isMobile = useIsMobile()
+  const sectionRef = useRef<HTMLElement>(null)
+  const [refForVis, sectionVis] = useScrollVis(0.15)
+  useStaggerChildren(sectionRef, sectionVis, 80)
 
   const userQuestions = [
     {
@@ -1638,7 +2025,10 @@ function Problem03Section() {
   ]
 
   return (
-    <section style={{
+    <section ref={(el) => {
+      (refForVis as any).current = el;
+      (sectionRef as any).current = el;
+    }} style={{
       display: 'flex',
       flexDirection: 'column',
       gap: isMobile ? '12px' : 'var(--header-gap)',
@@ -1781,7 +2171,7 @@ function Problem03Section() {
         <div style={{
           flex: isMobile ? 'none' : 1,
           width: isMobile ? '100%' : 'auto',
-          borderRadius: isMobile ? '12px' : 'var(--context-card-radius)',
+          borderRadius: 'var(--context-card-radius)',
           overflow: 'hidden',
           minHeight: isMobile ? 'clamp(180px, 45vw, 240px)' : 'clamp(300px, 25vw, 400px)',
           position: 'relative',
@@ -1803,7 +2193,7 @@ function Problem03Section() {
         <div style={{
           flex: isMobile ? 'none' : 1,
           width: isMobile ? '100%' : 'auto',
-          borderRadius: isMobile ? '12px' : 'var(--context-card-radius)',
+          borderRadius: 'var(--context-card-radius)',
           overflow: 'hidden',
           minHeight: isMobile ? 'clamp(180px, 45vw, 240px)' : 'clamp(300px, 25vw, 400px)',
           position: 'relative',
@@ -1830,9 +2220,15 @@ function Problem03Section() {
 
 function Solution03Section() {
   const isMobile = useIsMobile()
+  const sectionRef = useRef<HTMLElement>(null)
+  const [refForVis, sectionVis] = useScrollVis(0.15)
+  useStaggerChildren(sectionRef, sectionVis, 80)
 
   return (
-    <section style={{
+    <section ref={(el) => {
+      (refForVis as any).current = el;
+      (sectionRef as any).current = el;
+    }} style={{
       display: 'flex',
       flexDirection: 'column',
       gap: isMobile ? '12px' : 'var(--header-gap)',
@@ -1917,8 +2313,15 @@ function Solution03Section() {
 // ─── Overall Outcome Section ──────────────────────────────────────────────────
 
 function OverallOutcomeSection({ isMobile }: { isMobile: boolean }) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [refForVis, sectionVis] = useScrollVis(0.15)
+  useStaggerChildren(sectionRef, sectionVis, 80)
+
   return (
-    <section style={{
+    <section ref={(el) => {
+      (refForVis as any).current = el;
+      (sectionRef as any).current = el;
+    }} style={{
       display: 'flex',
       flexDirection: 'column',
       gap: isMobile ? '12px' : 'var(--header-gap)',
@@ -1976,6 +2379,22 @@ export function XboCasePageNew({ onBack }: { onBack: () => void }) {
     window.scrollTo(0, 0)
   }, [])
 
+  // Navigation sections
+  const navSections = [
+    { id: 'hero', label: 'Product context & role' },
+    { id: 'core-problem', label: 'Core Product Problem' },
+    { id: 'problem-01', label: 'Problem 01 / Onboarding & Verification' },
+    { id: 'solution-01', label: 'Solution 01 / Onboarding & Verification' },
+    { id: 'outcome-01', label: 'Outcome 01 / Onboarding Impact' },
+    { id: 'problem-02', label: 'Problem 02 / Deposits' },
+    { id: 'solution-02', label: 'Solution 02 / Deposit Flow' },
+    { id: 'outcome-02', label: 'Outcome 02 / Deposit Impact' },
+    { id: 'before-after', label: 'Before/After' },
+    { id: 'problem-03', label: 'Problem 03 / Withdrawals' },
+    { id: 'solution-03', label: 'Solution 03 / Cash-out' },
+    { id: 'outcome', label: 'Overall Outcome' },
+  ]
+
   return (
     <div style={{
       background: T.bg,
@@ -1985,7 +2404,9 @@ export function XboCasePageNew({ onBack }: { onBack: () => void }) {
       alignItems: 'center',
     }}>
       <CaseNav onBack={onBack} isMobile={isMobile} />
+      <RobotPopup />
 
+      {/* Case Navigation Sidebar */}
       <div style={{
         display: 'flex',
         flexDirection: 'column',
@@ -1993,43 +2414,65 @@ export function XboCasePageNew({ onBack }: { onBack: () => void }) {
         paddingBottom: 'var(--section-gap)',
         width: '100%',
       }}>
-        <HeroSection isMobile={isMobile} />
-        <Problem01Section isMobile={isMobile} />
-        <Solution01Section isMobile={isMobile} />
-        <Problem02Section isMobile={isMobile} />
-        <Outcome02Section isMobile={isMobile} />
-        <Solution02Section isMobile={isMobile} />
-        <BeforeAfterSection />
-        <Outcome02FinalSection />
-        <Problem03Section />
-        <Solution03Section />
-        <OverallOutcomeSection isMobile={isMobile} />
+        <div id="hero"><HeroSection isMobile={isMobile} /></div>
+        <div id="problem-01"><Problem01Section isMobile={isMobile} /></div>
+        <div id="solution-01"><Solution01Section isMobile={isMobile} /></div>
+        <div id="outcome-01"><Outcome01Section isMobile={isMobile} /></div>
+        <div id="problem-02"><Problem02Section isMobile={isMobile} /></div>
+        <div id="outcome-02"><Outcome02Section isMobile={isMobile} /></div>
+        <div id="solution-02"><Solution02Section isMobile={isMobile} /></div>
+        <div id="before-after"><BeforeAfterSection /></div>
+        <div id="outcome-02-final"><Outcome02FinalSection /></div>
+        <div id="problem-03"><Problem03Section /></div>
+        <div id="solution-03"><Solution03Section /></div>
+        <div id="outcome"><OverallOutcomeSection isMobile={isMobile} /></div>
       </div>
 
       {/* Next Project */}
       <section style={{
-        padding: isMobile ? '0 24px' : '0 var(--padding-x)',
         marginTop: '40px',
         width: '100%',
+        padding: isMobile ? '0 20px' : '0',
         boxSizing: 'border-box',
       }}>
-        <span style={{
-          fontFamily: T.fontBody,
-          fontSize: 'var(--label-size)',
-          lineHeight: 'var(--label-line)',
-          letterSpacing: '1.155px',
-          textTransform: 'uppercase',
-          color: T.muted,
-          display: 'block',
-          marginBottom: '12px',
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: isMobile ? '16px' : '40px',
+          marginBottom: isMobile ? '24px' : '44px',
         }}>
-          Next project
-        </span>
+          <div style={{
+            padding: isMobile ? '0' : '0 44px',
+          }}>
+            <h2 style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontWeight: 500,
+              fontSize: isMobile ? '28px' : '44px',
+              lineHeight: isMobile ? '34px' : '56px',
+              letterSpacing: '-1px',
+              color: T.text,
+              margin: 0,
+              fontVariationSettings: '"opsz" 14, "wdth" 100',
+            }}>
+              Next project
+            </h2>
+          </div>
+          <div style={{
+            width: '100%',
+            padding: isMobile ? '0' : '0 44px',
+          }}>
+            <div style={{
+              width: '100%',
+              height: '1px',
+              background: T.border,
+            }} />
+          </div>
+        </div>
         <ProjectRow project={projects[1]} index={0} onPress={() => { window.location.hash = '#loop' }} />
       </section>
 
       {/* Footer */}
-      <Footer paddingX="var(--padding-x)" width="100%" />
+      <Footer />
     </div>
   )
 }

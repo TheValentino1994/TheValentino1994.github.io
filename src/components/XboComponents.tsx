@@ -19,9 +19,6 @@ export function HeroTitle({ children, entered = true }: HeroTitleProps) {
       color: T.text,
       fontVariationSettings: '"opsz" 14, "wdth" 100',
       margin: 0,
-      opacity: entered ? 1 : 0,
-      transform: entered ? 'translateY(0)' : 'translateY(20px)',
-      transition: 'opacity 0.8s ease 0.1s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s',
     }}>
       {children}
     </h1>
@@ -50,9 +47,6 @@ export function HeroMeta({ items, entered = true }: HeroMetaProps) {
       color: T.text,
       fontVariationSettings: '"opsz" 14, "wdth" 100',
       flexWrap: 'wrap',
-      opacity: entered ? 1 : 0,
-      transform: entered ? 'translateY(0)' : 'translateY(12px)',
-      transition: 'opacity 0.6s ease 0.6s, transform 0.6s ease 0.6s',
     }}>
       {items.map((item, index) => (
         <React.Fragment key={index}>
@@ -80,9 +74,6 @@ export function HeroImage({ src, alt = '', placeholder = false, entered = true }
       position: 'relative',
       borderRadius: 'var(--hero-radius)',
       overflow: 'hidden',
-      opacity: entered ? 1 : 0,
-      transform: entered ? 'scale(1) translateY(0)' : 'scale(0.96) translateY(20px)',
-      transition: 'opacity 0.9s ease 0.4s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s',
     }}>
       {/* Image container */}
       <div style={{
@@ -93,16 +84,23 @@ export function HeroImage({ src, alt = '', placeholder = false, entered = true }
           : 'transparent',
       }}>
         {src ? (
-          <img
-            src={src}
-            alt={alt}
-            style={{
-              width: '110%',
-              height: 'auto',
-              display: 'block',
-              marginLeft: '-5%',
-            }}
-          />
+          src.endsWith('.mp4') ? (
+            <video autoPlay loop muted playsInline style={{ width: '100%', display: 'block' }}>
+              <source src={src} type="video/mp4" />
+            </video>
+          ) : (
+            <img
+              src={src}
+              alt={alt}
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+                objectFit: 'cover',
+                objectPosition: 'center center',
+              }}
+            />
+          )
         ) : placeholder && (
           <div style={{
             position: 'absolute',

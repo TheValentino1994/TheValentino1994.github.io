@@ -7,6 +7,7 @@ import { useReveal } from '../hooks/useReveal'
 import { ProjectRow } from './ProjectRow'
 import { Footer } from './Footer'
 import { EASE, BORDER, Label, H2Mob, SectionMob, Section, CaseNav, ScrollIndicator, DecisionRow } from './CasePage'
+import { HeroImage, HeroMeta, RoleText, StatCard, SectionLabel, SectionTitle, SectionBody, ContextCard } from './XboComponents'
 
 const META_BORDER = '#2e2e2e'
 const GRAD = 'linear-gradient(180deg, rgba(36,36,36,0.4) 0%, rgba(2,2,2,0) 100%)'
@@ -37,7 +38,7 @@ function GradCard({ num, title, desc, index = 0 }: { num: string; title: string;
   const delay = `${index * 0.12}s`
   return (
     <div ref={ref} style={{
-      flex: '1 0 0', minWidth: 0, background: GRAD, borderRadius: '16px',
+      flex: '1 0 0', minWidth: 0, background: GRAD, borderRadius: 'var(--context-card-radius)',
       display: 'flex', flexDirection: 'column',
       opacity: vis ? 1 : 0,
       transform: vis ? 'translateY(0)' : 'translateY(16px)',
@@ -89,7 +90,7 @@ function IntracCasePageDesktop({ onBack }: { onBack: () => void }) {
             </h1>
           </div>
           <div style={{
-            display: 'flex', border: `1px solid ${META_BORDER}`, borderRadius: '12px', overflow: 'hidden', width: 'fit-content',
+            display: 'flex', border: `1px solid ${META_BORDER}`, borderRadius: 'var(--context-card-radius)', overflow: 'hidden', width: 'fit-content',
             opacity: entered ? 1 : 0,
             transition: 'opacity 0.6s ease 0.5s',
           }}>
@@ -119,7 +120,7 @@ function IntracCasePageDesktop({ onBack }: { onBack: () => void }) {
 
       {/* OVERVIEW IMAGE */}
       <div style={{ width: '100%', padding: '0 120px 80px', boxSizing: 'border-box' }}>
-        <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden' }}>
+        <div style={{ width: '100%', borderRadius: 'var(--context-card-radius)', overflow: 'hidden' }}>
           <video autoPlay loop muted playsInline style={{ width: '100%', display: 'block' }}>
             <source src="/images/intrac.mp4" type="video/mp4" />
           </video>
@@ -183,23 +184,23 @@ function IntracCasePageDesktop({ onBack }: { onBack: () => void }) {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ display: 'flex', gap: '16px' }}>
-            <div style={{ flex: 1, minWidth: 0, height: '444px', borderRadius: '16px', overflow: 'hidden' }}>
+            <div style={{ flex: 1, minWidth: 0, height: '444px', borderRadius: 'var(--context-card-radius)', overflow: 'hidden' }}>
               <img alt="Platform dashboard" src={I.finalCard1} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            <div style={{ flex: 1, minWidth: 0, height: '444px', borderRadius: '16px', overflow: 'hidden' }}>
+            <div style={{ flex: 1, minWidth: 0, height: '444px', borderRadius: 'var(--context-card-radius)', overflow: 'hidden' }}>
               <img alt="Platform in use" src={I.finalCard2} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
           </div>
-          <div style={{ width: '100%', borderRadius: '32px', overflow: 'hidden' }}>
+          <div style={{ width: '100%', borderRadius: 'var(--context-card-radius)', overflow: 'hidden' }}>
             <video autoPlay loop muted playsInline style={{ width: '100%', display: 'block' }}>
               <source src="/images/intrac%20center.mp4" type="video/mp4" />
             </video>
           </div>
           <div style={{ display: 'flex', gap: '16px' }}>
-            <div style={{ flex: 1, minWidth: 0, height: '444px', borderRadius: '16px', overflow: 'hidden' }}>
+            <div style={{ flex: 1, minWidth: 0, height: '444px', borderRadius: 'var(--context-card-radius)', overflow: 'hidden' }}>
               <img alt="Admin view" src={I.finalCard3} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            <div style={{ flex: 1, minWidth: 0, height: '444px', borderRadius: '16px', overflow: 'hidden' }}>
+            <div style={{ flex: 1, minWidth: 0, height: '444px', borderRadius: 'var(--context-card-radius)', overflow: 'hidden' }}>
               <img alt="Operations view" src={I.finalCard4} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
           </div>
@@ -208,27 +209,46 @@ function IntracCasePageDesktop({ onBack }: { onBack: () => void }) {
 
       {/* NEXT PROJECT */}
       <section style={{
-        padding: `0 ${T.px}`,
         marginTop: 'clamp(60px, 8.33vw, 120px)',
         width: '100%',
-        boxSizing: 'border-box'
       }}>
-        <span style={{
-          fontFamily: T.fontBody,
-          fontSize: 'var(--label-size)',
-          lineHeight: 'var(--label-line)',
-          letterSpacing: '1.155px',
-          textTransform: 'uppercase',
-          color: T.muted,
-          display: 'block',
-          marginBottom: '12px'
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '40px',
+          marginBottom: '44px',
         }}>
-          Next project
-        </span>
+          <div style={{
+            padding: `0 ${T.px}`,
+          }}>
+            <h2 style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontWeight: 500,
+              fontSize: '44px',
+              lineHeight: '56px',
+              letterSpacing: '-1px',
+              color: T.text,
+              margin: 0,
+              fontVariationSettings: '"opsz" 14, "wdth" 100',
+            }}>
+              Next project
+            </h2>
+          </div>
+          <div style={{
+            width: '100%',
+            padding: `0 ${T.px}`,
+          }}>
+            <div style={{
+              width: '100%',
+              height: '1px',
+              background: T.border,
+            }} />
+          </div>
+        </div>
         <ProjectRow project={projects[0]} index={0} onPress={() => { window.location.hash = '#xbo' }} />
       </section>
 
-      <Footer paddingX="120px" width="100%" />
+      <Footer />
     </div>
   )
 }
@@ -253,7 +273,7 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
       <CaseNav onBack={onBack} isMobile />
 
       {/* HERO */}
-      <div style={{ width: '100%', height: '320px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+      <div style={{ width: '100%', height: '240px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
         <img alt="" src={I.heroMockup} style={{
           position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center',
           transform: entered ? 'scale(1)' : 'scale(1.05)',
@@ -274,7 +294,7 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
       </div>
 
       {/* Metadata */}
-      <div style={{ margin: '16px 20px', border: `1px solid ${META_BORDER}`, borderRadius: '12px', overflow: 'hidden' }}>
+      <div style={{ margin: '16px 20px', border: `1px solid ${META_BORDER}`, borderRadius: 'var(--context-card-radius)', overflow: 'hidden' }}>
         {[
           [{ label: 'Company', value: 'Intrac' }, { label: 'Year', value: '2023' }],
           [{ label: 'Role', value: 'UX/UI Designer' }, { label: 'Platform', value: 'Platform MVP' }],
@@ -301,7 +321,7 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
 
       {/* OVERVIEW VIDEO */}
       <div style={{ width: '100%', padding: '0 20px 32px', boxSizing: 'border-box' }}>
-        <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden' }}>
+        <div style={{ width: '100%', borderRadius: 'var(--context-card-radius)', overflow: 'hidden' }}>
           <video autoPlay loop muted playsInline style={{ width: '100%', display: 'block' }}>
             <source src="/images/intrac.mp4" type="video/mp4" />
           </video>
@@ -322,7 +342,7 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
             { num: '02', title: 'Fragmented workflows', desc: 'Schedules, payments, staff, and customer data lived in separate places.' },
             { num: '03', title: 'Operational mistakes', desc: 'Overbooked classes, outdated records, and slow communication.' },
           ].map(({ num, title, desc }) => (
-            <div key={num} style={{ background: GRAD, borderRadius: '16px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div key={num} style={{ background: GRAD, borderRadius: 'var(--context-card-radius)', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '28px', lineHeight: '28px', letterSpacing: '-0.5px', color: T.text, margin: 0 }}>{num}</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '22px', color: T.text, margin: 0 }}>{title}</p>
@@ -363,7 +383,7 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
             { num: '03', title: 'Building flows around real user roles', desc: 'Structure the experience around how different people actually use the product: owners need control, staff need clarity, and customers need simple self-service actions.' },
             { num: '04', title: 'Creating patterns for a growing platform', desc: 'Create reusable patterns for repeated workflows, helping the product stay consistent, easier to scale, and faster to extend with new features.' },
           ].map(({ num, title, desc }) => (
-            <div key={num} style={{ background: GRAD, borderRadius: '16px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div key={num} style={{ background: GRAD, borderRadius: 'var(--context-card-radius)', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '28px', lineHeight: '28px', letterSpacing: '-0.5px', color: T.text, margin: 0 }}>{num}</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '22px', color: T.text, margin: 0 }}>{title}</p>
@@ -388,7 +408,7 @@ function IntracCasePageMobile({ onBack }: { onBack: () => void }) {
               <img alt={alt} src={src} style={{ width: '100%', display: 'block' }} />
             </div>
           ))}
-          <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden' }}>
+          <div style={{ width: '100%', borderRadius: 'var(--context-card-radius)', overflow: 'hidden' }}>
             <video autoPlay loop muted playsInline style={{ width: '100%', display: 'block' }}>
               <source src="/images/intrac%20center.mp4" type="video/mp4" />
             </video>

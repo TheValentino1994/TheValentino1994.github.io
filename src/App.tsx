@@ -7,7 +7,6 @@ import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { Intro } from './components/Intro'
 import { WorkSection } from './components/WorkSection'
-import { AboutSection } from './components/AboutSection'
 import { BottomNav } from './components/BottomNav'
 import { Footer } from './components/Footer'
 import { XboCasePage } from './components/XboCasePage'
@@ -16,6 +15,8 @@ import { LoopCasePage } from './components/LoopCasePage'
 import { LoopCasePageNew } from './components/LoopCasePageNew'
 import { NeobankCasePage } from './components/NeobankCasePage'
 import { IntracCasePage } from './components/IntracCasePage'
+import { IntracCasePageNew } from './components/IntracCasePageNew'
+import { IntracProcessPlayground } from './components/IntracProcessPlayground'
 
 function useTabletZoom() {
   useLayoutEffect(() => {
@@ -42,12 +43,32 @@ const FADE_IN_MS  = 520
 
 export default function App() {
   useSmoothScroll()
-  // useTabletZoom() // DISABLED - html.style.zoom breaks position: fixed
+  useTabletZoom() // Re-enabled - Header is now static, zoom won't break it
   const isMobile   = useIsMobile()
   const [displayHash, setDisplayHash] = useState(() => window.location.hash)
   const [opacity, setOpacity]         = useState(1)
   const [fadingOut, setFadingOut]     = useState(false)
-  const [introComplete, setIntroComplete] = useState(() => window.location.hash !== '')
+
+  // Clear intro flag on page refresh, but keep it during session navigation
+  const [introComplete, setIntroComplete] = useState(() => {
+    // Skip intro if there's a hash (direct navigation to case page)
+    if (window.location.hash !== '') return true
+
+    // Check if this is a page refresh (not SPA navigation)
+    const perfEntries = performance.getEntriesByType('navigation') as PerformanceNavigationTiming[]
+    const isReload = perfEntries.length > 0 && perfEntries[0].type === 'reload'
+
+    // On reload, clear the flag so intro shows again
+    if (isReload) {
+      sessionStorage.removeItem('introShown')
+      return false
+    }
+
+    // Otherwise, check if intro was already shown in this session
+    const shown = sessionStorage.getItem('introShown')
+    return shown === 'true'
+  })
+
   const [introKey] = useState(() => Math.random())
   console.log('🔄 App mounted, introKey:', introKey)
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -89,38 +110,37 @@ export default function App() {
   let page: React.ReactNode
   const isHomepage = displayHash === ''
 
-  if      (displayHash === '#xbo')     page = <XboCasePageNew     onBack={goHome} />
-  else if (displayHash === '#loop')    page = <LoopCasePageNew    onBack={goHome} />
-  else if (displayHash === '#neobank') page = <NeobankCasePage onBack={goHome} />
-  else if (displayHash === '#intrac')  page = <IntracCasePage  onBack={goHome} />
+  if      (displayHash === '#xbo')            page = <XboCasePageNew          onBack={goHome} />
+  else if (displayHash === '#loop')           page = <LoopCasePageNew         onBack={goHome} />
+  else if (displayHash === '#neobank')        page = <NeobankCasePage         onBack={goHome} />
+  else if (displayHash === '#intrac')         page = <IntracCasePageNew       onBack={goHome} />
+  else if (displayHash === '#intrac-process') page = <IntracProcessPlayground onBack={goHome} />
   else page = (
     <div style={{
       minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative',
       alignItems: isMobile ? 'flex-start' : 'center',
-      gap: isMobile ? '40px' : 0,
+      gap: isMobile ? '40px' : '200px',
     }}>
-      <Hero startAnimation={introComplete} />
+      <Hero startAnimation={true} introComplete={introComplete} />
       <WorkSection />
-      <AboutSection />
       <Footer />
-      {isMobile && (
-        <p style={{
-          fontFamily: "'Inter',sans-serif", fontWeight: 400,
-          fontSize: '12px', lineHeight: '16px',
-          color: '#6b6b67', textAlign: 'center',
-          whiteSpace: 'nowrap', margin: 0,
-          padding: '0 20px 48px', width: '100%', boxSizing: 'border-box',
-        }}>© 2026 Valentyn Kuchernoha · UX/UI Designer</p>
-      )}
     </div>
   )
 
   return (
     <>
-      { displayHash === '' && <Intro key={introKey} onComplete={() => setIntroComplete(true)} />}
+      {/* Intro animation - first visit only */}
+      {!introComplete && (
+        <Intro
+          onComplete={() => {
+            setIntroComplete(true)
+            sessionStorage.setItem('introShown', 'true')
+          }}
+        />
+      )}
 
-      {/* Header - always fixed on all pages */}
-      <Header />
+      {/* Header - only on homepage */}
+      {isHomepage && <Header />}
 
       {!isMobile && <CustomCursor />}
       <NoiseOverlay />
@@ -135,7 +155,7 @@ export default function App() {
       </div>
 
       {/* BottomNav - always fixed, outside opacity wrapper */}
-      {isHomepage && isMobile && <BottomNav />}
+      {isHomepage && <BottomNav />}
     </>
   )
 }

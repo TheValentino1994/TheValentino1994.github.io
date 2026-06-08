@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { tokens as T } from '../constants/tokens'
 import { useIsMobile } from '../hooks/useIsMobile'
+import { useScrollVis } from '../hooks/useScrollVis'
+import { useStaggerChildren } from '../hooks/useStaggerChildren'
 import { CaseNav } from './CasePage'
 import { HeroTitle, HeroMeta, HeroImage, RoleText, StatCard, SectionLabel, SectionTitle, SectionBody, SectionBodyText, Divider, ProblemCard } from './XboComponents'
 import { Footer } from './Footer'
+import { RobotPopup } from './RobotPopup'
 import { loopAssets as L } from '../constants/loopAssets'
 import { ProjectRow } from './ProjectRow'
 import { projects } from '../constants/projects'
@@ -11,6 +14,24 @@ import { projects } from '../constants/projects'
 export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
   const isMobile = useIsMobile()
   const [entered, setEntered] = useState(false)
+
+  // Refs for stagger animations
+  const roleRef = useRef<HTMLDivElement>(null)
+  const problemRef = useRef<HTMLDivElement>(null)
+  const approachRef = useRef<HTMLDivElement>(null)
+  const outcomeRef = useRef<HTMLDivElement>(null)
+
+  // Visibility tracking
+  const [roleRefVis, roleVis] = useScrollVis(0.15)
+  const [problemRefVis, problemVis] = useScrollVis(0.15)
+  const [approachRefVis, approachVis] = useScrollVis(0.15)
+  const [outcomeRefVis, outcomeVis] = useScrollVis(0.15)
+
+  // Stagger animations
+  useStaggerChildren(roleRef, roleVis, 80)
+  useStaggerChildren(problemRef, problemVis, 80)
+  useStaggerChildren(approachRef, approachVis, 80)
+  useStaggerChildren(outcomeRef, outcomeVis, 80)
 
   // Tablet breakpoints for responsive layouts
   const [isTabletOrMobile, setIsTabletOrMobile] = useState(true)
@@ -42,6 +63,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
       position: 'relative',
     }}>
       <CaseNav onBack={onBack} isMobile={isMobile} />
+      <RobotPopup />
 
       {/* Hero Section */}
       {/* Title + Meta */}
@@ -90,15 +112,35 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
         boxSizing: 'border-box',
         marginBottom: 'var(--hero-image-gap)',
       }}>
-        <HeroImage
-          src="/images/Loop/loophero.webp?v=3"
-          alt="Loop workspace interface"
-          entered={entered}
-        />
+        <div style={{
+          height: isMobile ? '240px' : 'auto',
+          overflow: 'hidden',
+          borderRadius: 'var(--hero-radius)',
+          position: 'relative',
+        }}>
+          <img
+            src="/images/Loop/Loop-hero.webp"
+            alt="Loop workspace interface"
+            fetchpriority="high"
+            loading="eager"
+            style={{
+              width: '100%',
+              height: isMobile ? '100%' : 'auto',
+              objectFit: isMobile ? 'cover' : 'contain',
+              display: 'block',
+              opacity: entered ? 1 : 0,
+              transform: entered ? 'translateY(0)' : 'translateY(24px)',
+              transition: 'opacity 0.8s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          />
+        </div>
       </div>
 
       {/* Role Section */}
-      <div style={{
+      <div ref={(el) => {
+        (roleRefVis as any).current = el;
+        (roleRef as any).current = el;
+      }} style={{
         padding: isMobile ? '0 24px' : '0 var(--padding-x)',
         width: '100%',
         boxSizing: 'border-box',
@@ -183,7 +225,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
         }}>
           {/* Mockup 1 */}
           <div style={{
-            borderRadius: isMobile ? '12px' : '16px',
+            borderRadius: 'var(--context-card-radius)',
             overflow: 'hidden',
           }}>
             <img
@@ -199,7 +241,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
 
           {/* Mockup 2 */}
           <div style={{
-            borderRadius: isMobile ? '12px' : '16px',
+            borderRadius: 'var(--context-card-radius)',
             overflow: 'hidden',
           }}>
             <img
@@ -216,7 +258,10 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
       </section>
 
       {/* Problem Section */}
-      <section style={{
+      <section ref={(el) => {
+        (problemRefVis as any).current = el;
+        (problemRef as any).current = el;
+      }} style={{
         display: 'flex',
         flexDirection: 'column',
         gap: isMobile ? '12px' : 'var(--header-gap)',
@@ -320,7 +365,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
         <div style={{
           width: '100%',
           marginTop: 'var(--section-gap-role)',
-          borderRadius: isMobile ? '12px' : '16px',
+          borderRadius: 'var(--context-card-radius)',
           overflow: 'hidden',
         }}>
           <img
@@ -395,7 +440,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
           {/* Stage 01 - Research */}
           <div style={{
             border: `1px solid ${T.border}`,
-            borderRadius: isMobile ? '12px' : '16px',
+            borderRadius: 'var(--context-card-radius)',
             padding: isMobile ? 'clamp(20px, 5vw, 24px)' : '24px',
             display: 'flex',
             flexDirection: 'column',
@@ -465,7 +510,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
           {/* Stage 02 - Structure */}
           <div style={{
             border: `1px solid ${T.border}`,
-            borderRadius: isMobile ? '12px' : '16px',
+            borderRadius: 'var(--context-card-radius)',
             padding: isMobile ? 'clamp(20px, 5vw, 24px)' : '24px',
             display: 'flex',
             flexDirection: 'column',
@@ -535,7 +580,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
           {/* Stage 03 - Information structure */}
           <div style={{
             border: `1px solid ${T.border}`,
-            borderRadius: isMobile ? '12px' : '16px',
+            borderRadius: 'var(--context-card-radius)',
             padding: isMobile ? 'clamp(20px, 5vw, 24px)' : '24px',
             display: 'flex',
             flexDirection: 'column',
@@ -605,7 +650,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
           {/* Stage 04 - Product logic */}
           <div style={{
             border: `1px solid ${T.border}`,
-            borderRadius: isMobile ? '12px' : '16px',
+            borderRadius: 'var(--context-card-radius)',
             padding: isMobile ? 'clamp(20px, 5vw, 24px)' : '24px',
             display: 'flex',
             flexDirection: 'column',
@@ -675,7 +720,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
           {/* Stage 05 - Prototype & validation */}
           <div style={{
             border: `1px solid ${T.border}`,
-            borderRadius: isMobile ? '12px' : '16px',
+            borderRadius: 'var(--context-card-radius)',
             padding: isMobile ? 'clamp(20px, 5vw, 24px)' : '24px',
             display: 'flex',
             flexDirection: 'column',
@@ -978,7 +1023,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
           <div style={{
             gridColumn: (isMobile || isTabletOrMobile) ? undefined : '1',
             gridRow: (isMobile || isTabletOrMobile) ? undefined : '1 / span 2',
-            borderRadius: isMobile ? '12px' : '16px',
+            borderRadius: 'var(--context-card-radius)',
             overflow: 'hidden',
             height: (isMobile || isTabletOrMobile) ? 'auto' : undefined,
             aspectRatio: (isMobile || isTabletOrMobile) ? '1 / 0.85' : undefined,
@@ -998,7 +1043,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
           <div style={{
             gridColumn: (isMobile || isTabletOrMobile) ? undefined : '2',
             gridRow: (isMobile || isTabletOrMobile) ? undefined : '1',
-            borderRadius: isMobile ? '12px' : '16px',
+            borderRadius: 'var(--context-card-radius)',
             overflow: 'hidden',
             height: (isMobile || isTabletOrMobile) ? 'auto' : undefined,
             aspectRatio: (isMobile || isTabletOrMobile) ? '16 / 9' : undefined,
@@ -1025,7 +1070,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
             {/* Image 4 - Bottom Left */}
             <div style={{
               flex: 1,
-              borderRadius: isMobile ? '12px' : '16px',
+              borderRadius: 'var(--context-card-radius)',
               overflow: 'hidden',
               height: (isMobile || isTabletOrMobile) ? 'auto' : undefined,
               aspectRatio: (isMobile || isTabletOrMobile) ? '1 / 1' : undefined,
@@ -1043,7 +1088,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
             {/* Image 3 - Bottom Right */}
             <div style={{
               flex: 1,
-              borderRadius: isMobile ? '12px' : '16px',
+              borderRadius: 'var(--context-card-radius)',
               overflow: 'hidden',
               height: (isMobile || isTabletOrMobile) ? 'auto' : undefined,
               aspectRatio: (isMobile || isTabletOrMobile) ? '1 / 1' : undefined,
@@ -1063,7 +1108,10 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
       </section>
 
       {/* Solution Section */}
-      <section style={{
+      <section ref={(el) => {
+        (approachRefVis as any).current = el;
+        (approachRef as any).current = el;
+      }} style={{
         display: 'flex',
         flexDirection: 'column',
         gap: isMobile ? '12px' : 'var(--header-gap)',
@@ -1117,7 +1165,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
               flex: isMobile ? 'none' : '1 0 0',
               minWidth: isMobile ? '100%' : 1,
               border: `1px solid ${T.border}`,
-              borderRadius: isMobile ? '12px' : '16px',
+              borderRadius: 'var(--context-card-radius)',
               overflow: 'hidden',
               display: 'flex',
               flexDirection: 'column',
@@ -1189,7 +1237,10 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
       </section>
 
       {/* Outcome Section */}
-      <section style={{
+      <section ref={(el) => {
+        (outcomeRefVis as any).current = el;
+        (outcomeRef as any).current = el;
+      }} style={{
         display: 'flex',
         flexDirection: 'column',
         gap: isMobile ? '12px' : 'var(--header-gap)',
@@ -1230,7 +1281,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
               flex: 1,
               minWidth: 0,
               aspectRatio: '592 / 420',
-              borderRadius: isMobile ? '12px' : '16px',
+              borderRadius: 'var(--context-card-radius)',
               overflow: 'hidden',
               background: '#161618',
             }}>
@@ -1242,7 +1293,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
               flex: 1,
               minWidth: 0,
               aspectRatio: '592 / 420',
-              borderRadius: isMobile ? '12px' : '16px',
+              borderRadius: 'var(--context-card-radius)',
               overflow: 'hidden',
               background: '#161618',
               padding: isMobile ? '16px' : '32px',
@@ -1256,7 +1307,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
           <div style={{
             width: '100%',
             aspectRatio: '1200 / 684',
-            borderRadius: isMobile ? '20px' : 'clamp(24px, 2.67vw, 32px)',
+            borderRadius: 'var(--context-card-radius)',
             overflow: 'hidden',
             background: '#161618',
           }}>
@@ -1275,7 +1326,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
               flex: 1,
               minWidth: 0,
               aspectRatio: '592 / 420',
-              borderRadius: isMobile ? '12px' : '16px',
+              borderRadius: 'var(--context-card-radius)',
               overflow: 'hidden',
             }}>
               <img alt="Loop solution" src="/images/Loop/solution-card-2.webp" style={{ width: '100%', height: '100%', display: 'block' }} />
@@ -1284,7 +1335,7 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
               flex: 1,
               minWidth: 0,
               aspectRatio: '592 / 420',
-              borderRadius: isMobile ? '12px' : '16px',
+              borderRadius: 'var(--context-card-radius)',
               overflow: 'hidden',
             }}>
               <img alt="Loop solution" src="/images/Loop/solution-card-3.webp" style={{ width: '100%', height: '100%', display: 'block' }} />
@@ -1295,28 +1346,49 @@ export function LoopCasePageNew({ onBack }: { onBack: () => void }) {
 
       {/* Next Project Section */}
       <section style={{
-        padding: isMobile ? '0 24px' : '0 var(--padding-x)',
         marginTop: isMobile ? '40px' : '160px',
         width: '100%',
+        padding: isMobile ? '0 20px' : '0',
         boxSizing: 'border-box',
       }}>
-        <span style={{
-          fontFamily: T.fontBody,
-          fontSize: 'var(--label-size)',
-          lineHeight: 'var(--label-line)',
-          letterSpacing: '1.155px',
-          textTransform: 'uppercase',
-          color: T.muted,
-          display: 'block',
-          marginBottom: '12px',
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: isMobile ? '16px' : '40px',
+          marginBottom: isMobile ? '24px' : '44px',
         }}>
-          Next project
-        </span>
+          <div style={{
+            padding: isMobile ? '0' : '0 44px',
+          }}>
+            <h2 style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontWeight: 500,
+              fontSize: isMobile ? '28px' : '44px',
+              lineHeight: isMobile ? '34px' : '56px',
+              letterSpacing: '-1px',
+              color: T.text,
+              margin: 0,
+              fontVariationSettings: '"opsz" 14, "wdth" 100',
+            }}>
+              Next project
+            </h2>
+          </div>
+          <div style={{
+            width: '100%',
+            padding: isMobile ? '0' : '0 44px',
+          }}>
+            <div style={{
+              width: '100%',
+              height: '1px',
+              background: T.border,
+            }} />
+          </div>
+        </div>
         <ProjectRow project={projects[2]} index={0} onPress={() => { window.location.hash = '#neobank' }} />
       </section>
 
       {/* Footer */}
-      <Footer paddingX="var(--padding-x)" width="100%" />
+      <Footer />
     </div>
   )
 }

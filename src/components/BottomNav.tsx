@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Home, Briefcase, User, Mail } from 'lucide-react'
+import { Home, Palette, MessageCircle } from 'lucide-react'
 import { tokens as T } from '../constants/tokens'
 
 export function BottomNav() {
@@ -15,23 +15,32 @@ export function BottomNav() {
     }
   }
 
-  const openEmail = () => {
+  const scrollToFooter = () => {
     setActive('contact')
-    window.location.href = 'mailto:valentynkuchernoha@gmail.com'
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
   }
 
   // Auto-detect active section based on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'work', 'about']
-      const scrollPos = window.scrollY + window.innerHeight / 2
+      const scrollPos = window.scrollY + window.innerHeight
+      const docHeight = document.body.scrollHeight
+
+      // If near bottom (within 200px of footer), activate Contact
+      if (docHeight - scrollPos < 200) {
+        setActive('contact')
+        return
+      }
+
+      const sections = ['home', 'work']
+      const midScrollPos = window.scrollY + window.innerHeight / 2
 
       for (const section of sections.reverse()) {
         const element = section === 'home'
           ? { offsetTop: 0 }
           : document.getElementById(section)
 
-        if (element && scrollPos >= element.offsetTop) {
+        if (element && midScrollPos >= element.offsetTop) {
           setActive(section)
           break
         }
@@ -112,21 +121,15 @@ export function BottomNav() {
         isActive={active === 'home'}
       />
       <NavButton
-        icon={Briefcase}
-        label="Work"
+        icon={Palette}
+        label="Works"
         onClick={() => scrollToSection('work', 'work')}
         isActive={active === 'work'}
       />
       <NavButton
-        icon={User}
-        label="About"
-        onClick={() => scrollToSection('about', 'about')}
-        isActive={active === 'about'}
-      />
-      <NavButton
-        icon={Mail}
+        icon={MessageCircle}
         label="Contact"
-        onClick={openEmail}
+        onClick={scrollToFooter}
         isActive={active === 'contact'}
       />
     </div>

@@ -1,11 +1,14 @@
 import { useLayoutEffect, useState, useEffect, useRef } from 'react'
 import { useReveal } from '../hooks/useReveal'
+import { useScrollVis } from '../hooks/useScrollVis'
+import { useStaggerChildren } from '../hooks/useStaggerChildren'
 import { tokens as T } from '../constants/tokens'
 import { neobankAssets as N } from '../constants/neobankAssets'
 import { projects } from '../constants/projects'
 import { useIsMobile } from '../hooks/useIsMobile'
 import { ProjectRow } from './ProjectRow'
 import { Footer } from './Footer'
+import { RobotPopup } from './RobotPopup'
 import { EASE, BORDER, Label, H2Mob, SectionMob, Section, CaseNav, ScrollIndicator } from './CasePage'
 import { HeroTitle, HeroMeta, HeroImage, RoleText, StatCard } from './XboComponents'
 
@@ -83,6 +86,27 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth)
   const [activeVideo, setActiveVideo] = useState<number | null>(null)
 
+  // Refs for stagger animations
+  const roleRef = useRef<HTMLElement>(null)
+  const problemRef = useRef<HTMLElement>(null)
+  const approachRef = useRef<HTMLElement>(null)
+  const experienceRef = useRef<HTMLElement>(null)
+  const outcomeRef = useRef<HTMLElement>(null)
+
+  // Visibility tracking
+  const [roleRefVis, roleVis] = useScrollVis(0.15)
+  const [problemRefVis, problemVis] = useScrollVis(0.15)
+  const [approachRefVis, approachVis] = useScrollVis(0.15)
+  const [experienceRefVis, experienceVis] = useScrollVis(0.15)
+  const [outcomeRefVis, outcomeVis] = useScrollVis(0.15)
+
+  // Stagger animations
+  useStaggerChildren(roleRef, roleVis, 80)
+  useStaggerChildren(problemRef, problemVis, 80)
+  useStaggerChildren(approachRef, approachVis, 80)
+  useStaggerChildren(experienceRef, experienceVis, 80)
+  useStaggerChildren(outcomeRef, outcomeVis, 80)
+
   const videoData = [
     {
       video: '/images/Neobank/Card management.mp4',
@@ -91,7 +115,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
       mockup: true,
       title: 'Card ready confirmation',
       desc: '',
-      details: 'Turns a logistics update into a moment of anticipation. Showing both account balances upfront sets clear expectations about fund access before the card arrives. Benefit messaging during the wait reinforces value and reduces abandonment during the shipping period.'
+      details: 'Card ordered but not here yet. People kept checking back wondering what happens next. Show both account balances right on the confirmation screen — see what\'s available when the card arrives. Benefits listed below. No need to remember or search later.'
     },
     {
       video: '/images/Neobank/Currency-Exchange-Playful.mp4',
@@ -100,7 +124,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
       mockup: true,
       title: 'Currency exchange',
       desc: '',
-      details: 'Real-time calculation eliminates conversion uncertainty. Keeping the exchange rate visible throughout input prevents users from questioning if they are getting a fair deal. Before and after balances reduce anxiety about accidentally draining an account. Explicit CTA wording removes ambiguity about which direction the conversion happens.'
+      details: 'Exchanging money shouldn\'t feel like gambling. Live rates, math done upfront. Pick currencies, enter amount, see what you get before tapping confirm. Both balances update right there. No surprises after.'
     },
     {
       video: '/images/Neobank/Home-Playful.mp4',
@@ -109,7 +133,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
       mockup: true,
       title: 'Home dashboard',
       desc: '',
-      details: 'Consolidates frequent actions into one view to eliminate navigation friction. Aggregating multi-currency balances reduces cognitive load while keeping breakdowns accessible for detail-oriented users. Send Again shortcuts prevent repetitive contact searching for recurring transfers. Surfacing transaction context helps users recall purchases without opening individual entries.'
+      details: 'Daily banking scattered across tabs meant constant jumping around. Put it on one screen — total balance across currencies, recent transactions, quick send to saved contacts. Tap any currency card for full breakdown. Done checking balances in five different places.'
     },
     {
       video: '/images/Neobank/Wealth overview.mp4',
@@ -118,7 +142,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
       mockup: true,
       title: 'Spending analytics',
       desc: '',
-      details: 'Side-by-side monthly comparison makes spending spikes immediately visible without mental calculation. Keeping the visualization simple prioritizes pattern recognition over granular category analysis. Income and expense totals provide quick financial health check without requiring users to interpret chart data.'
+      details: 'Monthly spending buried in transaction lists made tracking hard. Bar chart compares this month to last month. Pattern visible at a glance. Total income and expenses at the top. No digging through rows of transactions.'
     },
   ]
 
@@ -210,6 +234,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
   return (
     <div style={{ background: T.bg, minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <CaseNav onBack={onBack} isMobile={isMobile} />
+      <RobotPopup />
 
       {/* HERO */}
       <section style={{
@@ -256,15 +281,32 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
 
         {/* Hero Image */}
         <div style={{ padding: '0 var(--padding-x)', width: '100%', boxSizing: 'border-box', marginBottom: 'var(--hero-image-gap)' }}>
-          <HeroImage
-            src={N.heroMockup}
-            alt="Neobank private banking app interface"
-            entered={entered}
-          />
+          <div style={{
+            height: screenWidth < 768 ? '240px' : 'auto',
+            overflow: 'hidden',
+            borderRadius: 'var(--hero-radius)',
+          }}>
+            <img
+              src={N.heroMockup}
+              alt="Neobank private banking app interface"
+              style={{
+                width: '100%',
+                height: screenWidth < 768 ? '100%' : 'auto',
+                objectFit: screenWidth < 768 ? 'cover' : 'contain',
+                display: 'block',
+                opacity: entered ? 1 : 0,
+                transform: entered ? 'translateY(0)' : 'translateY(24px)',
+                transition: 'opacity 0.8s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
+            />
+          </div>
         </div>
 
         {/* Role Section */}
-        <section style={{
+        <section ref={(el) => {
+          (roleRefVis as any).current = el;
+          (roleRef as any).current = el;
+        }} style={{
           display: 'flex',
           flexDirection: 'column',
           gap: 'var(--section-gap-role)',
@@ -273,7 +315,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
           boxSizing: 'border-box',
         }}>
           <RoleText>
-            Neobank is a mobile private banking platform designed to help international users manage accounts, cards, payments, and financial activity across borders.
+            A mobile-only private banking project designed from scratch to help international users manage accounts, cards, payments, currency exchange, and financial activity in one premium app experience.
           </RoleText>
 
           {/* Stats Cards */}
@@ -383,7 +425,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
                 maxWidth: screenWidth >= 900 ? '40%' : '100%',
                 minWidth: 0,
                 border: '1.5px solid #212429',
-                borderRadius: 'clamp(16px, 1.67vw, 24px)',
+                borderRadius: 'var(--context-card-radius)',
                 padding: screenWidth >= 600 ? 'clamp(24px, 2.22vw, 32px)' : '20px',
                 background: 'linear-gradient(28.36deg, rgb(7, 7, 7) 60.236%, rgb(15, 29, 19) 93.215%)',
                 display: 'flex',
@@ -442,7 +484,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
                 maxWidth: screenWidth >= 900 ? '60%' : '100%',
                 minWidth: 0,
                 border: '1.5px solid #212429',
-                borderRadius: 'clamp(16px, 1.67vw, 24px)',
+                borderRadius: 'var(--context-card-radius)',
                 padding: screenWidth >= 600 ? 'clamp(24px, 2.22vw, 32px)' : '20px 20px 0 20px',
                 background: 'linear-gradient(69.463deg, rgb(7, 7, 7) 66.008%, rgb(15, 29, 19) 88.872%)',
                 boxSizing: 'border-box',
@@ -629,7 +671,10 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
       </section>
 
       {/* CORE PROBLEM */}
-      <section style={{
+      <section ref={(el) => {
+        (problemRefVis as any).current = el;
+        (problemRef as any).current = el;
+      }} style={{
         width: '100%',
         padding: '0 clamp(24px, 3.06vw, 44px)',
         marginTop: 'clamp(40px, 11.11vw, 160px)',
@@ -703,7 +748,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
                 color: T.muted,
                 margin: 0
               }}>
-                The product problem was to make mobile banking feel less fragmented. Users needed a single, clear experience where they could check account status, review card activity, make payments, exchange currency, and understand their financial activity without feeling lost between different flows.
+                The problem: mobile banking splits everything into separate flows. Users jump between sections to check accounts, make payments, or exchange currency, losing context with every switch.
               </p>
             </div>
 
@@ -751,7 +796,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
                   color: T.muted,
                   margin: 0
                 }}>
-                  By creating a mobile-first solution where users could quickly see their money, understand its flow, and access key actions instantly.
+                  Put everything users need daily on one screen. Quick access beats perfect organization.
                 </p>
               </div>
             </div>
@@ -760,14 +805,20 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
           {/* Core Problem Image */}
           <div style={{
             width: '100%',
-            borderRadius: 'clamp(16px, 2.22vw, 32px)',
+            borderRadius: 'var(--context-card-radius)',
             overflow: 'hidden',
-            marginTop: 'clamp(32px, 5.56vw, 80px)'
+            marginTop: 'clamp(32px, 5.56vw, 80px)',
+            height: screenWidth < 768 ? '200px' : 'auto'
           }}>
             <img
               src="/images/Neobank/Core Problem-neobank.webp"
               alt="Core Problem"
-              style={{ width: '100%', display: 'block' }}
+              style={{
+                width: '100%',
+                height: '100%',
+                display: 'block',
+                objectFit: 'cover'
+              }}
             />
           </div>
         </div>
@@ -857,7 +908,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
             {/* Card 1 - Competitive analysis */}
             <div style={{
               border: `1px solid ${T.border}`,
-              borderRadius: screenWidth < 600 ? '12px' : '16px',
+              borderRadius: 'var(--context-card-radius)',
               padding: screenWidth < 600 ? '20px' : '24px',
               display: 'flex',
               flexDirection: 'column',
@@ -930,7 +981,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
             {/* Card 2 - Workflow mapping */}
             <div style={{
               border: `1px solid ${T.border}`,
-              borderRadius: screenWidth < 600 ? '12px' : '16px',
+              borderRadius: 'var(--context-card-radius)',
               padding: screenWidth < 600 ? '20px' : '24px',
               display: 'flex',
               flexDirection: 'column',
@@ -1003,7 +1054,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
             {/* Card 3 - Information structure */}
             <div style={{
               border: `1px solid ${T.border}`,
-              borderRadius: screenWidth < 600 ? '12px' : '16px',
+              borderRadius: 'var(--context-card-radius)',
               padding: screenWidth < 600 ? '20px' : '24px',
               display: 'flex',
               flexDirection: 'column',
@@ -1076,7 +1127,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
             {/* Card 4 - Product logic */}
             <div style={{
               border: `1px solid ${T.border}`,
-              borderRadius: screenWidth < 600 ? '12px' : '16px',
+              borderRadius: 'var(--context-card-radius)',
               padding: screenWidth < 600 ? '20px' : '24px',
               display: 'flex',
               flexDirection: 'column',
@@ -1149,7 +1200,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
             {/* Card 5 - Prototype & validation */}
             <div style={{
               border: `1px solid ${T.border}`,
-              borderRadius: screenWidth < 600 ? '12px' : '16px',
+              borderRadius: 'var(--context-card-radius)',
               padding: screenWidth < 600 ? '20px' : '24px',
               display: 'flex',
               flexDirection: 'column',
@@ -1223,7 +1274,10 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
       </section>
 
       {/* DESIGN APPROACH */}
-      <section style={{
+      <section ref={(el) => {
+        (approachRefVis as any).current = el;
+        (approachRef as any).current = el;
+      }} style={{
         width: '100%',
         padding: '0 clamp(24px, 3.06vw, 44px)',
         marginTop: 'clamp(40px, 11.11vw, 160px)',
@@ -1286,150 +1340,105 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
             margin: 0,
             maxWidth: '891px'
           }}>
-            I approached the product as a mobile-first banking MVP, where the main challenge was not only to make the interface look polished, but to make complex financial actions feel clear, predictable, and easy to continue.
+            I structured the solution around user intent rather than feature categories. Instead of separate sections for accounts, cards, and payments, I organized everything by what users actually do: check balances, send money, monitor activity. This kept the Home screen focused while making every action accessible within two taps.
           </p>
 
-          {/* Cards Grid */}
+          {/* Key Design Decisions List */}
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: screenWidth < 600
-              ? '1fr'
-              : (screenWidth < 900
-                ? 'repeat(2, 1fr)'
-                : 'repeat(4, 1fr)'),
-            gap: 'clamp(16px, 1.67vw, 24px)',
+            display: 'flex',
+            flexDirection: 'column',
             width: '100%',
-            marginTop: 'clamp(16px, 1.67vw, 24px)'
+            marginTop: 'clamp(24px, 2.22vw, 32px)'
           }}>
-            {/* Card 1 */}
-            <div style={{
-              border: `1px solid ${T.border}`,
-              borderRadius: screenWidth < 600 ? '12px' : '16px',
-              padding: screenWidth < 600 ? '20px' : '24px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '16px'
-            }}>
-              <h3 style={{
-                fontFamily: T.fontPrimary,
-                fontSize: screenWidth < 600 ? 'clamp(18px, 4.5vw, 20px)' : '20px',
-                lineHeight: '28px',
-                fontWeight: 600,
-                color: T.text,
-                margin: 0,
-                fontVariationSettings: '"opsz" 14, "wdth" 100'
-              }}>
-                Map the core journeys
-              </h3>
-              <p style={{
-                fontFamily: T.fontBody,
-                fontSize: '16px',
-                lineHeight: '24px',
-                color: T.muted,
-                margin: 0
-              }}>
-                I first defined the key banking flows users would need most: overview, cards, payments, currency exchange, activity, and profile.
-              </p>
-            </div>
+            {[
+              {
+                num: '01',
+                title: 'Why Home hub, not bottom tabs',
+                description: 'Bottom tabs split everything into separate sections. Users check Accounts, back out, go to Cards, back out, hunt for Payments. Every tap means losing your place. I put everything on Home instead. Total balance, all currency cards, recent activity, quick contacts. You see your full financial picture without jumping around.'
+              },
+              {
+                num: '02',
+                title: 'Why currency cards, not account lists',
+                description: 'Most banking apps show accounts as long scrollable lists. Multi-currency users scroll through them constantly looking for the right one. I made each currency a card that shows the balance right there. Tap any card to see full details. No scanning, faster to find what you need.'
+              },
+              {
+                num: '03',
+                title: 'Why overview-first, not all details upfront',
+                description: 'Cramming every transaction and detail onto Home would make it unreadable. I kept Home clean with just the essentials: balance summaries, card previews, recent activity. If you need transaction history or full card details, one tap gets you there. Quick checks stay quick. Deep info is there when you want it.'
+              },
+              {
+                num: '04',
+                title: 'Why one-tap actions, not nested menus',
+                description: 'Sending money and checking transactions happen daily. Burying them in menus makes no sense. I kept frequent actions one tap from Home. Less common stuff like settings and support went to the profile screen. You can do daily tasks fast without the interface feeling cluttered.'
+              }
+            ].map((decision, index, array) => (
+              <div
+                key={index}
+                style={{
+                  display: 'flex',
+                  gap: screenWidth <= 1024 ? 'clamp(12px, 3vw, 16px)' : 'clamp(14px, 1.25vw, 18px)',
+                  paddingTop: 'clamp(16px, 1.39vw, 20px)',
+                  paddingBottom: 'clamp(16px, 1.39vw, 20px)',
+                  borderBottom: index < array.length - 1 ? `1px solid ${T.border}` : 'none',
+                }}
+              >
+                {/* Number */}
+                <div style={{
+                  fontFamily: T.fontBody,
+                  fontSize: 'clamp(12px, 1vw, 14px)',
+                  lineHeight: 'clamp(16px, 1.25vw, 18px)',
+                  color: T.muted,
+                  fontWeight: 700,
+                  letterSpacing: '0.88px',
+                  minWidth: 'clamp(22px, 2vw, 30px)',
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  paddingTop: '4px',
+                }}>
+                  {decision.num}
+                </div>
 
-            {/* Card 2 */}
-            <div style={{
-              border: `1px solid ${T.border}`,
-              borderRadius: screenWidth < 600 ? '12px' : '16px',
-              padding: screenWidth < 600 ? '20px' : '24px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '16px'
-            }}>
-              <h3 style={{
-                fontFamily: T.fontPrimary,
-                fontSize: screenWidth < 600 ? 'clamp(18px, 4.5vw, 20px)' : '20px',
-                lineHeight: '28px',
-                fontWeight: 600,
-                color: T.text,
-                margin: 0,
-                fontVariationSettings: '"opsz" 14, "wdth" 100'
-              }}>
-                Group actions by user intent
-              </h3>
-              <p style={{
-                fontFamily: T.fontBody,
-                fontSize: '16px',
-                lineHeight: '24px',
-                color: T.muted,
-                margin: 0
-              }}>
-                Instead of exposing every feature at once, I grouped actions around what users are trying to do: check, manage, send, exchange, and review.
-              </p>
-            </div>
+                {/* Content */}
+                <div style={{
+                  flex: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 'clamp(4px, 0.36vw, 5.2px)',
+                }}>
+                  {/* Title */}
+                  <div style={{
+                    fontFamily: T.fontPrimary,
+                    fontSize: 'clamp(18px, 1.39vw, 20px)',
+                    lineHeight: 'clamp(22px, 1.67vw, 24px)',
+                    color: T.text,
+                    fontWeight: 600,
+                    fontVariationSettings: '"opsz" 14, "wdth" 100',
+                  }}>
+                    {decision.title}
+                  </div>
 
-            {/* Card 3 */}
-            <div style={{
-              border: `1px solid ${T.border}`,
-              borderRadius: screenWidth < 600 ? '12px' : '16px',
-              padding: screenWidth < 600 ? '20px' : '24px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '16px'
-            }}>
-              <h3 style={{
-                fontFamily: T.fontPrimary,
-                fontSize: screenWidth < 600 ? 'clamp(18px, 4.5vw, 20px)' : '20px',
-                lineHeight: '28px',
-                fontWeight: 600,
-                color: T.text,
-                margin: 0,
-                fontVariationSettings: '"opsz" 14, "wdth" 100'
-              }}>
-                Reduce decision load
-              </h3>
-              <p style={{
-                fontFamily: T.fontBody,
-                fontSize: '16px',
-                lineHeight: '24px',
-                color: T.muted,
-                margin: 0
-              }}>
-                I kept screens focused, with clear primary actions, predictable navigation, and fewer competing elements.
-              </p>
-            </div>
-
-            {/* Card 4 */}
-            <div style={{
-              border: `1px solid ${T.border}`,
-              borderRadius: screenWidth < 600 ? '12px' : '16px',
-              padding: screenWidth < 600 ? '20px' : '24px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '16px'
-            }}>
-              <h3 style={{
-                fontFamily: T.fontPrimary,
-                fontSize: screenWidth < 600 ? 'clamp(18px, 4.5vw, 20px)' : '20px',
-                lineHeight: '28px',
-                fontWeight: 600,
-                color: T.text,
-                margin: 0,
-                fontVariationSettings: '"opsz" 14, "wdth" 100'
-              }}>
-                Balance clarity with trust
-              </h3>
-              <p style={{
-                fontFamily: T.fontBody,
-                fontSize: '16px',
-                lineHeight: '24px',
-                color: T.muted,
-                margin: 0
-              }}>
-                The visual direction was designed to feel premium and private-banking-ready, while still staying simple, readable, and practical for daily use.
-              </p>
-            </div>
+                  {/* Description */}
+                  <div style={{
+                    fontFamily: T.fontBody,
+                    fontSize: 'clamp(16px, 1.25vw, 18px)',
+                    lineHeight: 'clamp(24px, 1.94vw, 28px)',
+                    color: T.muted,
+                    fontWeight: 400,
+                  }}>
+                    {decision.description}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* FINAL EXPERIENCE */}
-      <section style={{
+      <section ref={(el) => {
+        (experienceRefVis as any).current = el;
+        (experienceRef as any).current = el;
+      }} style={{
         width: '100%',
         padding: '0 clamp(24px, 3.06vw, 44px)',
         marginTop: 'clamp(40px, 11.11vw, 160px)',
@@ -1458,7 +1467,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
               color: T.muted,
               margin: 0
             }}>
-              Outcome
+              Final Experience
             </p>
             <h2 style={{
               fontFamily: T.fontPrimary,
@@ -1475,12 +1484,33 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
             </h2>
           </div>
 
+          {/* Divider Line */}
+          <div style={{
+            width: '100%',
+            height: '1px',
+            background: T.border
+          }} />
+
+          {/* Intro Text */}
+          <p style={{
+            fontFamily: T.fontSecondary,
+            fontWeight: 400,
+            fontSize: 'clamp(16px, 1.39vw, 20px)',
+            lineHeight: 'clamp(24px, 1.94vw, 28px)',
+            color: T.muted,
+            margin: 0,
+            maxWidth: '891px'
+          }}>
+            Each flow solves a specific user need without extra steps.
+          </p>
+
           {/* Video Cards Grid */}
           <div style={{
           display: 'grid',
           gridTemplateColumns: screenWidth < 900 ? '1fr' : 'repeat(2, 1fr)',
           gap: 'clamp(16px, 1.67vw, 24px)',
-          width: '100%'
+          width: '100%',
+          marginTop: 'clamp(24px, 2.22vw, 32px)'
         }}>
           {videoData.map(({ video, loop, forcePlay, mockup, title, desc, details }, index) => (
             <div key={title} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -1490,7 +1520,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
                   onClick={() => setActiveVideo(index)}
                   style={{
                     position: 'relative',
-                    borderRadius: screenWidth < 900 ? '12px' : '16px',
+                    borderRadius: 'var(--context-card-radius)',
                     overflow: 'hidden',
                     minHeight: screenWidth < 900 ? 'auto' : 'clamp(450px, 55vw, 650px)',
                     background: '#131313',
@@ -1535,7 +1565,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
           </div>
 
           {/* Full-width scene video */}
-          <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden', marginTop: 'clamp(16px, 1.67vw, 24px)' }}>
+          <div style={{ width: '100%', borderRadius: 'var(--context-card-radius)', overflow: 'hidden', marginTop: 'clamp(16px, 1.67vw, 24px)' }}>
             <video autoPlay loop muted playsInline style={{ width: '100%', display: 'block' }}>
               <source src="/images/Neobank/Scene.mp4" type="video/mp4" />
             </video>
@@ -1642,29 +1672,184 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
         </div>
       </section>
 
-      {/* NEXT PROJECT */}
-      <section style={{
-        padding: `0 clamp(24px, 3.06vw, 44px)`,
-        marginTop: 'clamp(60px, 8.33vw, 120px)',
+      {/* OUTCOME */}
+      <section ref={(el) => {
+        (outcomeRefVis as any).current = el;
+        (outcomeRef as any).current = el;
+      }} style={{
         width: '100%',
+        padding: '0 clamp(24px, 3.06vw, 44px)',
+        marginTop: 'clamp(40px, 11.11vw, 160px)',
         boxSizing: 'border-box'
       }}>
-        <span style={{
-          fontFamily: T.fontBody,
-          fontSize: 'var(--label-size)',
-          lineHeight: 'var(--label-line)',
-          letterSpacing: '1.155px',
-          textTransform: 'uppercase',
-          color: T.muted,
-          display: 'block',
-          marginBottom: '12px'
+        <div style={{
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: screenWidth < 900 ? '12px' : 'var(--header-gap)'
         }}>
-          Next project
-        </span>
+          {/* Header */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'clamp(8px, 0.83vw, 12px)',
+            width: '100%'
+          }}>
+            <p style={{
+              fontFamily: T.fontSecondary,
+              fontWeight: 400,
+              fontSize: 'clamp(12px, 0.97vw, 14px)',
+              lineHeight: 'clamp(18px, 1.39vw, 20px)',
+              letterSpacing: '1.155px',
+              textTransform: 'uppercase',
+              color: T.muted,
+              margin: 0
+            }}>
+              Outcome
+            </p>
+            <h2 style={{
+              fontFamily: T.fontPrimary,
+              fontWeight: 500,
+              fontSize: 'clamp(28px, 3.06vw, 44px)',
+              lineHeight: 'clamp(36px, 3.89vw, 56px)',
+              letterSpacing: 'clamp(-0.6px, -0.069vw, -1px)',
+              color: T.text,
+              margin: 0,
+              fontVariationSettings: '"opsz" 14, "wdth" 100',
+              maxWidth: screenWidth >= 900 ? '890px' : '100%'
+            }}>
+              Delivered and launched
+            </h2>
+          </div>
+
+          {/* Divider Line */}
+          <div style={{
+            width: '100%',
+            height: '1px',
+            background: T.border
+          }} />
+
+          {/* Body Text */}
+          <p style={{
+            fontFamily: T.fontSecondary,
+            fontWeight: 400,
+            fontSize: 'clamp(16px, 1.39vw, 20px)',
+            lineHeight: 'clamp(24px, 1.94vw, 28px)',
+            color: T.muted,
+            margin: 0,
+            maxWidth: '891px'
+          }}>
+            The client launched the app for their private banking customers. It\'s actively used today for daily banking operations across borders. This was my first mobile banking project built from scratch, and it showed me how important it is to design around actual user behavior.
+          </p>
+
+          {/* Design System Grid */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: 'clamp(6px, 1.11vw, 16px)',
+            width: '100%',
+            marginTop: 'clamp(40px, 3.33vw, 48px)'
+          }}>
+            {/* Typography */}
+            <div style={{
+              borderRadius: screenWidth < 768 ? '8px' : 'var(--context-card-radius)',
+              overflow: 'hidden',
+              width: '100%'
+            }}>
+              <img
+                src="/images/Neobank/neobank-typography.webp"
+                alt="Typography system"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block'
+                }}
+              />
+            </div>
+
+            {/* Colors */}
+            <div style={{
+              borderRadius: screenWidth < 768 ? '8px' : 'var(--context-card-radius)',
+              overflow: 'hidden',
+              width: '100%'
+            }}>
+              <img
+                src="/images/Neobank/colors.webp"
+                alt="Color palette"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block'
+                }}
+              />
+            </div>
+
+            {/* Third - Full Width */}
+            <div style={{
+              gridColumn: '1 / span 2',
+              borderRadius: screenWidth < 768 ? '8px' : 'var(--context-card-radius)',
+              overflow: 'hidden',
+              width: '100%',
+              border: `1px solid ${T.border}`
+            }}>
+              <img
+                src="/images/Neobank/[third].webp"
+                alt="Design system"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block'
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEXT PROJECT */}
+      <section style={{
+        marginTop: 'clamp(40px, 11.11vw, 160px)',
+        width: '100%',
+        padding: screenWidth < 768 ? '0 20px' : '0',
+        boxSizing: 'border-box',
+      }}>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: screenWidth < 768 ? '16px' : '40px',
+          marginBottom: screenWidth < 768 ? '24px' : '44px',
+        }}>
+          <div style={{
+            padding: screenWidth < 768 ? '0' : '0 44px',
+          }}>
+            <h2 style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontWeight: 500,
+              fontSize: screenWidth < 768 ? '28px' : '44px',
+              lineHeight: screenWidth < 768 ? '34px' : '56px',
+              letterSpacing: '-1px',
+              color: T.text,
+              margin: 0,
+              fontVariationSettings: '"opsz" 14, "wdth" 100',
+            }}>
+              Next project
+            </h2>
+          </div>
+          <div style={{
+            width: '100%',
+            padding: screenWidth < 768 ? '0' : '0 44px',
+          }}>
+            <div style={{
+              width: '100%',
+              height: '1px',
+              background: T.border,
+            }} />
+          </div>
+        </div>
         <ProjectRow project={projects[3]} index={0} onPress={() => { window.location.hash = '#intrac' }} />
       </section>
 
-      <Footer paddingX='44px' width='100%' />
+      <Footer />
     </div>
   )
 }
@@ -1689,7 +1874,7 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
       <CaseNav onBack={onBack} isMobile />
 
       {/* HERO */}
-      <div style={{ width: '100%', height: '320px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+      <div style={{ width: '100%', height: '240px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
         <img alt="" src={N.heroMockup} style={{
           position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center',
           transform: entered ? 'scale(1)' : 'scale(1.05)',
@@ -1710,7 +1895,7 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
       </div>
 
       {/* Metadata */}
-      <div style={{ margin: '16px 20px', border: `1px solid ${META_BORDER}`, borderRadius: '12px', overflow: 'hidden' }}>
+      <div style={{ margin: '16px 20px', border: `1px solid ${META_BORDER}`, borderRadius: 'var(--context-card-radius)', overflow: 'hidden' }}>
         {[
           [{ label: 'Company', value: 'Neobank' }, { label: 'Year', value: '2023' }],
           [{ label: 'Role', value: 'UX/UI Designer' }, { label: 'Platform', value: 'iOS' }],
@@ -1743,7 +1928,7 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
           <p style={BODY_MOB_MUTED}>Private banking users often manage multiple financial actions at once: accounts, cards, payments, currency exchange, recent activity, and investment-related overviews.</p>
           <p style={BODY_MOB_MUTED}>The goal was to design a mobile-first MVP that keeps these actions clear, accessible, and easy to navigate without making the interface feel overloaded.</p>
         </div>
-        <div style={{ width: '100%', aspectRatio: '2 / 1', borderRadius: '12px', overflow: 'hidden' }}>
+        <div style={{ width: '100%', aspectRatio: '2 / 1', borderRadius: 'var(--context-card-radius)', overflow: 'hidden' }}>
           <video autoPlay muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
             <source src="/images/neobank%20graph.mp4" type="video/mp4" />
           </video>
@@ -1779,7 +1964,7 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
             { num: '02', title: 'Core Banking Actions', desc: 'Making payments, cards, and exchange easy to access and complete.' },
             { num: '03', title: 'Reliable mobile foundation', desc: 'Creating a trust between business and customers.' },
           ].map(({ num, title, desc }) => (
-            <div key={num} style={{ background: GRAD_MOB, borderRadius: '12px', padding: '20px' }}>
+            <div key={num} style={{ background: GRAD_MOB, borderRadius: 'var(--context-card-radius)', padding: '20px' }}>
               <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '28px', lineHeight: '28px', letterSpacing: '-0.5px', color: T.text, margin: '0 0 12px' }}>{num}</p>
               <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '22px', color: T.text, margin: '0 0 6px' }}>{title}</p>
               <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.muted, margin: 0 }}>{desc}</p>
@@ -1800,7 +1985,7 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
             { num: '03', title: 'Reduce decision load', desc: 'I kept screens focused, with clear primary actions, predictable navigation, and fewer competing elements.' },
             { num: '04', title: 'Balance clarity with trust', desc: 'The visual direction was designed to feel premium and private-banking-ready, while still staying simple, readable, and practical for daily use.' },
           ].map(({ num, title, desc }) => (
-            <div key={num} style={{ background: GRAD_MOB, borderRadius: '12px', padding: '20px' }}>
+            <div key={num} style={{ background: GRAD_MOB, borderRadius: 'var(--context-card-radius)', padding: '20px' }}>
               <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 600, fontSize: '28px', lineHeight: '28px', letterSpacing: '-0.5px', color: T.text, margin: '0 0 12px' }}>{num}</p>
               <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: '16px', lineHeight: '22px', color: T.text, margin: '0 0 6px' }}>{title}</p>
               <p style={{ fontFamily: "'Albert Sans',sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '22px', color: T.muted, margin: 0 }}>{desc}</p>
@@ -1824,13 +2009,13 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
           ].map(({ video, loop, forcePlay, mockup, title, desc }) => (
             <div key={title} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {mockup ? (
-                <div style={{ position: 'relative', width: '100%', aspectRatio: '592/680', borderRadius: '12px', overflow: 'hidden', background: '#131313' }}>
+                <div style={{ position: 'relative', width: '100%', aspectRatio: '592/680', borderRadius: 'var(--context-card-radius)', overflow: 'hidden', background: '#131313' }}>
                   <div style={{ position: 'absolute', top: '4%', bottom: '4%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '1350/2760', pointerEvents: 'none' }}>
                     <PhoneCard video={video} loop={loop} forcePlay={forcePlay} />
                   </div>
                 </div>
               ) : (
-                <div style={{ width: '100%', aspectRatio: '592/680', borderRadius: '12px', overflow: 'hidden' }}>
+                <div style={{ width: '100%', aspectRatio: '592/680', borderRadius: 'var(--context-card-radius)', overflow: 'hidden' }}>
                   <img src="/images/11111.jpg" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               )}
@@ -1839,7 +2024,7 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
             </div>
           ))}
         {/* Full-width scene video */}
-        <div style={{ width: '100%', borderRadius: '12px', overflow: 'hidden', marginTop: '8px' }}>
+        <div style={{ width: '100%', borderRadius: 'var(--context-card-radius)', overflow: 'hidden', marginTop: '8px' }}>
           <video autoPlay loop muted playsInline style={{ width: '100%', display: 'block' }}>
             <source src="/images/Scene.mp4" type="video/mp4" />
           </video>
@@ -1849,23 +2034,35 @@ function NeobankCasePageMobile({ onBack }: { onBack: () => void }) {
 
       {/* NEXT PROJECT */}
       <section style={{
-        padding: '0 20px',
         marginTop: 'clamp(48px, 12vw, 80px)',
         width: '100%',
-        boxSizing: 'border-box'
+        padding: '0 20px',
+        boxSizing: 'border-box',
       }}>
-        <span style={{
-          fontFamily: T.fontBody,
-          fontSize: 'var(--label-size)',
-          lineHeight: 'var(--label-line)',
-          letterSpacing: '1.155px',
-          textTransform: 'uppercase',
-          color: T.muted,
-          display: 'block',
-          marginBottom: '12px'
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+          marginBottom: '24px',
         }}>
-          Next project
-        </span>
+          <h2 style={{
+            fontFamily: "'Bricolage Grotesque', sans-serif",
+            fontWeight: 500,
+            fontSize: '28px',
+            lineHeight: '34px',
+            letterSpacing: '-1px',
+            color: T.text,
+            margin: 0,
+            fontVariationSettings: '"opsz" 14, "wdth" 100',
+          }}>
+            Next project
+          </h2>
+          <div style={{
+            width: '100%',
+            height: '1px',
+            background: T.border,
+          }} />
+        </div>
         <ProjectRow project={projects[3]} index={0} onPress={() => { window.location.hash = '#intrac' }} />
       </section>
 

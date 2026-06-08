@@ -1,6 +1,6 @@
 export const assets = {
   screenVector:  '/images/assets/screenVector.webp',
-  mockupXBO:     '/images/assets/mockupxbo.webp',
+  mockupXBO:     '/images/XBO/heroxbo.webp',
   mockupLoop:    '/images/assets/mockupLoop.webp',
   mockupNeobank: '/images/assets/mockupNeobank.webp',
   mockupIntrac:  '/images/assets/mockupIntrac.webp',

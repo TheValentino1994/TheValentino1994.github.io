@@ -20,7 +20,7 @@ html {
   --hero-image-gap: clamp(16px, 4.44vw, 64px);
   --title-gap: clamp(4px, 0.56vw, 8px);
   --meta-word-gap: clamp(4px, 0.56vw, 8px);
-  --hero-top-gap: clamp(64px, 7.78vw, 112px);
+  --hero-top-gap: clamp(80px, 7.78vw, 112px);
 
   /* Typography with clamp - smooth scaling */
   --title-size: clamp(28px, 5.5vw, 80px);
@@ -30,7 +30,7 @@ html {
   --meta-line: clamp(20px, 1.9vw, 28px);
 
   /* Hero image */
-  --hero-radius: clamp(12px, 2.22vw, 32px);
+  --hero-radius: 20px;
   --hero-aspect: clamp(80%, 45vw, 45%); /* Bigger on mobile, smaller on desktop */
 
   /* Role section */
@@ -40,10 +40,10 @@ html {
   --card-title-line: clamp(26px, 2.22vw, 32px);
   --card-body-size: clamp(16px, 1.25vw, 18px);
   --card-body-line: clamp(24px, 1.94vw, 28px);
-  --card-padding: clamp(24px, 2.22vw, 32px);
+  --card-padding: 32px;
   --card-gap-inner: clamp(20px, 1.67vw, 24px);
   --cards-gap: clamp(12px, 1.11vw, 16px);
-  --card-radius: clamp(8px, 0.83vw, 12px);
+  --card-radius: 20px;
   --section-padding-y: clamp(40px, 5.56vw, 80px);
   --section-gap-role: clamp(24px, 3.33vw, 48px);
 
@@ -56,8 +56,8 @@ html {
   --body-line: clamp(24px, 1.94vw, 28px);
   --context-card-height: clamp(260px, 25vw, 360px);
   --context-card-right-height: clamp(260px, 25vw, 360px);
-  --context-card-radius: clamp(12px, 1.11vw, 16px);
-  --section-inner-gap: clamp(32px, 5.56vw, 80px);
+  --context-card-radius: 20px;
+  --section-inner-gap: clamp(32px, 11.11vw, 160px);
   --header-gap: clamp(32px, 2.78vw, 40px);
 
   /* Problem Cards */
@@ -72,7 +72,7 @@ html {
 
   /* Problem Visual Container */
   --problem-visual-height: clamp(450px, 50vw, 720px);
-  --problem-visual-radius: clamp(20px, 2.22vw, 32px);
+  --problem-visual-radius: 20px;
 }
 
 /* Stats Grid Responsive Layout */
@@ -226,3 +226,4 @@ body {
   right: 0 !important;
   z-index: 9998 !important;
 }
+

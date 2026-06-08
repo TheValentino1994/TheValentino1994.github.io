@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { NavLinks } from './NavLinks'
 import { tokens as T } from '../constants/tokens'
@@ -7,6 +7,7 @@ import { useIsMobile } from '../hooks/useIsMobile'
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const isMobile = useIsMobile()
+  const isHomepage = window.location.hash === ''
 
   if (isMobile) {
     return (
@@ -43,18 +44,13 @@ export function Header() {
           <NavLinks vertical />
         </div>
 
-        {/* Mobile Header - NO SCROLL EFFECTS */}
+        {/* Mobile Header */}
         <header style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 9999,
+          padding: '16px 20px',
+          background: T.bg,
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '16px 20px',
-          background: T.bg,
         }}>
           <span
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -68,37 +64,38 @@ export function Header() {
             Valkuch
           </span>
 
-          <button
-            onClick={() => setMenuOpen(v => !v)}
+          <a
+            href="/images/Valentyn Kuchernoha_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               background: 'none',
               border: `1px solid ${T.border}`,
               borderRadius: '100px',
-              padding: '8px',
+              padding: '8px 16px',
               cursor: 'pointer',
               color: T.text,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '36px',
-              height: '36px',
+              textDecoration: 'none',
+              fontFamily: "'Albert Sans', sans-serif",
+              fontSize: '14px',
+              fontWeight: 500,
+              transition: 'all 0.2s ease',
             }}
           >
-            {menuOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
-          </button>
+            My.CV
+          </a>
         </header>
       </>
     )
   }
 
-  // Desktop Header - NO SCROLL EFFECTS
+  // Desktop Header
   return (
     <header style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      zIndex: 9999,
+      position: 'static',
       display: 'flex',
       justifyContent: 'center',
       padding: '24px 0',
@@ -109,8 +106,8 @@ export function Header() {
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '100%',
-        maxWidth: '1440px',
-        padding: `0 ${T.px}`,
+        maxWidth: '1920px',
+        padding: '0 44px',
       }}>
         <span
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -123,7 +120,39 @@ export function Header() {
           }}>
           Valkuch
         </span>
-        <NavLinks />
+
+        {/* My.CV Button */}
+        <a
+          href="/images/Valentyn Kuchernoha_CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            background: 'none',
+            border: `1px solid ${T.border}`,
+            borderRadius: '100px',
+            padding: '8px 16px',
+            cursor: 'pointer',
+            color: T.text,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textDecoration: 'none',
+            fontFamily: "'Albert Sans', sans-serif",
+            fontSize: '14px',
+            fontWeight: 500,
+            transition: 'all 0.2s ease',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = T.text
+            e.currentTarget.style.background = 'rgba(237,237,232,0.05)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = T.border
+            e.currentTarget.style.background = 'none'
+          }}
+        >
+          My.CV
+        </a>
       </div>
     </header>
   )

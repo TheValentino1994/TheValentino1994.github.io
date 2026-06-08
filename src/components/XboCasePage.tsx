@@ -1074,7 +1074,7 @@ function XboCasePageDesktop({ onBack }: { onBack: () => void }) {
         </div>
       </section>
 
-      <Footer paddingX="120px" width="100%" />
+      <Footer />
     </div>
   )
 }
@@ -1097,7 +1097,7 @@ function XboCasePageMobile({ onBack }: { onBack: () => void }) {
       <CaseNav onBack={onBack} isMobile />
 
       {/* HERO */}
-      <div style={{ width: '100%', height: '320px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+      <div style={{ width: '100%', height: '240px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
         <img alt="" src={X.heroMockup} style={{
           position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center',
           transform: entered ? 'scale(1)' : 'scale(1.05)',

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { tokens as T } from '../constants/tokens'
 import { useIsMobile } from '../hooks/useIsMobile'
+import { useScrollVis } from '../hooks/useScrollVis'
 
 const WHAT_I_DO = [
   {
@@ -98,15 +99,21 @@ function AccordionItem({ item, isActive, onClick, isLast }: {
 export function AboutSection() {
   const isMobile = useIsMobile()
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const [ref, vis] = useScrollVis(0.15)
 
   if (isMobile) {
     return (
-      <section id="about" style={{
+      <section ref={ref} id="about" style={{
         width: '100%',
         padding: '80px 20px',
         display: 'flex',
         flexDirection: 'column',
         gap: '64px',
+        opacity: vis ? 1 : 0,
+        transform: vis ? 'translateY(0)' : 'translateY(40px)',
+        transition: vis
+          ? 'opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)'
+          : 'opacity 0.4s ease, transform 0.4s ease',
       }}>
         {/* About Text */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
@@ -231,11 +238,17 @@ export function AboutSection() {
   }
 
   return (
-    <section id="about" style={{
-      width: '1440px',
-      padding: `120px ${T.px} 160px`,
+    <section ref={ref} id="about" style={{
+      width: '100%',
+      maxWidth: '1920px',
+      padding: '120px 44px 160px',
       display: 'flex',
       gap: '120px',
+      opacity: vis ? 1 : 0,
+      transform: vis ? 'translateY(0)' : 'translateY(40px)',
+      transition: vis
+        ? 'opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)'
+        : 'opacity 0.4s ease, transform 0.4s ease',
     }}>
       {/* Left: About Text */}
       <div style={{

@@ -12,6 +12,9 @@ export interface Project {
   mockupStyleMob: CSSProperties
   cardHeight?: number
   mockupObjectPosition?: string
+  mockupBackgroundSize?: string
+  mockupObjectFit?: 'cover' | 'contain'
+  mobileAspectRatio?: string
   hasOverlay?: boolean
   extraSrc?: string
   extraStyle?: CSSProperties
@@ -25,9 +28,10 @@ export const projects: Project[] = [
     focus: 'Focus: Improving key crypto-fintech flows in a live exchange ecosystem\nacross onboarding, deposits, wallets, and virtual card usage.',
     tags: 'Live product · Crypto / Fintech · Mobile + Web',
     mockupSrc: assets.mockupXBO,
-    mockupStyle: { top: '-10px', left: '50%', transform: 'translateX(-50%)', width: '520px', height: '390px' },
-    mockupStyleMob: { top: '0', left: '0.22px', width: '350px', height: '262.587px' },
+    mockupStyle: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '100%', height: '100%' },
+    mockupStyleMob: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '100%', height: '100%' },
     mockupObjectPosition: 'center',
+    mobileAspectRatio: '3/2',
     hasOverlay: true,
     extraStyle: { top: '59.18px', left: '79.57px', width: '310.592px', height: '188.535px' },
   },
