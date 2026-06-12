@@ -1,0 +1,10 @@
+<svg width="813" height="170" viewBox="0 0 813 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 100 Q 150 70, 300 100 T 600 100 L 813 100"
+      stroke="#6B7280"
+      stroke-width="3"
+      fill="none"
+      opacity="0.8"/>
+<path d="M0 100 Q 150 70, 300 100 T 600 100 L 813 100 L 813 170 L 0 170 Z"
+      fill="#1F2923"
+      opacity="0.15"/>
+</svg>

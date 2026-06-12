@@ -165,9 +165,9 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
 
   // Button styles with fixed minimums
   const getButtonPadding = () => {
-    if (screenWidth >= 1200) return '12px 28px'
-    if (screenWidth >= 900) return '10px 24px'
-    if (screenWidth >= 600) return '10px 20px'
+    if (screenWidth >= 1200) return '12px 24px'
+    if (screenWidth >= 900) return '10px 20px'
+    if (screenWidth >= 600) return '10px 18px'
     if (screenWidth >= 400) return '8px 16px'
     return '8px 14px' // minimum for very small screens
   }
@@ -218,7 +218,7 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
 
   const wavePillBaseStyle: React.CSSProperties = {
     position: 'absolute',
-    border: '1px solid #2e2e2e',
+    border: '1.5px solid #2e2e2e',
     borderRadius: '100px',
     padding: getWavePillPadding(),
     fontFamily: "'Albert Sans',sans-serif",
@@ -495,8 +495,13 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
                   position: 'relative',
                   overflow: 'hidden',
                   pointerEvents: 'none',
-                  height: 'clamp(420px, 35vw, 504px)'
-                } : {})
+                  height: 'clamp(420px, 35vw, 504px)',
+                  paddingRight: '40px',
+                  paddingBottom: '40px'
+                } : {
+                  position: 'relative',
+                  overflow: 'hidden'
+                })
               }}>
                 <h3 style={{
                   fontFamily: T.fontPrimary,
@@ -517,14 +522,15 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
                   <>
                     <div style={{
                       position: 'absolute',
-                      left: '-12%',
+                      left: '-2px',
                       top: '47.2%',
                       width: '114.3%',
                       height: '33.7%',
-                      zIndex: 1
+                      zIndex: 1,
+                      overflow: 'hidden'
                     }}>
                       <img
-                        src="https://www.figma.com/api/mcp/asset/12eba060-23bf-4a57-8737-bcb2d4fd3f38"
+                        src="/images/Neobank/Vawe.webp"
                         alt=""
                         style={{
                           width: '100%',
@@ -535,24 +541,30 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
                     </div>
                     <div style={{ ...wavePillBaseStyle, left: '0%', top: '40.7%', transform: 'rotate(35.36deg)', zIndex: 10 }}>Check balance</div>
                     <div style={{ ...wavePillBaseStyle, left: '11.7%', top: '34.7%', transform: 'rotate(15deg)', zIndex: 11 }}>Send money</div>
-                    <div style={{ ...wavePillBaseStyle, left: '24.8%', top: '50%', transform: 'rotate(0deg)', zIndex: 12 }}>Exchange funds</div>
-                    <div style={{ ...wavePillBaseStyle, left: '45.5%', top: '44.4%', transform: 'rotate(20deg)', zIndex: 13 }}>Manage card</div>
+                    <div style={{ ...wavePillBaseStyle, left: '24.8%', top: 'calc(50% + 4px)', transform: 'rotate(0deg)', zIndex: 12 }}>Exchange funds</div>
+                    <div style={{ ...wavePillBaseStyle, left: '45.5%', top: 'calc(44.4% + 5px)', transform: 'rotate(20deg)', zIndex: 13 }}>Manage card</div>
                     <div style={{ ...wavePillBaseStyle, left: '58.5%', top: '37.4%', transform: 'rotate(3deg)', zIndex: 14 }}>Review spending</div>
-                    <div style={{ ...wavePillBaseStyle, left: '66.3%', top: '58.5%', transform: 'rotate(35deg)', zIndex: 15 }}>Payment history</div>
+                    <div style={{ ...wavePillBaseStyle, left: 'calc(76% - 3px)', top: '58.5%', transform: 'rotate(35deg)', zIndex: 15 }}>Payment history</div>
                   </>
                 ) : (
-                  // Mobile: Grid buttons + wave with one button
-                  <>
+                  // Mobile: Wave + buttons in separate containers
+                  <div style={{
+                    position: 'relative',
+                    marginTop: '20px',
+                    height: '140px'
+                  }}>
+                    {/* Wave container with overflow hidden */}
                     <div style={{
+                      position: 'absolute',
                       width: '130%',
                       height: '140px',
-                      position: 'relative',
-                      marginLeft: '-15%',
-                      marginTop: '20px',
-                      overflow: 'visible'
+                      left: '-8%',
+                      top: 0,
+                      overflow: 'hidden',
+                      pointerEvents: 'none'
                     }}>
                       <img
-                        src="https://www.figma.com/api/mcp/asset/12eba060-23bf-4a57-8737-bcb2d4fd3f38"
+                        src="/images/Neobank/Vawe.webp"
                         alt=""
                         style={{
                           width: '100%',
@@ -561,58 +573,60 @@ function NeobankCasePageDesktop({ onBack }: { onBack: () => void }) {
                           opacity: 0.6
                         }}
                       />
-                      {/* Check balance on the wave */}
-                      <div style={{
-                        position: 'absolute',
-                        left: '10%',
-                        top: 'calc(40% - 40px)',
-                        transform: 'rotate(22deg)',
-                        ...buttonStyle
-                      }}>
-                        Check balance
-                      </div>
-                      {/* Send money - center-right */}
-                      <div style={{
-                        position: 'absolute',
-                        left: '55%',
-                        top: 'calc(40% - 25px)',
-                        transform: 'translateX(-50%)',
-                        ...buttonStyle
-                      }}>
-                        Send money
-                      </div>
-                      {/* Exchange funds - between check balance and send money */}
-                      <div style={{
-                        position: 'absolute',
-                        left: 'calc(28% - 10px)',
-                        top: 'calc(40% - 65px)',
-                        transform: 'rotate(8deg)',
-                        ...buttonStyle
-                      }}>
-                        Exchange funds
-                      </div>
-                      {/* Review spending - near payment history */}
-                      <div style={{
-                        position: 'absolute',
-                        right: 'calc(30% - 20px)',
-                        top: 'calc(40% - 95px)',
-                        transform: 'rotate(5deg)',
-                        ...buttonStyle
-                      }}>
-                        Review spending
-                      </div>
-                      {/* Payment history - bottom right */}
-                      <div style={{
-                        position: 'absolute',
-                        right: '5%',
-                        top: 'calc(40% - 20px)',
-                        transform: 'rotate(50deg)',
-                        ...buttonStyle
-                      }}>
-                        Payment history
-                      </div>
                     </div>
-                  </>
+
+                    {/* Buttons container - no overflow */}
+                    {/* Check balance */}
+                    <div style={{
+                      position: 'absolute',
+                      left: '-2%',
+                      top: 'calc(40% - 40px)',
+                      transform: 'rotate(22deg)',
+                      ...buttonStyle
+                    }}>
+                      Check balance
+                    </div>
+                    {/* Send money - center-right */}
+                    <div style={{
+                      position: 'absolute',
+                      left: '56.5%',
+                      top: 'calc(40% - 25px)',
+                      transform: 'translateX(-50%)',
+                      ...buttonStyle
+                    }}>
+                      Send money
+                    </div>
+                    {/* Exchange funds - between check balance and send money */}
+                    <div style={{
+                      position: 'absolute',
+                      left: '21.4%',
+                      top: 'calc(40% - 65px)',
+                      transform: 'rotate(8deg)',
+                      ...buttonStyle
+                    }}>
+                      Exchange funds
+                    </div>
+                    {/* Review spending - near payment history */}
+                    <div style={{
+                      position: 'absolute',
+                      right: '5%',
+                      top: 'calc(40% - 90px)',
+                      transform: 'rotate(5deg)',
+                      ...buttonStyle
+                    }}>
+                      Review spending
+                    </div>
+                    {/* Payment history - bottom right */}
+                    <div style={{
+                      position: 'absolute',
+                      right: '-10%',
+                      top: 'calc(40% - 20px)',
+                      transform: 'rotate(50deg)',
+                      ...buttonStyle
+                    }}>
+                      Payment history
+                    </div>
+                  </div>
                 )}
               </div>
             </div>
